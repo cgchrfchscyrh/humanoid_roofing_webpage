@@ -24,3 +24,5 @@ Axe may mark the video-caption rule for review: the adapted clip has no audio tr
 ## Recorded outcome
 
 The final local run completed **10 axe scans and 91 functional checks, with zero violations and zero errors**. The `video-caption` incomplete item was reviewed against the delivered video-only stream and its full visual alternative. Incomplete contrast items concern decorative arrows; their computed foreground/background contrast was checked separately and exceeds 4.5:1. See `reports/manual-review.json`. Desktop and narrow-screen page renders were visually inspected.
+
+The deployed GitHub Actions run also passed all 10 axe scans and 91 functional checks. Live-browser checks confirmed that the context video initially remains paused, its play/pause controls work, homepage images load, and the results page reflows at 320 CSS pixels, with no recorded browser errors. The live resource check verified five pages and 30 resources. See `reports/deployment.json`, `reports/ci/axe-wcag21aa.json`, `reports/live-browser.json`, and `reports/live-deployment.json`.

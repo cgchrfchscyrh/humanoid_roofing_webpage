@@ -1,0 +1,319 @@
+{
+  "checkedOn": "2026-10-04",
+  "site": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+  "httpsEnforced": true,
+  "pages": [
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+      "finalUrl": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+      "status": 200,
+      "headers": {
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=31556952"
+      },
+      "csp": "default-src 'self'; script-src 'self' 'sha256-Igfu+X9i0xGOGPiPyFwKI1RmcTR1KjmTW9otd2qP9GY=' 'sha256-TU3hnMU3gPWzfZWshlG8UZ5qQZwIuwm6EELObo6tR0M=' 'sha256-7iPcghAV4DfeDhWpYgaTOcpbTcQZ0NEanRMdOSrW388='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "canonical": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+      "title": "Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/paper/",
+      "finalUrl": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/paper/",
+      "status": 200,
+      "headers": {
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=31556952"
+      },
+      "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "canonical": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/paper/",
+      "title": "Research guide"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/results/",
+      "finalUrl": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/results/",
+      "status": 200,
+      "headers": {
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=31556952"
+      },
+      "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "canonical": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/results/",
+      "title": "Results & original figures"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
+      "finalUrl": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
+      "status": 200,
+      "headers": {
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=31556952"
+      },
+      "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "canonical": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
+      "title": "Accessibility & media credits"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/404.html",
+      "finalUrl": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/404.html",
+      "status": 200,
+      "headers": {
+        "Server": "GitHub.com",
+        "Content-Type": "text/html; charset=utf-8",
+        "Strict-Transport-Security": "max-age=31556952"
+      },
+      "csp": "default-src 'self'; script-src 'self' ; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'",
+      "canonical": null,
+      "title": "Page not found"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 23143,
+      "sha256": "7fdd1c753db3e5fb7f90f70fff58411fe229b6aadb09754bdf92621c021a33e8"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/404.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 3292,
+      "sha256": "413c0da41f132ef4c2e14fdf37c67addf27fa4b5c4e9685208b306d763044101"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/Layout.CKSnown4.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 19585,
+      "sha256": "faeee470fcb515b79ff95caf4b45a54e100ece00b78bf52b70e3db33be81ec76"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-cyrillic-ext-wght-normal.d45eAU9y.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-cyrillic-wght-normal.BAAhND-U.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-greek-wght-normal.CmyJS8uq.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-vietnamese-wght-normal.Dg1JeJN0.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-latin-ext-wght-normal.CIII54If.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/_astro/ibm-plex-sans-latin-wght-normal.IvpUvPa2.woff2",
+      "status": 200,
+      "contentType": "font/woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 9338,
+      "sha256": "a65b93386248c898989c5a762105d43aaa9b79137637cfda48aac6a0759bc736"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/citation.bib",
+      "status": 200,
+      "contentType": "application/octet-stream",
+      "bytes": 344,
+      "sha256": "97f1b3db057d40500bd79ee1a24dd604fa777f1d3feb7638f02c6341480199ee",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/data/cross-task.csv",
+      "status": 200,
+      "contentType": "text/csv; charset=utf-8",
+      "bytes": 500,
+      "sha256": "b7167c7f78ccf186ec7add95faa1805334f666d1f30889e1f3228ee55293adbc",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/data/hardware.csv",
+      "status": 200,
+      "contentType": "text/csv; charset=utf-8",
+      "bytes": 180,
+      "sha256": "0e6cae4a9f1a109d44c11ee6c243d69b0e10579b6749dba70752a56f70b2300b",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/data/nailgun.csv",
+      "status": 200,
+      "contentType": "text/csv; charset=utf-8",
+      "bytes": 517,
+      "sha256": "575dabad5dfe9a6a0bf5611c68ce790896208c132ec500296e17a28202c8cad2",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/data/slope.csv",
+      "status": 200,
+      "contentType": "text/csv; charset=utf-8",
+      "bytes": 595,
+      "sha256": "aa2c6523d3c009df4c664384230555c72df2f8aeaf957b74bf2a0d71bcfe76a2",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/favicon.svg",
+      "status": 200,
+      "contentType": "image/svg+xml",
+      "bytes": 235,
+      "sha256": "620fd9e0432282fc6f609a2f13faf62523f3e0d7d38f1d61ce5ceca54320a658",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-01.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1086871,
+      "sha256": "bf981fa5a8babd4fe6d30c7761c298f580d34d3d3230b4604e5af12dd3ecc33e",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-02.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 328446,
+      "sha256": "969cbd8b278ee4954087ed79c3aa6c864276ed5f3e2632b0c07fb7ad34b0bdf6",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-03.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1128752,
+      "sha256": "fc8e7dc1ea99b783975873b4038c6baee980f740519ed43d9d2f45b40705c1d4",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-04.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1253305,
+      "sha256": "161360723a440f18393b01d1538ec25b58ddc81b60c01c6ad64eeff2d7da7544",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-05.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 582627,
+      "sha256": "d5a35e20e79263c1c57fe01659e398c2668a230c70ffa4cc0a25bbcd9a70328d",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-07.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1136253,
+      "sha256": "f3f9210b4ec59bf6d2b245220fa5398b34cfeae402c5830cdb06703f540bed83",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-08.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 4491418,
+      "sha256": "cd92e56f345e1bb615dcf145eb64c94c0fd15b521e6175a88de9ff28c462e654",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-11.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 2699391,
+      "sha256": "08e355eb8b79df1587dc8dfca7eb2a9cff5a3ecc8505e0e776666800b5dfaca1",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/figures/figure-12.png",
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 264014,
+      "sha256": "daf6e5614e23bc9586366330c884bb54b483380f845042bf16ccb6f5f3978533",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/context-descriptions.vtt",
+      "status": 200,
+      "contentType": "text/vtt; charset=utf-8",
+      "bytes": 529,
+      "sha256": "028a074bc7a8d2b92f735535d84bfc972227e54017cf2325e9940b6b9abdbb6a",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/context.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "bytes": 1527501,
+      "sha256": "75db8a3b3044e1c9019da4b44a195b5ac61bcf234e4358fbc746a30b807022a4",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/poster.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 30206,
+      "sha256": "ae68ac05034204fe7595087530abc7c49b1c147f63a74b8e4a71af3c70b2d68f",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/paper/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 12643,
+      "sha256": "ee9f30adc260e25525c8711f2c0ed272a4f9b673118f711be661e964dd588370"
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/results/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 23899,
+      "sha256": "80e5cb3821b60f4913065616a220baf1cef2c6197f9183595a741623237be419"
+    }
+  ],
+  "mediaRangeRequest": {
+    "status": 206,
+    "contentRange": "bytes 0-1023/1527501",
+    "contentType": "video/mp4"
+  },
+  "errors": [],
+  "notes": [
+    "GitHub Pages serves static content. Response headers are recorded as observed; CSP and referrer policy are also set by HTML meta elements.",
+    "HTTP response headers absent from the report are not claimed as configured."
+  ],
+  "custom404": {
+    "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/check-missing-page/",
+    "status": 404,
+    "hasDisclaimer": true,
+    "hasCsp": true,
+    "noindex": true
+  }
+}
