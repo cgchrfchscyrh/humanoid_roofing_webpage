@@ -1,0 +1,476 @@
+{
+  "id": "humanoid_roofing_webpage",
+  "wordmark": "HUMANOID / ROOFING",
+  "shortTitle": "Balance is only half the task.",
+  "title": "Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction",
+  "description": "Learning roof-grounded whole-body motions from human demonstrations: slope traversal, working postures, and tool positioning on a Unitree G1 humanoid.",
+  "venue": "Robotics · arXiv preprint · September 2026",
+  "publication": "arXiv:2609.20558v1, submitted 17 September 2026.",
+  "doi": "10.48550/arXiv.2609.20558",
+  "year": "2026",
+  "authors": [
+    {
+      "name": "Songyang Liu",
+      "aff": "1",
+      "email": "liusongyang@ufl.edu"
+    },
+    {
+      "name": "Shuai Li",
+      "aff": "1",
+      "email": "shuai.li@ufl.edu"
+    }
+  ],
+  "affiliations": [
+    "Department of Civil and Coastal Engineering, University of Florida, Gainesville, FL 32611, USA"
+  ],
+  "repo": "https://github.com/cgchrfchscyrh/humanoid_roofing_webpage",
+  "repoLabel": "Website source",
+  "repoNote": "Source for this research webpage, extracted figures, and transcribed result tables. This repository is not the robot training implementation.",
+  "siteRepo": "https://github.com/cgchrfchscyrh/humanoid_roofing_webpage",
+  "paperUrl": "https://arxiv.org/abs/2609.20558v1",
+  "htmlPaper": "https://arxiv.org/html/2609.20558v1",
+  "pdfUrl": "https://arxiv.org/pdf/2609.20558v1",
+  "pdfLabel": "Original preprint PDF · 49 pages",
+  "heroFigure": "hardware",
+  "heroFigureLabel": "Our study · Roofer-style robot motions",
+  "heroFigureCaption": "A physical Unitree G1 reproduces four motions on a laboratory slope, with a safety hoist attached.",
+  "heroIntro": "Can a humanoid learn to move and position tools on a roof—while keeping both its feet and hands in the right place?",
+  "intro": "Roofing combines movement on a slope with reaching, bending, and tool positioning close to the work surface. Copying a human pose can still leave a robot’s feet below the roof or its hands too far from it. We teach the motion together with the spatial relations that make it useful.",
+  "insight": "Human demonstrations provide coordination. Roof geometry provides the reference. Feedback learning keeps the two connected during execution.",
+  "stats": [
+    {
+      "value": "9",
+      "label": "roofer-style motion types evaluated in simulation"
+    },
+    {
+      "value": "9° · 17° · 25°",
+      "label": "discrete roof pitches in the simulation study"
+    },
+    {
+      "value": "4",
+      "label": "motions demonstrated on the physical G1"
+    }
+  ],
+  "contextTitle": "The task starts at the roof surface.",
+  "contextDescription": "A roofer bends toward a pitched surface and works close to the shingles. This independent footage illustrates the work context; it is not a demonstration collected for the study.",
+  "contextCredit": "Jorge Serrano / Pexels · “A Hard Working Man” · 2019",
+  "contextUrl": "https://www.pexels.com/video/a-hard-working-man-2675565/",
+  "contextDuration": 9,
+  "contextDetails": [
+    "A continuous close-up shows a roofer in a brimmed hat, long-sleeved shirt, high-visibility straps, and a tool belt. The worker leans toward the sloping roof, extends both arms toward the shingles, briefly shifts the torso, and continues working near the surface. A hand tool and roofing material are visible at the lower edge; trees form the distant background. The view emphasizes the coupling of a low working posture with arm movement near a slope.",
+    "This silent nine-second excerpt covers source time 00:00–00:09. The source audio was removed for this visual context excerpt. It is third-party stock footage, separate from the authors’ demonstration collection and robot experiments. No endorsement by the filmmaker or the person shown is implied."
+  ],
+  "contextLicense": "Used under the Pexels License. The excerpt is trimmed, resized, re-encoded, and presented without audio. Source credit and a link to the original are retained.",
+  "contextLicenseUrl": "https://www.pexels.com/license/",
+  "steps": [
+    {
+      "title": "Capture the human motion",
+      "text": "PICO tracking records roofer-style coordination and timing. Retargeting maps those movements to the Unitree G1 body."
+    },
+    {
+      "title": "Ground the motion to the roof",
+      "text": "A metric roof mesh anchors support points and task-specific hand clearances. Trajectory refinement also limits body penetration and preserves temporal smoothness."
+    },
+    {
+      "title": "Preserve the relation in execution",
+      "text": "Reinforcement learning tracks the corrected motion. Phase-gated clearance and nonpenetration rewards help keep the hand–roof relation intact despite tracking error."
+    }
+  ],
+  "methodFigure": "framework",
+  "methodTitle": "From a plausible pose to a roof-compatible motion.",
+  "methodIntro": "The key is to correct both the reference trajectory and the feedback policy. A geometrically valid target alone does not guarantee correct execution.",
+  "resultsTitle": "Keep the work relation, not just the pose.",
+  "resultsIntro": "The simulation ablations isolate the value of execution-aware learning. Compared with reference correction alone (C), the complete method (D) reduces work-clearance error and avoids hand-mesh penetration across nailgun, hammering, and pushing tasks.",
+  "highlights": [
+    {
+      "label": "Nailgun work-clearance error",
+      "before": "7.860 cm",
+      "after": "0.531 cm",
+      "note": "C–Reference → D–Complete · Table 3"
+    },
+    {
+      "label": "Pushing work-clearance error",
+      "before": "3.254 cm",
+      "after": "0.424 cm",
+      "note": "C–Reference → D–Complete · Table 4"
+    }
+  ],
+  "resultNote": "Simulation results: D succeeds in 3/3 evaluated seeds for each of the three work tasks. Success requires motion and work-phase completion, foot error ≤ 2 cm, work-clearance error ≤ 3 cm, and nonnegative minimum hand-mesh clearance. This is a small, task-specific evaluation, not a field reliability estimate.",
+  "scopeTitle": "Motion primitives, with a measured scope.",
+  "limitations": [
+    "The study evaluates roof traversal, working postures, and tool-related positioning. Nail firing, hammer impact, pushing force, installation quality, and a complete autonomous roofing workflow are not demonstrated.",
+    "Slope tests cover three discrete pitches with slope-matched reference motions. Including 25° in training enables completion at 25°; the results do not establish continuous or zero-shot slope generalization.",
+    "Physical tests use a nominal 11.768° laboratory foam wedge, a safety hoist, and manual policy activation. Hoist loads, operator interventions, and assisted recoveries are not quantified.",
+    "Real-robot errors are reconstructed in the pelvis frame from onboard joint states. Without external localization, the study cannot verify physical world-frame trajectory or hand–roof clearance. Roof edges, weather, varied materials, and unassisted reliability remain unvalidated."
+  ],
+  "guideIntro": "This HTML research guide accompanies the supplied 49-page arXiv:2609.20558v1 manuscript. It is a concise reading guide, not a full transcription. The versioned arXiv links provide the original PDF and an experimental full-text HTML rendering.",
+  "guideSections": [
+    {
+      "title": "The research question",
+      "paragraphs": [
+        "How can human roofing demonstrations become executable whole-body robot motions without losing the support and work-surface relations that make those motions useful? A robot can imitate body posture while placing its feet below the roof or positioning its hand at the wrong clearance."
+      ]
+    },
+    {
+      "title": "Human motion and metric scene geometry",
+      "paragraphs": [
+        "Sparse PICO tracking supplies movement, coordination, and timing. The roof mesh supplies the metric surface geometry that tracking alone cannot reliably provide. Retargeted motions are registered to a roof-aligned frame.",
+        "The method infers foot-support intervals and uses task annotations for work phases and target hand clearances. The nailgun, hammering, and pushing targets are 25, 12, and 18.5 cm, respectively, measured from the palm center along the local roof normal."
+      ]
+    },
+    {
+      "title": "Reference refinement and feedback learning",
+      "paragraphs": [
+        "Trajectory-level refinement combines multi-point support anchoring, task-effector clearance, mesh nonpenetration, motion preservation, and temporal smoothness. Planned knee contact is included for kneeling. Feet and hands can be adjusted relative to the same roof without shifting the complete body by a uniform offset.",
+        "Policies are learned in simulation with reference motion, terrain information, and proprioceptive state. Additional phase-gated work-clearance and hand-mesh nonpenetration rewards help preserve task relations during closed-loop execution. Task-specific policies are trained separately; the cross-task comparison does not demonstrate zero-shot transfer of one policy."
+      ]
+    },
+    {
+      "title": "What the five-way ablation isolates",
+      "paragraphs": [
+        "A uses the registered raw retargeted reference. M adds a manual vertical offset. B grounds support automatically. C additionally corrects work clearance and hand-mesh nonpenetration at the reference level. D adds execution-aware task rewards.",
+        "For nailgun positioning, support correction B yields only 0.081 cm mean foot error but 13.973 cm work error and negative hand-mesh clearance. Reference correction C reduces work error to 7.860 cm but still misses the target. D reduces work error to 0.531 cm and meets all success criteria in three evaluated seeds."
+      ]
+    },
+    {
+      "title": "How success and errors are defined",
+      "paragraphs": [
+        "Foot error is the mean absolute signed distance from active support points to the roof. Work-clearance error is the mean absolute difference between executed hand-center clearance and the task target during the work phase. The minimum signed distance over sampled hand-mesh points detects penetration; a negative value means the hand enters the roof mesh.",
+        "A successful rollout must complete the motion and work phase, keep foot error at or below 2 cm and work error at or below 3 cm, and have nonnegative minimum hand-mesh distance. A low hand-center error alone is insufficient, as the hammering C baseline illustrates.",
+        "Base-frame mean per-joint position error (MPJPE) measures local pose reproduction. World-frame MPJPE includes global trajectory differences. All MPJPE values on this site are in millimeters. Distances in the work-task ablation are in centimeters."
+      ]
+    },
+    {
+      "title": "Slope coverage and its limits",
+      "paragraphs": [
+        "The nested training sets are 17°; 9° + 17°; and 9° + 17° + 25°. Each is tested at 9°, 17°, and 25° using ten deterministic episodes per slope with a corresponding slope-matched reference.",
+        "The 17°-only policy succeeds only at 17°. Training on 9° + 17° succeeds at those two angles but fails at 25°. Including all three angles yields 10/10 completions at each evaluated slope. MPJPE is computed only for completed trajectories; it is not defined for combinations with zero completions."
+      ]
+    },
+    {
+      "title": "Reading the physical experiment",
+      "paragraphs": [
+        "A Unitree G1 reproduces uphill walking, nailgun positioning, hammering, and bending on a laboratory foam wedge with a nominal 11.768° pitch. An overhead safety hoist remains attached, and a human operator controls activation and emergency stop.",
+        "Table 6 reports one uphill-walking trial and five independent trials for each of the three work/posture motions. Base-frame MPJPE is 27.6 mm for uphill walking; 60.20 ± 18.86 mm for nailgun positioning; 79.93 ± 24.23 mm for hammering; and 61.42 ± 19.09 mm for bending.",
+        "The metric uses onboard joint states and forward kinematics for 14 tracked links in the pelvis frame. It does not measure absolute placement relative to the roof. The paper does not report hoist forces, uninterrupted completion counts, or assisted recoveries; these are preliminary motion-reproduction tests."
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "overview",
+      "number": 1,
+      "page": 4,
+      "file": "figure-01.png",
+      "width": 1638,
+      "height": 343,
+      "title": "From roofer motions to a physical humanoid",
+      "alt": "Three paired examples of human roofing postures and Unitree G1 reproductions: bending, hammer positioning, and nailgun positioning.",
+      "description": "Figure 1 pairs human examples with physical-robot poses for three work-related motions: (a) bending to reach a low area, (b) holding and moving a hammer, and (c) holding a nailgun close to the slope. These are whole-body positioning demonstrations; the study does not measure nail firing, hammer impact, or installation quality.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 1, PDF page 4. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "workflow",
+      "number": 2,
+      "page": 5,
+      "file": "figure-02.png",
+      "width": 1638,
+      "height": 519,
+      "title": "A focused part of the roofing workflow",
+      "alt": "Roofing workflow from material handling and roof access to traversal, installation, and inspection; the study focuses on traversal, postures, and tool-related motion.",
+      "description": "Figure 2 places the studied motion primitives within a broader workflow that also requires material handling, roof access and safety setup, installation cycles, and inspection. The paper covers slope traversal, working-posture transitions, and representative tool-operation motions. Roof access, site logistics, quality assessment, and full construction automation remain outside the demonstrated system.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 2, PDF page 5. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "taxonomy",
+      "number": 3,
+      "page": 13,
+      "file": "figure-03.png",
+      "width": 1638,
+      "height": 663,
+      "title": "Nine roofer-style motion types",
+      "alt": "Motion taxonomy grouping uphill, downhill, lateral and pivot movement; stooping and kneeling; and stooped hammering, nailgun positioning and pushing.",
+      "description": "Figure 3 organizes the motion library into three groups. Roof traversal includes uphill, downhill, lateral, and pivot motions. Working postures include stooping and kneeling. Tool- or object-related motions include stooped hammering, nailgun positioning, and pushing. Evaluation across these motions uses task-specific training; it is not evidence that a single policy performs arbitrary new tasks.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 3, PDF page 13. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "framework",
+      "number": 4,
+      "page": 14,
+      "file": "figure-04.png",
+      "width": 1638,
+      "height": 1249,
+      "title": "Human motion, grounded in roof geometry",
+      "alt": "Five-stage framework: PICO motion capture, robot retargeting, scene-grounded trajectory refinement, simulation policy learning, and physical roofer-style behavior.",
+      "description": "Figure 4 begins with PICO VR motion tracking. Human motion is extracted and retargeted to the humanoid. The motion prior, a metric roof mesh, and task semantics enter contact/phase inference, roof-frame registration, and whole-trajectory refinement. This step adjusts foot support, work clearance, and body-surface nonpenetration while preserving motion and smoothness. In simulation, reference motion, proprioceptive state, and terrain information guide policy learning. The final stage shows physical locomotion and working postures. Execution-aware rewards help maintain the intended spatial relations during tracking.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 4, PDF page 14. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "demonstration",
+      "number": 5,
+      "page": 17,
+      "file": "figure-05.png",
+      "width": 1639,
+      "height": 607,
+      "title": "Demonstrations on three roof pitches",
+      "alt": "A person wearing tracking equipment bends over an adjustable roof platform at 25, 17, and 9 degrees.",
+      "description": "Figure 5 shows human demonstration collection at three discrete roof angles: 25°, 17°, and 9°. Wooden plates on adjustable supports form the controlled platform. PICO tracking captures body movement and task timing; the metric roof model supplies the surface geometry needed to ground the robot reference.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 5, PDF page 17. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "clearance",
+      "number": 7,
+      "page": 27,
+      "file": "figure-07.png",
+      "width": 1638,
+      "height": 444,
+      "title": "Different tasks require different hand clearances",
+      "alt": "Human demonstrations label palm-to-roof target clearances of 25 cm for nailgun use, 12 cm for hammering, and 18.5 cm for pushing.",
+      "description": "Figure 7 illustrates manually measured task-specific clearances along the roof surface normal: 25 cm for nailgun positioning, 12 cm for hammering, and 18.5 cm for lateral pushing. These are hand-center targets used during the intended work phase. They are not tool-tip distances, and a correct hand-center position alone does not guarantee that the entire hand mesh avoids the roof.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 7, PDF page 27. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "simulation",
+      "number": 8,
+      "page": 31,
+      "file": "figure-08.png",
+      "width": 1638,
+      "height": 1665,
+      "title": "Roofer-style motions in simulation",
+      "alt": "Three rows of simulated humanoid poses on a pitched roof show uphill walking, stooping, and stooped nailgun positioning.",
+      "description": "Figure 8 presents successive poses for uphill walking, stooping, and stooped nailgun positioning in a simulated sloped-roof scene. The examples illustrate the motion categories that the learned policies track. Quantitative completion, support, clearance, and nonpenetration results are reported separately in the accompanying tables.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 8, PDF page 31. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "hardware",
+      "number": 11,
+      "page": 39,
+      "file": "figure-11.png",
+      "width": 1638,
+      "height": 917,
+      "title": "Four motions on the physical Unitree G1",
+      "alt": "Four labeled laboratory sequences of a tethered Unitree G1 on a wedge-shaped slope: uphill walking, nailgun positioning, hammering motion, and bending.",
+      "description": "Figure 11 shows (a) uphill walking, (b) holding a nailgun near the sloped surface, (c) holding and moving a hammer, and (d) bending without a tool. The robot operates on a laboratory foam wedge with a nominal inclination of 11.768°. A safety hoist remains attached, and an operator starts the policy and controls emergency stop. Hoist forces and assisted recoveries were not measured, so these images show preliminary motion-reproduction evidence, not verified unassisted task completion.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 11, PDF page 39. Original scientific artwork and colors retained."
+    },
+    {
+      "id": "tracking",
+      "number": 12,
+      "page": 41,
+      "file": "figure-12.png",
+      "width": 1638,
+      "height": 684,
+      "title": "Where real-world tracking is hardest",
+      "alt": "Uphill-walking tracking-error time series and link-wise error chart, with larger errors at knees and ankles than upper-body links.",
+      "description": "Figure 12 analyzes one recorded uphill-walking trial. Mean base-frame MPJPE is 27.6 mm. Joint-angle RMSE is 0.133 rad across all 29 joints, with 0.164 rad in the lower body and 0.088 rad in the upper body. The paper’s accompanying text reports link errors of 87.17 mm at the left ankle, 65.90 mm at the right ankle, 69.53 mm at the left knee, and 46.37 mm at the right knee. These values indicate greater lower-body support-tracking difficulty. They are reconstructed from onboard joint states in the pelvis frame, not measured world-frame robot-to-roof errors. The raw time series is not available in the supplied paper and is not reconstructed here.",
+      "credit": "Source: Liu and Li, arXiv:2609.20558v1, figure 12, PDF page 41. Original scientific artwork and colors retained."
+    }
+  ],
+  "citationKey": "liu2026roofing",
+  "bibtex": "@misc{liu2026roofing,\n  title = {Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction},\n  author = {Songyang Liu and Shuai Li},\n  year = {2026},\n  eprint = {2609.20558},\n  archivePrefix = {arXiv},\n  primaryClass = {cs.RO},\n  doi = {10.48550/arXiv.2609.20558},\n  url = {https://arxiv.org/abs/2609.20558v1}\n}",
+  "comparisons": [
+    {
+      "id": "work-error",
+      "label": "Reference correction → execution-aware learning",
+      "summary": "Mean work-clearance error across three seeds. Each task uses its own policy and target clearance; lower is better.",
+      "labels": ["C–Reference", "D–Complete"],
+      "featured": 1,
+      "source": "Tables 3 and 4 of arXiv:2609.20558v1. Standard deviations and additional criteria appear in the full result tables.",
+      "metrics": [
+        {
+          "title": "Nailgun",
+          "unit": "cm",
+          "direction": "Lower is better",
+          "values": [7.86, 0.531],
+          "max": 8
+        },
+        {
+          "title": "Hammering",
+          "unit": "cm",
+          "direction": "Lower is better",
+          "values": [1.105, 0.256],
+          "max": 8
+        },
+        {
+          "title": "Lateral pushing",
+          "unit": "cm",
+          "direction": "Lower is better",
+          "values": [3.254, 0.424],
+          "max": 8
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "slope",
+      "title": "Table 2 · Slope coverage",
+      "caption": "Uphill walking: policy training slopes, evaluation slope, completion, and tracking error.",
+      "note": "Ten deterministic episodes per policy–slope pair. MPJPE values are mean ± sample standard deviation over successfully completed trajectories only. Not available means no episode completed; it is not zero error.",
+      "headers": [
+        "Training slopes",
+        "Evaluation slope",
+        "Completion",
+        "Base MPJPE (mm)",
+        "World MPJPE (mm)"
+      ],
+      "rows": [
+        ["17°", "9°", "0% (0/10)", "Not available", "Not available"],
+        ["17°", "17°", "100% (10/10)", "22.18 ± 0.38", "93.94 ± 16.69"],
+        ["17°", "25°", "0% (0/10)", "Not available", "Not available"],
+        ["9° + 17°", "9°", "100% (10/10)", "17.67 ± 0.21", "60.49 ± 3.18"],
+        ["9° + 17°", "17°", "100% (10/10)", "20.95 ± 0.34", "97.33 ± 12.35"],
+        ["9° + 17°", "25°", "0% (0/10)", "Not available", "Not available"],
+        [
+          "9° + 17° + 25°",
+          "9°",
+          "100% (10/10)",
+          "17.97 ± 0.51",
+          "79.10 ± 8.97"
+        ],
+        [
+          "9° + 17° + 25°",
+          "17°",
+          "100% (10/10)",
+          "22.24 ± 0.46",
+          "96.75 ± 8.94"
+        ],
+        [
+          "9° + 17° + 25°",
+          "25°",
+          "100% (10/10)",
+          "23.74 ± 0.27",
+          "227.16 ± 10.35"
+        ]
+      ]
+    },
+    {
+      "id": "nailgun",
+      "title": "Table 3 · Nailgun ablation",
+      "caption": "Five-way nailgun comparison, with a 25 cm target hand clearance.",
+      "note": "Mean ± sample standard deviation across seeds 42, 123, and 456. A: raw reference; M: manual offset; B: support grounding; C: task-semantic reference correction; D: complete execution-aware method. Negative hand-mesh distance indicates penetration.",
+      "headers": [
+        "Method",
+        "Seeds",
+        "Foot error (cm)",
+        "Work error (cm)",
+        "Mean hand gap (cm)",
+        "Minimum hand-mesh distance (cm)",
+        "Success"
+      ],
+      "rows": [
+        [
+          "A–Raw",
+          "3",
+          "4.837 ± 2.049",
+          "13.983 ± 0.020",
+          "11.017 ± 0.020",
+          "−1.945 ± 0.270",
+          "0/3"
+        ],
+        [
+          "M–Manual",
+          "3",
+          "0.447 ± 0.084",
+          "13.950 ± 0.063",
+          "11.050 ± 0.063",
+          "−2.054 ± 0.172",
+          "0/3"
+        ],
+        [
+          "B–Support",
+          "3",
+          "0.081 ± 0.013",
+          "13.973 ± 0.027",
+          "11.027 ± 0.027",
+          "−2.055 ± 0.143",
+          "0/3"
+        ],
+        [
+          "C–Reference",
+          "3",
+          "0.185 ± 0.165",
+          "7.860 ± 0.328",
+          "32.860 ± 0.328",
+          "19.198 ± 0.099",
+          "0/3"
+        ],
+        [
+          "D–Complete",
+          "3",
+          "0.115 ± 0.137",
+          "0.531 ± 0.104",
+          "25.531 ± 0.104",
+          "12.423 ± 0.071",
+          "3/3"
+        ]
+      ]
+    },
+    {
+      "id": "cross-task",
+      "title": "Table 4 · Cross-task validation",
+      "caption": "Reference correction (C) versus complete execution-aware learning (D) for hammering and pushing.",
+      "note": "Three seeds per method/task; distances are mean ± sample standard deviation. Each task has a separately trained policy. The work error is the mean absolute per-frame deviation from the target, not the absolute difference between the reported mean gap and target.",
+      "headers": [
+        "Task / method",
+        "Target gap (cm)",
+        "Foot error (cm)",
+        "Work error (cm)",
+        "Mean hand gap (cm)",
+        "Minimum hand-mesh distance (cm)",
+        "Success"
+      ],
+      "rows": [
+        [
+          "Hammer / C–Reference",
+          "12",
+          "0.539 ± 0.057",
+          "1.105 ± 0.096",
+          "11.030 ± 0.122",
+          "−1.772 ± 0.236",
+          "0/3"
+        ],
+        [
+          "Hammer / D–Complete",
+          "12",
+          "0.492 ± 0.036",
+          "0.256 ± 0.061",
+          "11.940 ± 0.087",
+          "0.664 ± 0.273",
+          "3/3"
+        ],
+        [
+          "Pushing / C–Reference",
+          "18.5",
+          "0.209 ± 0.120",
+          "3.254 ± 0.567",
+          "16.245 ± 1.003",
+          "−1.792 ± 0.049",
+          "0/3"
+        ],
+        [
+          "Pushing / D–Complete",
+          "18.5",
+          "0.125 ± 0.023",
+          "0.424 ± 0.222",
+          "18.169 ± 0.280",
+          "4.528 ± 0.299",
+          "3/3"
+        ]
+      ]
+    },
+    {
+      "id": "hardware",
+      "title": "Table 6 · Physical robot",
+      "caption": "Recorded physical-G1 motion segments and base-frame tracking error.",
+      "note": "Uphill walking reports one recorded trial. Nailgun positioning, hammering, and bending report mean ± sample standard deviation of MPJPE over five independent trials per motion. Durations are reproduced as listed in Table 6. All trials use the laboratory slope and safety-hoist configuration.",
+      "headers": ["Motion", "Trials", "Duration (s)", "Base MPJPE (mm)"],
+      "rows": [
+        ["Uphill walking", "1", "5.00", "27.6"],
+        ["Nailgun positioning", "5", "10.04", "60.20 ± 18.86"],
+        ["Hammering", "5", "8.08", "79.93 ± 24.23"],
+        ["Bending", "5", "6.56", "61.42 ± 19.09"]
+      ]
+    }
+  ]
+}

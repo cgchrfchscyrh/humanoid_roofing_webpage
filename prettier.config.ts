@@ -1,8 +1,5 @@
-import { type Config } from "prettier";
-
-const config: Config = {
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+import type { Config } from "prettier";
+export default {
+  plugins: ["prettier-plugin-astro"],
   overrides: [{ files: "*.astro", options: { parser: "astro" } }],
-};
-
-export default config;
+} satisfies Config;

@@ -1,0 +1,218 @@
+{
+  "date": "2026-10-04T17:28:20.875Z",
+  "project": "humanoid_roofing_webpage",
+  "target": "WCAG 2.1 A/AA",
+  "engine": "axe-core via Playwright",
+  "scans": [
+    {
+      "name": "/ desktop",
+      "passes": 27,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "#method > .text-link > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".comparison > .text-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        },
+        {
+          "id": "video-caption",
+          "nodes": [
+            [
+              "#context-video"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/ mobile",
+      "passes": 27,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "#method > .text-link > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
+            ],
+            [
+              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".comparison > .text-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        },
+        {
+          "id": "video-caption",
+          "nodes": [
+            [
+              "#context-video"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/paper/ desktop",
+      "passes": 20,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/paper/ mobile",
+      "passes": 20,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/results/ desktop",
+      "passes": 26,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/results/ mobile",
+      "passes": 27,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/accessibility/ desktop",
+      "passes": 18,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/accessibility/ mobile",
+      "passes": 18,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/404.html desktop",
+      "passes": 15,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/404.html mobile",
+      "passes": 15,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "checks": [
+    "/: page loads",
+    "/: one H1",
+    "/: English language declared",
+    "/: informative images have nonempty alternatives",
+    "/: no autoplay, loops, or third-party players",
+    "/: institutional disclaimer is present",
+    "/: IDs are unique",
+    "/: visible headings do not skip levels",
+    "/: in-page links have targets",
+    "/: skip link is first keyboard stop",
+    "/: keyboard focus has visible outline",
+    "/: skip link focuses main",
+    "Video is paused on initial load",
+    "Keyboard starts video and exposes pause",
+    "Keyboard pauses video",
+    "Timed visual description track loads",
+    "Video ends without looping and exposes replay",
+    "Replay restarts video",
+    "Citation can be copied with keyboard",
+    "/: no page-level horizontal overflow at 320 CSS px",
+    "/: no page-level horizontal overflow at 768 CSS px",
+    "/: reflows at 320 CSS px with increased text spacing",
+    "/paper/: page loads",
+    "/paper/: one H1",
+    "/paper/: English language declared",
+    "/paper/: informative images have nonempty alternatives",
+    "/paper/: no autoplay, loops, or third-party players",
+    "/paper/: institutional disclaimer is present",
+    "/paper/: IDs are unique",
+    "/paper/: visible headings do not skip levels",
+    "/paper/: in-page links have targets",
+    "/paper/: skip link is first keyboard stop",
+    "/paper/: keyboard focus has visible outline",
+    "/paper/: skip link focuses main",
+    "/paper/: no page-level horizontal overflow at 320 CSS px",
+    "/paper/: no page-level horizontal overflow at 768 CSS px",
+    "/paper/: reflows at 320 CSS px with increased text spacing",
+    "/results/: page loads",
+    "/results/: one H1",
+    "/results/: English language declared",
+    "/results/: informative images have nonempty alternatives",
+    "/results/: no autoplay, loops, or third-party players",
+    "/results/: institutional disclaimer is present",
+    "/results/: IDs are unique",
+    "/results/: visible headings do not skip levels",
+    "/results/: in-page links have targets",
+    "/results/: skip link is first keyboard stop",
+    "/results/: keyboard focus has visible outline",
+    "/results/: skip link focuses main",
+    "All expected result tables are present",
+    "All tables have descriptive captions",
+    "Table headers define their scope",
+    "/results/: no page-level horizontal overflow at 320 CSS px",
+    "/results/: no page-level horizontal overflow at 768 CSS px",
+    "/results/: reflows at 320 CSS px with increased text spacing",
+    "Wide result table supports keyboard horizontal scrolling",
+    "/accessibility/: page loads",
+    "/accessibility/: one H1",
+    "/accessibility/: English language declared",
+    "/accessibility/: informative images have nonempty alternatives",
+    "/accessibility/: no autoplay, loops, or third-party players",
+    "/accessibility/: institutional disclaimer is present",
+    "/accessibility/: IDs are unique",
+    "/accessibility/: visible headings do not skip levels",
+    "/accessibility/: in-page links have targets",
+    "/accessibility/: skip link is first keyboard stop",
+    "/accessibility/: keyboard focus has visible outline",
+    "/accessibility/: skip link focuses main",
+    "/accessibility/: no page-level horizontal overflow at 320 CSS px",
+    "/accessibility/: no page-level horizontal overflow at 768 CSS px",
+    "/accessibility/: reflows at 320 CSS px with increased text spacing",
+    "/404.html: page loads",
+    "/404.html: one H1",
+    "/404.html: English language declared",
+    "/404.html: informative images have nonempty alternatives",
+    "/404.html: no autoplay, loops, or third-party players",
+    "/404.html: institutional disclaimer is present",
+    "/404.html: IDs are unique",
+    "/404.html: visible headings do not skip levels",
+    "/404.html: in-page links have targets",
+    "/404.html: skip link is first keyboard stop",
+    "/404.html: keyboard focus has visible outline",
+    "/404.html: skip link focuses main",
+    "/404.html: no page-level horizontal overflow at 320 CSS px",
+    "/404.html: no page-level horizontal overflow at 768 CSS px",
+    "/404.html: reflows at 320 CSS px with increased text spacing",
+    "Comparison Reference correction → execution-aware learning remains visible without JavaScript",
+    "Native video controls remain available without JavaScript",
+    "Citation remains readable without JavaScript",
+    "Unavailable JavaScript copy control is hidden",
+    "Reduced-motion visit does not start media"
+  ],
+  "errors": [],
+  "limitations": [
+    "Automated checks are not a complete WCAG or ADA certification.",
+    "External full-text PDFs, screen-reader usability, scientific image contrast, and institutional approval need separate review."
+  ]
+}

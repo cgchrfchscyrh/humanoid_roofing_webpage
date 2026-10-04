@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-04",
+  "checks": [
+    "Original roofing.pdf unchanged (SHA-256 verified)",
+    "Table 2 \u00b7 Slope coverage: 9 HTML/CSV rows match with consistent column counts",
+    "Table 3 \u00b7 Nailgun ablation: 5 HTML/CSV rows match with consistent column counts",
+    "Table 4 \u00b7 Cross-task validation: 4 HTML/CSV rows match with consistent column counts",
+    "Table 6 \u00b7 Physical robot: 4 HTML/CSV rows match with consistent column counts",
+    "Figure 1: image dimensions, alternative text, description and source present",
+    "Figure 2: image dimensions, alternative text, description and source present",
+    "Figure 3: image dimensions, alternative text, description and source present",
+    "Figure 4: image dimensions, alternative text, description and source present",
+    "Figure 5: image dimensions, alternative text, description and source present",
+    "Figure 7: image dimensions, alternative text, description and source present",
+    "Figure 8: image dimensions, alternative text, description and source present",
+    "Figure 11: image dimensions, alternative text, description and source present",
+    "Figure 12: image dimensions, alternative text, description and source present",
+    "Visible BibTeX matches download"
+  ],
+  "sourceReview": "Core Tables 2, 3, 4 and 6 checked against extracted text and rendered PDF table regions; figures checked against rendered PDF pages. Content is a selected research companion, not a full-paper transcription."
+}

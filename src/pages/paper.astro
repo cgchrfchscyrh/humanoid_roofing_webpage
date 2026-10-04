@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Figure from "../components/Figure.astro";
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+---
+
+<Layout title={`Research guide — ${site.wordmark}`}>
+  <div class="reading-container">
+    <header class="page-title">
+      <p class="eyebrow">{site.venue}</p><h1>Research guide</h1><p class="lead">
+        {site.title}
+      </p><p>{site.guideIntro}</p><div class="actions">
+        <a class="button dark" href={site.paperUrl}>Preprint record ↗</a>{
+          site.htmlPaper && (
+            <a class="button" href={site.htmlPaper}>
+              Full preprint in HTML ↗
+            </a>
+          )
+        }{
+          site.pdfUrl && (
+            <a class="button" href={site.pdfUrl}>
+              {site.pdfLabel} ↗
+            </a>
+          )
+        }
+      </div>
+    </header>
+    <nav class="contents" aria-label="Research guide contents">
+      <h2>In this guide</h2><ol>
+        {
+          site.guideSections.map((section, i) => (
+            <li>
+              <a href={`#guide-${i + 1}`}>{section.title}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <div class="prose">
+      {
+        site.guideSections.map((section, i) => (
+          <section id={`guide-${i + 1}`}>
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((p) => (
+              <p>{p}</p>
+            ))}
+          </section>
+        ))
+      }<section>
+        <h2>Boundaries of the evidence</h2><ul>
+          {site.limitations.map((p) => <li>{p}</li>)}
+        </ul>
+      </section>
+    </div>
+    <Figure id="clearance" />
+    <section class="section">
+      <h2>Continue with the evidence</h2><p>
+        <a href={asset("results/")}
+          >Read the original figure descriptions and numeric results</a
+        >, including downloadable CSV tables.
+      </p><p><a href={site.repo}>{site.repoLabel}</a>. {site.repoNote}</p><p
+        class="fine-print"
+      >
+        The supplied arXiv manuscript PDF was used to verify this guide and
+        extract the original figures. It remains unchanged. The external arXiv
+        PDF and HTML rendering have not been certified for accessibility; <a
+          href={asset("accessibility/#attachments")}
+          >read the attachment notes</a
+        >.
+      </p>
+    </section>
+  </div>
+</Layout>

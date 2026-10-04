@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Figure from "../components/Figure.astro";
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+---
+
+<Layout title={`Results & figures — ${site.wordmark}`}>
+  <div class="container">
+    <header class="page-title">
+      <p class="eyebrow">Data companion</p><h1>Results & original figures</h1><p
+        class="lead"
+      >
+        Reported measurements, in a format you can read and reuse.
+      </p><p>
+        Tables below reproduce values from the supplied preprint. Figures are
+        extracted from the supplied PDF and accompanied by text descriptions.
+        CSV downloads contain the same values as the HTML tables.
+      </p><p><a href={site.paperUrl}>Source paper · DOI {site.doi}</a></p>
+    </header>
+    <nav class="contents" aria-label="Results and figures contents">
+      <h2>On this page</h2><ul>
+        {
+          site.tables.map((t) => (
+            <li>
+              <a href={`#${t.id}`}>{t.title}</a>
+            </li>
+          ))
+        }<li><a href="#figures">Original paper figures</a></li>
+      </ul>
+    </nav>
+    <p class="evidence-note">{site.resultNote}</p>
+    {
+      site.tables.map((t) => (
+        <section class="table-section" id={t.id}>
+          <>
+            <div class="table-heading">
+              <>
+                <h2>{t.title}</h2>
+                <a href={asset(`data/${t.id}.csv`)} download>
+                  Download {t.title.split(" · ")[0]} {t.id} CSV
+                </a>
+              </>
+            </div>
+            <p id={`${t.id}-note`}>{t.note}</p>
+            <p class="fine-print">
+              On narrow screens, focus the table area and use arrow keys to
+              scroll horizontally.
+            </p>
+            <div
+              class="table-scroll"
+              role="region"
+              aria-label={`${t.title} — scrollable data table`}
+              tabindex="0"
+            >
+              <table aria-describedby={`${t.id}-note`}>
+                <>
+                  <caption>{t.caption}</caption>
+                  <thead>
+                    <tr>
+                      {t.headers.map((h) => (
+                        <th scope="col">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {t.rows.map((row) => (
+                      <tr>
+                        {row.map((cell, i) =>
+                          i === 0 ? (
+                            <th scope="row">{cell}</th>
+                          ) : (
+                            <td>{cell}</td>
+                          ),
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </>
+              </table>
+            </div>
+          </>
+        </section>
+      ))
+    }
+    <section class="section" id="figures">
+      <div class="section-heading">
+        <p class="eyebrow">From the paper</p><h2>
+          Original figures, with descriptions.
+        </h2><p>
+          Original scientific colors are preserved. The accompanying text and
+          numeric tables carry the findings without requiring color
+          identification. Full-size images support close inspection.
+        </p>
+      </div>{site.figures.map((f) => <Figure id={f.id} />)}
+    </section>
+    <section class="section">
+      <h2>Interpreting the values</h2><p>
+        Work-clearance error averages the absolute per-frame deviation from the
+        target. It need not equal the difference between the mean hand gap and
+        the target. Negative hand-mesh distance means penetration. Base-frame
+        and world-frame MPJPE describe different quantities and must not be
+        pooled.
+      </p><p>
+        Only reported table values are transcribed. The PDF does not supply the
+        raw time series underlying the tracking-error plots; these are not
+        reconstructed or invented. <a href={asset("paper/")}
+          >Read the research guide for the experimental context</a
+        >.
+      </p>
+    </section>
+  </div>
+</Layout>

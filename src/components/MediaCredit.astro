@@ -1,0 +1,19 @@
+---
+import site from "../data/site.json";
+---
+
+<section
+  id="media-description"
+  class="media-description"
+  aria-labelledby="media-heading"
+>
+  <p class="eyebrow">Context, with a source</p><h2 id="media-heading">
+    Video description & credit
+  </h2>
+  <p><a href={site.contextUrl}>{site.contextCredit}</a></p>
+  {site.contextDetails.map((p) => <p>{p}</p>)}
+  <p class="fine-print">
+    {site.contextLicense}
+    <a href={site.contextLicenseUrl}>Source and media-use information</a>.
+  </p>
+</section>

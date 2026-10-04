@@ -1,68 +1,143 @@
 ---
-import { Font } from "astro:assets";
-
-import Table from "../components/Table.astro";
-
-import "../styles/global.css";
-import "katex/dist/katex-swap.css";
-
-import { Content, frontmatter } from "../paper.mdx";
-
-interface Frontmatter {
-  title: string;
-  description?: string;
-  favicon: string;
-  thumbnail?: string;
-  theme?: "device" | "light" | "dark";
-}
-
-const {
-  title,
-  description,
-  favicon,
-  thumbnail,
-  theme = "device",
-} = frontmatter as Frontmatter;
-
-const baseUrl = import.meta.env.BASE_URL;
-const prefix = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Figure from "../components/Figure.astro";
+import Comparison from "../components/Comparison.astro";
+import Citation from "../components/Citation.astro";
+import MediaCredit from "../components/MediaCredit.astro";
+import site from "../data/site.json";
+import { asset } from "../data/paths";
 ---
 
-<!doctype html>
-<html class="bg-white dark:bg-zinc-900" lang="en" data-theme={theme}>
-  <head>
-    <meta charset="UTF-8" />
-    {description && <meta name="description" content={description} />}
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-
-    <link rel="icon" type="image/svg+xml" href={prefix + favicon} />
-
-    <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
-    <meta property="og:type" content="website" />
-    {thumbnail && <meta property="og:image" content={prefix + thumbnail} />}
-
-    <Font
-      cssVariable="--font-noto-sans"
-      preload={[{ subset: "latin", style: "normal" }]}
-    />
-
-    <title>{title}</title>
-  </head>
-  <body
-    class="prose prose-lg prose-zinc dark:prose-invert prose-a:text-blue-600 prose-a:hover:text-blue-900 prose-a:dark:text-blue-200 prose-a:dark:hover:text-blue-100 prose-a:underline prose-a:decoration-dashed prose-a:underline-offset-4 prose-a:hover:decoration-solid prose-a:font-normal prose-code:bg-zinc-200 prose-code:dark:bg-zinc-800 prose-code:text-zinc-800 prose-code:dark:text-zinc-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-medium prose-code:before:content-none prose-code:after:content-none max-w-none pt-16 pb-6 font-(family-name:--font-noto-sans)"
-  >
-    <main>
-      <Content components={{ table: Table }} />
-    </main>
-    <footer class="mx-auto max-w-[50rem] px-6 text-center">
-      <p class="prose-sm text-center">
-        Built with <a
-          href="https://research-template.roman.technology"
-          rel="nofollow">Roman Hauksson-Neill's project page template</a
-        >
+<Layout>
+  <Hero />
+  <div class="container">
+    <section class="section introduction" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow">The research question</p><h2 id="intro-title">
+          {site.shortTitle}
+        </h2>
+      </div><div><p class="lead">{site.intro}</p><p>{site.insight}</p></div>
+    </section>
+    <dl class="stats">
+      {
+        site.stats.map((stat) => (
+          <div>
+            <>
+              <dt>{stat.label}</dt>
+              <dd>{stat.value}</dd>
+            </>
+          </div>
+        ))
+      }
+    </dl>
+    <section class="section" id="method" aria-labelledby="method-title">
+      <div class="section-heading">
+        <p class="eyebrow">01 / Method</p><h2 id="method-title">
+          {site.methodTitle}
+        </h2><p class="lead">{site.methodIntro}</p>
+      </div><ol class="steps">
+        {
+          site.steps.map((step, i) => (
+            <li>
+              <>
+                <span class="step-number" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </>
+            </li>
+          ))
+        }
+      </ol><Figure id={site.methodFigure} compact /><a
+        class="text-link"
+        href={asset("paper/")}
+        >Read the research guide <span aria-hidden="true">→</span></a
+      >
+    </section>
+    <section class="section" id="results" aria-labelledby="results-title">
+      <div class="section-heading">
+        <p class="eyebrow">02 / Evidence</p><h2 id="results-title">
+          {site.resultsTitle}
+        </h2><p class="lead">{site.resultsIntro}</p>
+      </div><div class="highlights">
+        {
+          site.highlights.map((item) => (
+            <div>
+              <>
+                <h3>{item.label}</h3>
+                <p class="numeric-pair">
+                  <>
+                    <span>{item.before}</span>
+                    <span aria-hidden="true">→</span>
+                    <span class="sr-only">to</span>
+                    <strong>{item.after}</strong>
+                  </>
+                </p>
+                <p>{item.note}</p>
+              </>
+            </div>
+          ))
+        }
+      </div><p class="evidence-note">{site.resultNote}</p><Comparison />
+    </section>
+    <section class="section" aria-labelledby="hardware-title">
+      <div class="section-heading">
+        <p class="eyebrow">03 / Physical experiments</p>
+        <h2 id="hardware-title">From simulation to a laboratory slope.</h2>
+        <p class="lead">
+          Four motion types are reproduced on a physical Unitree G1: uphill
+          walking, nailgun positioning, hammering, and bending. A safety hoist
+          remains attached throughout the setup.
+        </p>
+      </div>
+      <Figure id="hardware" />
+      <p class="evidence-note">
+        Mean base-frame tracking errors: 27.6 mm for uphill walking (one trial);
+        60.20, 79.93, and 61.42 mm for nailgun positioning, hammering, and
+        bending (five trials each). These measure local motion reproduction. The
+        experiment does not establish unassisted completion probability or
+        installation quality.
       </p>
-    </footer>
-  </body>
-</html>
+      <a class="text-link" href={asset("results/#hardware")}
+        >Read physical-robot measurements and uncertainty →</a
+      >
+    </section>
+    <section class="section scope" aria-labelledby="scope-title">
+      <div>
+        <p class="eyebrow">04 / Scope</p><h2 id="scope-title">
+          {site.scopeTitle}
+        </h2>
+      </div><ul>{site.limitations.map((item) => <li>{item}</li>)}</ul>
+    </section>
+    <section class="section resources" aria-labelledby="resources-title">
+      <div class="section-heading">
+        <p class="eyebrow">Continue exploring</p><h2 id="resources-title">
+          Paper, results & website source.
+        </h2>
+      </div><div class="resource-grid">
+        <a class="resource-card" href={site.paperUrl}
+          ><span class="eyebrow">Publication ↗</span><h3>
+            Read the preprint
+          </h3><p>
+            {site.publication}
+          </p></a
+        ><a class="resource-card" href={asset("results/")}
+          ><span class="eyebrow">HTML + CSV →</span><h3>
+            Results & original figures
+          </h3><p>
+            Read the numeric comparisons as accessible tables or download the
+            data.
+          </p></a
+        ><a class="resource-card" href={site.repo}
+          ><span class="eyebrow">GitHub ↗</span><h3>{site.repoLabel}</h3><p>
+            {site.repoNote}
+          </p></a
+        >
+      </div>
+    </section>
+    <Citation />
+    <div class="section"><MediaCredit /></div>
+  </div>
+</Layout>

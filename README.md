@@ -1,89 +1,44 @@
-# Academic project page template
+# Humanoid roofing — research webpage
 
-This is a template to help you build a professional project page for your research paper, based on the design from the original [Nerfies page](https://nerfies.github.io/). Instead of manually editing an HTML file, you can author the page's content in Markdown and make use of a polished set of components, then deploy it with GitHub Pages. [See a live demo of the template](https://research-template.roman.technology).
+Academic project page for **Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction**, by Songyang Liu and Shuai Li. Content follows the supplied `roofing.pdf`, arXiv:2609.20558v1 (17 September 2026), not a claimed journal publication.
 
-<img src="public/screenshot-light.png" width="48%" alt="Screenshot of this template in light mode" /> <img src = "public/screenshot-dark.png" width="48%" alt="Screenshot of this template in dark mode"/>
+- Website: <https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/>
+- Preprint record: <https://arxiv.org/abs/2609.20558v1>
+- Full-text HTML (arXiv experimental rendering): <https://arxiv.org/html/2609.20558v1>
+- Source template: [Roman Hauksson’s Academic Project Astro Template](https://github.com/RomanHauksson/academic-project-astro-template)
 
-## Features
+## Content
 
-- Pre-built components for LaTeX, figures, tables, code blocks (with syntax highlighting), videos, YouTube embeds, 3D objects, comparison sliders, carousels, tabbed slides, and pairs of columns.
-- Optional cover image or video behind the page header.
-- Optional dark mode :)
-- Automatically converts figures stored as PDF files into images.
-- Compresses images using [AVIF](https://en.wikipedia.org/wiki/AVIF) and uses [responsive images](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images) to minimize loading time.
-- Optimized font rendering, with [resized fallback font faces](https://developer.chrome.com/blog/font-fallbacks) to prevent cumulative layout shift.
-- Responsive, accessible, and SEO-optimized.
-- Add your own components with HTML or any Javascript framework you like. React comes pre-configured, but you could also use Vue, Svelte, etc.
-- Built with [Astro](https://astro.build/), [React](https://react.dev/), [Tailwind](https://tailwindcss.com/), [MDX](https://mdxjs.com/), and [TypeScript](https://www.typescriptlang.org/).
+The overview pairs an attributed roofing-context video with real-robot photographs from the paper. The author requested paper photographs for this version; no unrelated robot footage is presented as a research demonstration. The research guide summarizes the method and evaluation scope. The results page contains nine original figures with text alternatives and four transcribed tables (Tables 2, 3, 4 and 6), with matching CSV downloads. The original manuscript is unchanged and is not duplicated in this repository. This repository contains the website, not the robot training implementation.
 
-## Examples
+Paper-specific content is in `src/data/site.json`. Images, media descriptions, table data, and the citation are in `public/`. Changes to table values must also update the matching CSV. Original scientific figure colors are preserved; the interface is charcoal, gray, and off-white. Every page carries the UF non-endorsement disclaimer. See [ACCESSIBILITY.md](ACCESSIBILITY.md) and [SECURITY.md](SECURITY.md).
 
-- [Token-Efficient Long Video Understanding for Multimodal LLMs](https://research.nvidia.com/labs/lpr/storm/) (NVIDIA Research)
-- [PolyPose: Deformable 2D/3D Registration via Polyrigid Transforms](https://polypose.csail.mit.edu/) (MIT CSAIL)
-- [ByteWrist: A Parallel Robotic Wrist Enabling Flexible and Anthropomorphic Motion for Confined Spaces](https://bytewrist.github.io/) (ByteDance Seed)
-- [Dexterous Teleoperation of 20-DoF ByteDexter Hand via Human Motion Retargeting](https://byte-dexter.github.io/) (ByteDance Seed)
-- [Conformal Prediction as Bayesian Quadrature](https://jakesnell.com/projects/conformal-as-bayes-quad/)
-- [Lossy Compression With Pretrained Diffusion Models](https://jeremyiv.github.io/diffc-project-page/)
-- [RoboSpatial: Teaching Spatial Understanding to 2D and 3D Vision-Language Models for Robotics](https://chanh.ee/RoboSpatial/)
-- [CLIP-RT: Learning Language-Conditioned Robotic Policies from Natural Language Supervision](https://clip-rt.github.io/)
-- [PCO: Precision-Controllable Offset Surfaces with Sharp Features](https://alan-leo-wong.github.io/SIGASIA24-PCO-ProjectPage/)
-- [SCUBA: Salesforce Computer Use Benchmark](https://sfrcua.github.io/SCUBA/)
+## Development and checks
 
-## Usage
+Use Node.js 24 or newer.
 
-1. Click ["Use this template"](https://github.com/new?template_name=academic-project-astro-template&template_owner=RomanHauksson) to make a copy of this repository in your GitHub account.
-2. Enable GitHub Pages for the repository. Click on the **Settings** tab, then go to **Pages** (under the **Code and automation** section). Using the dropdown, change **Source** from "Deploy from a branch" to "GitHub Actions".
-
-At this point, whenever you push to the `main` branch, the GitHub Actions workflow in `.github/workflows/astro.yml` will automatically build a static website and deploy it to `https://<username>.github.io/<repository>/`. No other configuration is necessary!
-
-To edit the content, you _could_ simply edit [`./src/paper.mdx`](./src/paper.mdx) in your browser in the GitHub interface, without downloading or setting anything else up. But if you want to preview your changes faster, I recommend editing it locally:
-
-3. Clone the repository.
-
-4. [Install Node.js](https://nodejs.org/en/download/) if you haven't already. Make sure you're using version 24 or later, which you can check by running
-
-```bash
-node --version
-```
-
-If your Node version is less than 24, you can use [Node Version Manager](https://github.com/nvm-sh/nvm) to install version 24 and switch to it:
-
-```bash
-nvm install 24 && nvm use 24
-```
-
-6. In the root directory of your cloned repository, install the dependencies:
-
-```bash
-npm install
-```
-
-7. Start the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
 ```
 
-While the development server is running, you can open `http://localhost:4321` in your browser to see a live preview of your page.
+Production checks, with the actual GitHub Pages path:
 
-8. Edit the content in [`./src/paper.mdx`](./src/paper.mdx). Every time you save a file, the development server will automatically reload `http://localhost:4321` to display the updated version of the page.
-
-9. Push your changes to the GitHub repository to trigger a new deployment with your changes.
-
-Alternatively, you can build the site locally, and copy the output to wherever you'd like to host the site. Running the following command will create a static website stored in `./dist/`.
-
-```bash
-npm run build
+```sh
+npm run lint
+npm run audit:security
+SITE_URL=https://cgchrfchscyrh.github.io BASE_PATH=/humanoid_roofing_webpage npm run build
+npx playwright install chromium
+BASE_PATH=/humanoid_roofing_webpage npm run preview -- --host 127.0.0.1 --port 4332
+TEST_URL=http://127.0.0.1:4332/humanoid_roofing_webpage npm run test:a11y
 ```
 
-For more information, consult [`./documentation.md`](./documentation.md).
+If the preview chooses another port, use its printed address for `TEST_URL`. On a workstation with Chrome installed, `CHROME_PATH=/usr/bin/google-chrome` can be passed to the accessibility check.
 
-I'd like to speak directly with users to learn about what they want and get feedback on the template. If you're interested in getting help with setting up with the project, fixing bugs AI can't solve, or even having me develop the page for you, you can [email me](mailto:roman.i0djm@aleeas.com) or [schedule a virtual meeting](https://cal.com/romanhauksson/projectpage).
+## Publishing updates
 
-## Alternative template
+Push changes to `main`. The GitHub Actions workflow audits dependencies, lints, type-checks, builds using the repository base path, and runs the accessibility checks before deploying the static `dist/` artifact to GitHub Pages. Failed checks block deployment. Check the Actions run and then verify the live pages and assets. See `reports/` for recorded checks; automated checks are not an ADA/WCAG certification or UF institutional approval.
 
-For a different look, the other template I'd recommend is [_Clarity: A Minimalist Website Template for AI Research_](https://shikun.io/projects/clarity) by Shikun Liu. It has a beautiful and careful design that's distinct from the original Nerfies page. It's simply an HTML file styled with Sass.
+## Media attribution
 
-## Credits
-
-This template was originally adapted from Eliahu Horwitz's [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), which was adapted from Keunhong Park's [project page for _Nerfies_](https://nerfies.github.io/). It's licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+The nine-second silent context clip is adapted from [Jorge Serrano’s “A Hard Working Man” on Pexels](https://www.pexels.com/video/a-hard-working-man-2675565/) under the [Pexels License](https://www.pexels.com/license/). It is independent contextual footage, not an author experiment. The site supplies a complete visual description and timed description track. Rights in research figures and third-party media remain with their respective holders; source credits do not imply endorsement.

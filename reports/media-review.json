@@ -1,0 +1,24 @@
+{
+  "checkedOn": "2026-10-04",
+  "file": "public/media/context.mp4",
+  "source": "https://www.pexels.com/video/a-hard-working-man-2675565/",
+  "sourceDownload": "https://videos.pexels.com/video-files/2675565/2675565-uhd_4096_2160_24fps.mp4",
+  "license": "https://www.pexels.com/license/",
+  "creator": "Jorge Serrano",
+  "sourceInterval": "00:00\u201300:09",
+  "changes": "Trimmed to nine seconds, resized to 1280 pixels wide, H.264 encoded, audio removed; source footage has no added research annotations.",
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 676,
+        "duration": "9.009000"
+      }
+    ]
+  },
+  "visualReview": "A continuous close-up of a roofer leaning toward the surface and moving the arms; sequence reviewed at one-second intervals and video playback checked. Text description and timed visual descriptions correspond to the adapted silent clip.",
+  "researchMedia": "Author selected the original paper photographs for robot experiments; no unrelated robot videos used."
+}

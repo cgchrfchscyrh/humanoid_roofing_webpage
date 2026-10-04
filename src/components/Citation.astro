@@ -1,0 +1,53 @@
+---
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+---
+
+<section
+  class="section citation"
+  id="citation"
+  aria-labelledby="citation-heading"
+>
+  <div class="section-heading">
+    <p class="eyebrow">Reference</p><h2 id="citation-heading">
+      Cite this work.
+    </h2>
+  </div>
+  <p>
+    {site.authors.map((a) => a.name).join(", ")}. {site.title}. <em
+      >{site.publication}</em
+    >
+    <a href={site.paperUrl}>DOI: {site.doi}</a>.
+  </p>
+  <div class="citation-box">
+    <div class="citation-toolbar">
+      <span>BibTeX</span><div>
+        <button id="copy-citation" hidden>Copy citation</button><a
+          href={asset("citation.bib")}
+          download>Download BibTeX</a
+        >
+      </div>
+    </div><pre
+      role="region"
+      tabindex="0"
+      aria-label="BibTeX citation, horizontally scrollable"><code id="citation-text">{site.bibtex}</code></pre>
+  </div>
+  <p id="citation-status" role="status" class="fine-print"></p>
+</section>
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#copy-citation");
+  const code = document.querySelector<HTMLElement>("#citation-text");
+  const status = document.querySelector<HTMLElement>("#citation-status");
+  if (button && code && status) {
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(code.textContent || "");
+        status.textContent = "Citation copied.";
+      } catch {
+        status.textContent =
+          "Copy is unavailable in this browser. Select the citation text or download the BibTeX file.";
+      }
+    });
+  }
+</script>

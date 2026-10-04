@@ -1,0 +1,5 @@
+Task / method,Target gap (cm),Foot error (cm),Work error (cm),Mean hand gap (cm),Minimum hand-mesh distance (cm),Success
+Hammer / C–Reference,12,0.539 ± 0.057,1.105 ± 0.096,11.030 ± 0.122,−1.772 ± 0.236,0/3
+Hammer / D–Complete,12,0.492 ± 0.036,0.256 ± 0.061,11.940 ± 0.087,0.664 ± 0.273,3/3
+Pushing / C–Reference,18.5,0.209 ± 0.120,3.254 ± 0.567,16.245 ± 1.003,−1.792 ± 0.049,0/3
+Pushing / D–Complete,18.5,0.125 ± 0.023,0.424 ± 0.222,18.169 ± 0.280,4.528 ± 0.299,3/3

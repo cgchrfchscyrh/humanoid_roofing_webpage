@@ -1,12 +1,34 @@
 ---
-
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+interface Props {
+  id: string;
+  compact?: boolean;
+}
+const { id, compact = false } = Astro.props;
+const fig = site.figures.find((f) => f.id === id)!;
 ---
 
-<figure>
-  <div class="flex w-full justify-center **:my-0">
-    <slot name="figure" />
+<figure class:list={["research-figure", { compact }]} id={`figure-${id}`}>
+  <div class="figure-image">
+    <img
+      src={asset(`figures/${fig.file}`)}
+      width={fig.width}
+      height={fig.height}
+      style={`max-width:${fig.width}px;aspect-ratio:${fig.width}/${fig.height}`}
+      alt={fig.alt}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
-  <figcaption class="text-center">
-    <slot name="caption" />
+  <figcaption>
+    <span class="eyebrow">Paper figure {fig.number}</span><strong
+      >{fig.title}</strong
+    ><p>{fig.description}</p><p class="fine-print">
+      {fig.credit}
+      <a href={asset(`figures/${fig.file}`)}
+        >Open figure {fig.number} at full size</a
+      >.
+    </p>
   </figcaption>
 </figure>

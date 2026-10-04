@@ -1,0 +1,135 @@
+{
+  "source": "roofing.pdf",
+  "sha256": "a2f162f7b6dd0794eb4eedb6de64f8c2853a0f652d13196e9f9c2c7d10f06c4f",
+  "pages": 49,
+  "tagged": false,
+  "version": "arXiv:2609.20558v1",
+  "figures": [
+    {
+      "id": "overview",
+      "number": 1,
+      "page": 4,
+      "file": "figure-01.png",
+      "width": 1638,
+      "height": 343,
+      "bbox": [
+        72.0,
+        387.38427734375,
+        539.95263671875,
+        485.031982421875
+      ]
+    },
+    {
+      "id": "workflow",
+      "number": 2,
+      "page": 5,
+      "file": "figure-02.png",
+      "width": 1638,
+      "height": 519,
+      "bbox": [
+        72.0,
+        72.00048828125,
+        539.9959716796875,
+        220.17401123046875
+      ]
+    },
+    {
+      "id": "taxonomy",
+      "number": 3,
+      "page": 13,
+      "file": "figure-03.png",
+      "width": 1638,
+      "height": 663,
+      "bbox": [
+        72.0,
+        72.00871276855469,
+        539.9605102539062,
+        261.30401611328125
+      ]
+    },
+    {
+      "id": "framework",
+      "number": 4,
+      "page": 14,
+      "file": "figure-04.png",
+      "width": 1638,
+      "height": 1249,
+      "bbox": [
+        72.0,
+        72.00482177734375,
+        539.96875,
+        428.7690124511719
+      ]
+    },
+    {
+      "id": "demonstration",
+      "number": 5,
+      "page": 17,
+      "file": "figure-05.png",
+      "width": 1639,
+      "height": 607,
+      "bbox": [
+        72.0,
+        71.99946594238281,
+        540.0030517578125,
+        245.10302734375
+      ]
+    },
+    {
+      "id": "clearance",
+      "number": 7,
+      "page": 27,
+      "file": "figure-07.png",
+      "width": 1638,
+      "height": 444,
+      "bbox": [
+        72.0,
+        72.00379943847656,
+        539.9512939453125,
+        198.68402099609375
+      ]
+    },
+    {
+      "id": "simulation",
+      "number": 8,
+      "page": 31,
+      "file": "figure-08.png",
+      "width": 1638,
+      "height": 1665,
+      "bbox": [
+        72.0,
+        134.88433837890625,
+        539.9668579101562,
+        610.552978515625
+      ]
+    },
+    {
+      "id": "hardware",
+      "number": 11,
+      "page": 39,
+      "file": "figure-11.png",
+      "width": 1638,
+      "height": 917,
+      "bbox": [
+        72.0,
+        71.99850463867188,
+        539.96875,
+        333.4620056152344
+      ]
+    },
+    {
+      "id": "tracking",
+      "number": 12,
+      "page": 41,
+      "file": "figure-12.png",
+      "width": 1638,
+      "height": 684,
+      "bbox": [
+        72.0,
+        72.00050354003906,
+        539.994384765625,
+        267.14599609375
+      ]
+    }
+  ]
+}

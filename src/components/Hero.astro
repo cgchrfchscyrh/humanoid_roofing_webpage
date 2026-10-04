@@ -1,0 +1,151 @@
+---
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+const fig = site.figures.find((f) => f.id === site.heroFigure)!;
+---
+
+<section class="hero" aria-labelledby="paper-title">
+  <div class="hero-text">
+    <p class="eyebrow">{site.venue}</p>
+    <h1 id="paper-title" class="paper-title">
+      {site.title}
+    </h1>
+    <p class="hero-question">{site.heroIntro}</p>
+    <ul class="authors">
+      {
+        site.authors.map((a) => (
+          <li>
+            <>
+              <a href={`mailto:${a.email}`}>{a.name}</a>
+              <sup>
+                <a
+                  href={`#affiliation-${a.aff}`}
+                  aria-label={`Affiliation ${a.aff}`}
+                >
+                  {a.aff}
+                </a>
+              </sup>
+            </>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="correspondence">Corresponding author: Shuai Li</p>
+    <ol class="affiliations">
+      {
+        site.affiliations.map((aff, i) => (
+          <li id={`affiliation-${i + 1}`}>{aff}</li>
+        ))
+      }
+    </ol>
+    <div class="actions">
+      <a class="button light" href={site.paperUrl}
+        >Read the preprint <span aria-hidden="true">↗</span></a
+      ><a class="button outline" href={site.repo}
+        >{site.repoLabel} <span aria-hidden="true">↗</span></a
+      ><a class="button outline" href={asset("paper/")}>Explore the research</a>
+    </div>
+  </div>
+  <div class="hero-media">
+    <figure class="context-media">
+      <div class="media-label">
+        <span>01 / The real-world context</span><span
+          >Silent clip · {site.contextDuration} s</span
+        >
+      </div>
+      <video
+        id="context-video"
+        controls
+        muted
+        playsinline
+        preload="metadata"
+        poster={asset("media/poster.jpg")}
+        width="1280"
+        height="720"
+        aria-label={site.contextTitle}
+        aria-describedby="context-summary"
+      >
+        <source src={asset("media/context.mp4")} type="video/mp4" />
+        <track
+          kind="descriptions"
+          src={asset("media/context-descriptions.vtt")}
+          srclang="en"
+          label="English visual descriptions"
+        />
+        <p>
+          <a href={asset("media/context.mp4")}
+            >Download the silent context video (MP4)</a
+          >. A complete description follows.
+        </p>
+      </video>
+      <figcaption>
+        <strong>{site.contextTitle}</strong><p id="context-summary">
+          {site.contextDescription}
+        </p><a href="#media-description">Read video description & source</a
+        ><button
+          class="video-toggle"
+          id="video-toggle"
+          hidden
+          aria-controls="context-video">Play context clip</button
+        ><span id="video-status" class="sr-only" role="status"></span>
+      </figcaption>
+    </figure>
+    <figure class="study-media">
+      <div class="media-label">
+        <span>02 / The research setting</span><span
+          >Paper figure {fig.number}</span
+        >
+      </div>
+      <div class="study-image">
+        <img
+          src={asset(`figures/${fig.file}`)}
+          width={fig.width}
+          height={fig.height}
+          alt={fig.alt}
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption>
+        <strong>{site.heroFigureLabel}</strong><p>{site.heroFigureCaption}</p><a
+          href={asset(`results/#figure-${fig.id}`)}
+          >Read figure {fig.number} description</a
+        >
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<script>
+  const video = document.querySelector<HTMLVideoElement>("#context-video");
+  const button = document.querySelector<HTMLButtonElement>("#video-toggle");
+  const status = document.querySelector<HTMLElement>("#video-status");
+  if (video && button) {
+    button.hidden = false;
+    // The explicit button is the initial control; reveal native controls on play.
+    video.controls = false;
+    video.addEventListener("play", () => {
+      video.controls = true;
+    });
+    const update = () => {
+      button.textContent = video.ended
+        ? "Replay context clip"
+        : video.paused
+          ? "Play context clip"
+          : "Pause context clip";
+    };
+    for (const event of ["play", "pause", "ended"])
+      video.addEventListener(event, update);
+    button.addEventListener("click", async () => {
+      if (video.paused) {
+        if (video.ended) video.currentTime = 0;
+        try {
+          video.controls = true;
+          await video.play();
+        } catch {
+          if (status)
+            status.textContent =
+              "The clip could not play. Use the video source link or read its description.";
+        }
+      } else video.pause();
+    });
+  }
+</script>

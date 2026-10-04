@@ -66,12 +66,49 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Audit dependencies and verify deployment scope
+        run: npm run audit:security
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Lint source
+        run: npm run lint
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Check Astro and TypeScript
+        run: npm run check
+        working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
+          node scripts/apply-csp.mjs
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Install accessibility test browser
+        run: npx playwright install --with-deps chromium
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Verify WCAG 2.1 AA before deployment
+        env:
+          TEST_URL: http://127.0.0.1:4332${{ steps.pages.outputs.base_path }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          rm -f reports/axe-wcag21aa.json
+          npm run preview -- --host 127.0.0.1 --port 4332 > /tmp/research-preview.log 2>&1 &
+          preview_ready=false
+          for attempt in $(seq 1 30); do
+            if curl --silent --fail "$TEST_URL/" > /dev/null; then preview_ready=true; break; fi
+            sleep 1
+          done
+          if [ "$preview_ready" != true ]; then
+            cat /tmp/research-preview.log
+            exit 1
+          fi
+          npm run test:a11y
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Save accessibility report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: ${{ env.BUILD_PATH }}/reports/axe-wcag21aa.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

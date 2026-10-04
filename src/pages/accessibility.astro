@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MediaCredit from "../components/MediaCredit.astro";
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+---
+
+<Layout title={`Accessibility & media credits — ${site.wordmark}`}>
+  <div class="reading-container">
+    <header class="page-title">
+      <p class="eyebrow">Access & attribution</p><h1>
+        Accessibility & media credits
+      </h1><p class="lead">The design target is WCAG 2.1 Level A and AA.</p><p>
+        This author-maintained research site uses semantic HTML, a neutral
+        palette, keyboard-operable controls, and descriptive alternatives for
+        research media. Automated checks are part of the deployment workflow;
+        they do not establish complete ADA or WCAG conformance.
+      </p>
+    </header>
+    <div class="prose">
+      <section>
+        <h2>Using this site</h2><ul>
+          <li>
+            The first keyboard link skips to the main content. Keyboard focus is
+            visible throughout the page.
+          </li><li>
+            Videos start only when you choose to play them. Native player
+            controls and a separate play/pause button are available. No video
+            loops automatically.
+          </li><li>
+            The context clip has no audio track. A complete visual description
+            appears below the main content; a timed description track is also
+            provided.
+          </li><li>
+            Paper figures have descriptive alternatives and longer explanations.
+            Results appear as labeled values and structured tables, so color is
+            not required to understand them.
+          </li><li>
+            At narrow widths, content reflows into a single column. Wide data
+            tables and BibTeX text scroll within their own focusable areas.
+          </li><li>
+            Core content, all result comparisons, and media controls remain
+            available without JavaScript.
+          </li>
+        </ul>
+      </section>
+      <section id="attachments">
+        <h2>Papers, figures & data attachments</h2><p>
+          The <a href={asset("paper/")}>HTML research guide</a> is a companion to
+          the paper, not its complete text. <a href={asset("results/")}
+            >HTML result tables and figure descriptions</a
+          > accompany the downloadable CSV data and images.
+        </p><p>
+          The supplied roofing manuscript PDF is untagged. We link to the exact
+          arXiv v1 record, its original PDF, and arXiv’s experimental full-text
+          HTML rendering. The HTML research guide on this website covers
+          selected content only; it does not replace the full paper.
+        </p><p>
+          The original uploaded PDF has not been altered or republished here. We
+          have not certified external PDF reading order, mathematical
+          accessibility, or assistive-technology behavior. CSV files are plain
+          data; the HTML tables provide captions and row/column headers.
+        </p>
+      </section>
+      <section>
+        <h2>Checks and remaining review</h2><p>
+          The repository includes an axe-core check against WCAG 2.1 A/AA rules,
+          plus checks for keyboard navigation, media behavior, image
+          alternatives, 320 CSS-pixel reflow, text spacing, and content with
+          JavaScript disabled. A failing check blocks automatic deployment. See <a
+            href={`${site.siteRepo}/actions`}>the deployment checks</a
+          > and <a href={`${site.siteRepo}/blob/main/ACCESSIBILITY.md`}
+            >the review record</a
+          >.
+        </p><p>
+          Automated coverage is limited. A full review with multiple screen
+          readers, users with disabilities, and institutional accessibility and
+          brand reviewers remains outside the completed technical checks. This
+          page does not claim an ADA or WCAG certification.
+        </p>
+      </section>
+      <section>
+        <h2>Report an access barrier</h2><p>
+          Email <a href="mailto:liusongyang@ufl.edu"
+            >Songyang Liu at liusongyang@ufl.edu</a
+          >. Please include the page, the content you need, and the browser or
+          assistive technology involved so we can help provide a usable format.
+        </p>
+      </section>
+      <section>
+        <h2>Institutional identity & privacy</h2><p>
+          Author affiliations are reproduced from the paper. The website does
+          not use the UF logo, seal, or blue/orange identity palette. The
+          institutional disclaimer appears on every page. A neutral visual
+          design is not a substitute for institutional brand approval.
+        </p><p>
+          This static site loads its fonts, figures, and short video excerpt
+          locally. It uses no analytics, advertising, or embedded third-party
+          players. Following an external link opens the provider’s site, where
+          that provider’s privacy practices apply.
+        </p>
+      </section>
+    </div>
+    <div class="section"><MediaCredit /></div>
+    <section class="section">
+      <h2>Research figure credits</h2><p>
+        Selected figures come from the user-supplied arXiv preprint by {
+          site.authors.map((a) => a.name).join(", ")
+        }. Figure numbers, original third-party credits where present, and
+        descriptive explanations appear on the <a
+          href={asset("results/#figures")}>results and figures page</a
+        >. Rights in research papers and third-party media remain with their
+        respective holders.
+      </p>
+    </section>
+  </div>
+</Layout>

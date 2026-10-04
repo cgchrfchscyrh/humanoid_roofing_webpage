@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { asset } from "../data/paths";
+---
+
+<Layout title="Page not found"
+  ><div class="reading-container page-title">
+    <p class="eyebrow">404</p><h1>Page not found</h1><p>
+      The requested page may have moved. Return to the project to find the
+      paper, figures, and results.
+    </p><a class="button dark" href={asset()}>Return to the project overview</a>
+  </div></Layout
+>

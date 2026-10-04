@@ -1,0 +1,118 @@
+---
+import "@fontsource-variable/ibm-plex-sans";
+import "../styles/global.css";
+import site from "../data/site.json";
+import { asset } from "../data/paths";
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = site.title, description = site.description } = Astro.props;
+const isNotFound = /\/404(?:\/|\.html)?$/.test(Astro.url.pathname);
+const canonical =
+  Astro.site && !isNotFound
+    ? new URL(Astro.url.pathname, Astro.site).href
+    : undefined;
+const nav = [
+  { name: "Overview", href: asset() },
+  { name: "Research guide", href: asset("paper/") },
+  { name: "Results & figures", href: asset("results/") },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#202020" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    {isNotFound && <meta name="robots" content="noindex" />}
+    <meta name="citation_title" content={site.title} />
+    {
+      site.authors.map((author) => (
+        <meta name="citation_author" content={author.name} />
+      ))
+    }
+    <meta name="citation_publication_date" content={site.year} />
+    <meta name="citation_doi" content={site.doi} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {
+      canonical && (
+        <>
+          <>
+            <link rel="canonical" href={canonical} />
+            <meta property="og:url" content={canonical} />
+            <meta
+              property="og:image"
+              content={new URL(asset("figures/figure-11.png"), Astro.site).href}
+            />
+            <meta
+              property="og:image:alt"
+              content={site.figures.find((f) => f.id === "hardware")!.alt}
+            />
+          </>
+        </>
+      )
+    }
+    <link rel="icon" type="image/svg+xml" href={asset("favicon.svg")} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <a
+        class="wordmark"
+        href={asset()}
+        aria-label={`${site.wordmark} — project home`}
+        ><span class="mark" aria-hidden="true">↗</span>{site.wordmark}</a
+      >
+      <nav aria-label="Main navigation">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={
+                Astro.url.pathname.replace(/\/$/, "") ===
+                item.href.replace(/\/$/, "")
+                  ? "page"
+                  : undefined
+              }
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <span class="wordmark">{site.wordmark}</span><a href="#main"
+          >Back to top ↑</a
+        >
+      </div>
+      <p>
+        The research, findings, and opinions presented here are those of the
+        authors and do not represent the official views or policies of the
+        University of Florida (UF). This is an author-maintained research
+        website, not an official UF website.
+      </p>
+      <div class="footer-links">
+        <a href={asset("accessibility/")}>Accessibility & media credits</a><a
+          href="mailto:liusongyang@ufl.edu">Contact Songyang Liu</a
+        ><a href={site.siteRepo}>Website source</a>
+      </div>
+      <p class="fine-print">
+        Based on the <a
+          href="https://github.com/RomanHauksson/academic-project-astro-template"
+          >Academic Project Astro Template</a
+        > by Roman Hauksson. No analytics or third-party video embeds. External links
+        open in the same tab.
+      </p>
+    </footer>
+  </body>
+</html>

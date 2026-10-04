@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-04",
+  "visual": [
+    "Reviewed all four content pages at desktop and 320 CSS pixels. No clipped text or broken images observed; wide tables remain internally scrollable.",
+    "Reviewed original PDF figure regions and the four transcribed result tables.",
+    "Reviewed video sequence and text/timed visual descriptions. ffprobe confirms the delivered video has no audio.",
+    "Verified neutral interface, no UF marks in layout/favicon, textual affiliations, and disclaimer on every route."
+  ],
+  "axeIncompleteResolution": {
+    "color-contrast": [
+      {
+        "text": "→",
+        "color": "rgb(36, 36, 36)",
+        "background": "rgba(0, 0, 0, 0)",
+        "rootBackground": "rgb(250, 250, 248)",
+        "decorative": "true",
+        "contrastRatio": 14.853580064897224
+      },
+      {
+        "text": "→",
+        "color": "rgb(36, 36, 36)",
+        "background": "rgba(0, 0, 0, 0)",
+        "rootBackground": "rgb(250, 250, 248)",
+        "decorative": "true",
+        "contrastRatio": 14.853580064897224
+      },
+      {
+        "text": "→",
+        "color": "rgb(36, 36, 36)",
+        "background": "rgba(0, 0, 0, 0)",
+        "rootBackground": "rgb(250, 250, 248)",
+        "decorative": "true",
+        "contrastRatio": 14.853580064897224
+      },
+      {
+        "text": "→",
+        "color": "rgb(36, 36, 36)",
+        "background": "rgba(0, 0, 0, 0)",
+        "rootBackground": "rgb(250, 250, 248)",
+        "decorative": "true",
+        "contrastRatio": 14.853580064897224
+      }
+    ],
+    "video-caption": "Delivered excerpt is video-only, with a complete descriptive text alternative and timed descriptions. No speech or meaningful sound remains in the adapted asset."
+  },
+  "limits": [
+    "No comprehensive multi-screen-reader user evaluation.",
+    "Original supplied PDF is untagged; external PDF/HTML mathematical reading order has not been certified.",
+    "No UF institutional branding/accessibility approval is claimed."
+  ]
+}
