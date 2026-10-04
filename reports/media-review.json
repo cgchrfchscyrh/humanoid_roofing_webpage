@@ -1,12 +1,13 @@
 {
-  "checkedOn": "2026-10-04",
-  "file": "public/media/context.mp4",
-  "source": "https://www.pexels.com/video/a-hard-working-man-2675565/",
-  "sourceDownload": "https://videos.pexels.com/video-files/2675565/2675565-uhd_4096_2160_24fps.mp4",
-  "license": "https://www.pexels.com/license/",
-  "creator": "Jorge Serrano",
-  "sourceInterval": "00:00\u201300:09",
-  "changes": "Trimmed to nine seconds, resized to 1280 pixels wide, H.264 encoded, audio removed; source footage has no added research annotations.",
+  "reviewedOn": "2026-10-04",
+  "file": "media/roofing-fieldwork.mp4",
+  "sourceFile": "IMG_7082 (1).MOV",
+  "sourceSha256": "aeb0c64c1bb725e82140342fac50c3994832ee4d3a606a7d964dd7d3524a6af3",
+  "sourceDurationSeconds": 35.835,
+  "sourceHasAudio": true,
+  "credit": "Source: Research team · Self-recorded roofing field footage",
+  "authorization": "User supplied the recording, identified it as self-captured, requested replacement on the roofing webpage, and selected silent presentation with a complete visual description.",
+  "changes": "Full visual sequence retained at original speed and aspect ratio. Resized from 1920×1080 to 1280×720, HLG/BT.2020 tone-mapped to SDR/BT.709, H.264 encoded, audio and capture metadata omitted. Original MOV not modified.",
   "ffprobe": {
     "programs": [],
     "streams": [
@@ -14,11 +15,21 @@
         "codec_name": "h264",
         "codec_type": "video",
         "width": 1280,
-        "height": 676,
-        "duration": "9.009000"
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "color_space": "bt709",
+        "color_transfer": "bt709",
+        "color_primaries": "bt709"
       }
-    ]
+    ],
+    "format": {
+      "duration": "35.836000",
+      "size": "12465218"
+    }
   },
-  "visualReview": "A continuous close-up of a roofer leaning toward the surface and moving the arms; sequence reviewed at one-second intervals and video playback checked. Text description and timed visual descriptions correspond to the adapted silent clip.",
-  "researchMedia": "Author selected the original paper photographs for robot experiments; no unrelated robot videos used."
+  "sha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a",
+  "descriptionTrack": "media/roofing-fieldwork-descriptions.vtt",
+  "visualReview": "Reviewed source frames at three-second intervals and converted frames at two-second intervals across the complete clip. Descriptions cover bending, reaching, stance changes, walking and crouching; no tool model, exact location, or unverified task outcome is asserted. Desktop and 320-pixel media layouts were inspected; poster and controls remain visible without clipping.",
+  "claimBoundary": "Self-recorded human roofing field footage provides study context. Physical robot experiment photographs and paper results remain separate.",
+  "sourceUnchangedVerified": true
 }

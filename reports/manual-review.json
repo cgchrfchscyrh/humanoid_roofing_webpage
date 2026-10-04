@@ -3,7 +3,7 @@
   "visual": [
     "Reviewed all four content pages at desktop and 320 CSS pixels. No clipped text or broken images observed; wide tables remain internally scrollable.",
     "Reviewed original PDF figure regions and the four transcribed result tables.",
-    "Reviewed video sequence and text/timed visual descriptions. ffprobe confirms the delivered video has no audio.",
+    "Reviewed the complete self-recorded field video and its full/timed visual descriptions. The delivered file is silent per the user’s selection; its original MOV is unchanged. Updated desktop and 320-pixel media layouts inspected.",
     "Verified neutral interface, no UF marks in layout/favicon, textual affiliations, and disclaimer on every route."
   ],
   "axeIncompleteResolution": {
@@ -41,7 +41,7 @@
         "contrastRatio": 14.853580064897224
       }
     ],
-    "video-caption": "Delivered excerpt is video-only, with a complete descriptive text alternative and timed descriptions. No speech or meaningful sound remains in the adapted asset."
+    "video-caption": "The author selected silent presentation of the full self-recorded video. The delivered copy has only a video stream and includes full and timed visual descriptions; it contains no speech or other sound to caption."
   },
   "limits": [
     "No comprehensive multi-screen-reader user evaluation.",

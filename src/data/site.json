@@ -51,17 +51,15 @@
       "label": "motions demonstrated on the physical G1"
     }
   ],
-  "contextTitle": "The task starts at the roof surface.",
-  "contextDescription": "A roofer bends toward a pitched surface and works close to the shingles. This independent footage illustrates the work context; it is not a demonstration collected for the study.",
-  "contextCredit": "Jorge Serrano / Pexels · “A Hard Working Man” · 2019",
-  "contextUrl": "https://www.pexels.com/video/a-hard-working-man-2675565/",
-  "contextDuration": 9,
+  "contextTitle": "Roofing in the field, captured by our team.",
+  "contextDescription": "A worker moves across a pitched roof, bends toward the surface, and works with a handheld tool. Self-recorded footage by the research team illustrates the movements that motivate this study.",
+  "contextCredit": "Source: Research team · Self-recorded roofing field footage",
+  "contextDuration": 35.8,
   "contextDetails": [
-    "A continuous close-up shows a roofer in a brimmed hat, long-sleeved shirt, high-visibility straps, and a tool belt. The worker leans toward the sloping roof, extends both arms toward the shingles, briefly shifts the torso, and continues working near the surface. A hand tool and roofing material are visible at the lower edge; trees form the distant background. The view emphasizes the coupling of a low working posture with arm movement near a slope.",
-    "This silent nine-second excerpt covers source time 00:00–00:09. The source audio was removed for this visual context excerpt. It is third-party stock footage, separate from the authors’ demonstration collection and robot experiments. No endorsement by the filmmaker or the person shown is implied."
+    "A continuous outdoor view shows a worker on the pale sheathing of an unfinished pitched roof. Exposed timber framing is visible below and beside the roof; nearby houses, trees, and a cloudy sky fill the background. The worker repeatedly bends at the waist and knees, reaches toward the roof with a handheld tool, and briefly straightens. After several short steps to another position on the slope, the worker resumes working close to the surface. Later, the worker stands, repositions again, and lowers into a deeper crouch before continuing near the roof plane. The camera shifts slightly during the recording.",
+    "This is the complete approximately 36-second video supplied by the research team. It is presented without audio at the original playback speed. The field footage illustrates the coordination of movement, low working postures, and reaching on a slope; the paper’s physical-robot experiments are shown separately in the adjacent figure."
   ],
-  "contextLicense": "Used under the Pexels License. The excerpt is trimmed, resized, re-encoded, and presented without audio. Source credit and a link to the original are retained.",
-  "contextLicenseUrl": "https://www.pexels.com/license/",
+  "contextLicense": "Original footage supplied by the research team for this project website. The original recording is preserved unchanged; this web viewing copy is resized and converted for browser playback, with its audio omitted as requested.",
   "steps": [
     {
       "title": "Capture the human motion",
@@ -472,5 +470,8 @@
         ["Bending", "5", "6.56", "61.42 ± 19.09"]
       ]
     }
-  ]
+  ],
+  "contextVideo": "media/roofing-fieldwork.mp4",
+  "contextPoster": "media/roofing-fieldwork.jpg",
+  "contextTrack": "media/roofing-fieldwork-descriptions.vtt"
 }
