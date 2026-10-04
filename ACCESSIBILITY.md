@@ -30,3 +30,5 @@ The deployed GitHub Actions run also passed all 10 axe scans and 91 functional c
 ## Self-recorded video replacement
 
 The author supplied `IMG_7082 (1).MOV` and selected silent presentation. The complete visual sequence is retained without cropping, trimming, speed changes or added motion. A browser-compatible H.264/SDR copy replaces the earlier stock clip, with a new poster, local media filenames and timed/full visual descriptions. The original source contains audio; the delivered viewing copy intentionally has no audio track. The source MOV remains unchanged, with its SHA-256 recorded in `reports/media-review.json`. This footage illustrates field work; it does not change the manuscript’s reported experiments or results.
+
+The self-recorded-video deployment passed all 10 CI axe scans and 91 functional checks. The live page was verified to use `roofing-fieldwork.mp4` with its full 35.836-second duration, team credit, initially paused playback, working play/pause controls, and no browser errors. Five live pages and 30 resources were checked; public media hashes match the source files.

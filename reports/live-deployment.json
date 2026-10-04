@@ -74,8 +74,8 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 23143,
-      "sha256": "7fdd1c753db3e5fb7f90f70fff58411fe229b6aadb09754bdf92621c021a33e8"
+      "bytes": 23449,
+      "sha256": "c12c4b8ff4a865382649fa326fd2f52f855523261741e6dd4430592eaacb6ce7"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/404.html",
@@ -137,8 +137,8 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 9338,
-      "sha256": "a65b93386248c898989c5a762105d43aaa9b79137637cfda48aac6a0759bc736"
+      "bytes": 9605,
+      "sha256": "f0dc44ea534d2104c6dc014418dd9eded7a253df1bb067f6dd39f73db601fd9e"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/citation.bib",
@@ -261,27 +261,27 @@
       "matchesSource": true
     },
     {
-      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/context-descriptions.vtt",
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork-descriptions.vtt",
       "status": 200,
       "contentType": "text/vtt; charset=utf-8",
-      "bytes": 529,
-      "sha256": "028a074bc7a8d2b92f735535d84bfc972227e54017cf2325e9940b6b9abdbb6a",
+      "bytes": 863,
+      "sha256": "5df1e4341893433ef87ac95653db9dc1c3d7ea47bc755ea27844ea1ec1f81af6",
       "matchesSource": true
     },
     {
-      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/context.mp4",
-      "status": 200,
-      "contentType": "video/mp4",
-      "bytes": 1527501,
-      "sha256": "75db8a3b3044e1c9019da4b44a195b5ac61bcf234e4358fbc746a30b807022a4",
-      "matchesSource": true
-    },
-    {
-      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/poster.jpg",
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork.jpg",
       "status": 200,
       "contentType": "image/jpeg",
-      "bytes": 30206,
-      "sha256": "ae68ac05034204fe7595087530abc7c49b1c147f63a74b8e4a71af3c70b2d68f",
+      "bytes": 57060,
+      "sha256": "64a563046d3b0a3b82baf2385fb26ae71bca0c55dead3e080c03f8524465b044",
+      "matchesSource": true
+    },
+    {
+      "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork.mp4",
+      "status": 200,
+      "contentType": "video/mp4",
+      "bytes": 12465218,
+      "sha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a",
       "matchesSource": true
     },
     {
@@ -301,7 +301,7 @@
   ],
   "mediaRangeRequest": {
     "status": 206,
-    "contentRange": "bytes 0-1023/1527501",
+    "contentRange": "bytes 0-1023/12465218",
     "contentType": "video/mp4"
   },
   "errors": [],

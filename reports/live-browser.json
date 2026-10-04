@@ -1,7 +1,19 @@
 {
-  "date": "2026-10-04T17:32:16.299Z",
+  "date": "2026-10-04T18:37:56.785Z",
   "site": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
   "checks": [
+    {
+      "name": "Uploaded self-recorded video is used",
+      "passed": true
+    },
+    {
+      "name": "Research-team credit is visible",
+      "passed": true
+    },
+    {
+      "name": "Full video duration is retained",
+      "passed": true
+    },
     {
       "name": "Initially paused",
       "passed": true
