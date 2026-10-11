@@ -1,6 +1,6 @@
 {
   "checkedOn": "2026-10-11",
-  "checkedAt": "2026-10-11T19:27:34.816695+00:00",
+  "checkedAt": "2026-10-11T19:42:28.546747+00:00",
   "site": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
   "httpsEnforced": true,
   "pages": [
@@ -80,8 +80,8 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 37312,
-      "sha256": "dc56c236e405586aeb2f41d006f8565c10abcdeeb2c8999d9c8c7c3f55c82722"
+      "bytes": 37287,
+      "sha256": "1c138541a84d1c50def217c4a152417c488cbee0cd90d35106ed12343bbd3b00"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/404.html",
@@ -143,8 +143,8 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/accessibility/",
       "status": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytes": 15223,
-      "sha256": "4191031524c5761e1a10aff3a9181e8c733a935632c7ed3cd6ce10e2ba5b190e"
+      "bytes": 15159,
+      "sha256": "d41ce2601f68911308266fb4d66afadfb5ccc5726e21917f6ad4618370f54e3d"
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/citation.bib",
@@ -270,8 +270,8 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero-descriptions.vtt",
       "status": 200,
       "contentType": "text/vtt; charset=utf-8",
-      "bytes": 627,
-      "sha256": "746578339d420c61478e2625aa7e693f87ad17bfc24da4ac6baab6a0dfaf9213",
+      "bytes": 554,
+      "sha256": "2f824948653e35cf4059a40284ea73243a7fc77a78e16e778c2dd3fc9365a85b",
       "matchesSource": true
     },
     {
@@ -286,32 +286,32 @@
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero.mp4",
       "status": 200,
       "contentType": "video/mp4",
-      "bytes": 4373035,
-      "sha256": "21971766abc87744044330b8541ebb8bcd15e34d3cb99073a1cecc13f9ef91bd",
+      "bytes": 2458895,
+      "sha256": "fb32a8d7b863dc51e1e2652a3753257144b0a4460b1776d5261f90380031919b",
       "matchesSource": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights-descriptions.vtt",
       "status": 200,
       "contentType": "text/vtt; charset=utf-8",
-      "bytes": 1435,
-      "sha256": "4e2910d1d90d679193cec5bfc6bc0f466e368173e99600bf9a4bf3c3ab479f97",
+      "bytes": 1131,
+      "sha256": "cf76f811799bf6c9a2c00c191776786fd7dfa6945598de43ca3a30bb6bde2851",
       "matchesSource": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.jpg",
       "status": 200,
       "contentType": "image/jpeg",
-      "bytes": 139906,
-      "sha256": "6340be9801cc30683f7a1c6838bf0f62a355c20f8461214e3478e601f2bb3740",
+      "bytes": 142752,
+      "sha256": "773465cdcb52c2b4fc348a43d3db63da1f83f17244c676f4a416876f47c84738",
       "matchesSource": true
     },
     {
       "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.mp4",
       "status": 200,
       "contentType": "video/mp4",
-      "bytes": 5880287,
-      "sha256": "5256499c438e016dfebbc76f534d95352b84c4d3c2868ba32251db21af41e93a",
+      "bytes": 2806562,
+      "sha256": "cfd1ed50868b31a0844231b74332d1725f0e2c8115ffc95de198c009fbb25b6e",
       "matchesSource": true
     },
     {
@@ -363,13 +363,13 @@
     {
       "file": "g1-roofing-hero.mp4",
       "status": 206,
-      "contentRange": "bytes 0-1023/4373035",
+      "contentRange": "bytes 0-1023/2458895",
       "contentType": "video/mp4"
     },
     {
       "file": "g1-roofing-highlights.mp4",
       "status": 206,
-      "contentRange": "bytes 0-1023/5880287",
+      "contentRange": "bytes 0-1023/2806562",
       "contentType": "video/mp4"
     }
   ],

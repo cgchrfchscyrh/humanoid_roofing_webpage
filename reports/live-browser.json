@@ -1,6 +1,6 @@
 {
   "checkedOn": "2026-10-11",
-  "checkedAt": "2026-10-11T19:27:35.966Z",
+  "checkedAt": "2026-10-11T19:42:28.334Z",
   "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
   "initiallyPaused": true,
   "sections": [
@@ -26,7 +26,7 @@
     {
       "id": "g1-hero-video",
       "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero.mp4",
-      "duration": 12,
+      "duration": 7,
       "paused": true,
       "rate": 1,
       "controls": true,
@@ -36,7 +36,7 @@
     {
       "id": "g1-highlights-video",
       "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.mp4",
-      "duration": 33.033984,
+      "duration": 16.6,
       "paused": true,
       "rate": 1,
       "controls": true,

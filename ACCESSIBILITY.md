@@ -39,7 +39,7 @@ Axe requested manual review of 20 title/arrow contrast nodes and three video-cap
 
 ## Deployment and live verification — 11 October 2026
 
-GitHub Actions run [38167971851](https://github.com/cgchrfchscyrh/humanoid_roofing_webpage/actions/runs/38167971851) successfully deployed commit `31105896d6b8e4dafdf5e7474e1b2a50a9f4d334`. Its independent CI report contains 11 axe scans and 121 functional checks, with zero recorded violations or errors (`reports/ci/axe-wcag21aa.json`).
+GitHub Actions run [38169013259](https://github.com/cgchrfchscyrh/humanoid_roofing_webpage/actions/runs/38169013259) successfully deployed commit `c01b35c9bd94b01c7f3f4a0e4acf2543ac8e4915`. Its independent CI report contains 11 axe scans and 121 functional checks, with zero recorded violations or errors (`reports/ci/axe-wcag21aa.json`).
 
 The live resource check verified five routes, 36 resources, and 40 internal fragment links. All public asset hashes matched local files, including the three MP4s, posters, and description tracks. All three media range requests returned 206; HTTPS is enforced. Observed security response headers and hosting limitations are recorded in `reports/live-deployment.json` and `SECURITY.md`. The custom missing-page response retains the disclaimer and access to the main site. Live Chrome verification also confirmed initially paused media, keyboard play/pause for both groups, full-frame toggling, the 7- and 16.6-second G1 files, and a 320-pixel layout without horizontal overflow or browser errors (`reports/live-browser.json`).
 
