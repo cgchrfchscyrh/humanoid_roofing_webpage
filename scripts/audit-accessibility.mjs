@@ -514,6 +514,80 @@ try {
     "Reduced-motion visit does not start any of the three videos",
   );
   await reduced.close();
+
+  // Hold real media responses so play() remains pending when Pause is pressed.
+  const bufferingPage = await context.newPage();
+  let releaseMedia;
+  const mediaGate = new Promise((resolve) => {
+    releaseMedia = resolve;
+  });
+  const pendingRoutes = new Set();
+  bufferingPage.on("pageerror", (error) => report.errors.push(error.message));
+  await bufferingPage.route(/\.mp4(?:\?|$)/, async (route) => {
+    const continued = mediaGate.then(() => route.continue());
+    pendingRoutes.add(continued);
+    try {
+      await continued;
+    } catch (error) {
+      if (!bufferingPage.isClosed()) report.errors.push(error.message);
+    } finally {
+      pendingRoutes.delete(continued);
+    }
+  });
+  try {
+    await bufferingPage.goto(base + "/", { waitUntil: "domcontentloaded" });
+    for (const [buttonId, videoIds, label] of [
+      [
+        "hero-playback-toggle",
+        ["context-video", "g1-hero-video"],
+        "Title pair",
+      ],
+      ["highlights-toggle", ["g1-highlights-video"], "G1 highlights"],
+    ]) {
+      const toggle = bufferingPage.locator("#" + buttonId);
+      await toggle.waitFor({ state: "visible" });
+      await toggle.focus();
+      await bufferingPage.keyboard.press("Enter");
+      await bufferingPage.waitForFunction(
+        ({ buttonId, videoIds }) =>
+          document.getElementById(buttonId).getAttribute("aria-busy") ===
+            "true" &&
+          videoIds.every((id) => !document.getElementById(id).paused),
+        { buttonId, videoIds },
+      );
+      check(
+        await bufferingPage.evaluate(
+          (ids) =>
+            ids.every((id) => {
+              const video = document.getElementById(id);
+              return video.readyState === 0 && video.currentTime === 0;
+            }),
+          videoIds,
+        ),
+        label + ": keyboard play remains busy while MP4 requests are held",
+      );
+      await bufferingPage.keyboard.press("Space");
+      await bufferingPage.waitForFunction(
+        (ids) => ids.every((id) => document.getElementById(id).paused),
+        videoIds,
+        { timeout: 5000 },
+      );
+      check(
+        !(await toggle.getAttribute("aria-busy")) &&
+          (await bufferingPage.locator("#media-status").innerText()).trim() ===
+            "" &&
+          (await toggle.innerText()) ===
+            (await toggle.getAttribute("data-idle-label")),
+        label +
+          ": keyboard pause cancels buffered playback, clears busy, and shows no error",
+      );
+    }
+  } finally {
+    // Always release before closing: even a failed assertion cannot strand routes.
+    releaseMedia();
+    await Promise.allSettled([...pendingRoutes]);
+    await bufferingPage.close();
+  }
 } catch (e) {
   report.errors.push(e.stack || String(e));
 } finally {

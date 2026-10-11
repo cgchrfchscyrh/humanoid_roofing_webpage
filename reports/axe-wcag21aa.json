@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-11T19:18:23.076Z",
+  "date": "2026-10-11T19:25:18.350Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -356,7 +356,11 @@
     "Homepage reflows at 320 CSS px without JavaScript",
     "Citation remains readable without JavaScript",
     "Unavailable JavaScript copy control is hidden",
-    "Reduced-motion visit does not start any of the three videos"
+    "Reduced-motion visit does not start any of the three videos",
+    "Title pair: keyboard play remains busy while MP4 requests are held",
+    "Title pair: keyboard pause cancels buffered playback, clears busy, and shows no error",
+    "G1 highlights: keyboard play remains busy while MP4 requests are held",
+    "G1 highlights: keyboard pause cancels buffered playback, clears busy, and shows no error"
   ],
   "errors": [],
   "limitations": [
