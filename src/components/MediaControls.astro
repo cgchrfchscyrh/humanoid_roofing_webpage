@@ -1,0 +1,83 @@
+<script>
+  const videos = [
+    ...document.querySelectorAll<HTMLVideoElement>(
+      "video[data-playback-group]",
+    ),
+  ];
+  const status = document.querySelector<HTMLElement>("#media-status");
+  for (const video of videos) {
+    video.addEventListener("play", () => {
+      for (const other of videos) {
+        if (
+          other !== video &&
+          other.dataset.playbackGroup !== video.dataset.playbackGroup
+        )
+          other.pause();
+      }
+    });
+  }
+  for (const button of document.querySelectorAll<HTMLButtonElement>(
+    "button[data-media-control]",
+  )) {
+    const ids = (button.getAttribute("aria-controls") || "").split(/\s+/);
+    const targets = ids
+      .map((id) => document.getElementById(id))
+      .filter(
+        (element): element is HTMLVideoElement =>
+          element instanceof HTMLVideoElement,
+      );
+    if (!targets.length) continue;
+    button.hidden = false;
+    const update = () => {
+      button.textContent = targets.some(
+        (video) => !video.paused && !video.ended,
+      )
+        ? button.dataset.pauseLabel!
+        : targets.some((video) => video.ended)
+          ? button.dataset.replayLabel!
+          : button.dataset.idleLabel!;
+    };
+    for (const video of targets) {
+      for (const event of ["play", "pause", "ended", "error"])
+        video.addEventListener(event, update);
+    }
+    let busy = false;
+    button.addEventListener("click", async () => {
+      if (busy) return;
+      if (targets.some((video) => !video.paused && !video.ended)) {
+        targets.forEach((video) => video.pause());
+        return;
+      }
+      if (targets.some((video) => video.ended))
+        targets.forEach((video) => {
+          video.currentTime = 0;
+        });
+      busy = true;
+      button.setAttribute("aria-busy", "true");
+      const results = await Promise.allSettled(
+        targets.map((video) => video.play()),
+      );
+      if (results.some((result) => result.status === "rejected")) {
+        targets.forEach((video) => video.pause());
+        if (status)
+          status.textContent =
+            "Playback could not start. Use the native player controls, download the clip, or read the video description.";
+      } else if (status) status.textContent = "";
+      busy = false;
+      button.removeAttribute("aria-busy");
+      update();
+    });
+  }
+  const view = document.querySelector<HTMLButtonElement>("#hero-view-toggle");
+  const stage = document.querySelector<HTMLElement>("#hero-stage");
+  if (view && stage) {
+    view.hidden = false;
+    view.addEventListener("click", () => {
+      const full = stage.classList.toggle("full-frames");
+      view.setAttribute("aria-pressed", String(full));
+      view.textContent = full
+        ? "Restore title background"
+        : "Show full video frames";
+    });
+  }
+</script>

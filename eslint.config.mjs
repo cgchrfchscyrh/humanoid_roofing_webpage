@@ -3,7 +3,6 @@ import globals from "globals";
 import typescript from "typescript-eslint";
 import astro from "eslint-plugin-astro";
 import json from "@eslint/json";
-import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
@@ -29,12 +28,6 @@ export default defineConfig([
     plugins: { json },
     language: "json/json",
     extends: [json.configs.recommended],
-  },
-  {
-    files: ["**/*.md"],
-    plugins: { markdown },
-    language: "markdown/gfm",
-    extends: [markdown.configs.recommended],
   },
   {
     files: ["**/*.css"],

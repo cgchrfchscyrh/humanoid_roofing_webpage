@@ -1,10 +1,10 @@
-# Security review — 4 October 2026
+# Security review — 11 October 2026
 
 Only static `dist/` files are deployed to GitHub Pages. Node.js and Astro run during the build, not as a public application server. The website has no accounts, forms, analytics, embedded third-party players, remote-image transformations, or authenticated shared caches. Media and fonts are hosted locally.
 
 ## Dependencies
 
-The dependency audit on 4 October 2026 reports **zero vulnerabilities**. The previously affected transitive package `http-cache-semantics` was updated to **4.3.0**, resolving the finding affecting 4.2.0. The current audit script has **no advisory exceptions**: any reported vulnerability or audit failure blocks the workflow. The raw results are retained in `reports/security-audit.json`, with a dated summary in `reports/security-review.json`. This is a point-in-time dependency check, not a guarantee against future vulnerabilities.
+The dependency audit on 11 October 2026 reports **zero vulnerabilities**. The unused `@eslint/markdown` checker was removed together with its transitive KaTeX dependency after [GHSA-238p-pmpm-9mq7](https://github.com/advisories/GHSA-238p-pmpm-9mq7) was reported. The site has no Markdown or MDX source pages; JavaScript, TypeScript, Astro, CSS, and JSON linting remain enabled. The previously affected transitive package `http-cache-semantics` remains at **4.3.0**. The current audit script has **no advisory exceptions**: any reported vulnerability or audit failure blocks the workflow. The raw results are retained in `reports/security-audit.json`, with a dated summary in `reports/security-review.json`. This is a point-in-time dependency check, not a guarantee against future vulnerabilities.
 
 ## Browser and hosting controls
 

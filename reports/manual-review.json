@@ -1,51 +1,280 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-11",
+  "scope": "Paired-video title, G1 excerpts, seven-section homepage narrative and media alternatives.",
   "visual": [
-    "Reviewed all four content pages at desktop and 320 CSS pixels. No clipped text or broken images observed; wide tables remain internally scrollable.",
-    "Reviewed original PDF figure regions and the four transcribed result tables.",
-    "Reviewed the complete self-recorded field video and its full/timed visual descriptions. The delivered file is silent per the user’s selection; its original MOV is unchanged. Updated desktop and 320-pixel media layouts inspected.",
-    "Verified neutral interface, no UF marks in layout/favicon, textual affiliations, and disclaimer on every route."
+    "Reviewed the desktop 1440-pixel title overlay, 320-pixel title-above-video layout, research sections, and 1100-pixel title with increased WCAG text spacing. No horizontal overflow; title actions clear native controls by 75.7 pixels in the tested spacing view.",
+    "Reviewed the full-frame option and original/native keyboard video controls. Automated checks cover paired play, pause, replay, exclusivity with the body highlights, description tracks, no-JavaScript controls, reduced motion and focus.",
+    "Verified the existing figures, tables, comparison values and guide data are unchanged. Research references and narrative were independently checked against the exact original PDF hash.",
+    "Verified neutral interface, no UF marks in layout/favicon, textual affiliation, and disclaimer on all five routes."
   ],
   "axeIncompleteResolution": {
     "color-contrast": [
       {
-        "text": "→",
-        "color": "rgb(36, 36, 36)",
-        "background": "rgba(0, 0, 0, 0)",
-        "rootBackground": "rgb(250, 250, 248)",
-        "decorative": "true",
-        "contrastRatio": 14.853580064897224
+        "selector": ".hero-text > .eyebrow",
+        "text": "Humanoid roofing · 2026",
+        "foreground": "rgb(238, 238, 238)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 6.890332585492312,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
       },
       {
-        "text": "→",
-        "color": "rgb(36, 36, 36)",
-        "background": "rgba(0, 0, 0, 0)",
-        "rootBackground": "rgb(250, 250, 248)",
-        "decorative": "true",
-        "contrastRatio": 14.853580064897224
+        "selector": "#paper-title",
+        "text": "Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
       },
       {
-        "text": "→",
-        "color": "rgb(36, 36, 36)",
-        "background": "rgba(0, 0, 0, 0)",
-        "rootBackground": "rgb(250, 250, 248)",
-        "decorative": "true",
-        "contrastRatio": 14.853580064897224
+        "selector": ".hero-question",
+        "text": "Learning to walk, bend, and position tools on sloped surfaces from human demonstrations.",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
       },
       {
+        "selector": "li:nth-child(1) > a[href=\"mailto:liusongyang@ufl.edu\"]",
+        "text": "Songyang Liu",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": "li:nth-child(1) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]",
+        "text": "1",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": "a[href$=\"mailto:shuai.li@ufl.edu\"]",
+        "text": "Shuai Li",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": "li:nth-child(2) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]",
+        "text": "1",
+        "foreground": "rgb(255, 255, 255)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 7.994373821198942,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": "#affiliation-1",
+        "text": "Department of Civil and Coastal Engineering, University of Florida, Gainesville, FL 32611, USA",
+        "foreground": "rgb(238, 238, 238)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 6.890332585492312,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": ".correspondence",
+        "text": "Corresponding author: Shuai Li · arXiv preprint, September 2026",
+        "foreground": "rgb(238, 238, 238)",
+        "backgroundRgb": [
+          80.546,
+          80.546,
+          80.546
+        ],
+        "contrastRatio": 6.890332585492312,
+        "method": "Dark title overlay composited over an entirely white video frame (worst case).",
+        "decorative": false
+      },
+      {
+        "selector": ".actions > .light.button:nth-child(1)",
+        "text": "Read the preprint ↗",
+        "foreground": "rgb(32, 32, 32)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 16.29325535858735,
+        "method": "First opaque element/ancestor background.",
+        "decorative": false
+      },
+      {
+        "selector": ".light.button[href$=\"#experiments\"]",
+        "text": "Watch G1 experiments ↓",
+        "foreground": "rgb(32, 32, 32)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 16.29325535858735,
+        "method": "First opaque element/ancestor background.",
+        "decorative": false
+      },
+      {
+        "selector": ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]",
+        "text": "↓",
+        "foreground": "rgb(32, 32, 32)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 16.29325535858735,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": ".light.button:nth-child(3)",
+        "text": "Research guide",
+        "foreground": "rgb(32, 32, 32)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 16.29325535858735,
+        "method": "First opaque element/ancestor background.",
+        "decorative": false
+      },
+      {
+        "selector": ".text-link[href$=\"#gap\"] > span[aria-hidden=\"true\"]",
+        "text": "↓",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          250,
+          250,
+          248
+        ],
+        "contrastRatio": 14.853580064897224,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": "#method > .text-link > span[aria-hidden=\"true\"]",
         "text": "→",
-        "color": "rgb(36, 36, 36)",
-        "background": "rgba(0, 0, 0, 0)",
-        "rootBackground": "rgb(250, 250, 248)",
-        "decorative": "true",
-        "contrastRatio": 14.853580064897224
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          250,
+          250,
+          248
+        ],
+        "contrastRatio": 14.853580064897224,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": "#experiments > .text-link > span[aria-hidden=\"true\"]",
+        "text": "→",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          250,
+          250,
+          248
+        ],
+        "contrastRatio": 14.853580064897224,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]",
+        "text": "→",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 15.522910417680388,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]",
+        "text": "→",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 15.522910417680388,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]",
+        "text": "→",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          255,
+          255,
+          255
+        ],
+        "contrastRatio": 15.522910417680388,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
+      },
+      {
+        "selector": ".comparison > .text-link > span[aria-hidden=\"true\"]",
+        "text": "→",
+        "foreground": "rgb(36, 36, 36)",
+        "backgroundRgb": [
+          250,
+          250,
+          248
+        ],
+        "contrastRatio": 14.853580064897224,
+        "method": "First opaque element/ancestor background.",
+        "decorative": true
       }
     ],
-    "video-caption": "The author selected silent presentation of the full self-recorded video. The delivered copy has only a video stream and includes full and timed visual descriptions; it contains no speech or other sound to caption."
+    "video-caption": "All three delivered MP4s contain only a video stream, with original audio omitted under the author-selected silent presentation. Full visual alternatives and timed descriptions are provided; there is no delivered speech or sound requiring captions. See media-review.json and media-revision.json."
   },
   "limits": [
     "No comprehensive multi-screen-reader user evaluation.",
     "Original supplied PDF is untagged; external PDF/HTML mathematical reading order has not been certified.",
-    "No UF institutional branding/accessibility approval is claimed."
+    "No UF institutional branding/accessibility approval or complete ADA/WCAG conformance is claimed."
   ]
 }

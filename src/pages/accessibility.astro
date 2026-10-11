@@ -25,12 +25,26 @@ import { asset } from "../data/paths";
             visible throughout the page.
           </li><li>
             Videos start only when you choose to play them. Native player
-            controls and a separate play/pause button are available. No video
-            loops automatically.
+            controls remain available. With JavaScript enabled, separate
+            play/pause/replay buttons control the title pair and the experiment
+            highlights. No video loops automatically.
           </li><li>
-            The self-recorded field video is presented without audio. A complete
-            visual description appears below the main content; a timed
-            description track is also provided.
+            All three videos are silent and retain the original playback speed:
+            the approximately 36-second field recording, a 12-second G1 excerpt,
+            and 33 seconds of G1 highlights from three separate recordings.
+            Complete visual descriptions and timed WebVTT description tracks are
+            provided for each video.
+          </li><li>
+            On larger screens, two videos appear behind the title. Choose “Show
+            full video frames” to move the title above the complete, unobscured
+            frames. Narrow screens place the title above the videos
+            automatically; on phones, the videos stack vertically. Native
+            fullscreen controls and downloads also provide the complete frames.
+          </li><li>
+            The experiment highlights use labeled clips and visible cuts rather
+            than one continuous trial. The safety tether, operator, and
+            gantry-assisted resets remain visible. The video description
+            explains the sequence without requiring playback.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.
             Results appear as labeled values and structured tables, so color is
@@ -39,8 +53,10 @@ import { asset } from "../data/paths";
             At narrow widths, content reflows into a single column. Wide data
             tables and BibTeX text scroll within their own focusable areas.
           </li><li>
-            Core content, all result comparisons, and media controls remain
-            available without JavaScript.
+            Core content, result comparisons, native video controls, media
+            downloads, and full text alternatives remain available without
+            JavaScript. The paired playback and title-view buttons require
+            JavaScript.
           </li>
         </ul>
       </section>
@@ -73,6 +89,12 @@ import { asset } from "../data/paths";
             >the review record</a
           >.
         </p><p>
+          The 11 October 2026 revision adds the paired title videos and edited
+          physical-experiment highlights. Local production-preview testing passed 11 axe scans and 117
+          functional checks with no recorded violations or errors. The linked
+          review record distinguishes these technical checks from the remaining
+          manual review and records the deployed revision.
+        </p><p>
           Automated coverage is limited. A full review with multiple screen
           readers, users with disabilities, and institutional accessibility and
           brand reviewers remains outside the completed technical checks. This
@@ -94,8 +116,8 @@ import { asset } from "../data/paths";
           institutional disclaimer appears on every page. A neutral visual
           design is not a substitute for institutional brand approval.
         </p><p>
-          This static site loads its fonts, figures, and self-recorded field
-          video locally. It uses no analytics, advertising, or embedded
+          This static site loads its fonts, figures, and all three research-team
+          videos locally. It uses no analytics, advertising, or embedded
           third-party players. Following an external link opens the provider’s
           site, where that provider’s privacy practices apply.
         </p>

@@ -1,34 +1,46 @@
-# Accessibility review — 4 October 2026
+# Accessibility review — 11 October 2026 revision
 
-The design target is WCAG 2.1 Level A and AA. This record describes technical checks and their limits; it is not an ADA/WCAG certification or institutional brand approval.
+The design target is WCAG 2.1 Level A and AA. This record describes the design, verification workflow, and remaining limits; it is not an ADA/WCAG certification or institutional brand approval. The revised three-video layout passed the local production-preview checks on 11 October 2026: **11 axe scans, 117 functional checks, zero recorded violations or errors**. Deployment and live verification are recorded separately below.
 
 ## Design and content
 
 - English document language; one H1 per page; sequential heading levels; skip-to-main link; visible keyboard focus; descriptive links and native controls.
-- Charcoal, off-white and gray interface, neutral favicon, no UF logo or UF blue/orange theme. Author affiliation remains as text. Every page, including the error page, includes the non-official UF disclaimer.
+- Charcoal, off-white and gray interface, neutral favicon, no UF logo or UF blue/orange theme. Author affiliation remains as text. Every page, including the error page, retains the non-official UF disclaimer.
+- The homepage follows problem, related work, research gap, method, experimental setup, results, and conclusions with limitations. References and headline values are checked against the unchanged arXiv:2609.20558v1 manuscript; see `reports/narrative-review.json`.
 - Original figures have meaningful alt text, numbered captions, sources, and longer explanations. Reported numerical comparisons have text labels and structured tables rather than color-only encoding. Scientific artwork retains its original colors.
 - Tables 2, 3, 4 and 6 preserve the supplied manuscript values, units, sample counts, uncertainty and experimental context. CSV files mirror the HTML tables. Wide tables have focusable, labeled scroll regions and explicit row/column headers.
-- The complete approximately 36-second self-recorded field video contains only a video stream: no audio, autoplay or loop. A full visual description and synchronized VTT description track accompany it. Native controls, a keyboard play/pause/replay button and a no-JavaScript fallback are provided. The paper’s own physical experiments are represented by original photographs, as requested by the author.
 - The guide is a selected-content HTML companion, not a complete paper conversion. Versioned arXiv PDF and experimental HTML links are provided. The supplied 49-page PDF is **untagged**; neither external PDF reading order nor equations nor assistive-technology behavior has been certified.
 
-## Checks
+## Video presentation and alternatives
 
-`npm run test:a11y` tests five routes at desktop and mobile widths with axe-core WCAG 2.1 A/AA tags, plus skip link/focus, heading structure, unique IDs, local anchors, media keyboard controls, timed description loading, clipboard behavior, structured tables, 320/768 CSS-pixel reflow, increased text spacing, reduced-motion preferences and JavaScript-disabled access. See `reports/axe-wcag21aa.json` for the actual run and `reports/ci/` for deployment checks when available.
+The homepage has three local MP4 players: the complete approximately 36-second team-recorded field video, a 12-second G1 title excerpt, and a 33.034-second montage of three G1 experiment excerpts. All viewing copies have no audio stream and preserve the original playback speed. None autoplays or loops. Each has a descriptive accessible name, full visual alternative, timed WebVTT description track, native player controls, and download links. Timed visual descriptions are not a replacement for checked speech captions if audio is introduced later.
 
-Visual review uses desktop and 320-pixel page renders, checks extracted figure crops against the supplied PDF, and examines the video’s sequence to verify the description. The source document remains unchanged; its SHA-256 is recorded in `reports/source-provenance.json`.
+On larger screens, the field and laboratory videos sit side by side behind the title with a dark overlay. The keyboard-operable “Show full video frames” button moves the title above the videos and presents both uncropped frames without an overlay; its pressed state and label communicate the selected view. Narrow screens place the title above the full frames automatically, and phone widths stack the videos. Native fullscreen and media downloads provide additional full-frame access. With JavaScript enabled, separate buttons provide paired title play/pause/replay and highlights play/pause/replay. Without JavaScript, the native controls, downloads, text alternatives, and core research content remain available; the paired-playback and title-view buttons are enhancements.
+
+The highlights show three independent recordings with visible labels and hard cuts: incline walking; stepping and bending with a tool; and bending/crouching. The complete source image fits below a separate top text-label band, with side bars around the portrait clip. The label stays clear of the native player controls. The operator, safety tether, and gantry-assisted resets remain visible. Text alternatives describe the transitions and assistance. These selected clips illustrate supervised laboratory motion; they do not establish uninterrupted autonomous completion, successful nailing, or hammer impact. Table 6 reports quantitative trials separately.
+
+The field video’s unchanged full sequence comes from `IMG_7082 (1).MOV`. The G1 sources are the author-supplied recordings in the roofing video folder. `reports/media-review.json` records the field-video conversion, and `reports/media-revision.json` records the G1 excerpt intervals, transformations, source hashes, visual descriptions, and delivered streams. Source recordings are not modified. Full descriptions and attribution appear on the homepage and the accessibility page.
+
+## Verification workflow for this revision
+
+Run `npm run test:a11y` against the production preview and retain the actual report in `reports/axe-wcag21aa.json`. The deployment workflow must also pass its checks before publication. Verify five routes with axe-core WCAG 2.1 A/AA tags, plus keyboard navigation, skip-link focus, heading structure, unique IDs, local anchors, all three media players and description tracks, clipboard behavior, structured tables, 320/768 CSS-pixel reflow, increased text spacing, reduced-motion preferences, and JavaScript-disabled access.
+
+Manually inspect the desktop title overlay and both full-frame videos, native control visibility, narrow-screen title placement and stacking, and the complete montage. Check description timing against the delivered files and confirm that the silent copies have no audio stream. Test the paired play/pause/replay behavior and focus after changing views. Contrast checks must cover title text over the lightest video imagery as well as button and focus states. The source document remains unchanged; its SHA-256 is recorded in `reports/source-provenance.json` and `reports/narrative-review.json`.
+
+After deployment, verify the actual live revision, HTTPS, repository base paths, posters, MP4s, WebVTT files, descriptions, download links, pause/replay behavior, and security response headers. Record observed results and provider-controlled limitations. Do not treat a previous deployment report as verification of this revision.
+
+## Current local results — 11 October 2026
+
+The production preview passed 11 axe WCAG 2.1 A/AA scans and 117 functional checks, including the title full-frame mode and all three video controls. Browser errors were empty. Desktop, narrow-screen, section layouts, and 1100-pixel increased text spacing were visually reviewed. At the latter size, the title actions remain more than 75 pixels above the native controls and the page has no horizontal overflow.
+
+Axe requested manual review of 20 title/arrow contrast nodes and three video-caption items. Computed title contrast uses the darkest-overlay composite over an entirely white video frame as the worst case; the minimum ratio across the reviewed nodes was 6.89:1. All three delivered MP4s have zero audio streams, with full and timed visual descriptions. Details and review limitations are recorded in `reports/manual-review.json` and `reports/media-revision.json`.
 
 ## Remaining manual limits
 
-Axe may mark the video-caption rule for review: the adapted clip has no audio track, and the visual alternative is supplied. Scientific figure readability is supported by full-size images, descriptions and tables; automated contrast scanning does not validate every pixel inside a paper figure. Full evaluation with multiple screen readers, users with disabilities, and UF accessibility/brand reviewers has not been performed. No claim is made that the untagged external PDF is fully accessible. Contact: liusongyang@ufl.edu.
+Axe may flag video-caption rules for review. All delivered viewing copies are silent and have full visual alternatives; review this against each actual stream, rather than dismissing findings globally. Scientific figure readability is supported by full-size images, descriptions, and tables; automated contrast scanning does not validate every pixel inside a paper figure. Full evaluation with multiple screen readers, users with disabilities, and UF accessibility/brand reviewers has not been performed. A neutral design is not institutional brand approval. No claim is made that the untagged external PDF is fully accessible. Contact: liusongyang@ufl.edu.
 
-## Recorded outcome
+## Previous-version results — 4 October 2026
 
-The final local run completed **10 axe scans and 91 functional checks, with zero violations and zero errors**. The `video-caption` incomplete item was reviewed against the delivered video-only stream and its full visual alternative. Incomplete contrast items concern decorative arrows; their computed foreground/background contrast was checked separately and exceeds 4.5:1. See `reports/manual-review.json`. Desktop and narrow-screen page renders were visually inspected.
+The preceding page, which paired one field video with a robot photograph, passed 10 local axe scans and 91 functional checks with zero recorded violations or errors. The deployment checks passed the same counts. The caption-review item was assessed against that silent field-video stream and its full visual alternative; decorative-arrow contrast was checked separately. Desktop and narrow-screen renders were inspected.
 
-The deployed GitHub Actions run also passed all 10 axe scans and 91 functional checks. Live-browser checks confirmed that the context video initially remains paused, its play/pause controls work, homepage images load, and the results page reflows at 320 CSS pixels, with no recorded browser errors. The live resource check verified five pages and 30 resources. See `reports/deployment.json`, `reports/ci/axe-wcag21aa.json`, `reports/live-browser.json`, and `reports/live-deployment.json`.
-
-## Self-recorded video replacement
-
-The author supplied `IMG_7082 (1).MOV` and selected silent presentation. The complete visual sequence is retained without cropping, trimming, speed changes or added motion. A browser-compatible H.264/SDR copy replaces the earlier stock clip, with a new poster, local media filenames and timed/full visual descriptions. The original source contains audio; the delivered viewing copy intentionally has no audio track. The source MOV remains unchanged, with its SHA-256 recorded in `reports/media-review.json`. This footage illustrates field work; it does not change the manuscript’s reported experiments or results.
-
-The self-recorded-video deployment passed all 10 CI axe scans and 91 functional checks. The live page was verified to use `roofing-fieldwork.mp4` with its full 35.836-second duration, team credit, initially paused playback, working play/pause controls, and no browser errors. Five live pages and 30 resources were checked; public media hashes match the source files.
+The earlier self-recorded-video deployment was verified to use `roofing-fieldwork.mp4` with its full 35.836-second duration, team credit, initially paused playback, working play/pause controls, and no recorded browser errors. Five live pages and 30 resources were checked, with public-media hashes matching the source files. Those earlier results are retained as history; the current revision is covered by the fresh reports linked above.

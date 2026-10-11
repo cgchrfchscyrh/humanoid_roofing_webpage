@@ -1,0 +1,170 @@
+{
+  "problem": {
+    "title": "Problem",
+    "heading": "Roofing couples movement and work.",
+    "intro": "Roofing requires workers to move on pitched surfaces while bending, reaching, and positioning tools close to the roof. For a humanoid, stable walking is only part of the challenge: foot support, body posture, and hand placement must remain coordinated throughout each motion. We study how human roofing demonstrations can become executable whole-body motion primitives on a Unitree G1.",
+    "source": {
+      "label": "Introduction · paper pages 2–6",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=2"
+    }
+  },
+  "relatedWork": {
+    "title": "Related work",
+    "intro": "Roof robotics and humanoid control provide complementary foundations: understanding the roof, automating individual operations, and learning coordinated body motion.",
+    "groups": [
+      {
+        "title": "Roof perception and inspection",
+        "text": "Digital roof models, defect detection, and slope-adaptive inspection platforms support environment understanding and access.",
+        "citations": [
+          {
+            "authors": "Li et al.",
+            "year": "2024b",
+            "title": "Automated generation and semantic segmentation of roof orthophoto for digital twin-based monitoring of slated roofs"
+          },
+          {
+            "authors": "Zhao, Liu, and Jebelli",
+            "year": "2025",
+            "title": "Module-enhanced slope-adaptive and hazard-aware hexapod robotic system for safe roof inspection"
+          }
+        ]
+      },
+      {
+        "title": "Task-specific roof automation",
+        "text": "Specialized platforms demonstrate individual operations, including aerial shingle fastening and teleoperated removal of hazardous roof tiles.",
+        "citations": [
+          {
+            "authors": "Romano et al.",
+            "year": "2021",
+            "title": "Nailed it: Autonomous roofing with a nailgun-equipped octocopter"
+          },
+          {
+            "authors": "Ivaldi and Ghini",
+            "year": "2023",
+            "title": "Teleoperating a robot for removing asbestos tiles on roofs: Insights from a pilot study"
+          }
+        ]
+      },
+      {
+        "title": "Humanoid motion learning",
+        "text": "Terrain-adaptive locomotion, whole-body motion tracking, and interaction-preserving retargeting provide the movement foundations for our pipeline.",
+        "citations": [
+          {
+            "authors": "Gu et al.",
+            "year": "2024",
+            "title": "Advancing humanoid locomotion: Mastering challenging terrains with denoising world model learning"
+          },
+          {
+            "authors": "He et al.",
+            "year": "2025b",
+            "title": "OmniH2O: Universal and dexterous human-to-humanoid whole-body teleoperation and learning"
+          },
+          {
+            "authors": "Yang et al.",
+            "year": "2026",
+            "title": "OmniRetarget: Interaction-preserving data generation for humanoid whole-body loco-manipulation and scene interaction"
+          }
+        ]
+      }
+    ],
+    "source": {
+      "label": "Read the paper’s literature review · pages 7–12",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=7"
+    }
+  },
+  "gap": {
+    "title": "Research gap",
+    "heading": "A plausible pose can miss the roof.",
+    "intro": "Human tracking captures coordination and timing, but does not reliably register the body to the roof in metric space. Retargeting can therefore place feet below the surface or hands at an unsuitable clearance. A uniform height offset cannot correct support and work placement independently. Even a geometrically valid reference can lose these relations during closed-loop execution.",
+    "question": "How can a humanoid preserve demonstrated coordination while maintaining phase-dependent support, work clearance, and nonpenetration relative to the roof?",
+    "source": {
+      "label": "Research objective and gap · paper pages 5–6",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=5"
+    }
+  },
+  "method": {
+    "title": "Method",
+    "heading": "Ground the reference. Preserve the relation.",
+    "intro": "We connect human motion, measured roof geometry, and feedback learning. The contribution is roof-specific reference refinement and execution-aware task constraints, built on existing retargeting and motion-tracking foundations.",
+    "steps": [
+      {
+        "title": "Capture human coordination",
+        "text": "PICO tracking records roofer-style demonstrations and task timing. Motion reconstruction and retargeting produce an initial reference for the Unitree G1."
+      },
+      {
+        "title": "Refine the complete trajectory",
+        "text": "A metric roof mesh anchors inferred support contacts and annotated work phases. Joint refinement enforces task-specific hand clearance and nonpenetration while preserving motion and temporal smoothness."
+      },
+      {
+        "title": "Preserve relations during execution",
+        "text": "Phase-gated clearance and hand-mesh nonpenetration rewards encourage the learned policy to retain the intended hand–roof relation despite closed-loop tracking errors."
+      }
+    ],
+    "source": {
+      "label": "Methodology and framework · paper pages 12–26",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=12"
+    }
+  },
+  "experiments": {
+    "title": "Experimental setup",
+    "intro": "The evaluation separates motion reproduction, slope coverage, and task-surface relations before examining transfer to the physical robot.",
+    "simulation": "Simulation covers nine motion types and discrete roof pitches of 9°, 17°, and 25°. A five-way nailgun ablation isolates raw retargeting, manual height correction, support grounding, semantic reference refinement, and execution-aware learning. Hammering and pushing use separately trained task-specific policies.",
+    "physical": "Physical G1 tests demonstrate uphill walking, nailgun positioning, hammering, and bending on a nominal 11.768° laboratory foam wedge. A safety hoist remains attached, and an operator controls policy activation and emergency stop.",
+    "separateMeasurementsNote": "Selected video excerpts illustrate the physical setup and motions. Quantitative measurements are reported separately in Table 6; the edited sequence is not an uninterrupted completion trial.",
+    "baselineNote": "Reward-only reinforcement learning and zero-shot SONIC teleoperation are diagnostic comparisons with different inputs and objectives, not matched variants in the controlled ablation.",
+    "source": {
+      "label": "Experiments and results · paper pages 26–40",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=26"
+    }
+  },
+  "results": {
+    "title": "Results",
+    "heading": "Task relations must survive tracking error.",
+    "intro": "Reference refinement alone can produce a geometrically meaningful target without preserving it during execution. Adding task-aware feedback learning reduces work-clearance error while maintaining nonnegative hand-mesh clearance in the evaluated simulations.",
+    "comparisonLabel": "C–Reference → D–Complete",
+    "comparisonNote": "Mean work-clearance error across three seeds per method and task. Lower is better; distances are in centimeters.",
+    "clearanceComparisons": [
+      {
+        "task": "Nailgun positioning",
+        "reference": "7.860",
+        "complete": "0.531",
+        "unit": "cm",
+        "source": "Table 3 · paper page 34"
+      },
+      {
+        "task": "Hammering",
+        "reference": "1.105",
+        "complete": "0.256",
+        "unit": "cm",
+        "source": "Table 4 · paper page 35"
+      },
+      {
+        "task": "Lateral pushing",
+        "reference": "3.254",
+        "complete": "0.424",
+        "unit": "cm",
+        "source": "Table 4 · paper page 35"
+      }
+    ],
+    "successNote": "The complete method meets all task-success criteria in 3/3 evaluated seeds per task: motion and work-phase completion, foot error ≤ 2 cm, work-clearance error ≤ 3 cm, and nonnegative minimum hand-mesh clearance. This small, task-specific evaluation is not a field reliability estimate.",
+    "hardware": "Table 6 reports base-frame MPJPE of 27.6 mm for one uphill-walking trial, and 60.20 ± 18.86 mm for nailgun positioning, 79.93 ± 24.23 mm for hammering, and 61.42 ± 19.09 mm for bending across five trials per motion. These pelvis-frame measurements describe local pose reproduction, not absolute hand–roof clearance.",
+    "slope": "Training with 9°, 17°, and 25° yields 10/10 completions at each tested pitch. Policies without 25° training fail at 25°. Evaluation uses slope-matched references and three discrete pitches; it does not establish continuous or zero-shot slope generalization.",
+    "source": {
+      "label": "Reported measurements · Tables 2–4 and 6",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=33"
+    }
+  },
+  "conclusion": {
+    "title": "Conclusions and limitations",
+    "intro": "Human demonstrations become more useful when their support and work relations are grounded in measured scene geometry and maintained during execution. These results provide a basis for roofing-oriented motion primitives that could later be combined with perception, tool control, task planning, and safety monitoring.",
+    "limitations": [
+      "The study evaluates roof traversal, working postures, and tool-related positioning. Nail firing, hammer impact, pushing force, installation quality, and a complete autonomous roofing workflow are not demonstrated.",
+      "Slope tests cover three discrete pitches with slope-matched reference motions. Including 25° in training enables completion at 25°; the results do not establish continuous or zero-shot slope generalization.",
+      "Physical tests use a nominal 11.768° laboratory foam wedge, a safety hoist, and manual policy activation. Hoist loads, operator interventions, and assisted recoveries are not quantified.",
+      "Real-robot errors are reconstructed in the pelvis frame from onboard joint states. Without external localization, the study cannot verify physical world-frame trajectory or hand–roof clearance. Roof edges, weather, varied materials, and unassisted reliability remain unvalidated."
+    ],
+    "source": {
+      "label": "Discussion and conclusions · paper pages 41–44",
+      "url": "https://arxiv.org/pdf/2609.20558v1#page=41"
+    }
+  }
+}

@@ -1,151 +1,60 @@
 ---
 import site from "../data/site.json";
 import { asset } from "../data/paths";
-const fig = site.figures.find((f) => f.id === site.heroFigure)!;
 ---
 
-<section class="hero" aria-labelledby="paper-title">
-  <div class="hero-text">
-    <p class="eyebrow">{site.venue}</p>
-    <h1 id="paper-title" class="paper-title">
-      {site.title}
-    </h1>
-    <p class="hero-question">{site.heroIntro}</p>
-    <ul class="authors">
-      {
-        site.authors.map((a) => (
-          <li>
-            <>
-              <a href={`mailto:${a.email}`}>{a.name}</a>
-              <sup>
-                <a
-                  href={`#affiliation-${a.aff}`}
-                  aria-label={`Affiliation ${a.aff}`}
-                >
-                  {a.aff}
-                </a>
-              </sup>
-            </>
-          </li>
-        ))
-      }
-    </ul>
-    <p class="correspondence">Corresponding author: Shuai Li</p>
-    <ol class="affiliations">
-      {
-        site.affiliations.map((aff, i) => (
-          <li id={`affiliation-${i + 1}`}>{aff}</li>
-        ))
-      }
-    </ol>
-    <div class="actions">
-      <a class="button light" href={site.paperUrl}
-        >Read the preprint <span aria-hidden="true">↗</span></a
-      ><a class="button outline" href={site.repo}
-        >{site.repoLabel} <span aria-hidden="true">↗</span></a
-      ><a class="button outline" href={asset("paper/")}>Explore the research</a>
+<section class="hero cinematic-hero" aria-labelledby="paper-title">
+  <div class="hero-stage" id="hero-stage">
+    <div class="hero-text">
+      <p class="eyebrow">Humanoid roofing · {site.year}</p>
+      <h1 id="paper-title">{site.title}</h1>
+      <p class="hero-question">{site.heroIntro}</p>
+      <div class="hero-publication">
+        <ul class="authors">
+          {site.authors.map((author) => (
+            <li><a href={"mailto:" + author.email}>{author.name}</a><sup><a href={"#affiliation-" + author.aff} aria-label={"Affiliation " + author.aff}>{author.aff}</a></sup></li>
+          ))}
+        </ul>
+        <ol class="affiliations">
+          {site.affiliations.map((affiliation, i) => <li id={"affiliation-" + (i + 1)}>{affiliation}</li>)}
+        </ol>
+        <p class="correspondence">Corresponding author: Shuai Li · arXiv preprint, September 2026</p>
+        <div class="actions">
+          <a class="button light" href={site.paperUrl}>Read the preprint <span aria-hidden="true">↗</span></a>
+          <a class="button light" href="#experiments">Watch G1 experiments <span aria-hidden="true">↓</span></a>
+          <a class="button light" href={asset("paper/")}>Research guide</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-backdrops">
+      <video id="context-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.contextPoster)} width="1280" height="720" aria-label="Self-recorded roofing fieldwork" aria-describedby="context-summary field-visual-description">
+        <source src={asset(site.contextVideo)} type="video/mp4" />
+        <track kind="descriptions" src={asset(site.contextTrack)} srclang="en" label="English visual descriptions" />
+        <a href={asset(site.contextVideo)}>Download the silent roofing field video (MP4).</a>
+      </video>
+      <video id="g1-hero-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.robotHero.poster)} width="1280" height="720" aria-label="Unitree G1 laboratory experiment, 12-second excerpt" aria-describedby="robot-summary robot-visual-description">
+        <source src={asset(site.robotHero.video)} type="video/mp4" />
+        <track kind="descriptions" src={asset(site.robotHero.track)} srclang="en" label="English visual descriptions" />
+        <a href={asset(site.robotHero.video)}>Download the silent G1 laboratory excerpt (MP4).</a>
+      </video>
     </div>
   </div>
-  <div class="hero-media">
-    <figure class="context-media">
-      <div class="media-label">
-        <span>01 / Our field footage</span><span
-          >Silent video · {site.contextDuration} s</span
-        >
-      </div>
-      <video
-        id="context-video"
-        controls
-        muted
-        playsinline
-        preload="metadata"
-        poster={asset(site.contextPoster)}
-        width="1280"
-        height="720"
-        aria-label={site.contextTitle}
-        aria-describedby="context-summary"
-      >
-        <source src={asset(site.contextVideo)} type="video/mp4" />
-        <track
-          kind="descriptions"
-          src={asset(site.contextTrack)}
-          srclang="en"
-          label="English visual descriptions"
-        />
-        <p>
-          <a href={asset(site.contextVideo)}
-            >Download the silent context video (MP4)</a
-          >. A complete description follows.
-        </p>
-      </video>
-      <figcaption>
-        <strong>{site.contextTitle}</strong><p id="context-summary">
-          {site.contextDescription}
-        </p><a href="#media-description">Read video description & source</a
-        ><button
-          class="video-toggle"
-          id="video-toggle"
-          hidden
-          aria-controls="context-video">Play context clip</button
-        ><span id="video-status" class="sr-only" role="status"></span>
-      </figcaption>
-    </figure>
-    <figure class="study-media">
-      <div class="media-label">
-        <span>02 / The research setting</span><span
-          >Paper figure {fig.number}</span
-        >
-      </div>
-      <div class="study-image">
-        <img
-          src={asset(`figures/${fig.file}`)}
-          width={fig.width}
-          height={fig.height}
-          alt={fig.alt}
-          fetchpriority="high"
-        />
-      </div>
-      <figcaption>
-        <strong>{site.heroFigureLabel}</strong><p>{site.heroFigureCaption}</p><a
-          href={asset(`results/#figure-${fig.id}`)}
-          >Read figure {fig.number} description</a
-        >
-      </figcaption>
-    </figure>
+  <div class="hero-scene-captions">
+    <div id="context-summary">
+      <p class="eyebrow">01 / Roofing in the field</p>
+      <strong>Human movement on a working roof.</strong>
+      <p>Research-team footage · {site.contextDuration} seconds</p>
+    </div>
+    <div id="robot-summary">
+      <p class="eyebrow">02 / Our G1 experiment</p>
+      <strong>Whole-body motion on a laboratory slope.</strong>
+      <p>Selected {site.robotHero.duration}-second excerpt · Safety hoist attached</p>
+    </div>
+  </div>
+  <div class="hero-playback">
+    <button class="button light" id="hero-playback-toggle" data-media-control data-idle-label="Play both clips" data-pause-label="Pause clips" data-replay-label="Replay both clips" aria-controls="context-video g1-hero-video" aria-describedby="hero-playback-note" type="button" hidden>Play both clips</button>
+    <button class="button outline" id="hero-view-toggle" aria-controls="hero-stage" aria-pressed="false" type="button" hidden>Show full video frames</button>
+    <p id="hero-playback-note">Silent, original-speed footage · No autoplay · <a href="#media-description">Video descriptions & sources</a></p>
+    <p id="media-status" class="sr-only" role="status"></p>
   </div>
 </section>
-<script>
-  const video = document.querySelector<HTMLVideoElement>("#context-video");
-  const button = document.querySelector<HTMLButtonElement>("#video-toggle");
-  const status = document.querySelector<HTMLElement>("#video-status");
-  if (video && button) {
-    button.hidden = false;
-    // The explicit button is the initial control; reveal native controls on play.
-    video.controls = false;
-    video.addEventListener("play", () => {
-      video.controls = true;
-    });
-    const update = () => {
-      button.textContent = video.ended
-        ? "Replay context clip"
-        : video.paused
-          ? "Play context clip"
-          : "Pause context clip";
-    };
-    for (const event of ["play", "pause", "ended"])
-      video.addEventListener(event, update);
-    button.addEventListener("click", async () => {
-      if (video.paused) {
-        if (video.ended) video.currentTime = 0;
-        try {
-          video.controls = true;
-          await video.play();
-        } catch {
-          if (status)
-            status.textContent =
-              "The clip could not play. Use the video source link or read its description.";
-        }
-      } else video.pause();
-    });
-  }
-</script>
