@@ -57,7 +57,7 @@ const sections = [
       <dl class="stats">{site.stats.map(stat => <div><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}</dl>
       <div class="experiment-protocol">
         <div><h3>Simulation and controlled ablations</h3><p>{narrative.experiments.simulation}</p><p class="fine-print">{narrative.experiments.baselineNote}</p></div>
-        <div><h3>Physical robot and safety setup</h3><p>{narrative.experiments.physical}</p><p>The selected footage below shows three separate sequences, including incline walking, tool positioning, and bending/crouching.</p></div>
+        <div><h3>Physical robot and safety setup</h3><p>{narrative.experiments.physical}</p><p>The selected footage below shows three separate sequences, including incline walking, tool positioning, and bending toward the roof surface.</p></div>
       </div>
       <ExperimentVideo />
       <p class="evidence-note">{narrative.experiments.separateMeasurementsNote}</p>

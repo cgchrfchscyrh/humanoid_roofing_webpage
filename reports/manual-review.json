@@ -281,5 +281,12 @@
     "issue": "Initial production verification found that an immediate second button activation could be ignored while play() was still pending during buffering.",
     "fix": "Pause now cancels an in-flight playback request immediately; a request identifier prevents stale play promises from changing a newer request. Intentional AbortError cancellations are not announced as failures.",
     "regression": "Four deterministic browser checks hold MP4 requests pending and verify keyboard cancellation for the title pair and body highlights. The complete local and CI reports now contain 121 functional checks and 11 axe scans, with zero violations/errors."
+  },
+  "latestMediaTrimReview": {
+    "date": "2026-10-11",
+    "heroSeconds": 7,
+    "highlightsSeconds": 16.6,
+    "review": "Reviewed original-speed selected motions and every clip endpoint; later falls and resets excluded. Updated HTML alternatives and timed descriptions match the retained movements. Source recordings and manuscript data remain unchanged.",
+    "report": "reports/media-revision.json"
   }
 }

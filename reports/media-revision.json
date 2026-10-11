@@ -3,63 +3,67 @@
     {
       "source": "roofer_real_upwalk.MOV",
       "start": 1.8,
-      "end": 6.033333,
+      "end": 5.6,
       "label": "01 / Incline walking",
+      "selection_reason": "The excerpt ends with the robot upright after stepping onto the incline; the later step at the end of the source recording is omitted.",
       "sha256": "79abc331dbc4e39584cae04abe2a816a53fddd106e999de1df13a4d49918c366"
     },
     {
       "source": "bending_real_test_20260905_185804_260763_nailgun.mp4",
       "start": 55.0,
-      "end": 67.0,
+      "end": 62.0,
       "label": "02 / Stepping and bending with a tool",
+      "selection_reason": "This retains the first seven seconds of the prior title video, showing the step and forward bend; later motion and gantry reset are omitted.",
       "sha256": "e1d52bdf34079976ca3450992e18f4c7e11ef49e2338cbfd159b179399863110"
     },
     {
       "source": "hammer.mp4",
       "start": 9.0,
-      "end": 25.8,
-      "label": "03 / Bending and crouching",
+      "end": 14.8,
+      "label": "03 / Bending toward the roof surface",
+      "selection_reason": "Dense frames at 0.25-second intervals show the tool near the padded surface during the forward bend by this endpoint. The later backward loss of balance and gantry reset are omitted.",
       "sha256": "f0d9d57bbbece37641c566c21b74f5c7479abecd3e8bc3e03d839a7aebef064c"
     }
   ],
   "notes": [
-    "All excerpts run at the recorded frame rate (30 fps), without speed changes.",
-    "Audio removed; three long landscape source files contain no audio track.",
-    "Full source image is preserved inside the labeled montage canvas.",
-    "Hard cuts separate independent trials; labels identify all three excerpts.",
-    "The safety tether, gantry and operator remain visible. The ending of tool trials includes the gantry-assisted reset.",
-    "These clips illustrate the physical setup and movements, not independent evidence of unsupported autonomy or successful nailing/hammering."
+    "All selected motion excerpts run at the recorded frame rate (30 fps), without speed changes.",
+    "The exports contain no audio track; the source portrait recording has audio, while the two landscape source recordings are silent.",
+    "Full source images are preserved inside the labeled montage canvas.",
+    "Hard cuts separate independent trials; labels identify all three selected motion excerpts.",
+    "The safety tether, gantry and operator remain visible in the retained frames.",
+    "The excerpts end before later loss-of-balance or gantry-reset footage and do not show complete trial outcomes.",
+    "Selected motion excerpts illustrate the supervised setup and movements; they are not evidence of complete task success or independent roofing work."
   ],
   "export_date": "2026-10-11",
   "hero": {
     "file": "g1-roofing-hero.mp4",
     "source": "bending_real_test_20260905_185804_260763_nailgun.mp4",
     "source_start_seconds": 55,
-    "source_end_seconds": 67,
-    "duration_seconds": 12,
+    "source_end_seconds": 62,
+    "duration_seconds": 7,
     "width": 1280,
     "height": 720,
     "fps": 30,
     "video_codec": "h264",
     "audio_streams": 0,
     "poster_source_time_seconds": 59.8,
-    "visual_description": "A Unitree G1 humanoid robot is filmed in a laboratory beside a padded incline. An overhead safety tether connects the robot to a mobile gantry. An operator stands at the left and holds the gantry controller. The robot takes steps onto the padded surface, bends forward and lowers a handheld tool toward the surface, then straightens. In the final seconds, the tether becomes taut and the gantry lifts the robot during reset. The original frame is retained, including the operator and safety apparatus. This 12-second excerpt is shown at the original speed without sound. The recording illustrates the movement and supervised setup; it does not by itself establish successful tool operation or unsupported autonomous performance."
+    "visual_description": "A Unitree G1 humanoid robot is filmed in a laboratory beside a padded incline. An overhead safety tether connects the robot to a mobile gantry, and an operator stands at the left holding the gantry controller. The robot steps onto the padded surface, bends its torso forward and lowers a handheld tool toward the surface. The robot begins to raise its torso near the end of the excerpt. The original frame is retained, including the operator and safety apparatus. This selected seven-second motion excerpt is shown at original speed without sound. It does not show the complete trial or its later outcome."
   },
   "highlights": {
     "file": "g1-roofing-highlights.mp4",
-    "duration_seconds": 33.034,
+    "duration_seconds": 16.6,
     "width": 1280,
     "height": 720,
     "fps": 30,
     "video_codec": "h264",
     "audio_streams": 0,
     "hard_cut_times_seconds": [
-      4.233333,
-      16.233333
+      3.8,
+      10.8
     ],
-    "poster_output_time_seconds": 9,
+    "poster_output_time_seconds": 8.6,
     "layout": "Full source frame is fitted within the lower 640 pixels of a 1280 x 720 canvas. The upper 80 pixels contain white labels on a charcoal background, clear of native player controls; no source footage is covered by text. Portrait footage has side bars.",
-    "visual_description": "This silent 33-second montage contains three separate laboratory recordings at the original speed. A persistent label identifies each clip; two hard cuts mark the changes. Clip 1 (0.00–4.23 seconds) uses a portrait camera view. The G1 robot takes steps from the laboratory floor onto a padded incline, while an overhead safety tether and an operator holding the controller remain visible. Clip 2 (4.23–16.23 seconds) uses a landscape view: the robot steps forward, bends its torso and lowers a handheld tool toward the padded surface, then straightens. The final moments retain the gantry-assisted reset. Clip 3 (16.23–33.03 seconds) shows another trial: the robot takes steps, bends deeply over the padded surface, shifts backward into a low crouched posture, then brings its torso upright and rises. The gantry lifts the robot during the final reset. The mobile gantry, safety tether and operator remain in frame throughout the tool trials. These images show physical movements and the supervised experimental setting, not direct evidence of successful nailing, hammering or unsupported autonomous performance."
+    "visual_description": "This silent 16.6-second montage contains selected motion excerpts from three separate laboratory recordings at original speed. A persistent label identifies each clip, and hard cuts mark the changes. Clip 1 (0.00–3.80 seconds) uses a portrait camera view: the G1 robot takes steps from the laboratory floor onto a padded incline and is upright near the end of the excerpt. An overhead safety tether and an operator holding its controller remain visible. Clip 2 (3.80–10.80 seconds) uses a landscape view: the robot steps forward, bends its torso and lowers a handheld tool toward the padded surface, then begins to raise its torso. Clip 3 (10.80–16.60 seconds) shows another trial: the robot steps forward and bends deeply, bringing its hand and tool close to the padded surface. The gantry, attached safety tether and operator remain visible in both landscape clips. Each excerpt ends after the selected movement; the later trial outcomes and gantry resets are not shown. These clips illustrate the selected motions and supervised setup, rather than complete trial outcomes or independent roofing work."
   },
   "source_audio": [
     {
@@ -78,8 +82,8 @@
   "files": [
     {
       "file": "g1-roofing-hero.mp4",
-      "bytes": 4373035,
-      "sha256": "21971766abc87744044330b8541ebb8bcd15e34d3cb99073a1cecc13f9ef91bd"
+      "bytes": 2458895,
+      "sha256": "fb32a8d7b863dc51e1e2652a3753257144b0a4460b1776d5261f90380031919b"
     },
     {
       "file": "g1-roofing-hero.jpg",
@@ -88,23 +92,23 @@
     },
     {
       "file": "g1-roofing-hero-descriptions.vtt",
-      "bytes": 627,
-      "sha256": "746578339d420c61478e2625aa7e693f87ad17bfc24da4ac6baab6a0dfaf9213"
+      "bytes": 554,
+      "sha256": "2f824948653e35cf4059a40284ea73243a7fc77a78e16e778c2dd3fc9365a85b"
     },
     {
       "file": "g1-roofing-highlights.mp4",
-      "bytes": 5880287,
-      "sha256": "5256499c438e016dfebbc76f534d95352b84c4d3c2868ba32251db21af41e93a"
+      "bytes": 2806562,
+      "sha256": "cfd1ed50868b31a0844231b74332d1725f0e2c8115ffc95de198c009fbb25b6e"
     },
     {
       "file": "g1-roofing-highlights.jpg",
-      "bytes": 139906,
-      "sha256": "6340be9801cc30683f7a1c6838bf0f62a355c20f8461214e3478e601f2bb3740"
+      "bytes": 142752,
+      "sha256": "773465cdcb52c2b4fc348a43d3db63da1f83f17244c676f4a416876f47c84738"
     },
     {
       "file": "g1-roofing-highlights-descriptions.vtt",
-      "bytes": 1435,
-      "sha256": "4e2910d1d90d679193cec5bfc6bc0f466e368173e99600bf9a4bf3c3ab479f97"
+      "bytes": 1131,
+      "sha256": "cf76f811799bf6c9a2c00c191776786fd7dfa6945598de43ca3a30bb6bde2851"
     }
   ],
   "webIntegrationReview": {
@@ -112,67 +116,221 @@
     "result": "passed",
     "previewUrl": "http://127.0.0.1:4337/humanoid_roofing_webpage/",
     "browser": "Google Chrome via Playwright",
-    "viewports": [
-      {
-        "width": 1440,
-        "height": 1000
-      },
-      {
-        "width": 320,
-        "height": 900
-      }
-    ],
     "assets": [
       {
         "file": "roofing-fieldwork.mp4",
         "durationSeconds": 35.836,
-        "videoStreams": 1,
         "audioStreams": 0,
         "sha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a"
       },
       {
         "file": "g1-roofing-hero.mp4",
-        "durationSeconds": 12.0,
-        "videoStreams": 1,
+        "durationSeconds": 7.0,
         "audioStreams": 0,
-        "sha256": "21971766abc87744044330b8541ebb8bcd15e34d3cb99073a1cecc13f9ef91bd"
+        "sha256": "fb32a8d7b863dc51e1e2652a3753257144b0a4460b1776d5261f90380031919b"
       },
       {
         "file": "g1-roofing-highlights.mp4",
-        "durationSeconds": 33.034,
-        "videoStreams": 1,
+        "durationSeconds": 16.6,
         "audioStreams": 0,
-        "sha256": "5256499c438e016dfebbc76f534d95352b84c4d3c2868ba32251db21af41e93a"
+        "sha256": "cfd1ed50868b31a0844231b74332d1725f0e2c8115ffc95de198c009fbb25b6e"
       }
     ],
     "checks": {
       "allThreeVideosHaveNoAudioStreams": true,
-      "allVideoAndPosterHashesMatchManifest": true,
-      "noAutoplayOrLoop": true,
-      "nativeControlsPresent": true,
-      "keyboardPlayPauseForBothHeroVideos": true,
-      "keyboardPlayPauseForHighlights": true,
-      "keyboardFullFrameToggleWithAriaPressed": true,
-      "heroRobotVisibleInDesktopBackground": true,
-      "fullFrameViewRetainsOperatorAndSafetyEquipment": true,
-      "narrowLayoutUsesCompleteFramesBelowTitle": true,
-      "no320PixelHorizontalOverflow": true,
-      "allThreeDescriptionTracksReturn200": true,
-      "allVideoDescribedByTargetsExist": true,
-      "orderedClipsRetainSourceSpeedAndSafetyReset": true,
-      "topLabelsVisibleAboveNativeControls": true
+      "builtAssetsMatchSource": true,
+      "descriptionCuesFitTrimmedDurations": true,
+      "keyboardPairPlayPause": true,
+      "keyboardHighlightsPlayPause": true,
+      "fullFrameToggle": true,
+      "mobile320NoOverflow": true,
+      "allThreeDescriptionTracksLoad": true,
+      "selectedMotionsEndBeforeLaterLossOfBalanceAndResets": true,
+      "topLabelsClearNativeControls": true
     },
-    "resolvedFinding": "The first export placed labels below the footage, where native player controls could cover them. The highlights were re-exported with an independent 80-pixel label band above the complete frame. Clip times, original speed, description track and source hashes were unchanged.",
-    "visualReview": "Desktop screenshots confirm the G1 robot remains visible in the title backdrop; the full-frame toggle shows the operator, gantry and full source images. Highlights sampled at 2.4, 9, 24 and 32 seconds show the three labeled source recordings and final safety-hoist reset in order. The top label band is unobstructed with the native controls visible.",
+    "visualReview": "Reviewed exported endpoints and browser stills at 3.7, 10.7, 14 and 16.5 seconds of the montage. The three clips end with the upright uphill stance, beginning torso rise after tool positioning, and forward bending with tool near the surface. Later loss-of-balance, fall, and reset sequences are outside the exported ranges. Title clip ends at 7 seconds. Original speed and the full source frame are retained in full-frame view.",
     "consoleErrors": [],
     "httpErrors": [],
     "evidenceFiles": [
-      "/tmp/roofing-revision-media/web-integration-observations.json",
-      "/tmp/roofing-revision-media/web-desktop-cinematic.jpg",
-      "/tmp/roofing-revision-media/web-desktop-full-frames.jpg",
-      "/tmp/roofing-revision-media/web-highlights-contact.jpg",
-      "/tmp/roofing-revision-media/web-mobile-hero.jpg"
+      "/tmp/roofing-revision-media/shorter-motion/exported-endpoints.jpg",
+      "/tmp/roofing-trim-web/web-integration-observations.json",
+      "/tmp/roofing-trim-web/web-highlights-end.jpg"
     ],
-    "limitations": "This is a focused media integration review, not complete WCAG or ADA certification. Desktop title backgrounds intentionally crop the source edges; full-frame view and mobile layout preserve the full source frame. Full visual descriptions are provided as HTML as well as WebVTT."
+    "limitations": "Selected motion excerpts do not document the complete trial or its later outcome. This focused media review is not complete WCAG/ADA certification."
+  },
+  "revisionHistory": [
+    {
+      "revision": "previous-12-second-title-and-33-second-highlights",
+      "supersededBy": "selected-motion-excerpts",
+      "segments": [
+        {
+          "source": "roofer_real_upwalk.MOV",
+          "start": 1.8,
+          "end": 6.033333,
+          "label": "01 / Incline walking",
+          "sha256": "79abc331dbc4e39584cae04abe2a816a53fddd106e999de1df13a4d49918c366"
+        },
+        {
+          "source": "bending_real_test_20260905_185804_260763_nailgun.mp4",
+          "start": 55.0,
+          "end": 67.0,
+          "label": "02 / Stepping and bending with a tool",
+          "sha256": "e1d52bdf34079976ca3450992e18f4c7e11ef49e2338cbfd159b179399863110"
+        },
+        {
+          "source": "hammer.mp4",
+          "start": 9.0,
+          "end": 25.8,
+          "label": "03 / Bending and crouching",
+          "sha256": "f0d9d57bbbece37641c566c21b74f5c7479abecd3e8bc3e03d839a7aebef064c"
+        }
+      ],
+      "hero": {
+        "file": "g1-roofing-hero.mp4",
+        "source": "bending_real_test_20260905_185804_260763_nailgun.mp4",
+        "source_start_seconds": 55,
+        "source_end_seconds": 67,
+        "duration_seconds": 12,
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "video_codec": "h264",
+        "audio_streams": 0,
+        "poster_source_time_seconds": 59.8,
+        "visual_description": "A Unitree G1 humanoid robot is filmed in a laboratory beside a padded incline. An overhead safety tether connects the robot to a mobile gantry. An operator stands at the left and holds the gantry controller. The robot takes steps onto the padded surface, bends forward and lowers a handheld tool toward the surface, then straightens. In the final seconds, the tether becomes taut and the gantry lifts the robot during reset. The original frame is retained, including the operator and safety apparatus. This 12-second excerpt is shown at the original speed without sound. The recording illustrates the movement and supervised setup; it does not by itself establish successful tool operation or unsupported autonomous performance."
+      },
+      "highlights": {
+        "file": "g1-roofing-highlights.mp4",
+        "duration_seconds": 33.034,
+        "width": 1280,
+        "height": 720,
+        "fps": 30,
+        "video_codec": "h264",
+        "audio_streams": 0,
+        "hard_cut_times_seconds": [
+          4.233333,
+          16.233333
+        ],
+        "poster_output_time_seconds": 9,
+        "layout": "Full source frame is fitted within the lower 640 pixels of a 1280 x 720 canvas. The upper 80 pixels contain white labels on a charcoal background, clear of native player controls; no source footage is covered by text. Portrait footage has side bars.",
+        "visual_description": "This silent 33-second montage contains three separate laboratory recordings at the original speed. A persistent label identifies each clip; two hard cuts mark the changes. Clip 1 (0.00–4.23 seconds) uses a portrait camera view. The G1 robot takes steps from the laboratory floor onto a padded incline, while an overhead safety tether and an operator holding the controller remain visible. Clip 2 (4.23–16.23 seconds) uses a landscape view: the robot steps forward, bends its torso and lowers a handheld tool toward the padded surface, then straightens. The final moments retain the gantry-assisted reset. Clip 3 (16.23–33.03 seconds) shows another trial: the robot takes steps, bends deeply over the padded surface, shifts backward into a low crouched posture, then brings its torso upright and rises. The gantry lifts the robot during the final reset. The mobile gantry, safety tether and operator remain in frame throughout the tool trials. These images show physical movements and the supervised experimental setting, not direct evidence of successful nailing, hammering or unsupported autonomous performance."
+      },
+      "files": [
+        {
+          "file": "g1-roofing-hero.mp4",
+          "bytes": 4373035,
+          "sha256": "21971766abc87744044330b8541ebb8bcd15e34d3cb99073a1cecc13f9ef91bd"
+        },
+        {
+          "file": "g1-roofing-hero.jpg",
+          "bytes": 153864,
+          "sha256": "97726ea6e15a650c850fb68c283ff6daed89cc19505db89edbdc4ec46a4a5526"
+        },
+        {
+          "file": "g1-roofing-hero-descriptions.vtt",
+          "bytes": 627,
+          "sha256": "746578339d420c61478e2625aa7e693f87ad17bfc24da4ac6baab6a0dfaf9213"
+        },
+        {
+          "file": "g1-roofing-highlights.mp4",
+          "bytes": 5880287,
+          "sha256": "5256499c438e016dfebbc76f534d95352b84c4d3c2868ba32251db21af41e93a"
+        },
+        {
+          "file": "g1-roofing-highlights.jpg",
+          "bytes": 139906,
+          "sha256": "6340be9801cc30683f7a1c6838bf0f62a355c20f8461214e3478e601f2bb3740"
+        },
+        {
+          "file": "g1-roofing-highlights-descriptions.vtt",
+          "bytes": 1435,
+          "sha256": "4e2910d1d90d679193cec5bfc6bc0f466e368173e99600bf9a4bf3c3ab479f97"
+        }
+      ],
+      "webIntegrationReview": {
+        "date": "2026-10-11",
+        "result": "passed",
+        "previewUrl": "http://127.0.0.1:4337/humanoid_roofing_webpage/",
+        "browser": "Google Chrome via Playwright",
+        "viewports": [
+          {
+            "width": 1440,
+            "height": 1000
+          },
+          {
+            "width": 320,
+            "height": 900
+          }
+        ],
+        "assets": [
+          {
+            "file": "roofing-fieldwork.mp4",
+            "durationSeconds": 35.836,
+            "videoStreams": 1,
+            "audioStreams": 0,
+            "sha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a"
+          },
+          {
+            "file": "g1-roofing-hero.mp4",
+            "durationSeconds": 12.0,
+            "videoStreams": 1,
+            "audioStreams": 0,
+            "sha256": "21971766abc87744044330b8541ebb8bcd15e34d3cb99073a1cecc13f9ef91bd"
+          },
+          {
+            "file": "g1-roofing-highlights.mp4",
+            "durationSeconds": 33.034,
+            "videoStreams": 1,
+            "audioStreams": 0,
+            "sha256": "5256499c438e016dfebbc76f534d95352b84c4d3c2868ba32251db21af41e93a"
+          }
+        ],
+        "checks": {
+          "allThreeVideosHaveNoAudioStreams": true,
+          "allVideoAndPosterHashesMatchManifest": true,
+          "noAutoplayOrLoop": true,
+          "nativeControlsPresent": true,
+          "keyboardPlayPauseForBothHeroVideos": true,
+          "keyboardPlayPauseForHighlights": true,
+          "keyboardFullFrameToggleWithAriaPressed": true,
+          "heroRobotVisibleInDesktopBackground": true,
+          "fullFrameViewRetainsOperatorAndSafetyEquipment": true,
+          "narrowLayoutUsesCompleteFramesBelowTitle": true,
+          "no320PixelHorizontalOverflow": true,
+          "allThreeDescriptionTracksReturn200": true,
+          "allVideoDescribedByTargetsExist": true,
+          "orderedClipsRetainSourceSpeedAndSafetyReset": true,
+          "topLabelsVisibleAboveNativeControls": true
+        },
+        "resolvedFinding": "The first export placed labels below the footage, where native player controls could cover them. The highlights were re-exported with an independent 80-pixel label band above the complete frame. Clip times, original speed, description track and source hashes were unchanged.",
+        "visualReview": "Desktop screenshots confirm the G1 robot remains visible in the title backdrop; the full-frame toggle shows the operator, gantry and full source images. Highlights sampled at 2.4, 9, 24 and 32 seconds show the three labeled source recordings and final safety-hoist reset in order. The top label band is unobstructed with the native controls visible.",
+        "consoleErrors": [],
+        "httpErrors": [],
+        "evidenceFiles": [
+          "/tmp/roofing-revision-media/web-integration-observations.json",
+          "/tmp/roofing-revision-media/web-desktop-cinematic.jpg",
+          "/tmp/roofing-revision-media/web-desktop-full-frames.jpg",
+          "/tmp/roofing-revision-media/web-highlights-contact.jpg",
+          "/tmp/roofing-revision-media/web-mobile-hero.jpg"
+        ],
+        "limitations": "This is a focused media integration review, not complete WCAG or ADA certification. Desktop title backgrounds intentionally crop the source edges; full-frame view and mobile layout preserve the full source frame. Full visual descriptions are provided as HTML as well as WebVTT."
+      }
+    }
+  ],
+  "mediaExportReview": {
+    "date": "2026-10-11",
+    "result": "passed",
+    "sourceFilesUnchanged": true,
+    "fullDecodeWithoutErrors": true,
+    "noAudioTracks": true,
+    "originalSpeedAndCompleteFramesRetained": true,
+    "reviewedEndpointEvidence": [
+      "/tmp/roofing-revision-media/shorter-motion/upwalk-ending-part-0.jpg",
+      "/tmp/roofing-revision-media/shorter-motion/upwalk-ending-part-1.jpg",
+      "/tmp/roofing-revision-media/shorter-motion/hammer-ending-part-0.jpg",
+      "/tmp/roofing-revision-media/shorter-motion/hammer-ending-part-1.jpg",
+      "/tmp/roofing-revision-media/shorter-motion/exported-endpoints.jpg"
+    ],
+    "selectionScope": "Selected motions only; later trial outcomes and resets are omitted at the user request."
   }
 }

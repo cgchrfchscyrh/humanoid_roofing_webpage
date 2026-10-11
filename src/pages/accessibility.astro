@@ -30,8 +30,8 @@ import { asset } from "../data/paths";
             highlights. No video loops automatically.
           </li><li>
             All three videos are silent and retain the original playback speed:
-            the approximately 36-second field recording, a 12-second G1 excerpt,
-            and 33 seconds of G1 highlights from three separate recordings.
+            the approximately 36-second field recording, a {site.robotHero.duration}-second G1 excerpt,
+            and {Number(site.robotHighlights.duration.toFixed(1))} seconds of G1 highlights from three separate recordings.
             Complete visual descriptions and timed WebVTT description tracks are
             provided for each video.
           </li><li>
@@ -42,8 +42,9 @@ import { asset } from "../data/paths";
             fullscreen controls and downloads also provide the complete frames.
           </li><li>
             The experiment highlights use labeled clips and visible cuts rather
-            than one continuous trial. The safety tether, operator, and
-            gantry-assisted resets remain visible. The video description
+            than one continuous trial. The safety tether and operator
+            remain visible. Excerpts end at the selected movements; subsequent
+            falls and resets are omitted. The video description
             explains the sequence without requiring playback.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.

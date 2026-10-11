@@ -32,7 +32,7 @@ import { asset } from "../data/paths";
         <track kind="descriptions" src={asset(site.contextTrack)} srclang="en" label="English visual descriptions" />
         <a href={asset(site.contextVideo)}>Download the silent roofing field video (MP4).</a>
       </video>
-      <video id="g1-hero-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.robotHero.poster)} width="1280" height="720" aria-label="Unitree G1 laboratory experiment, 12-second excerpt" aria-describedby="robot-summary robot-visual-description">
+      <video id="g1-hero-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.robotHero.poster)} width="1280" height="720" aria-label={`Unitree G1 laboratory experiment, ${site.robotHero.duration}-second excerpt`} aria-describedby="robot-summary robot-visual-description">
         <source src={asset(site.robotHero.video)} type="video/mp4" />
         <track kind="descriptions" src={asset(site.robotHero.track)} srclang="en" label="English visual descriptions" />
         <a href={asset(site.robotHero.video)}>Download the silent G1 laboratory excerpt (MP4).</a>

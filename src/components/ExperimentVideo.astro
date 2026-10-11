@@ -9,9 +9,9 @@ import { asset } from "../data/paths";
     <a href={asset(site.robotHighlights.video)}>Download the G1 experiment highlights (MP4).</a>
   </video>
   <figcaption id="experiment-caption">
-    <div><strong>G1 laboratory highlights</strong><p>33 seconds · Three separate sequences · Original playback speed</p></div>
+    <div><strong>G1 laboratory highlights</strong><p>{Number(site.robotHighlights.duration.toFixed(1))} seconds · Three selected motion excerpts · Original playback speed</p></div>
     <button class="button dark" id="highlights-toggle" data-media-control data-idle-label="Play G1 highlights" data-pause-label="Pause G1 highlights" data-replay-label="Replay G1 highlights" aria-controls="g1-highlights-video" type="button" hidden>Play G1 highlights</button>
-    <p class="experiment-scope">Incline walking, tool positioning, and bending/crouching. Safety tether, operator, and gantry-assisted resets remain visible. These clips illustrate the motions and setup; they are not evidence of successful nail firing or hammer impact.</p>
+    <p class="experiment-scope">Incline walking, tool positioning, and bending toward the roof surface. Each excerpt ends at the selected motion; subsequent falls and resets are omitted. The safety tether and operator remain visible. These clips illustrate the motions and setup; they are not evidence of successful nail firing or hammer impact.</p>
     <a href="#highlights-visual-description">Read the complete video description</a>
   </figcaption>
 </figure>
