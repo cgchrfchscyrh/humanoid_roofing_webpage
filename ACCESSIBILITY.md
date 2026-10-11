@@ -1,6 +1,6 @@
 # Accessibility review — 11 October 2026 revision
 
-The design target is WCAG 2.1 Level A and AA. This record describes the design, verification workflow, and remaining limits; it is not an ADA/WCAG certification or institutional brand approval. The revised three-video layout passed the local production-preview checks on 11 October 2026: **11 axe scans, 117 functional checks, zero recorded violations or errors**. Deployment and live verification are recorded separately below.
+The design target is WCAG 2.1 Level A and AA. This record describes the design, verification workflow, and remaining limits; it is not an ADA/WCAG certification or institutional brand approval. The revised three-video layout passed the local production-preview checks on 11 October 2026: **11 axe scans, 121 functional checks, zero recorded violations or errors**. The deployment checks passed the same counts; live verification is recorded separately below.
 
 ## Design and content
 
@@ -31,9 +31,15 @@ After deployment, verify the actual live revision, HTTPS, repository base paths,
 
 ## Current local results — 11 October 2026
 
-The production preview passed 11 axe WCAG 2.1 A/AA scans and 117 functional checks, including the title full-frame mode and all three video controls. Browser errors were empty. Desktop, narrow-screen, section layouts, and 1100-pixel increased text spacing were visually reviewed. At the latter size, the title actions remain more than 75 pixels above the native controls and the page has no horizontal overflow.
+The production preview passed 11 axe WCAG 2.1 A/AA scans and 121 functional checks, including the title full-frame mode and all three video controls. Browser errors were empty. Four regression checks hold MP4 requests pending and verify that keyboard pause immediately cancels buffered playback for both the title pair and body highlights, clears the busy state, and produces no false playback error. Desktop, narrow-screen, section layouts, and 1100-pixel increased text spacing were visually reviewed. At the latter size, the title actions remain more than 75 pixels above the native controls and the page has no horizontal overflow.
 
 Axe requested manual review of 20 title/arrow contrast nodes and three video-caption items. Computed title contrast uses the darkest-overlay composite over an entirely white video frame as the worst case; the minimum ratio across the reviewed nodes was 6.89:1. All three delivered MP4s have zero audio streams, with full and timed visual descriptions. Details and review limitations are recorded in `reports/manual-review.json` and `reports/media-revision.json`.
+
+## Deployment and live verification — 11 October 2026
+
+GitHub Actions run [38167971851](https://github.com/cgchrfchscyrh/humanoid_roofing_webpage/actions/runs/38167971851) successfully deployed commit `31105896d6b8e4dafdf5e7474e1b2a50a9f4d334`. Its independent CI report contains 11 axe scans and 121 functional checks, with zero recorded violations or errors (`reports/ci/axe-wcag21aa.json`).
+
+The live resource check verified five routes, 36 resources, and 40 internal fragment links. All public asset hashes matched local files, including the three MP4s, posters, and description tracks. All three media range requests returned 206; HTTPS is enforced. Observed security response headers and hosting limitations are recorded in `reports/live-deployment.json` and `SECURITY.md`. The custom missing-page response retains the disclaimer and access to the main site. Live Chrome verification also confirmed initially paused media, keyboard play/pause for both groups, full-frame toggling, the 12- and 33-second G1 files, and a 320-pixel layout without horizontal overflow or browser errors (`reports/live-browser.json`).
 
 ## Remaining manual limits
 

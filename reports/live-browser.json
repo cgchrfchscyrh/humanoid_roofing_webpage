@@ -1,39 +1,58 @@
 {
-  "date": "2026-10-04T18:37:56.785Z",
-  "site": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
-  "checks": [
+  "checkedOn": "2026-10-11",
+  "checkedAt": "2026-10-11T19:27:35.966Z",
+  "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+  "initiallyPaused": true,
+  "sections": [
+    "Problem",
+    "Related work",
+    "Research gap",
+    "Method",
+    "Experiments",
+    "Results",
+    "Conclusions"
+  ],
+  "videos": [
     {
-      "name": "Uploaded self-recorded video is used",
-      "passed": true
+      "id": "context-video",
+      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork.mp4",
+      "duration": 35.8358,
+      "paused": true,
+      "rate": 1,
+      "controls": true,
+      "muted": true,
+      "describedBy": "context-summary field-visual-description"
     },
     {
-      "name": "Research-team credit is visible",
-      "passed": true
+      "id": "g1-hero-video",
+      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero.mp4",
+      "duration": 12,
+      "paused": true,
+      "rate": 1,
+      "controls": true,
+      "muted": true,
+      "describedBy": "robot-summary robot-visual-description"
     },
     {
-      "name": "Full video duration is retained",
-      "passed": true
-    },
-    {
-      "name": "Initially paused",
-      "passed": true
-    },
-    {
-      "name": "Remote video plays with native controls",
-      "passed": true
-    },
-    {
-      "name": "Remote video pauses",
-      "passed": true
-    },
-    {
-      "name": "All homepage images load",
-      "passed": true
-    },
-    {
-      "name": "Live result page reflows at 320 CSS pixels",
-      "passed": true
+      "id": "g1-highlights-video",
+      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.mp4",
+      "duration": 33.033984,
+      "paused": true,
+      "rate": 1,
+      "controls": true,
+      "muted": true,
+      "describedBy": "experiment-caption highlights-visual-description"
     }
   ],
+  "keyboardPairPlayPause": true,
+  "keyboardHighlightPlayPause": true,
+  "fullFrameToggle": true,
+  "narrow": {
+    "width": 320,
+    "documentWidth": 320,
+    "titleBeforeVideo": true,
+    "stacked": true,
+    "completeFrames": true
+  },
   "errors": []
 }

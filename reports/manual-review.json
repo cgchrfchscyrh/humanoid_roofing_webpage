@@ -276,5 +276,10 @@
     "No comprehensive multi-screen-reader user evaluation.",
     "Original supplied PDF is untagged; external PDF/HTML mathematical reading order has not been certified.",
     "No UF institutional branding/accessibility approval or complete ADA/WCAG conformance is claimed."
-  ]
+  ],
+  "resolvedPlaybackFinding": {
+    "issue": "Initial production verification found that an immediate second button activation could be ignored while play() was still pending during buffering.",
+    "fix": "Pause now cancels an in-flight playback request immediately; a request identifier prevents stale play promises from changing a newer request. Intentional AbortError cancellations are not announced as failures.",
+    "regression": "Four deterministic browser checks hold MP4 requests pending and verify keyboard cancellation for the title pair and body highlights. The complete local and CI reports now contain 121 functional checks and 11 axe scans, with zero violations/errors."
+  }
 }
