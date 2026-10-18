@@ -11,18 +11,14 @@
   "authors": [
     {
       "name": "Songyang Liu",
-      "aff": "1",
       "email": "liusongyang@ufl.edu"
     },
     {
       "name": "Shuai Li",
-      "aff": "1",
       "email": "shuai.li@ufl.edu"
     }
   ],
-  "affiliations": [
-    "Department of Civil and Coastal Engineering, University of Florida, Gainesville, FL 32611, USA"
-  ],
+  "affiliations": [],
   "repo": "https://github.com/cgchrfchscyrh/humanoid_roofing_webpage",
   "repoLabel": "Website source",
   "repoNote": "Source for this research webpage, extracted figures, and transcribed result tables. This repository is not the robot training implementation.",

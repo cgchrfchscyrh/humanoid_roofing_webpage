@@ -1,0 +1,60 @@
+{
+  "reviewedOn": "2026-10-18",
+  "preview": "http://127.0.0.1:4512/humanoid_roofing_webpage/",
+  "revision": "Uncommitted local visual refresh; deployment verification remains separate.",
+  "design": "Neutral title and author block above complete paired videos; Abstract, Experiments, Method, Results, Citation; long explanations in native details and companion pages.",
+  "visibleMainWordsIncludingBibtex": 352,
+  "screenshots": {
+    "desktop": "/tmp/roofing-visual-refresh/desktop-full.png",
+    "desktopTop": "/tmp/roofing-visual-refresh/desktop-top.png",
+    "mobile": "/tmp/roofing-visual-refresh/mobile-full.png",
+    "mobileTop": "/tmp/roofing-visual-refresh/mobile-top.png"
+  },
+  "checks": {
+    "lint": "passed",
+    "astroCheck": "0 errors, 0 warnings, 0 hints",
+    "productionBuild": "passed",
+    "securityAuditVulnerabilities": 0,
+    "axeScans": 10,
+    "functionalChecks": 120,
+    "axeViolations": 0,
+    "functionalErrors": 0,
+    "mobileViewport": 320,
+    "mobileScrollWidth": 320
+  },
+  "reviewNotes": [
+    "Title and author names sit above unobscured full video frames.",
+    "Permanent pause control is in the sticky header so it does not cover native player controls.",
+    "The caption contrast issue detected in the first axe run was corrected and the complete check rerun passed.",
+    "Three MP4 files match the pre-edit SHA-256 checksums; existing first-seven-second hero excerpt and edited highlights are unchanged.",
+    "Playback tests cover autoplay, looping, keyboard pause/resume, native-pause memory, viewport pause, reduced motion, save data, dynamic preference changes and buffering cancellation.",
+    "All five rendered routes have no institutional affiliation or disclaimer block. Original research attachments remain unchanged."
+  ],
+  "researchDataUnchangedFromHEAD": [
+    "tables",
+    "comparisons",
+    "figures",
+    "bibtex",
+    "robotHero",
+    "robotHighlights"
+  ],
+  "media": [
+    {
+      "file": "public/media/g1-roofing-hero.mp4",
+      "sha256": "fb32a8d7b863dc51e1e2652a3753257144b0a4460b1776d5261f90380031919b"
+    },
+    {
+      "file": "public/media/g1-roofing-highlights.mp4",
+      "sha256": "cfd1ed50868b31a0844231b74332d1725f0e2c8115ffc95de198c009fbb25b6e"
+    },
+    {
+      "file": "public/media/roofing-fieldwork.mp4",
+      "sha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a"
+    }
+  ],
+  "limitations": [
+    "This is not complete ADA/WCAG certification.",
+    "External PDF tags, reading order, equations, and screen-reader experience are not certified.",
+    "The clips show selected supervised motions, not complete trial outcomes."
+  ]
+}

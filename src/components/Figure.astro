@@ -24,11 +24,15 @@ const fig = site.figures.find((f) => f.id === id)!;
   <figcaption>
     <span class="eyebrow">Paper figure {fig.number}</span><strong
       >{fig.title}</strong
-    ><p>{fig.description}</p><p class="fine-print">
-      {fig.credit}
-      <a href={asset(`figures/${fig.file}`)}
-        >Open figure {fig.number} at full size</a
-      >.
-    </p>
+    ><details>
+      <summary>Figure description and source</summary><p>{fig.description}</p><p
+        class="fine-print"
+      >
+        {fig.credit}
+        <a href={asset(`figures/${fig.file}`)}
+          >Open figure {fig.number} at full size</a
+        >.
+      </p>
+    </details>
   </figcaption>
 </figure>

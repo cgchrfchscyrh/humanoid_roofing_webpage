@@ -1741,3 +1741,294 @@ tbody tr:hover {
     display: none;
   }
 }
+
+/* Compact, media-led research overview. */
+:root {
+  background: #fff;
+}
+.site-header {
+  background: #fff;
+  min-height: 64px;
+  padding-block: 0.7rem;
+}
+.site-header .mark {
+  display: none;
+}
+.visual-home {
+  max-width: 1120px;
+}
+.visual-home .section {
+  padding-block: 3.8rem;
+}
+.visual-home h2 {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.visual-home .section-intro,
+.abstract-section > .lead {
+  max-width: 850px;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 1.08rem;
+}
+.visual-home .section-nav {
+  justify-content: center;
+  padding-block: 1.2rem;
+}
+.visual-home .research-figure {
+  margin-block: 2rem;
+}
+.visual-home .figure-image {
+  background: #fff;
+  border: 0;
+  padding: 0;
+}
+.visual-home .research-figure figcaption {
+  background: #fff;
+  padding: 1rem 0 0;
+}
+.visual-home .research-figure figcaption > .eyebrow {
+  display: none;
+}
+.visual-home .research-figure figcaption > strong {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.visual-home .research-figure details {
+  margin-top: 0.5rem;
+  font-size: 0.87rem;
+}
+.visual-home summary {
+  cursor: pointer;
+}
+.visual-home .text-link {
+  font-size: 0.9rem;
+}
+.abstract-section > .text-link {
+  display: block;
+  text-align: center;
+}
+.cinematic-hero .hero-text {
+  min-height: 560px;
+  padding: 4rem 2rem 6rem;
+}
+.cinematic-hero h1 {
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 1.13;
+  max-width: 1020px;
+  font-weight: 550;
+}
+.cinematic-hero .authors {
+  margin-block: 1.4rem 0.6rem;
+  font-size: 1.1rem;
+}
+.cinematic-hero .publication-line {
+  font-size: 0.9rem;
+  margin-bottom: 1.6rem;
+  color: #eee;
+}
+.hero-scene-captions {
+  padding-block: 1rem 0;
+}
+.hero-scene-captions p {
+  font-size: 0.88rem;
+  color: #eee;
+}
+.hero-playback > a {
+  color: #eee;
+  font-size: 0.82rem;
+}
+.media-master {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 60;
+  background: #fff;
+  color: #202020;
+  border: 1px solid #333;
+  box-shadow: 0 3px 18px #0003;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.88rem;
+}
+.experiment-video {
+  border: 0;
+  border-radius: 0;
+  margin-block: 1.8rem 0.7rem;
+}
+.experiment-video figcaption {
+  display: block;
+  text-align: center;
+  padding: 0.7rem 0 0;
+  font-size: 0.95rem;
+}
+.media-description-link {
+  text-align: center;
+  font-size: 0.82rem;
+}
+.experiment-note,
+.result-footnote {
+  color: #505050;
+  font-size: 0.89rem;
+}
+.research-details {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.research-details summary {
+  font-size: 0.94rem;
+}
+.research-details[open] > summary {
+  margin-bottom: 1rem;
+}
+.method-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  font-size: 0.94rem;
+}
+.method-summary li + li {
+  margin-top: 0;
+}
+.results-highlights {
+  margin-top: 2rem;
+}
+.results-highlights h3 {
+  font-size: 1rem;
+}
+.visual-home .citation > p {
+  font-size: 0.9rem;
+}
+.site-footer {
+  padding-bottom: 5rem;
+}
+@media (max-width: 1000px) {
+  .cinematic-hero .hero-text {
+    min-height: 0;
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
+  .cinematic-hero h1 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+  }
+}
+@media (max-width: 620px) {
+  .visual-home .section {
+    padding-block: 2.5rem;
+  }
+  .method-summary {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .cinematic-hero .hero-text {
+    text-align: center;
+    padding-inline: 1.25rem;
+  }
+  .cinematic-hero .authors,
+  .cinematic-hero .actions {
+    justify-content: center;
+  }
+  .hero-scene-captions {
+    gap: 0.4rem;
+    padding-top: 0.7rem;
+  }
+  .hero-scene-captions p {
+    margin: 0;
+  }
+  .hero-playback {
+    justify-content: center;
+    padding-block: 0.8rem 1rem;
+  }
+  .media-master {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+}
+@media print {
+  .media-master {
+    display: none !important;
+  }
+}
+/* Unified title-first presentation: the media always keeps its full frame. */
+.cinematic-hero {
+  background: #fafaf8;
+  color: #202020;
+}
+.cinematic-hero .hero-text {
+  min-height: 0;
+  padding: 4.5rem 2rem 3rem;
+}
+.cinematic-hero .hero-stage::before {
+  display: none;
+}
+.cinematic-hero .hero-backdrops {
+  position: relative;
+  z-index: auto;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+.cinematic-hero .hero-backdrops video {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+.cinematic-hero .eyebrow,
+.cinematic-hero .publication-line,
+.hero-scene-captions p,
+.hero-playback > a {
+  color: #505050;
+}
+.cinematic-hero .button.light {
+  border: 1px solid #777;
+}
+@media (max-width: 620px) {
+  .cinematic-hero .hero-text {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+}
+.cinematic-hero .hero-scene-captions p:last-child {
+  color: #505050;
+  font-size: 0.88rem;
+  margin: 0 0 1rem;
+}
+.visual-home #figure-framework img {
+  max-height: none;
+  width: 100%;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+}
+.site-header .wordmark {
+  flex-shrink: 0;
+}
+.site-header nav {
+  margin-left: auto;
+}
+.site-header .media-master {
+  position: static;
+  box-shadow: none;
+  padding: 0.45rem 0.8rem;
+  flex-shrink: 0;
+}
+@media (max-width: 620px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 0.75rem;
+  }
+  .site-header nav {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .site-header .wordmark {
+    font-size: 0.66rem;
+  }
+  .site-header .media-master {
+    font-size: 0.76rem;
+    padding: 0.4rem 0.65rem;
+  }
+}

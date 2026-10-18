@@ -24,28 +24,25 @@ import { asset } from "../data/paths";
             The first keyboard link skips to the main content. Keyboard focus is
             visible throughout the page.
           </li><li>
-            Videos start only when you choose to play them. Native player
-            controls remain available. With JavaScript enabled, separate
-            play/pause/replay buttons control the title pair and the experiment
-            highlights. No video loops automatically.
+            Silent videos play and loop when visible unless reduced motion or
+            data saving is enabled. The visible “Pause videos” button stops all
+            playback; native controls also remain available. Manual pauses are
+            remembered when scrolling, and offscreen videos pause automatically.
           </li><li>
-            All three videos are silent and retain the original playback speed:
-            the approximately 36-second field recording, a {site.robotHero.duration}-second G1 excerpt,
-            and {Number(site.robotHighlights.duration.toFixed(1))} seconds of G1 highlights from three separate recordings.
-            Complete visual descriptions and timed WebVTT description tracks are
-            provided for each video.
+            The field recording, G1 title excerpt, and experiment highlights
+            retain their original speed and have no audio track. Complete text
+            alternatives and timed WebVTT descriptions accompany each video.
           </li><li>
-            On larger screens, two videos appear behind the title. Choose “Show
-            full video frames” to move the title above the complete, unobscured
-            frames. Narrow screens place the title above the videos
-            automatically; on phones, the videos stack vertically. Native
-            fullscreen controls and downloads also provide the complete frames.
+            The title and author names appear above the complete video frames.
+            Larger screens show the two title videos side by side; phones stack
+            them. The footage is not cropped or covered by title text. Native
+            fullscreen controls and downloads also remain available.
           </li><li>
             The experiment highlights use labeled clips and visible cuts rather
-            than one continuous trial. The safety tether and operator
-            remain visible. Excerpts end at the selected movements; subsequent
-            falls and resets are omitted. The video description
-            explains the sequence without requiring playback.
+            than one continuous trial. The safety tether and operator remain
+            visible. Excerpts end at the selected movements; subsequent falls
+            and resets are omitted. The video description explains the sequence
+            without requiring playback.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.
             Results appear as labeled values and structured tables, so color is
@@ -56,8 +53,7 @@ import { asset } from "../data/paths";
           </li><li>
             Core content, result comparisons, native video controls, media
             downloads, and full text alternatives remain available without
-            JavaScript. The paired playback and title-view buttons require
-            JavaScript.
+            JavaScript. The global playback button requires JavaScript.
           </li>
         </ul>
       </section>
@@ -90,17 +86,14 @@ import { asset } from "../data/paths";
             >the review record</a
           >.
         </p><p>
-          The 11 October 2026 revision adds the paired title videos and edited
-          physical-experiment highlights. Local production-preview testing passed the axe scans and functional
-          checks with no recorded violations or errors, including pause controls
-          while videos are buffering. The linked
-          review record distinguishes these technical checks from the remaining
-          manual review and records the deployed revision.
+          The current verification record covers motion preferences, autoplay,
+          pause persistence, media alternatives, and the responsive page layout.
+          Recorded automated results apply only to the revision tested.
         </p><p>
           Automated coverage is limited. A full review with multiple screen
-          readers, users with disabilities, and institutional accessibility and
-          brand reviewers remains outside the completed technical checks. This
-          page does not claim an ADA or WCAG certification.
+          readers, users with disabilities, and accessibility specialists
+          remains outside the completed technical checks. This page does not
+          claim an ADA or WCAG certification.
         </p>
       </section>
       <section>
@@ -112,12 +105,7 @@ import { asset } from "../data/paths";
         </p>
       </section>
       <section>
-        <h2>Institutional identity & privacy</h2><p>
-          Author affiliations are reproduced from the paper. The website does
-          not use the UF logo, seal, or blue/orange identity palette. The
-          institutional disclaimer appears on every page. A neutral visual
-          design is not a substitute for institutional brand approval.
-        </p><p>
+        <h2>Privacy</h2><p>
           This static site loads its fonts, figures, and all three research-team
           videos locally. It uses no analytics, advertising, or embedded
           third-party players. Following an external link opens the provider’s

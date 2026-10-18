@@ -3,32 +3,72 @@ import site from "../data/site.json";
 import { asset } from "../data/paths";
 ---
 
-<section id="media-description" class="media-description" aria-labelledby="media-heading">
+<section
+  id="media-description"
+  class="media-description"
+  aria-labelledby="media-heading"
+>
   <p class="eyebrow">Recorded by our team</p>
   <h2 id="media-heading">Video descriptions & sources</h2>
-  <p>All videos are presented without audio, at their original playback speed. On larger screens, the title overlays the field and laboratory videos side by side; choose “Show full video frames” to view both complete frames below the title. On narrow screens, the title already appears above the complete video frames.</p>
+  <p>
+    Videos play silently at original speed when visible, unless reduced motion
+    or data saving is enabled. Use the visible “Pause videos” control to stop
+    playback. A manual pause is remembered when scrolling. All videos are
+    presented without audio, at their original playback speed. The title appears
+    above complete video frames. Larger screens show the field and laboratory
+    footage side by side; phone layouts stack them.
+  </p>
   <section aria-labelledby="field-media-title">
-    <h3 id="field-media-title">Roofing fieldwork · 35.8 seconds</h3>
+    <h3 id="field-media-title">Roofing fieldwork</h3>
     <p>{site.contextCredit}</p>
-    <div id="field-visual-description">{site.contextDetails.map(text => <p>{text}</p>)}</div>
+    <div id="field-visual-description">
+      {site.contextDetails.map((text) => <p>{text}</p>)}
+    </div>
     <p class="fine-print">{site.contextLicense}</p>
-    <div class="media-downloads"><a href={asset(site.contextVideo)} download>Download the silent field video (MP4)</a><a href={asset(site.contextTrack)} download>Field video descriptions (WebVTT)</a></div>
+    <div class="media-downloads">
+      <a href={asset(site.contextVideo)} download
+        >Download the silent field video (MP4)</a
+      ><a href={asset(site.contextTrack)} download
+        >Field video descriptions (WebVTT)</a
+      >
+    </div>
   </section>
   <section aria-labelledby="robot-media-title">
-    <h3 id="robot-media-title">G1 title video · {site.robotHero.duration} seconds</h3>
+    <h3 id="robot-media-title">G1 title video</h3>
     <p id="robot-visual-description">{site.robotHero.description}</p>
-    <p class="fine-print">Source: the authors’ laboratory recording, <code>bending_real_test_20260905_185804_260763_nailgun.mp4</code>, 00:55–01:02. The source file is preserved unchanged.</p>
-    <div class="media-downloads"><a href={asset(site.robotHero.video)} download>Download the silent G1 excerpt (MP4)</a><a href={asset(site.robotHero.track)} download>G1 excerpt descriptions (WebVTT)</a></div>
+    <p class="fine-print">
+      Source: the authors’ laboratory recording, <code
+        >bending_real_test_20260905_185804_260763_nailgun.mp4</code
+      >. The source file is preserved unchanged.
+    </p>
+    <div class="media-downloads">
+      <a href={asset(site.robotHero.video)} download
+        >Download the silent G1 excerpt (MP4)</a
+      ><a href={asset(site.robotHero.track)} download
+        >G1 excerpt descriptions (WebVTT)</a
+      >
+    </div>
   </section>
   <section aria-labelledby="highlights-media-title">
-    <h3 id="highlights-media-title">G1 experiment highlights · {Number(site.robotHighlights.duration.toFixed(1))} seconds</h3>
+    <h3 id="highlights-media-title">G1 experiment highlights</h3>
     <p id="highlights-visual-description">{site.robotHighlights.description}</p>
-    <ol class="clip-sources">
-      <li><strong>00:00–00:03.80 · Incline walking.</strong> Source: <code>roofer_real_upwalk.MOV</code>, 00:01.80–00:05.60.</li>
-      <li><strong>00:03.80–00:10.80 · Stepping and bending with a tool.</strong> Source: the nailgun recording above, 00:55–01:02.</li>
-      <li><strong>00:10.80–00:16.60 · Bending toward the roof surface.</strong> Source: <code>hammer.mp4</code>, 00:09–00:14.80.</li>
-    </ol>
-    <p class="fine-print">Hard cuts separate independent recordings. Each segment has a visible label; the source frame is fitted below the top label without cropping. The videos illustrate the experimental setting and movements; the paper’s quantitative trials are reported separately in Table 6.</p>
-    <div class="media-downloads"><a href={asset(site.robotHighlights.video)} download>Download G1 highlights (MP4)</a><a href={asset(site.robotHighlights.track)} download>G1 highlights descriptions (WebVTT)</a></div>
+    <ul class="clip-sources">
+      <li>Incline walking: <code>roofer_real_upwalk.MOV</code>.</li>
+      <li>Stepping and bending with a tool: the nailgun recording above.</li>
+      <li>Bending toward the roof surface: <code>hammer.mp4</code>.</li>
+    </ul>
+    <p class="fine-print">
+      Hard cuts separate independent recordings. Each segment has a visible
+      label; the source frame is fitted below the top label without cropping.
+      The videos illustrate the experimental setting and movements; the paper’s
+      quantitative trials are reported separately in Table 6.
+    </p>
+    <div class="media-downloads">
+      <a href={asset(site.robotHighlights.video)} download
+        >Download G1 highlights (MP4)</a
+      ><a href={asset(site.robotHighlights.track)} download
+        >G1 highlights descriptions (WebVTT)</a
+      >
+    </div>
   </section>
 </section>

@@ -2,16 +2,39 @@
 import site from "../data/site.json";
 import { asset } from "../data/paths";
 ---
+
 <figure class="experiment-video">
-  <video id="g1-highlights-video" data-playback-group="experiment" controls muted playsinline preload="none" poster={asset(site.robotHighlights.poster)} width="1280" height="720" aria-label="G1 physical experiment highlights: three selected laboratory sequences" aria-describedby="experiment-caption highlights-visual-description">
+  <video
+    id="g1-highlights-video"
+    data-playback-group="experiment"
+    controls
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster={asset(site.robotHighlights.poster)}
+    width="1280"
+    height="720"
+    aria-label="G1 physical experiment highlights"
+    aria-describedby="experiment-caption"
+  >
     <source src={asset(site.robotHighlights.video)} type="video/mp4" />
-    <track kind="descriptions" src={asset(site.robotHighlights.track)} srclang="en" label="English visual descriptions" />
-    <a href={asset(site.robotHighlights.video)}>Download the G1 experiment highlights (MP4).</a>
+    <track
+      kind="descriptions"
+      src={asset(site.robotHighlights.track)}
+      srclang="en"
+      label="English visual descriptions"
+    />
+    <a href={asset(site.robotHighlights.video)}
+      >Download G1 experiment highlights.</a
+    >
   </video>
   <figcaption id="experiment-caption">
-    <div><strong>G1 laboratory highlights</strong><p>{Number(site.robotHighlights.duration.toFixed(1))} seconds · Three selected motion excerpts · Original playback speed</p></div>
-    <button class="button dark" id="highlights-toggle" data-media-control data-idle-label="Play G1 highlights" data-pause-label="Pause G1 highlights" data-replay-label="Replay G1 highlights" aria-controls="g1-highlights-video" type="button" hidden>Play G1 highlights</button>
-    <p class="experiment-scope">Incline walking, tool positioning, and bending toward the roof surface. Each excerpt ends at the selected motion; subsequent falls and resets are omitted. The safety tether and operator remain visible. These clips illustrate the motions and setup; they are not evidence of successful nail firing or hammer impact.</p>
-    <a href="#highlights-visual-description">Read the complete video description</a>
+    Incline walking · Tool positioning · Bending
   </figcaption>
 </figure>
+<p class="media-description-link">
+  <a href={asset("accessibility/#highlights-visual-description")}
+    >Video description and recording sources</a
+  >
+</p>

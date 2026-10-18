@@ -2,97 +2,136 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
-import Comparison from "../components/Comparison.astro";
 import Citation from "../components/Citation.astro";
-import MediaCredit from "../components/MediaCredit.astro";
 import ExperimentVideo from "../components/ExperimentVideo.astro";
 import MediaControls from "../components/MediaControls.astro";
 import site from "../data/site.json";
 import narrative from "../data/narrative.json";
 import { asset } from "../data/paths";
-const sections = [
-  ["problem", "Problem"], ["related-work", "Related work"], ["gap", "Research gap"],
-  ["method", "Method"], ["experiments", "Experiments"], ["results", "Results"], ["conclusions", "Conclusions"],
-];
+const sections = ["Abstract", "Experiments", "Method", "Results", "Citation"];
 ---
 
 <Layout>
   <Hero />
-  <div class="container">
+  <div class="container visual-home">
     <nav class="section-nav" aria-label="Research sections">
-      {sections.map(([id, label]) => <a href={"#" + id}>{label}</a>)}
+      {sections.map((title) => <a href={"#" + title.toLowerCase()}>{title}</a>)}
     </nav>
-    <section class="section introduction" id="problem" aria-labelledby="problem-title">
-      <div><p class="eyebrow">01 / {narrative.problem.title}</p><h2 id="problem-title">{narrative.problem.heading}</h2></div>
-      <div><p class="lead">{narrative.problem.intro}</p><a class="text-link" href="#gap">The missing relation: body, task, and roof <span aria-hidden="true">↓</span></a></div>
+    <section
+      class="section abstract-section"
+      id="abstract"
+      aria-labelledby="abstract-title"
+    >
+      <h2 id="abstract-title">Abstract</h2>
+      <p class="lead">
+        Roofing requires a robot to coordinate movement, balance, and tool
+        positioning on a slope. Human demonstrations capture this coordination,
+        but retargeted poses can misplace feet or hands relative to the roof. We
+        combine human motion with a metric roof model, refine support and
+        work-surface relations, and learn feedback policies that preserve them
+        during execution. Simulation and physical Unitree G1 experiments
+        evaluate roofing-oriented motion primitives.
+      </p>
+      <a class="text-link" href={asset("paper/")}
+        >Research guide and related work <span aria-hidden="true">↗</span></a
+      >
+      <Figure id="overview" compact />
     </section>
-
-    <section class="section" id="related-work" aria-labelledby="related-title">
-      <div class="section-heading"><p class="eyebrow">02 / {narrative.relatedWork.title}</p><h2 id="related-title">From roof robotics to humanoid control.</h2><p class="lead">{narrative.relatedWork.intro}</p></div>
-      <div class="related-work-grid">
-        {narrative.relatedWork.groups.map(group => <article>
-          <h3>{group.title}</h3><p>{group.text}</p>
-          <p class="reference-names">{group.citations.map(cite => cite.authors + " (" + cite.year + ")").join("; ")}.</p>
-          <details><summary>References in the paper<span class="sr-only">: {group.title}</span></summary><ul>{group.citations.map(cite => <li><strong>{cite.authors} ({cite.year}).</strong> {cite.title}.</li>)}</ul></details>
-        </article>)}
-      </div>
-      <p class="reference-link"><a href={site.htmlPaper}>Read the full literature review and references in the paper (HTML)</a></p>
-    </section>
-
-    <section class="section" id="gap" aria-labelledby="gap-title">
-      <div class="section-heading"><p class="eyebrow">03 / {narrative.gap.title}</p><h2 id="gap-title">{narrative.gap.heading}</h2><p class="lead">{narrative.gap.intro}</p></div>
-      <p class="research-question">{narrative.gap.question}</p>
-      <Figure id="clearance" compact />
-    </section>
-
-    <section class="section" id="method" aria-labelledby="method-title">
-      <div class="section-heading"><p class="eyebrow">04 / Our {narrative.method.title.toLowerCase()}</p><h2 id="method-title">{narrative.method.heading}</h2><p class="lead">{narrative.method.intro}</p></div>
-      <ol class="steps">{narrative.method.steps.map((step, i) => <li><span class="step-number" aria-hidden="true">0{i + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
-      <Figure id={site.methodFigure} compact />
-      <a class="text-link" href={asset("paper/")}>Read the method and evaluation guide <span aria-hidden="true">→</span></a>
-    </section>
-
-    <section class="section" id="experiments" aria-labelledby="experiments-title">
-      <div class="section-heading"><p class="eyebrow">05 / {narrative.experiments.title}</p><h2 id="experiments-title">From simulated roofs to the physical G1.</h2><p class="lead">{narrative.experiments.intro}</p></div>
-      <dl class="stats">{site.stats.map(stat => <div><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}</dl>
-      <div class="experiment-protocol">
-        <div><h3>Simulation and controlled ablations</h3><p>{narrative.experiments.simulation}</p><p class="fine-print">{narrative.experiments.baselineNote}</p></div>
-        <div><h3>Physical robot and safety setup</h3><p>{narrative.experiments.physical}</p><p>The selected footage below shows three separate sequences, including incline walking, tool positioning, and bending toward the roof surface.</p></div>
-      </div>
+    <section
+      class="section"
+      id="experiments"
+      aria-labelledby="experiments-title"
+    >
+      <h2 id="experiments-title">Experiments</h2>
+      <p class="section-intro">
+        From incline walking to tool positioning: selected motions on the
+        physical Unitree G1.
+      </p>
       <ExperimentVideo />
-      <p class="evidence-note">{narrative.experiments.separateMeasurementsNote}</p>
-      <a class="text-link" href={asset("results/#hardware")}>Read physical measurements and uncertainty in Table 6 <span aria-hidden="true">→</span></a>
+      <p class="experiment-note">
+        Controlled laboratory tests use a safety hoist and operator-controlled
+        activation. These excerpts show selected movements, not complete trial
+        outcomes or functional nailing and hammer impact.
+      </p>
+      <details class="research-details">
+        <summary>Experimental setup and simulation</summary>
+        <p>{narrative.experiments.simulation}</p><p>
+          {narrative.experiments.physical}
+        </p>
+        <Figure id="simulation" compact />
+        <a href={asset("results/#hardware")}
+          >Physical measurements and trial counts</a
+        >
+      </details>
     </section>
-
+    <section class="section" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">Method</h2>
+      <p class="section-intro">
+        Capture human coordination. Ground the motion to the roof. Preserve task
+        relations during execution.
+      </p>
+      <Figure id={site.methodFigure} compact />
+      <ol class="method-summary">
+        <li>
+          <strong>Demonstrate.</strong> PICO tracking captures motion and timing.
+        </li>
+        <li>
+          <strong>Refine.</strong> Roof geometry constrains support, clearance, and
+          nonpenetration.
+        </li>
+        <li>
+          <strong>Learn.</strong> Phase-gated rewards maintain these relations under
+          tracking error.
+        </li>
+      </ol>
+    </section>
     <section class="section" id="results" aria-labelledby="results-title">
-      <div class="section-heading"><p class="eyebrow">06 / {narrative.results.title}</p><h2 id="results-title">{narrative.results.heading}</h2><p class="lead">{narrative.results.intro}</p></div>
-      <p><strong>{narrative.results.comparisonLabel}</strong><br />{narrative.results.comparisonNote}</p>
+      <h2 id="results-title">Results</h2>
+      <p class="section-intro">
+        Execution-aware learning reduces work-clearance error beyond reference
+        refinement alone.
+      </p>
       <div class="highlights results-highlights">
-        {narrative.results.clearanceComparisons.map(item => <div><h3>{item.task}</h3><p class="numeric-pair"><span>{item.reference}</span><span aria-hidden="true">→</span><span class="sr-only">to</span><strong>{item.complete} {item.unit}</strong></p><p>{item.source}</p></div>)}
+        {
+          narrative.results.clearanceComparisons.map((item) => (
+            <div>
+              <>
+                <h3>{item.task}</h3>
+                <p class="numeric-pair">
+                  <>
+                    <span>{item.reference}</span>
+                    <span aria-hidden="true">→</span>
+                    <span class="sr-only">to</span>
+                    <strong>
+                      {item.complete} {item.unit}
+                    </strong>
+                  </>
+                </p>
+              </>
+            </div>
+          ))
+        }
       </div>
-      <p class="evidence-note">{narrative.results.successNote}</p>
-      <Comparison />
-      <div class="result-discussion">
-        <div><h3>Slope coverage</h3><p>{narrative.results.slope}</p><a href={asset("results/#slope")}>Read the slope evaluation table</a></div>
-        <div><h3>Physical motion reproduction</h3><p>{narrative.results.hardware}</p><a href={asset("results/#hardware")}>Read base-frame errors and trial counts</a></div>
-      </div>
-    </section>
-
-    <section class="section" id="conclusions" aria-labelledby="conclusions-title">
-      <div class="section-heading"><p class="eyebrow">07 / {narrative.conclusion.title}</p><h2 id="conclusions-title">A basis for roof-aware motion primitives.</h2><p class="lead">{narrative.conclusion.intro}</p></div>
-      <ul class="limitations">{narrative.conclusion.limitations.map(item => <li>{item}</li>)}</ul>
-    </section>
-
-    <section class="section resources" aria-labelledby="resources-title">
-      <div class="section-heading"><p class="eyebrow">Research resources</p><h2 id="resources-title">Paper, results & website source.</h2></div>
-      <div class="resource-grid">
-        <a class="resource-card" href={site.paperUrl}><span class="eyebrow">Publication ↗</span><h3>Read the preprint</h3><p>{site.publication}</p></a>
-        <a class="resource-card" href={asset("results/")}><span class="eyebrow">HTML + CSV →</span><h3>Results & original figures</h3><p>Read numerical comparisons as accessible tables or download the data.</p></a>
-        <a class="resource-card" href={site.repo}><span class="eyebrow">GitHub ↗</span><h3>{site.repoLabel}</h3><p>{site.repoNote}</p></a>
-      </div>
+      <p class="result-footnote">
+        Mean simulation error across three seeds per task; lower is better.
+        Reference refinement → complete method. Tables 3–4.
+      </p>
+      <Figure id="clearance" compact />
+      <p>
+        The complete method satisfies all task criteria in 3/3 evaluated seeds
+        per task. Physical tests demonstrate motion reproduction with a safety
+        hoist; they do not establish unassisted roofing reliability.
+      </p>
+      <a class="text-link" href={asset("results/")}
+        >All results, figures, and data <span aria-hidden="true">↗</span></a
+      >
+      <details class="research-details">
+        <summary>Scope and limitations</summary><ul>
+          {narrative.conclusion.limitations.map((text) => <li>{text}</li>)}
+        </ul>
+      </details>
     </section>
     <Citation />
-    <div class="section"><MediaCredit /></div>
   </div>
   <MediaControls />
 </Layout>

@@ -6,55 +6,90 @@ import { asset } from "../data/paths";
 <section class="hero cinematic-hero" aria-labelledby="paper-title">
   <div class="hero-stage" id="hero-stage">
     <div class="hero-text">
-      <p class="eyebrow">Humanoid roofing · {site.year}</p>
+      <p class="eyebrow">Humanoid roofing</p>
       <h1 id="paper-title">{site.title}</h1>
-      <p class="hero-question">{site.heroIntro}</p>
-      <div class="hero-publication">
-        <ul class="authors">
-          {site.authors.map((author) => (
-            <li><a href={"mailto:" + author.email}>{author.name}</a><sup><a href={"#affiliation-" + author.aff} aria-label={"Affiliation " + author.aff}>{author.aff}</a></sup></li>
-          ))}
-        </ul>
-        <ol class="affiliations">
-          {site.affiliations.map((affiliation, i) => <li id={"affiliation-" + (i + 1)}>{affiliation}</li>)}
-        </ol>
-        <p class="correspondence">Corresponding author: Shuai Li · arXiv preprint, September 2026</p>
-        <div class="actions">
-          <a class="button light" href={site.paperUrl}>Read the preprint <span aria-hidden="true">↗</span></a>
-          <a class="button light" href="#experiments">Watch G1 experiments <span aria-hidden="true">↓</span></a>
-          <a class="button light" href={asset("paper/")}>Research guide</a>
-        </div>
+      <ul class="authors">
+        {
+          site.authors.map((author) => (
+            <li>
+              <a href={"mailto:" + author.email}>{author.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="publication-line">arXiv · {site.year}</p>
+      <div class="actions">
+        <a class="button light" href={site.paperUrl}
+          >Paper <span aria-hidden="true">↗</span></a
+        >
+        <a class="button light" href="#experiments"
+          >Experiments <span aria-hidden="true">↓</span></a
+        >
+        <a class="button light" href={site.repo}
+          >Website source <span aria-hidden="true">↗</span></a
+        >
       </div>
     </div>
     <div class="hero-backdrops">
-      <video id="context-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.contextPoster)} width="1280" height="720" aria-label="Self-recorded roofing fieldwork" aria-describedby="context-summary field-visual-description">
+      <video
+        id="context-video"
+        data-playback-group="hero"
+        controls
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={asset(site.contextPoster)}
+        width="1280"
+        height="720"
+        aria-label="Research-team roofing fieldwork"
+        aria-describedby="context-summary"
+      >
         <source src={asset(site.contextVideo)} type="video/mp4" />
-        <track kind="descriptions" src={asset(site.contextTrack)} srclang="en" label="English visual descriptions" />
-        <a href={asset(site.contextVideo)}>Download the silent roofing field video (MP4).</a>
+        <track
+          kind="descriptions"
+          src={asset(site.contextTrack)}
+          srclang="en"
+          label="English visual descriptions"
+        />
+        <a href={asset(site.contextVideo)}>Download the roofing field video.</a>
       </video>
-      <video id="g1-hero-video" data-playback-group="hero" controls muted playsinline preload="metadata" poster={asset(site.robotHero.poster)} width="1280" height="720" aria-label={`Unitree G1 laboratory experiment, ${site.robotHero.duration}-second excerpt`} aria-describedby="robot-summary robot-visual-description">
+      <video
+        id="g1-hero-video"
+        data-playback-group="hero"
+        controls
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={asset(site.robotHero.poster)}
+        width="1280"
+        height="720"
+        aria-label="Unitree G1 laboratory motion excerpt"
+        aria-describedby="robot-summary"
+      >
         <source src={asset(site.robotHero.video)} type="video/mp4" />
-        <track kind="descriptions" src={asset(site.robotHero.track)} srclang="en" label="English visual descriptions" />
-        <a href={asset(site.robotHero.video)}>Download the silent G1 laboratory excerpt (MP4).</a>
+        <track
+          kind="descriptions"
+          src={asset(site.robotHero.track)}
+          srclang="en"
+          label="English visual descriptions"
+        />
+        <a href={asset(site.robotHero.video)}
+          >Download the G1 laboratory excerpt.</a
+        >
       </video>
     </div>
   </div>
   <div class="hero-scene-captions">
-    <div id="context-summary">
-      <p class="eyebrow">01 / Roofing in the field</p>
-      <strong>Human movement on a working roof.</strong>
-      <p>Research-team footage · {site.contextDuration} seconds</p>
-    </div>
-    <div id="robot-summary">
-      <p class="eyebrow">02 / Our G1 experiment</p>
-      <strong>Whole-body motion on a laboratory slope.</strong>
-      <p>Selected {site.robotHero.duration}-second excerpt · Safety hoist attached</p>
-    </div>
+    <p id="context-summary">Human roofing</p><p id="robot-summary">
+      G1 laboratory motion · Safety hoist attached
+    </p>
   </div>
   <div class="hero-playback">
-    <button class="button light" id="hero-playback-toggle" data-media-control data-idle-label="Play both clips" data-pause-label="Pause clips" data-replay-label="Replay both clips" aria-controls="context-video g1-hero-video" aria-describedby="hero-playback-note" type="button" hidden>Play both clips</button>
-    <button class="button outline" id="hero-view-toggle" aria-controls="hero-stage" aria-pressed="false" type="button" hidden>Show full video frames</button>
-    <p id="hero-playback-note">Silent, original-speed footage · No autoplay · <a href="#media-description">Video descriptions & sources</a></p>
-    <p id="media-status" class="sr-only" role="status"></p>
+    <a href={asset("accessibility/#media-description")}
+      >Video descriptions & sources</a
+    >
   </div>
+  <p id="media-status" class="sr-only" role="status"></p>
 </section>

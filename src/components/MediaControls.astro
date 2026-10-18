@@ -4,90 +4,110 @@
       "video[data-playback-group]",
     ),
   ];
+  const toggle = document.querySelector<HTMLButtonElement>("#media-toggle");
   const status = document.querySelector<HTMLElement>("#media-status");
-  for (const video of videos) {
-    video.addEventListener("play", () => {
-      for (const other of videos) {
-        if (
-          other !== video &&
-          other.dataset.playbackGroup !== video.dataset.playbackGroup
-        )
-          other.pause();
-      }
-    });
-  }
-  for (const button of document.querySelectorAll<HTMLButtonElement>(
-    "button[data-media-control]",
-  )) {
-    const ids = (button.getAttribute("aria-controls") || "").split(/\s+/);
-    const targets = ids
-      .map((id) => document.getElementById(id))
-      .filter(
-        (element): element is HTMLVideoElement =>
-          element instanceof HTMLVideoElement,
-      );
-    if (!targets.length) continue;
-    button.hidden = false;
-    const update = () => {
-      button.textContent = targets.some(
-        (video) => !video.paused && !video.ended,
-      )
-        ? button.dataset.pauseLabel!
-        : targets.some((video) => video.ended)
-          ? button.dataset.replayLabel!
-          : button.dataset.idleLabel!;
-    };
-    for (const video of targets) {
-      for (const event of ["play", "pause", "ended", "error"])
-        video.addEventListener(event, update);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+  const connection = (
+    navigator as Navigator & {
+      connection?: EventTarget & { saveData?: boolean };
     }
-    let playbackRequest = 0;
-    button.addEventListener("click", async () => {
-      if (targets.some((video) => !video.paused && !video.ended)) {
-        // A pending play() must remain cancellable while media is buffering.
-        playbackRequest++;
-        targets.forEach((video) => video.pause());
-        button.removeAttribute("aria-busy");
-        update();
-        return;
-      }
-      if (targets.some((video) => video.ended))
-        targets.forEach((video) => {
-          video.currentTime = 0;
-        });
-      const request = ++playbackRequest;
-      button.setAttribute("aria-busy", "true");
-      const results = await Promise.allSettled(
-        targets.map((video) => video.play()),
-      );
-      // An older, cancelled request must not change a newer playback request.
-      if (request !== playbackRequest) return;
+  ).connection;
+  let globallyPaused = false;
+  let explicitPlayback = false;
+  const state = new Map(
+    videos.map((video) => [video, { visible: false, manualPause: false }]),
+  );
+  const systemPauses = new WeakSet<HTMLVideoElement>();
+  const systemPlays = new WeakSet<HTMLVideoElement>();
+  const eligible = () =>
+    explicitPlayback || (!reduced.matches && !connection?.saveData);
+  const update = () => {
+    if (toggle)
+      toggle.textContent = videos.some((video) => !video.paused)
+        ? "Pause videos"
+        : "Play videos";
+  };
+  const pause = (video: HTMLVideoElement) => {
+    if (!video.paused) {
+      systemPauses.add(video);
+      video.pause();
+    }
+    update();
+  };
+  const play = (video: HTMLVideoElement) => {
+    if (!video.paused) return;
+    video.muted = true;
+    systemPlays.add(video);
+    video.play().catch((error: DOMException) => {
+      systemPlays.delete(video);
+      if (error.name !== "AbortError" && status)
+        status.textContent =
+          "Automatic playback is unavailable. Use Play videos or the native player controls.";
+      update();
+    });
+    update();
+  };
+  const sync = () => {
+    for (const video of videos) {
+      const item = state.get(video)!;
       if (
-        results.some(
-          (result) =>
-            result.status === "rejected" &&
-            result.reason?.name !== "AbortError",
-        )
-      ) {
-        targets.forEach((video) => video.pause());
-        if (status)
-          status.textContent =
-            "Playback could not start. Use the native player controls, download the clip, or read the video description.";
-      } else if (status) status.textContent = "";
-      button.removeAttribute("aria-busy");
+        !document.hidden &&
+        item.visible &&
+        !item.manualPause &&
+        !globallyPaused &&
+        eligible()
+      )
+        play(video);
+      else pause(video);
+    }
+    update();
+  };
+  for (const video of videos) {
+    video.addEventListener("pause", () => {
+      if (!systemPauses.has(video) && !video.ended)
+        state.get(video)!.manualPause = true;
+      systemPauses.delete(video);
+      update();
+    });
+    video.addEventListener("play", () => {
+      if (!systemPlays.has(video)) state.get(video)!.manualPause = false;
+      systemPlays.delete(video);
       update();
     });
   }
-  const view = document.querySelector<HTMLButtonElement>("#hero-view-toggle");
-  const stage = document.querySelector<HTMLElement>("#hero-stage");
-  if (view && stage) {
-    view.hidden = false;
-    view.addEventListener("click", () => {
-      const full = stage.classList.toggle("full-frames");
-      view.setAttribute("aria-pressed", String(full));
-      view.textContent = full
-        ? "Restore title background"
-        : "Show full video frames";
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries)
+        state.get(entry.target as HTMLVideoElement)!.visible =
+          entry.isIntersecting && entry.intersectionRatio >= 0.12;
+      sync();
+    },
+    { threshold: [0, 0.12] },
+  );
+  videos.forEach((video) => observer.observe(video));
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener("click", () => {
+      if (videos.some((video) => !video.paused)) {
+        globallyPaused = true;
+        videos.forEach(pause);
+      } else {
+        globallyPaused = false;
+        explicitPlayback = true;
+        videos.forEach((video) => {
+          state.get(video)!.manualPause = false;
+        });
+        if (status) status.textContent = "";
+        sync();
+      }
+      update();
     });
   }
+  document.addEventListener("visibilitychange", sync);
+  const preferenceChanged = () => {
+    explicitPlayback = false;
+    sync();
+  };
+  reduced.addEventListener("change", preferenceChanged);
+  connection?.addEventListener("change", preferenceChanged);
 </script>

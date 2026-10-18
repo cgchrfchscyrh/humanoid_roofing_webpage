@@ -13,6 +13,8 @@ const canonical =
   Astro.site && !isNotFound
     ? new URL(Astro.url.pathname, Astro.site).href
     : undefined;
+const hasMedia =
+  Astro.url.pathname.replace(/\/$/, "") === asset().replace(/\/$/, "");
 const nav = [
   { name: "Overview", href: asset() },
   { name: "Research guide", href: asset("paper/") },
@@ -70,6 +72,19 @@ const nav = [
         aria-label={`${site.wordmark} — project home`}
         ><span class="mark" aria-hidden="true">↗</span>{site.wordmark}</a
       >
+      {
+        hasMedia && (
+          <button
+            class="button media-master"
+            id="media-toggle"
+            aria-controls="context-video g1-hero-video g1-highlights-video"
+            type="button"
+            hidden
+          >
+            Pause videos
+          </button>
+        )
+      }
       <nav aria-label="Main navigation">
         {
           nav.map((item) => (
@@ -95,12 +110,6 @@ const nav = [
           >Back to top ↑</a
         >
       </div>
-      <p>
-        The research, findings, and opinions presented here are those of the
-        authors and do not represent the official views or policies of the
-        University of Florida (UF). This is an author-maintained research
-        website, not an official UF website.
-      </p>
       <div class="footer-links">
         <a href={asset("accessibility/")}>Accessibility & media credits</a><a
           href="mailto:liusongyang@ufl.edu">Contact Songyang Liu</a
