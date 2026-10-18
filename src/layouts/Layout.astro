@@ -20,8 +20,6 @@ const canonical =
   Astro.site && !isNotFound
     ? new URL(canonicalPath, Astro.site).href
     : undefined;
-const hasMedia =
-  Astro.url.pathname.replace(/\/$/, "") === asset().replace(/\/$/, "");
 const nav = [
   { name: "Abstract", href: asset("#abstract") },
   { name: "Method", href: asset("#method") },
@@ -80,19 +78,6 @@ const nav = [
         aria-label={`${site.wordmark} — project home`}
         ><span class="mark" aria-hidden="true">↗</span>{site.wordmark}</a
       >
-      {
-        hasMedia && (
-          <button
-            class="button media-master"
-            id="media-toggle"
-            aria-controls="context-video g1-hero-video g1-walking-video field-crouch-video g1-tool-video g1-bending-video"
-            type="button"
-            hidden
-          >
-            Pause videos
-          </button>
-        )
-      }
       <nav aria-label="Main navigation">
         {nav.map((item) => <a href={item.href}>{item.name}</a>)}
       </nav>

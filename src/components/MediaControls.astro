@@ -4,7 +4,6 @@
       "video[data-playback-group]",
     ),
   ];
-  const toggle = document.querySelector<HTMLButtonElement>("#media-toggle");
   const status = document.querySelector<HTMLElement>("#media-status");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const connection = (
@@ -12,67 +11,75 @@
       connection?: EventTarget & { saveData?: boolean };
     }
   ).connection;
-  let globallyPaused = false;
-  let explicitPlayback = false;
   const state = new Map(
-    videos.map((video) => [video, { visible: false, manualPause: false }]),
+    videos.map((video) => [
+      video,
+      { visible: false, manualPause: false, explicitPlayback: false },
+    ]),
   );
   const systemPauses = new WeakSet<HTMLVideoElement>();
   const systemPlays = new WeakSet<HTMLVideoElement>();
-  const eligible = () =>
-    explicitPlayback || (!reduced.matches && !connection?.saveData);
-  const update = () => {
-    if (toggle)
-      toggle.textContent = videos.some((video) => !video.paused)
-        ? "Pause videos"
-        : "Play videos";
-  };
+  const automaticPlaybackAllowed = () =>
+    !reduced.matches && !connection?.saveData;
   const pause = (video: HTMLVideoElement) => {
     if (!video.paused) {
       systemPauses.add(video);
       video.pause();
     }
-    update();
   };
   const play = (video: HTMLVideoElement) => {
     if (!video.paused) return;
     video.muted = true;
     systemPlays.add(video);
-    video.play().catch((error: DOMException) => {
-      systemPlays.delete(video);
-      if (error.name !== "AbortError" && status)
-        status.textContent =
-          "Automatic playback is unavailable. Use Play videos or the native player controls.";
-      update();
-    });
-    update();
+    video
+      .play()
+      .then(() => {
+        const item = state.get(video)!;
+        if (
+          document.hidden ||
+          !item.visible ||
+          item.manualPause ||
+          (!item.explicitPlayback && !automaticPlaybackAllowed())
+        )
+          pause(video);
+      })
+      .catch((error: DOMException) => {
+        systemPlays.delete(video);
+        if (error.name !== "AbortError" && status)
+          status.textContent =
+            "Automatic playback is unavailable. Use the native player controls.";
+      });
   };
   const sync = () => {
     for (const video of videos) {
       const item = state.get(video)!;
+      if (!item.visible || document.hidden) item.explicitPlayback = false;
       if (
         !document.hidden &&
         item.visible &&
         !item.manualPause &&
-        !globallyPaused &&
-        eligible()
+        (item.explicitPlayback || automaticPlaybackAllowed())
       )
         play(video);
       else pause(video);
     }
-    update();
   };
   for (const video of videos) {
     video.addEventListener("pause", () => {
-      if (!systemPauses.has(video) && !video.ended)
+      if (!systemPauses.has(video) && !video.ended) {
         state.get(video)!.manualPause = true;
+        state.get(video)!.explicitPlayback = false;
+      }
       systemPauses.delete(video);
-      update();
     });
     video.addEventListener("play", () => {
-      if (!systemPlays.has(video)) state.get(video)!.manualPause = false;
+      if (!systemPlays.has(video)) {
+        // Native play explicitly opts this player in, even with motion/data saving.
+        state.get(video)!.manualPause = false;
+        state.get(video)!.explicitPlayback = true;
+        if (status) status.textContent = "";
+      }
       systemPlays.delete(video);
-      update();
     });
   }
   const observer = new IntersectionObserver(
@@ -85,27 +92,11 @@
     { threshold: [0, 0.12] },
   );
   videos.forEach((video) => observer.observe(video));
-  if (toggle) {
-    toggle.hidden = false;
-    toggle.addEventListener("click", () => {
-      if (videos.some((video) => !video.paused)) {
-        globallyPaused = true;
-        videos.forEach(pause);
-      } else {
-        globallyPaused = false;
-        explicitPlayback = true;
-        videos.forEach((video) => {
-          state.get(video)!.manualPause = false;
-        });
-        if (status) status.textContent = "";
-        sync();
-      }
-      update();
-    });
-  }
   document.addEventListener("visibilitychange", sync);
   const preferenceChanged = () => {
-    explicitPlayback = false;
+    state.forEach((item) => {
+      item.explicitPlayback = false;
+    });
     sync();
   };
   reduced.addEventListener("change", preferenceChanged);

@@ -91,6 +91,26 @@ async function atTop(target) {
   await target.evaluate(() => scrollTo(0, 0));
   await target.waitForTimeout(300);
 }
+// Traverse real keyboard stops into Chrome's native video controls.
+async function tabToVideo(target, video) {
+  await target.locator(".skip-link").focus();
+  for (let i = 0; i < 100; i++) {
+    await target.keyboard.press("Tab");
+    if (await video.evaluate((v) => document.activeElement === v)) return;
+  }
+  throw new Error(
+    "Native video controls were not reachable through the tab order",
+  );
+}
+async function waitForPlayback(video, expected) {
+  await video.page().waitForFunction(
+    ({ id, paused }) => {
+      const v = document.getElementById(id);
+      return v instanceof HTMLVideoElement && v.paused === paused;
+    },
+    { id: await video.getAttribute("id"), paused: expected },
+  );
+}
 try {
   for (const route of [
     "/",
@@ -186,14 +206,12 @@ try {
       route + ": skip link targets main",
     );
     if (route === "/") {
-      const master = page.locator("#media-toggle");
       await atTop(page);
       await expectHeroPlaying(page);
       check(true, "Visible title videos automatically play without a click");
       check(
-        (await master.innerText()) === "Pause videos" &&
-          (await master.isVisible()),
-        "Automatic playback exposes a visible Pause videos button",
+        (await page.locator("#media-toggle").count()) === 0,
+        "No separate global playback button remains; native controls are available",
       );
       check(
         JSON.stringify(
@@ -204,21 +222,12 @@ try {
         "Six expected roofing excerpts are distributed across the page",
       );
       check(
-        JSON.stringify(
-          (await master.getAttribute("aria-controls")).split(/\s+/).sort(),
-        ) === JSON.stringify([...expectedVideoIds].sort()),
-        "The global playback control names every controlled video",
-      );
-      check(
-        (await page
-          .locator(".actions")
-          .getByRole("link", { name: /^arXiv/ })
-          .getAttribute("href")) === paperUrl &&
+        (await page.locator(".hero-text .actions a").count()) === 1 &&
           (await page
-            .locator(".actions")
-            .getByRole("link", { name: /^Paper(?:\s|$)/ })
-            .count()) === 0,
-        "The publication button is arXiv and links to the requested PDF",
+            .locator(".hero-text .actions")
+            .getByRole("link", { name: /^arXiv/ })
+            .getAttribute("href")) === paperUrl,
+        "The hero has only the arXiv button linked to the requested PDF",
       );
       for (const [section, ids] of [
         ["abstract", ["g1-walking-video"]],
@@ -272,52 +281,40 @@ try {
         ),
         "Title and author names are above the footage",
       );
-      await master.focus();
+      const heroVideo = page.locator("#g1-hero-video");
+      await tabToVideo(page, heroVideo);
+      check(true, "Native video playback controls are reachable through Tab");
       await page.keyboard.press("Space");
-      await page.waitForFunction(() =>
-        [...document.querySelectorAll("video")].every((v) => v.paused),
-      );
+      await waitForPlayback(heroVideo, true);
+      check(true, "Space on the native player pauses the video");
+      for (const video of await page
+        .locator('video[data-playback-group="research"]')
+        .all()) {
+        await video.scrollIntoViewIfNeeded();
+        await waitForPlayback(video, false);
+        check(
+          await video.evaluate((v) => v.muted && v.loop),
+          "Research excerpt plays silently when visible: " +
+            (await video.getAttribute("id")),
+        );
+      }
       check(
-        (await master.innerText()) === "Play videos",
-        "Keyboard pause stops every video and offers Play videos",
-      );
-      await page.locator("#g1-bending-video").scrollIntoViewIfNeeded();
-      await page.waitForTimeout(300);
-      await atTop(page);
-      check(
-        await paused(page),
-        "Global manual pause persists after leaving and re-entering the viewport",
-      );
-      await master.focus();
-      await page.keyboard.press("Enter");
-      await expectHeroPlaying(page);
-      check(true, "Keyboard Play videos explicitly resumes visible media");
-      await page.locator("#g1-hero-video").evaluate((v) => {
-        if (v instanceof HTMLVideoElement) v.pause();
-      });
-      await page.waitForTimeout(150);
-      await page.locator("#g1-bending-video").scrollIntoViewIfNeeded();
-      await page.waitForFunction(
-        () =>
-          !document.querySelector("#g1-bending-video").paused &&
-          [
-            ...document.querySelectorAll('video[data-playback-group="hero"]'),
-          ].every((v) => v.paused),
-      );
-      check(
-        true,
-        "Entering experiment video plays it and pauses offscreen title media",
+        await page
+          .locator('video[data-playback-group="hero"]')
+          .evaluateAll((videos) => videos.every((v) => v.paused)),
+        "Offscreen title videos pause automatically",
       );
       await atTop(page);
       check(
-        (await page.locator("#g1-hero-video").evaluate((v) => v.paused)) &&
+        (await heroVideo.evaluate((v) => v.paused)) &&
           (await page.locator("#context-video").evaluate((v) => !v.paused)),
-        "A native individual pause remains remembered after scrolling",
+        "Native manual pause remains remembered after scrolling while other media can play",
       );
-      await master.click();
-      await master.click();
-      await expectHeroPlaying(page);
-      await page.locator("#g1-hero-video").evaluate((v) => {
+      await tabToVideo(page, heroVideo);
+      await page.keyboard.press("Space");
+      await waitForPlayback(heroVideo, false);
+      check(true, "Space on the native player explicitly resumes playback");
+      await heroVideo.evaluate((v) => {
         v.currentTime = v.duration - 0.15;
       });
       await page.waitForFunction(() => {
@@ -325,7 +322,9 @@ try {
         return !v.paused && !v.seeking && v.currentTime < 1;
       });
       check(true, "Video looping preserves playback and remains pausable");
-      await master.click();
+      await page.keyboard.press("Space");
+      await waitForPlayback(heroVideo, true);
+      check(true, "Native keyboard pause still works after a loop");
       for (const id of expectedVideoIds) {
         const video = page.locator("#" + id);
         const sourceFile = (await video.locator("source").getAttribute("src"))
@@ -559,12 +558,21 @@ try {
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);
-    await p.locator("#media-toggle").click();
-    await expectHeroPlaying(p);
-    check(true, preference + ": explicit Play videos remains available");
-    await p.locator("#media-toggle").click();
-    await atTop(p);
-    check(await paused(p), preference + ": user can pause explicit playback");
+    const video = p.locator("#g1-hero-video");
+    await tabToVideo(p, video);
+    await p.keyboard.press("Space");
+    await waitForPlayback(video, false);
+    await p.waitForTimeout(200);
+    check(
+      await video.evaluate((v) => !v.paused),
+      preference + ": explicit native keyboard playback remains available",
+    );
+    await p.keyboard.press("Space");
+    await waitForPlayback(video, true);
+    check(
+      await paused(p),
+      preference + ": native keyboard pause remains available",
+    );
     await ctx.close();
   }
   const dynamic = await context.newPage();
@@ -588,9 +596,9 @@ try {
     "No-JavaScript media retains native controls without automatic motion",
   );
   check(
-    (await n.locator("#media-toggle").isHidden()) &&
+    (await n.locator("#media-toggle").count()) === 0 &&
       (await n.locator("#copy-citation").isHidden()),
-    "Unavailable script controls stay hidden without JavaScript",
+    "No global playback button; unavailable citation control stays hidden without JavaScript",
   );
   check(
     await n.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
@@ -622,18 +630,20 @@ try {
         (v) => !v.paused,
       ),
     );
-    await buffering.locator("#media-toggle").focus();
+    const bufferingVideo = buffering.locator("#g1-hero-video");
+    await tabToVideo(buffering, bufferingVideo);
     await buffering.keyboard.press("Space");
+    await waitForPlayback(bufferingVideo, true);
     check(
-      await paused(buffering),
-      "Pause interrupts pending autoplay while media is buffering",
+      true,
+      "Native keyboard pause interrupts pending autoplay while media is buffering",
     );
     release();
     await Promise.allSettled([...routes]);
     await buffering.waitForTimeout(300);
     check(
-      await paused(buffering),
-      "Releasing buffered media does not undo a user pause",
+      await bufferingVideo.evaluate((v) => v.paused),
+      "Releasing buffered media does not undo the native user pause",
     );
   } finally {
     release();

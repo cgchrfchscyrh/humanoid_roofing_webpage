@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-18T19:38:49.205Z",
+  "date": "2026-10-18T19:48:38.659Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -9,14 +9,6 @@
       "passes": 26,
       "violations": [],
       "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
-            ]
-          ]
-        },
         {
           "id": "video-caption",
           "nodes": [
@@ -48,14 +40,6 @@
       "violations": [],
       "incomplete": [
         {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
-            ]
-          ]
-        },
-        {
           "id": "video-caption",
           "nodes": [
             [
@@ -85,14 +69,6 @@
       "passes": 26,
       "violations": [],
       "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
-            ]
-          ]
-        },
         {
           "id": "video-caption",
           "nodes": [
@@ -183,10 +159,9 @@
     "/: visible focus",
     "/: skip link targets main",
     "Visible title videos automatically play without a click",
-    "Automatic playback exposes a visible Pause videos button",
+    "No separate global playback button remains; native controls are available",
     "Six expected roofing excerpts are distributed across the page",
-    "The global playback control names every controlled video",
-    "The publication button is arXiv and links to the requested PDF",
+    "The hero has only the arXiv button linked to the requested PDF",
     "abstract: the intended short excerpts accompany the research section",
     "method: the intended short excerpts accompany the research section",
     "results: the intended short excerpts accompany the research section",
@@ -194,12 +169,17 @@
     "Silent inline playback, original speed, native controls, and controllable loops",
     "Desktop title media shows complete frames",
     "Title and author names are above the footage",
-    "Keyboard pause stops every video and offers Play videos",
-    "Global manual pause persists after leaving and re-entering the viewport",
-    "Keyboard Play videos explicitly resumes visible media",
-    "Entering experiment video plays it and pauses offscreen title media",
-    "A native individual pause remains remembered after scrolling",
+    "Native video playback controls are reachable through Tab",
+    "Space on the native player pauses the video",
+    "Research excerpt plays silently when visible: g1-walking-video",
+    "Research excerpt plays silently when visible: field-crouch-video",
+    "Research excerpt plays silently when visible: g1-tool-video",
+    "Research excerpt plays silently when visible: g1-bending-video",
+    "Offscreen title videos pause automatically",
+    "Native manual pause remains remembered after scrolling while other media can play",
+    "Space on the native player explicitly resumes playback",
     "Video looping preserves playback and remains pausable",
+    "Native keyboard pause still works after a loop",
     "context-video: the selected duration matches the reviewed media manifest",
     "context-video: selected excerpt duration and timed description load correctly",
     "context-video: a complete text alternative is programmatically associated",
@@ -358,19 +338,19 @@
     "/404.html: 320px text-spacing reflow",
     "reduced-motion: no automatic motion on entry",
     "reduced-motion: scrolling does not start media",
-    "reduced-motion: explicit Play videos remains available",
-    "reduced-motion: user can pause explicit playback",
+    "reduced-motion: explicit native keyboard playback remains available",
+    "reduced-motion: native keyboard pause remains available",
     "save-data: no automatic motion on entry",
     "save-data: scrolling does not start media",
-    "save-data: explicit Play videos remains available",
-    "save-data: user can pause explicit playback",
+    "save-data: explicit native keyboard playback remains available",
+    "save-data: native keyboard pause remains available",
     "Changing reduced-motion preference stops automatic playback",
     "No-JavaScript media retains native controls without automatic motion",
-    "Unavailable script controls stay hidden without JavaScript",
+    "No global playback button; unavailable citation control stays hidden without JavaScript",
     "No-JavaScript 320px reflow",
     "Complete video alternatives accessible without JavaScript",
-    "Pause interrupts pending autoplay while media is buffering",
-    "Releasing buffered media does not undo a user pause"
+    "Native keyboard pause interrupts pending autoplay while media is buffering",
+    "Releasing buffered media does not undo the native user pause"
   ],
   "errors": [],
   "limitations": [
