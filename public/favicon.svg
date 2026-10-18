@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#202020"/><path d="M15 44 28 20l10 24 11-24M12 48h40" fill="none" stroke="#fafafa" stroke-width="4" stroke-linejoin="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Humanoid Roofing: a robot beneath a roof</title>
+  <rect width="64" height="64" rx="14" fill="#202020"/>
+  <path d="m11 28 21-16 21 16" fill="none" stroke="#fafafa" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fafafa">
+    <rect x="18" y="31" width="28" height="23" rx="5"/>
+    <rect x="12" y="38" width="6" height="10" rx="2"/>
+    <rect x="46" y="38" width="6" height="10" rx="2"/>
+  </g>
+  <g fill="#202020">
+    <rect x="23" y="38" width="6" height="6" rx="1"/>
+    <rect x="35" y="38" width="6" height="6" rx="1"/>
+  </g>
+</svg>
