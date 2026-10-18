@@ -1,58 +1,53 @@
 {
-  "checkedOn": "2026-10-11",
-  "checkedAt": "2026-10-11T19:42:28.334Z",
-  "url": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
-  "initiallyPaused": true,
-  "sections": [
-    "Problem",
-    "Related work",
-    "Research gap",
-    "Method",
-    "Experiments",
-    "Results",
-    "Conclusions"
+  "checkedOn": "2026-10-18",
+  "codeCommit": "0cf632dff76eee62478f6c0b5aecabdf0a60c2a7",
+  "site": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/",
+  "checks": [
+    ": institution text absent",
+    ": CSP meta exists",
+    ": 320px reflow",
+    "paper/: institution text absent",
+    "paper/: CSP meta exists",
+    "paper/: 320px reflow",
+    "results/: institution text absent",
+    "results/: CSP meta exists",
+    "results/: 320px reflow",
+    "accessibility/: institution text absent",
+    "accessibility/: CSP meta exists",
+    "accessibility/: 320px reflow",
+    "404.html: institution text absent",
+    "404.html: CSP meta exists",
+    "404.html: 320px reflow",
+    "Live title videos autoplay silently",
+    "Live videos retain mute, inline, native controls and controllable loops",
+    "Keyboard Pause videos stops all players",
+    "User pause persists when scrolling",
+    "Keyboard Play videos starts visible experiment clip",
+    "Reduced motion prevents autoplay on the deployed page",
+    "Mobile video frames remain complete"
   ],
-  "videos": [
+  "errors": [],
+  "media": [
     {
       "id": "context-video",
-      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork.mp4",
       "duration": 35.8358,
+      "currentSrc": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/roofing-fieldwork.mp4",
       "paused": true,
-      "rate": 1,
-      "controls": true,
-      "muted": true,
-      "describedBy": "context-summary field-visual-description"
+      "cues": 5
     },
     {
       "id": "g1-hero-video",
-      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero.mp4",
       "duration": 7,
+      "currentSrc": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-hero.mp4",
       "paused": true,
-      "rate": 1,
-      "controls": true,
-      "muted": true,
-      "describedBy": "robot-summary robot-visual-description"
+      "cues": 4
     },
     {
       "id": "g1-highlights-video",
-      "src": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.mp4",
       "duration": 16.6,
+      "currentSrc": "https://cgchrfchscyrh.github.io/humanoid_roofing_webpage/media/g1-roofing-highlights.mp4",
       "paused": true,
-      "rate": 1,
-      "controls": true,
-      "muted": true,
-      "describedBy": "experiment-caption highlights-visual-description"
+      "cues": 7
     }
-  ],
-  "keyboardPairPlayPause": true,
-  "keyboardHighlightPlayPause": true,
-  "fullFrameToggle": true,
-  "narrow": {
-    "width": 320,
-    "documentWidth": 320,
-    "titleBeforeVideo": true,
-    "stacked": true,
-    "completeFrames": true
-  },
-  "errors": []
+  ]
 }

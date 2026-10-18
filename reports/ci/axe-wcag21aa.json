@@ -1,98 +1,12 @@
 {
-  "date": "2026-10-11T19:41:14.715Z",
+  "date": "2026-10-18T18:58:54.797Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "/ desktop",
-      "passes": 28,
-      "violations": [],
-      "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              ".hero-text > .eyebrow"
-            ],
-            [
-              "#paper-title"
-            ],
-            [
-              ".hero-question"
-            ],
-            [
-              "li:nth-child(1) > a[href=\"mailto:liusongyang@ufl.edu\"]"
-            ],
-            [
-              "li:nth-child(1) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
-            ],
-            [
-              "a[href$=\"mailto:shuai.li@ufl.edu\"]"
-            ],
-            [
-              "li:nth-child(2) > sup > a[href$=\"#affiliation-1\"][aria-label=\"Affiliation 1\"]"
-            ],
-            [
-              "#affiliation-1"
-            ],
-            [
-              ".correspondence"
-            ],
-            [
-              ".actions > .light.button:nth-child(1)"
-            ],
-            [
-              ".light.button[href$=\"#experiments\"]"
-            ],
-            [
-              ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".light.button:nth-child(3)"
-            ],
-            [
-              ".text-link[href$=\"#gap\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#method > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#experiments > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".comparison > .text-link > span[aria-hidden=\"true\"]"
-            ]
-          ]
-        },
-        {
-          "id": "video-caption",
-          "nodes": [
-            [
-              "#context-video"
-            ],
-            [
-              "#g1-hero-video"
-            ],
-            [
-              "#g1-highlights-video"
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Title videos in full-frame mode",
-      "passes": 28,
+      "passes": 26,
       "violations": [],
       "incomplete": [
         {
@@ -102,15 +16,6 @@
               ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]"
             ],
             [
-              ".text-link[href$=\"#gap\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#method > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#experiments > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
               "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
             ],
             [
@@ -118,9 +23,6 @@
             ],
             [
               "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".comparison > .text-link > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -142,7 +44,7 @@
     },
     {
       "name": "/ mobile",
-      "passes": 28,
+      "passes": 26,
       "violations": [],
       "incomplete": [
         {
@@ -152,15 +54,6 @@
               ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]"
             ],
             [
-              ".text-link[href$=\"#gap\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#method > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "#experiments > .text-link > span[aria-hidden=\"true\"]"
-            ],
-            [
               "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
             ],
             [
@@ -168,9 +61,6 @@
             ],
             [
               "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              ".comparison > .text-link > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -192,25 +82,25 @@
     },
     {
       "name": "/paper/ desktop",
-      "passes": 20,
+      "passes": 21,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/paper/ mobile",
-      "passes": 20,
+      "passes": 21,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/results/ desktop",
-      "passes": 26,
+      "passes": 27,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/results/ mobile",
-      "passes": 27,
+      "passes": 28,
       "violations": [],
       "incomplete": []
     },
@@ -242,129 +132,128 @@
   "checks": [
     "/: page loads",
     "/: one H1",
-    "/: English language declared",
-    "/: informative images have nonempty alternatives",
-    "/: no autoplay, loops, or third-party players",
-    "/: institutional disclaimer is present",
-    "/: IDs are unique",
-    "/: visible headings do not skip levels",
-    "/: in-page links have targets",
+    "/: English document language",
+    "/: informative images have alternatives",
+    "/: no embedded third-party player or uncontrolled HTML autoplay",
+    "/: no institutional affiliation or disclaimer text",
+    "/: unique IDs",
+    "/: valid local anchors",
+    "/: heading hierarchy",
     "/: skip link is first keyboard stop",
-    "/: keyboard focus has visible outline",
-    "/: skip link focuses main",
-    "Two title videos and one experiment highlights video are present",
-    "All three videos are paused on initial load",
-    "Every silent video retains native controls and inline playback",
-    "Each video references its caption and complete visual alternative",
-    "Title playback control has a visible keyboard focus outline",
-    "Keyboard starts both title videos together and exposes pause",
-    "Keyboard pauses both title videos together",
-    "Keyboard activates full-frame mode without cropping either title video",
-    "Full-frame mode places the videos below the title text",
-    "Keyboard restores the title background layout",
-    "Keyboard starts the G1 highlights and exposes pause",
-    "Starting the title pair pauses the experiment highlights",
-    "Starting the highlights pauses both title videos",
-    "Keyboard pauses the experiment highlights",
-    "Native playback also pauses the other group without starting a second clip",
-    "context-video: timed visual descriptions load",
-    "context-video: intended excerpt duration and original playback speed",
-    "g1-hero-video: timed visual descriptions load",
-    "g1-hero-video: intended excerpt duration and original playback speed",
-    "g1-highlights-video: timed visual descriptions load",
-    "g1-highlights-video: intended excerpt duration and original playback speed",
-    "Both title videos end without looping and expose replay",
-    "Replay restarts both title videos from the beginning",
-    "Experiment highlights end without looping and expose replay",
-    "Replay restarts the experiment highlights",
-    "Citation can be copied with keyboard",
-    "/: no page-level horizontal overflow at 320 CSS px",
-    "Both title videos show complete frames at 320 CSS px",
-    "/: no page-level horizontal overflow at 768 CSS px",
-    "Both title videos show complete frames at 768 CSS px",
-    "/: reflows at 320 CSS px with increased text spacing",
+    "/: visible focus",
+    "/: skip link targets main",
+    "Visible title videos automatically play without a click",
+    "Automatic playback exposes a visible Pause videos button",
+    "Three original research video players remain available",
+    "Silent inline playback, original speed, native controls, and controllable loops",
+    "Desktop title media shows complete frames",
+    "Title and author names are above the footage",
+    "Keyboard pause stops every video and offers Play videos",
+    "Global manual pause persists after leaving and re-entering the viewport",
+    "Keyboard Play videos explicitly resumes visible media",
+    "Entering experiment video plays it and pauses offscreen title media",
+    "A native individual pause remains remembered after scrolling",
+    "Video looping preserves playback and remains pausable",
+    "context-video: unchanged excerpt duration and loaded timed description",
+    "g1-hero-video: unchanged excerpt duration and loaded timed description",
+    "g1-highlights-video: unchanged excerpt duration and loaded timed description",
+    "Concise standard research headings",
+    "Keyboard citation copy",
+    "Simulation evidence opens through native details",
+    "/: no horizontal page overflow at 320px",
+    "Complete video frames at 320px",
+    "/: no horizontal page overflow at 768px",
+    "Complete video frames at 768px",
+    "/: 320px text-spacing reflow",
     "/paper/: page loads",
     "/paper/: one H1",
-    "/paper/: English language declared",
-    "/paper/: informative images have nonempty alternatives",
-    "/paper/: no autoplay, loops, or third-party players",
-    "/paper/: institutional disclaimer is present",
-    "/paper/: IDs are unique",
-    "/paper/: visible headings do not skip levels",
-    "/paper/: in-page links have targets",
+    "/paper/: English document language",
+    "/paper/: informative images have alternatives",
+    "/paper/: no embedded third-party player or uncontrolled HTML autoplay",
+    "/paper/: no institutional affiliation or disclaimer text",
+    "/paper/: unique IDs",
+    "/paper/: valid local anchors",
+    "/paper/: heading hierarchy",
     "/paper/: skip link is first keyboard stop",
-    "/paper/: keyboard focus has visible outline",
-    "/paper/: skip link focuses main",
-    "/paper/: no page-level horizontal overflow at 320 CSS px",
-    "/paper/: no page-level horizontal overflow at 768 CSS px",
-    "/paper/: reflows at 320 CSS px with increased text spacing",
+    "/paper/: visible focus",
+    "/paper/: skip link targets main",
+    "/paper/: no horizontal page overflow at 320px",
+    "/paper/: no horizontal page overflow at 768px",
+    "/paper/: 320px text-spacing reflow",
     "/results/: page loads",
     "/results/: one H1",
-    "/results/: English language declared",
-    "/results/: informative images have nonempty alternatives",
-    "/results/: no autoplay, loops, or third-party players",
-    "/results/: institutional disclaimer is present",
-    "/results/: IDs are unique",
-    "/results/: visible headings do not skip levels",
-    "/results/: in-page links have targets",
+    "/results/: English document language",
+    "/results/: informative images have alternatives",
+    "/results/: no embedded third-party player or uncontrolled HTML autoplay",
+    "/results/: no institutional affiliation or disclaimer text",
+    "/results/: unique IDs",
+    "/results/: valid local anchors",
+    "/results/: heading hierarchy",
     "/results/: skip link is first keyboard stop",
-    "/results/: keyboard focus has visible outline",
-    "/results/: skip link focuses main",
-    "All expected result tables are present",
-    "All tables have descriptive captions",
-    "Table headers define their scope",
-    "/results/: no page-level horizontal overflow at 320 CSS px",
-    "/results/: no page-level horizontal overflow at 768 CSS px",
-    "/results/: reflows at 320 CSS px with increased text spacing",
-    "Wide result table supports keyboard horizontal scrolling",
+    "/results/: visible focus",
+    "/results/: skip link targets main",
+    "All original result tables and captions preserved",
+    "Table headers declare scope",
+    "Table 2 · Slope coverage: data remains available",
+    "Table 3 · Nailgun ablation: data remains available",
+    "Table 4 · Cross-task validation: data remains available",
+    "Table 6 · Physical robot: data remains available",
+    "/results/: no horizontal page overflow at 320px",
+    "/results/: no horizontal page overflow at 768px",
+    "/results/: 320px text-spacing reflow",
+    "Keyboard scrolls wide result tables",
     "/accessibility/: page loads",
     "/accessibility/: one H1",
-    "/accessibility/: English language declared",
-    "/accessibility/: informative images have nonempty alternatives",
-    "/accessibility/: no autoplay, loops, or third-party players",
-    "/accessibility/: institutional disclaimer is present",
-    "/accessibility/: IDs are unique",
-    "/accessibility/: visible headings do not skip levels",
-    "/accessibility/: in-page links have targets",
+    "/accessibility/: English document language",
+    "/accessibility/: informative images have alternatives",
+    "/accessibility/: no embedded third-party player or uncontrolled HTML autoplay",
+    "/accessibility/: no institutional affiliation or disclaimer text",
+    "/accessibility/: unique IDs",
+    "/accessibility/: valid local anchors",
+    "/accessibility/: heading hierarchy",
     "/accessibility/: skip link is first keyboard stop",
-    "/accessibility/: keyboard focus has visible outline",
-    "/accessibility/: skip link focuses main",
-    "/accessibility/: no page-level horizontal overflow at 320 CSS px",
-    "/accessibility/: no page-level horizontal overflow at 768 CSS px",
-    "/accessibility/: reflows at 320 CSS px with increased text spacing",
+    "/accessibility/: visible focus",
+    "/accessibility/: skip link targets main",
+    "field-visual-description: complete visual alternative available",
+    "robot-visual-description: complete visual alternative available",
+    "highlights-visual-description: complete visual alternative available",
+    "/accessibility/: no horizontal page overflow at 320px",
+    "/accessibility/: no horizontal page overflow at 768px",
+    "/accessibility/: 320px text-spacing reflow",
     "/404.html: page loads",
     "/404.html: one H1",
-    "/404.html: English language declared",
-    "/404.html: informative images have nonempty alternatives",
-    "/404.html: no autoplay, loops, or third-party players",
-    "/404.html: institutional disclaimer is present",
-    "/404.html: IDs are unique",
-    "/404.html: visible headings do not skip levels",
-    "/404.html: in-page links have targets",
+    "/404.html: English document language",
+    "/404.html: informative images have alternatives",
+    "/404.html: no embedded third-party player or uncontrolled HTML autoplay",
+    "/404.html: no institutional affiliation or disclaimer text",
+    "/404.html: unique IDs",
+    "/404.html: valid local anchors",
+    "/404.html: heading hierarchy",
     "/404.html: skip link is first keyboard stop",
-    "/404.html: keyboard focus has visible outline",
-    "/404.html: skip link focuses main",
-    "/404.html: no page-level horizontal overflow at 320 CSS px",
-    "/404.html: no page-level horizontal overflow at 768 CSS px",
-    "/404.html: reflows at 320 CSS px with increased text spacing",
-    "Comparison Reference correction \u2192 execution-aware learning remains visible without JavaScript",
-    "All three native video controls remain available without JavaScript",
-    "Unavailable JavaScript media controls are hidden without JavaScript",
-    "field-visual-description: complete visual alternative remains visible without JavaScript",
-    "robot-visual-description: complete visual alternative remains visible without JavaScript",
-    "highlights-visual-description: complete visual alternative remains visible without JavaScript",
-    "Homepage reflows at 320 CSS px without JavaScript",
-    "Citation remains readable without JavaScript",
-    "Unavailable JavaScript copy control is hidden",
-    "Reduced-motion visit does not start any of the three videos",
-    "Title pair: keyboard play remains busy while MP4 requests are held",
-    "Title pair: keyboard pause cancels buffered playback, clears busy, and shows no error",
-    "G1 highlights: keyboard play remains busy while MP4 requests are held",
-    "G1 highlights: keyboard pause cancels buffered playback, clears busy, and shows no error"
+    "/404.html: visible focus",
+    "/404.html: skip link targets main",
+    "/404.html: no horizontal page overflow at 320px",
+    "/404.html: no horizontal page overflow at 768px",
+    "/404.html: 320px text-spacing reflow",
+    "reduced-motion: no automatic motion on entry",
+    "reduced-motion: scrolling does not start media",
+    "reduced-motion: explicit Play videos remains available",
+    "reduced-motion: user can pause explicit playback",
+    "save-data: no automatic motion on entry",
+    "save-data: scrolling does not start media",
+    "save-data: explicit Play videos remains available",
+    "save-data: user can pause explicit playback",
+    "Changing reduced-motion preference stops automatic playback",
+    "No-JavaScript media retains native controls without automatic motion",
+    "Unavailable script controls stay hidden without JavaScript",
+    "No-JavaScript 320px reflow",
+    "Complete video alternatives accessible without JavaScript",
+    "Pause interrupts pending autoplay while media is buffering",
+    "Releasing buffered media does not undo a user pause"
   ],
   "errors": [],
   "limitations": [
     "Automated checks are not a complete WCAG or ADA certification.",
-    "External full-text PDFs, screen-reader usability, scientific image contrast, and institutional approval need separate review."
+    "External PDFs, screen-reader usability, and scientific image contrast require separate review."
   ]
 }

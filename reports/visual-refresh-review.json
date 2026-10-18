@@ -1,7 +1,7 @@
 {
   "reviewedOn": "2026-10-18",
   "preview": "http://127.0.0.1:4512/humanoid_roofing_webpage/",
-  "revision": "Uncommitted local visual refresh; deployment verification remains separate.",
+  "revision": "Code commit 0cf632dff76eee62478f6c0b5aecabdf0a60c2a7 deployed successfully by GitHub Actions run 39156586314; post-deployment reports verified.",
   "design": "Neutral title and author block above complete paired videos; Abstract, Experiments, Method, Results, Citation; long explanations in native details and companion pages.",
   "visibleMainWordsIncludingBibtex": 352,
   "screenshots": {
@@ -56,5 +56,13 @@
     "This is not complete ADA/WCAG certification.",
     "External PDF tags, reading order, equations, and screen-reader experience are not certified.",
     "The clips show selected supervised motions, not complete trial outcomes."
-  ]
+  ],
+  "live": {
+    "pages": 5,
+    "resources": 31,
+    "browserChecks": 22,
+    "errors": 0,
+    "ciScans": 10,
+    "ciChecks": 120
+  }
 }
