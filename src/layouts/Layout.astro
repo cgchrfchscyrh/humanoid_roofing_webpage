@@ -6,19 +6,27 @@ import { asset } from "../data/paths";
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  noindex?: boolean;
 }
-const { title = site.title, description = site.description } = Astro.props;
+const {
+  title = site.title,
+  description = site.description,
+  canonicalPath = Astro.url.pathname,
+  noindex = false,
+} = Astro.props;
 const isNotFound = /\/404(?:\/|\.html)?$/.test(Astro.url.pathname);
 const canonical =
   Astro.site && !isNotFound
-    ? new URL(Astro.url.pathname, Astro.site).href
+    ? new URL(canonicalPath, Astro.site).href
     : undefined;
 const hasMedia =
   Astro.url.pathname.replace(/\/$/, "") === asset().replace(/\/$/, "");
 const nav = [
-  { name: "Overview", href: asset() },
-  { name: "Research guide", href: asset("paper/") },
-  { name: "Results & figures", href: asset("results/") },
+  { name: "Abstract", href: asset("#abstract") },
+  { name: "Method", href: asset("#method") },
+  { name: "Results", href: asset("#results") },
+  { name: "Citation", href: asset("#citation") },
 ];
 ---
 
@@ -30,7 +38,7 @@ const nav = [
     <meta name="description" content={description} />
     <meta name="theme-color" content="#202020" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    {isNotFound && <meta name="robots" content="noindex" />}
+    {(isNotFound || noindex) && <meta name="robots" content="noindex" />}
     <meta name="citation_title" content={site.title} />
     {
       site.authors.map((author) => (
@@ -77,7 +85,7 @@ const nav = [
           <button
             class="button media-master"
             id="media-toggle"
-            aria-controls="context-video g1-hero-video g1-highlights-video"
+            aria-controls="context-video g1-hero-video g1-walking-video field-crouch-video g1-tool-video g1-bending-video"
             type="button"
             hidden
           >
@@ -86,21 +94,7 @@ const nav = [
         )
       }
       <nav aria-label="Main navigation">
-        {
-          nav.map((item) => (
-            <a
-              href={item.href}
-              aria-current={
-                Astro.url.pathname.replace(/\/$/, "") ===
-                item.href.replace(/\/$/, "")
-                  ? "page"
-                  : undefined
-              }
-            >
-              {item.name}
-            </a>
-          ))
-        }
+        {nav.map((item) => <a href={item.href}>{item.name}</a>)}
       </nav>
     </header>
     <main id="main" tabindex="-1"><slot /></main>

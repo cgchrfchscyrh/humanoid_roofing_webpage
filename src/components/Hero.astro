@@ -1,6 +1,18 @@
 ---
 import site from "../data/site.json";
-import { asset } from "../data/paths";
+import clips from "../../public/media/roofing-clips.json";
+import MotionClip from "./MotionClip.astro";
+const field = clips.clips.find((clip) => clip.section === "hero")!;
+const robot = {
+  video: site.robotHero.video.replace("media/", ""),
+  poster: site.robotHero.poster.replace("media/", ""),
+  track: site.robotHero.track.replace("media/", ""),
+  width: 1280,
+  height: 720,
+  duration: site.robotHero.duration,
+  caption: "G1 reproduces a roofing motion on a laboratory slope.",
+  description: site.robotHero.description,
+};
 ---
 
 <section class="hero cinematic-hero" aria-labelledby="paper-title">
@@ -19,11 +31,11 @@ import { asset } from "../data/paths";
       </ul>
       <p class="publication-line">arXiv · {site.year}</p>
       <div class="actions">
-        <a class="button light" href={site.paperUrl}
-          >Paper <span aria-hidden="true">↗</span></a
+        <a class="button dark" href={site.paperUrl}
+          >arXiv <span aria-hidden="true">↗</span></a
         >
-        <a class="button light" href="#experiments"
-          >Experiments <span aria-hidden="true">↓</span></a
+        <a class="button light" href="#results"
+          >View motions <span aria-hidden="true">↓</span></a
         >
         <a class="button light" href={site.repo}
           >Website source <span aria-hidden="true">↗</span></a
@@ -31,65 +43,19 @@ import { asset } from "../data/paths";
       </div>
     </div>
     <div class="hero-backdrops">
-      <video
+      <MotionClip
         id="context-video"
-        data-playback-group="hero"
-        controls
-        muted
-        loop
-        playsinline
+        clip={field}
+        group="hero"
         preload="metadata"
-        poster={asset(site.contextPoster)}
-        width="1280"
-        height="720"
-        aria-label="Research-team roofing fieldwork"
-        aria-describedby="context-summary"
-      >
-        <source src={asset(site.contextVideo)} type="video/mp4" />
-        <track
-          kind="descriptions"
-          src={asset(site.contextTrack)}
-          srclang="en"
-          label="English visual descriptions"
-        />
-        <a href={asset(site.contextVideo)}>Download the roofing field video.</a>
-      </video>
-      <video
+      />
+      <MotionClip
         id="g1-hero-video"
-        data-playback-group="hero"
-        controls
-        muted
-        loop
-        playsinline
+        clip={robot}
+        group="hero"
         preload="metadata"
-        poster={asset(site.robotHero.poster)}
-        width="1280"
-        height="720"
-        aria-label="Unitree G1 laboratory motion excerpt"
-        aria-describedby="robot-summary"
-      >
-        <source src={asset(site.robotHero.video)} type="video/mp4" />
-        <track
-          kind="descriptions"
-          src={asset(site.robotHero.track)}
-          srclang="en"
-          label="English visual descriptions"
-        />
-        <a href={asset(site.robotHero.video)}
-          >Download the G1 laboratory excerpt.</a
-        >
-      </video>
+      />
     </div>
-  </div>
-  <div class="hero-scene-captions">
-    <p id="context-summary">Human roofing</p><p id="robot-summary">
-      G1 laboratory motion · Safety hoist attached
-    </p>
-  </div>
-  <div class="hero-playback">
-    <a href={asset("accessibility/#media-description")}
-      >Video descriptions & sources</a
-    >
   </div>
   <p id="media-status" class="sr-only" role="status"></p>
 </section>

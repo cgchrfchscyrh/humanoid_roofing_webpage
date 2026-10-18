@@ -2014,6 +2014,214 @@ tbody tr:hover {
   padding: 0.45rem 0.8rem;
   flex-shrink: 0;
 }
+
+/* Research narrative: complete media frames, nearby captions, and a clear type scale. */
+html {
+  scroll-padding-top: 6rem;
+}
+[id] {
+  scroll-margin-top: 6rem;
+}
+.cinematic-hero {
+  background: #fff;
+  padding-bottom: 2rem;
+}
+.cinematic-hero .hero-text {
+  padding: 3.5rem 1.5rem 2.5rem;
+}
+.cinematic-hero h1 {
+  max-width: 1020px;
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  line-height: 1.18;
+}
+.cinematic-hero .hero-backdrops {
+  max-width: 1240px;
+  padding-inline: 2rem;
+  gap: 1.5rem;
+  align-items: start;
+}
+.cinematic-hero .hero-backdrops video {
+  border-radius: 8px;
+}
+.motion-clip {
+  min-width: 0;
+  margin: 0;
+}
+.motion-clip video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #151515;
+  border-radius: 8px;
+}
+.motion-clip figcaption {
+  color: #414141;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin: 0.85rem 0 0;
+}
+.clip-description {
+  color: #555;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  margin-top: 0.45rem;
+}
+.clip-description summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.clip-description p {
+  margin: 0.8rem 0 0;
+}
+.visual-home {
+  max-width: 1200px;
+}
+.visual-home .section {
+  padding-block: 4rem;
+}
+.visual-home h2 {
+  margin-bottom: 2rem;
+}
+.visual-home .section-intro {
+  max-width: 760px;
+  margin-bottom: 2.2rem;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.abstract-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  gap: 4rem;
+  align-items: center;
+}
+.abstract-copy > p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #454545;
+}
+.abstract-copy > .lead {
+  font-size: 1.15rem;
+}
+.abstract-copy .research-figure {
+  margin-bottom: 0;
+}
+.visual-home .research-figure figcaption > strong {
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+.visual-home .research-figure details {
+  font-size: 0.82rem;
+  color: #555;
+}
+.method-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2.8rem;
+}
+.method-story .method-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.4rem;
+  margin: 0;
+}
+.method-summary h3 {
+  font-size: 1.18rem;
+  margin: 0 0 0.45rem;
+}
+.method-summary p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  color: #505050;
+}
+.method-summary li {
+  border-left: 2px solid #b9b9b9;
+  padding-left: 1.1rem;
+}
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+.experiment-note {
+  max-width: 840px;
+  margin: 1.7rem auto 0;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.visual-home .research-details {
+  max-width: 840px;
+  margin: 1.4rem auto 0;
+  color: #505050;
+  font-size: 0.94rem;
+}
+.visual-home .citation .section-heading {
+  max-width: none;
+}
+.visual-home .citation > p {
+  max-width: 840px;
+  margin-inline: auto;
+  line-height: 1.8;
+}
+.visual-home .citation-box {
+  max-width: 940px;
+  margin-inline: auto;
+}
+@media (max-width: 850px) {
+  .abstract-story {
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+    gap: 2rem;
+  }
+  .method-story {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .method-story .method-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+  .motion-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.2rem;
+  }
+}
+@media (max-width: 620px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+  [id] {
+    scroll-margin-top: 8rem;
+  }
+  .cinematic-hero .hero-text {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .cinematic-hero .hero-backdrops {
+    padding-inline: 1.25rem;
+    gap: 1.8rem;
+  }
+  .visual-home .section {
+    padding-block: 2.8rem;
+  }
+  .abstract-story {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .abstract-story .portrait {
+    max-width: 300px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .abstract-copy > p,
+  .abstract-copy > .lead {
+    font-size: 1.03rem;
+  }
+  .method-story .method-summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 @media (max-width: 620px) {
   .site-header {
     display: grid;

@@ -29,50 +29,47 @@ import { asset } from "../data/paths";
             playback; native controls also remain available. Manual pauses are
             remembered when scrolling, and offscreen videos pause automatically.
           </li><li>
-            The field recording, G1 title excerpt, and experiment highlights
-            retain their original speed and have no audio track. Complete text
-            alternatives and timed WebVTT descriptions accompany each video.
+            Short field and laboratory clips are distributed across the page.
+            Each retains its original speed, has no audio track, and includes a
+            complete text alternative and timed WebVTT descriptions.
           </li><li>
             The title and author names appear above the complete video frames.
             Larger screens show the two title videos side by side; phones stack
             them. The footage is not cropped or covered by title text. Native
-            fullscreen controls and downloads also remain available.
+            fullscreen controls remain available.
           </li><li>
-            The experiment highlights use labeled clips and visible cuts rather
-            than one continuous trial. The safety tether and operator remain
-            visible. Excerpts end at the selected movements; subsequent falls
-            and resets are omitted. The video description explains the sequence
-            without requiring playback.
+            Laboratory clips show selected movements from independent
+            recordings. They preserve the safety tether and operator in the
+            original frame and end before later falls or resets. Each
+            description identifies the source and visible action; these clips do
+            not show complete trial outcomes or independent roofing work.
           </li><li>
             Paper figures have descriptive alternatives and longer explanations.
-            Results appear as labeled values and structured tables, so color is
-            not required to understand them.
+            The page presents the method and observed movements visually; the
+            original paper contains the quantitative evaluation.
           </li><li>
-            At narrow widths, content reflows into a single column. Wide data
-            tables and BibTeX text scroll within their own focusable areas.
+            At narrow widths, content reflows into a single column. BibTeX text
+            scrolls within its own focusable area.
           </li><li>
-            Core content, result comparisons, native video controls, media
-            downloads, and full text alternatives remain available without
-            JavaScript. The global playback button requires JavaScript.
+            Core content, native video controls, and full text alternatives
+            remain available without JavaScript. The global playback button
+            requires JavaScript.
           </li>
         </ul>
       </section>
       <section id="attachments">
-        <h2>Papers, figures & data attachments</h2><p>
-          The <a href={asset("paper/")}>HTML research guide</a> is a companion to
-          the paper, not its complete text. <a href={asset("results/")}
-            >HTML result tables and figure descriptions</a
-          > accompany the downloadable CSV data and images.
+        <h2>Paper & figure accessibility</h2><p>
+          This website presents selected content from the <a
+            href="https://arxiv.org/pdf/2609.20558">roofing paper on arXiv</a
+          >. Descriptions accompany the displayed figures and videos. For the
+          complete study, arXiv also provides an <a href={site.htmlPaper}
+            >experimental HTML rendering of the preprint</a
+          >.
         </p><p>
-          The supplied roofing manuscript PDF is untagged. We link to the exact
-          arXiv v1 record, its original PDF, and arXiv’s experimental full-text
-          HTML rendering. The HTML research guide on this website covers
-          selected content only; it does not replace the full paper.
-        </p><p>
-          The original uploaded PDF has not been altered or republished here. We
-          have not certified external PDF reading order, mathematical
-          accessibility, or assistive-technology behavior. CSV files are plain
-          data; the HTML tables provide captions and row/column headers.
+          The supplied manuscript PDF is untagged and remains unchanged. We have
+          not verified the external PDF’s tags, reading order, mathematical
+          accessibility, or assistive-technology behavior. The HTML rendering is
+          an additional reading option, not a certified accessible version.
         </p>
       </section>
       <section>
@@ -106,8 +103,8 @@ import { asset } from "../data/paths";
       </section>
       <section>
         <h2>Privacy</h2><p>
-          This static site loads its fonts, figures, and all three research-team
-          videos locally. It uses no analytics, advertising, or embedded
+          This static site loads its fonts, figures, and research-team video
+          clips locally. It uses no analytics, advertising, or embedded
           third-party players. Following an external link opens the provider’s
           site, where that provider’s privacy practices apply.
         </p>
@@ -118,11 +115,10 @@ import { asset } from "../data/paths";
       <h2>Research figure credits</h2><p>
         Selected figures come from the user-supplied arXiv preprint by {
           site.authors.map((a) => a.name).join(", ")
-        }. Figure numbers, original third-party credits where present, and
-        descriptive explanations appear on the <a
-          href={asset("results/#figures")}>results and figures page</a
-        >. Rights in research papers and third-party media remain with their
-        respective holders.
+        }. Figure numbers and descriptive explanations accompany the figures on
+        the <a href={asset()}>project page</a>. Original third-party credits
+        remain in the source paper. Rights in research papers and third-party
+        media remain with their respective holders.
       </p>
     </section>
   </div>

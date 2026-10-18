@@ -1,0 +1,245 @@
+{
+  "reviewedOn": "2026-10-18",
+  "purpose": "Individual original-speed motion excerpts for the hero, Abstract, Method and Results. Source recordings and previous published derivatives are unchanged.",
+  "notes": [
+    "G1 clips retain the exact previously reviewed source intervals from reports/media-revision.json.",
+    "G1 exports are made directly from source recordings, removing the old montage labels without covering or cropping the source frame.",
+    "The portrait source is autorotated and scaled proportionally to 432 × 768; landscape clips retain complete 1280 × 720 frames.",
+    "No output contains an audio stream or source capture metadata.",
+    "Field clips are derived from the existing SDR/BT.709 silent rendering of the team’s self-recorded IMG_7082 (1).MOV.",
+    "The existing seven-second g1-roofing-hero.mp4 is unchanged.",
+    "G1 excerpts end before the later loss-of-balance or reset sequences and illustrate selected supervised movements rather than complete successful trials."
+  ],
+  "reviewEvidence": [
+    "/tmp/roofing-clip-refresh/field-contact.jpg",
+    "/tmp/roofing-clip-refresh/g1-contact.jpg",
+    "/tmp/roofing-clip-refresh/review-exports.jpg"
+  ],
+  "clips": [
+    {
+      "id": "roofing-fieldwork-hero",
+      "section": "hero",
+      "title": "Roofing in the field",
+      "caption": "A roofer bends and reaches across a pitched roof with a handheld tool.",
+      "start": 0,
+      "end": 10,
+      "posterTime": 4.8,
+      "description": "A worker stands on the exposed sheathing of an unfinished pitched roof. The worker bends forward and repeatedly reaches toward the roof plane with a handheld tool, briefly raising their torso between movements. The worker straightens near the end of the excerpt. Timber framing, neighboring houses, trees and sky remain visible. This silent, original-speed excerpt comes from field footage recorded by the research team and provides context for the study.",
+      "sourceFile": "roofing-fieldwork.mp4",
+      "sourceSha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a",
+      "file": "roofing-fieldwork-hero.mp4",
+      "poster": "roofing-fieldwork-hero.jpg",
+      "track": "roofing-fieldwork-hero-descriptions.vtt",
+      "duration": 10.01,
+      "width": 1280,
+      "height": 720,
+      "frameRate": "30000/1001",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "audioStreams": 0,
+      "faststart": true,
+      "fullDecodePassed": true,
+      "descriptionCuesWithinDuration": true,
+      "assets": [
+        {
+          "file": "roofing-fieldwork-hero.mp4",
+          "bytes": 3486460,
+          "sha256": "db581f18ae8eb8ab6cce416fdb2b4d23ab8342d1a86118bcaab00fea9bcf7da4"
+        },
+        {
+          "file": "roofing-fieldwork-hero.jpg",
+          "bytes": 156335,
+          "sha256": "2ebf318a9713e96469bf4e137f9ddaf7d78eddad7acdbdc931763de06bca1fac"
+        },
+        {
+          "file": "roofing-fieldwork-hero-descriptions.vtt",
+          "bytes": 339,
+          "sha256": "c46d9839019363eb12cde14da6de442b4ff9ab842a1f84e2c6efed8d1cf6c925"
+        }
+      ],
+      "video": "roofing-fieldwork-hero.mp4"
+    },
+    {
+      "id": "roofing-fieldwork-crouch",
+      "section": "method",
+      "title": "Working close to the roof",
+      "caption": "A roofer lowers into a crouch to reach the roof surface.",
+      "start": 28,
+      "end": 35.8,
+      "posterTime": 5.5,
+      "description": "On an unfinished pitched roof, a worker bends at the waist and lowers into a deeper crouch, keeping their feet on the slope while reaching toward the sheathing with a handheld tool. The surrounding roof, timber framing, neighboring houses, trees and sky remain in view. This is a silent, original-speed excerpt from the research team’s field recording; it shows the low working posture that motivates the study. This is observational field context, not footage of PICO motion capture or policy training.",
+      "sourceFile": "roofing-fieldwork.mp4",
+      "sourceSha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a",
+      "file": "roofing-fieldwork-crouch.mp4",
+      "poster": "roofing-fieldwork-crouch.jpg",
+      "track": "roofing-fieldwork-crouch-descriptions.vtt",
+      "duration": 7.808,
+      "width": 1280,
+      "height": 720,
+      "frameRate": "30000/1001",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "audioStreams": 0,
+      "faststart": true,
+      "fullDecodePassed": true,
+      "descriptionCuesWithinDuration": true,
+      "assets": [
+        {
+          "file": "roofing-fieldwork-crouch.mp4",
+          "bytes": 2433834,
+          "sha256": "312ab5a976d8eb3c0f3ec295fa35dc618f2e56c2e1e46c464ed30878270a253a"
+        },
+        {
+          "file": "roofing-fieldwork-crouch.jpg",
+          "bytes": 151724,
+          "sha256": "c3ef9e725dfd17da9b117f41815b138b7cb3dc615cf53306564b3af2e95da565"
+        },
+        {
+          "file": "roofing-fieldwork-crouch-descriptions.vtt",
+          "bytes": 327,
+          "sha256": "4782340adbc8c1726782d9f5dadafe39e871a8df9fd3c66497e4a9ca21ed2bab"
+        }
+      ],
+      "video": "roofing-fieldwork-crouch.mp4"
+    },
+    {
+      "id": "g1-roofing-walking",
+      "section": "abstract",
+      "title": "Incline walking",
+      "caption": "G1 steps onto the padded incline under a safety tether.",
+      "start": 1.8,
+      "end": 5.6,
+      "posterTime": 2.3,
+      "description": "In a portrait laboratory recording, a Unitree G1 humanoid robot moves from the floor onto a padded incline. The robot takes short steps and remains upright near the end of the selected movement. An overhead safety tether, part of its support frame, and an operator holding the controller remain in view. The full portrait frame is retained without cropping or added text. This silent excerpt runs at original speed and ends before the later part of the trial; it does not show the complete outcome.",
+      "sourceFile": "roofer_real_upwalk.MOV",
+      "sourceSha256": "79abc331dbc4e39584cae04abe2a816a53fddd106e999de1df13a4d49918c366",
+      "file": "g1-roofing-walking.mp4",
+      "poster": "g1-roofing-walking.jpg",
+      "track": "g1-roofing-walking-descriptions.vtt",
+      "duration": 3.8,
+      "width": 432,
+      "height": 768,
+      "frameRate": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "audioStreams": 0,
+      "faststart": true,
+      "fullDecodePassed": true,
+      "descriptionCuesWithinDuration": true,
+      "assets": [
+        {
+          "file": "g1-roofing-walking.mp4",
+          "bytes": 398908,
+          "sha256": "280385bd2f96620abfde56c04d2aa978d242f35c24e1dafd31198af013c930da"
+        },
+        {
+          "file": "g1-roofing-walking.jpg",
+          "bytes": 61532,
+          "sha256": "a9f9c6a9c069d256397dcb944bc7f0cc27ffc72bcb1081c4eb85a8519c33aa58"
+        },
+        {
+          "file": "g1-roofing-walking-descriptions.vtt",
+          "bytes": 377,
+          "sha256": "7f9cb32933e25a3ee84b0f2134e9b8b09c05743ea6803c43926a8f9334721204"
+        }
+      ],
+      "video": "g1-roofing-walking.mp4"
+    },
+    {
+      "id": "g1-roofing-tool",
+      "section": "results",
+      "title": "Tool-reaching motion",
+      "caption": "G1 steps forward and bends with a tool toward the padded surface.",
+      "start": 55,
+      "end": 62,
+      "posterTime": 4.8,
+      "description": "A Unitree G1 robot stands beside a padded incline in a laboratory. An overhead safety tether connects it to a gantry, and an operator holding the controller stands to the left. The robot steps forward, bends its torso and lowers a handheld tool toward the padded surface, then begins to raise its torso. The complete landscape frame retains the operator, tether and gantry. This silent excerpt runs at original speed and ends before later motion or reset; it shows a selected movement, not a complete trial outcome or verified fastening.",
+      "sourceFile": "bending_real_test_20260905_185804_260763_nailgun.mp4",
+      "sourceSha256": "e1d52bdf34079976ca3450992e18f4c7e11ef49e2338cbfd159b179399863110",
+      "file": "g1-roofing-tool.mp4",
+      "poster": "g1-roofing-tool.jpg",
+      "track": "g1-roofing-tool-descriptions.vtt",
+      "duration": 7.0,
+      "width": 1280,
+      "height": 720,
+      "frameRate": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "audioStreams": 0,
+      "faststart": true,
+      "fullDecodePassed": true,
+      "descriptionCuesWithinDuration": true,
+      "assets": [
+        {
+          "file": "g1-roofing-tool.mp4",
+          "bytes": 4078005,
+          "sha256": "75c3627952bd47638de667d4555a7724625f4cb536e5c51b6333a2a0767b60d9"
+        },
+        {
+          "file": "g1-roofing-tool.jpg",
+          "bytes": 158299,
+          "sha256": "e1efb6b2569ad576e58b6f83bfd21d4e81f0e8b2c7c538fc1fe372e40fc73cc6"
+        },
+        {
+          "file": "g1-roofing-tool-descriptions.vtt",
+          "bytes": 555,
+          "sha256": "451b7421abea9446aca3eb35ca7c5fee44d6a1ee9a9a88090240600a411b944b"
+        }
+      ],
+      "video": "g1-roofing-tool.mp4"
+    },
+    {
+      "id": "g1-roofing-bending",
+      "section": "results",
+      "title": "Bending toward the surface",
+      "caption": "G1 lowers its torso and tool toward the padded roof surface.",
+      "start": 9,
+      "end": 14.8,
+      "posterTime": 5.2,
+      "description": "In a separate laboratory trial, a Unitree G1 robot takes steps forward and bends deeply toward a padded incline, bringing its hand and handheld tool close to the surface. A connected safety tether, mobile gantry and an operator holding the controller remain visible throughout the full landscape frame. This selected movement is shown at original speed without sound. The excerpt ends before later loss of balance and reset; it does not document the complete trial outcome, successful fastening or independent roofing work.",
+      "sourceFile": "hammer.mp4",
+      "sourceSha256": "f0d9d57bbbece37641c566c21b74f5c7479abecd3e8bc3e03d839a7aebef064c",
+      "file": "g1-roofing-bending.mp4",
+      "poster": "g1-roofing-bending.jpg",
+      "track": "g1-roofing-bending-descriptions.vtt",
+      "duration": 5.8,
+      "width": 1280,
+      "height": 720,
+      "frameRate": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "audioStreams": 0,
+      "faststart": true,
+      "fullDecodePassed": true,
+      "descriptionCuesWithinDuration": true,
+      "assets": [
+        {
+          "file": "g1-roofing-bending.mp4",
+          "bytes": 3581802,
+          "sha256": "e8f073ba6422da28241d5609fa0c4fe523d8d0359c187d1dadc5bfa90b446d2a"
+        },
+        {
+          "file": "g1-roofing-bending.jpg",
+          "bytes": 149368,
+          "sha256": "b2898a7112c1fbb7083ee14f59244e99862e8fd59e052e692684d959c6335425"
+        },
+        {
+          "file": "g1-roofing-bending-descriptions.vtt",
+          "bytes": 418,
+          "sha256": "828c12fcaa012381fe138cffe8d294dac2f536282d8c455b49d6e2e448568ed8"
+        }
+      ],
+      "video": "g1-roofing-bending.mp4"
+    }
+  ],
+  "checks": {
+    "allFilesDecodedWithoutErrors": true,
+    "allFilesSilent": true,
+    "allVideoH264Yuv420pFaststart": true,
+    "allDescriptionCuesWithinDuration": true,
+    "fullFramesRetained": true,
+    "originalSpeedRetained": true,
+    "reviewedExportStartMiddleEndFrames": true,
+    "sourceHashesMatchPriorReviewedManifest": true
+  }
+}

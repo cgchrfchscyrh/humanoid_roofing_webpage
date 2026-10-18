@@ -5,6 +5,13 @@ import assert from "node:assert/strict";
 const site = JSON.parse(
   await readFile(new URL("../src/data/site.json", import.meta.url), "utf8"),
 );
+const clipManifest = JSON.parse(
+  await readFile(
+    new URL("../public/media/roofing-clips.json", import.meta.url),
+    "utf8",
+  ),
+);
+const clipByFile = new Map(clipManifest.clips.map((clip) => [clip.file, clip]));
 const base = (
   process.env.TEST_URL || "http://127.0.0.1:4512/humanoid_roofing_webpage"
 ).replace(/\/$/, "");
@@ -60,6 +67,15 @@ async function scan(name) {
     })),
   });
 }
+const expectedVideoIds = [
+  "context-video",
+  "g1-hero-video",
+  "g1-walking-video",
+  "field-crouch-video",
+  "g1-tool-video",
+  "g1-bending-video",
+];
+const paperUrl = "https://arxiv.org/pdf/2609.20558";
 const paused = (target) =>
   target
     .locator("video")
@@ -106,6 +122,23 @@ try {
         await page.locator("body").innerText(),
       ),
       route + ": no institutional affiliation or disclaimer text",
+    );
+    check(
+      (await page
+        .locator(
+          "table, .numeric-pair, .results-highlights, .metric-comparison",
+        )
+        .count()) === 0,
+      route + ": numerical result displays are removed",
+    );
+    check(
+      (await page
+        .getByRole("link", {
+          name: /Research guide|Results & figures|All results, figures, and data/i,
+        })
+        .count()) === 0,
+      route +
+        ": removed research-guide and result-index navigation stays absent",
     );
     check(
       await page.evaluate(() => {
@@ -163,8 +196,47 @@ try {
         "Automatic playback exposes a visible Pause videos button",
       );
       check(
-        (await page.locator("video").count()) === 3,
-        "Three original research video players remain available",
+        JSON.stringify(
+          await page
+            .locator("video")
+            .evaluateAll((videos) => videos.map((v) => v.id).sort()),
+        ) === JSON.stringify([...expectedVideoIds].sort()),
+        "Six expected roofing excerpts are distributed across the page",
+      );
+      check(
+        JSON.stringify(
+          (await master.getAttribute("aria-controls")).split(/\s+/).sort(),
+        ) === JSON.stringify([...expectedVideoIds].sort()),
+        "The global playback control names every controlled video",
+      );
+      check(
+        (await page
+          .locator(".actions")
+          .getByRole("link", { name: /^arXiv/ })
+          .getAttribute("href")) === paperUrl &&
+          (await page
+            .locator(".actions")
+            .getByRole("link", { name: /^Paper(?:\s|$)/ })
+            .count()) === 0,
+        "The publication button is arXiv and links to the requested PDF",
+      );
+      for (const [section, ids] of [
+        ["abstract", ["g1-walking-video"]],
+        ["method", ["field-crouch-video"]],
+        ["results", ["g1-tool-video", "g1-bending-video"]],
+      ])
+        check(
+          JSON.stringify(
+            await page
+              .locator("#" + section + " video")
+              .evaluateAll((videos) => videos.map((v) => v.id)),
+          ) === JSON.stringify(ids),
+          section +
+            ": the intended short excerpts accompany the research section",
+        );
+      check(
+        (await page.locator("video").count()) === expectedVideoIds.length,
+        "All expected video players are available",
       );
       check(
         await page
@@ -209,7 +281,7 @@ try {
         (await master.innerText()) === "Play videos",
         "Keyboard pause stops every video and offers Play videos",
       );
-      await page.locator("#g1-highlights-video").scrollIntoViewIfNeeded();
+      await page.locator("#g1-bending-video").scrollIntoViewIfNeeded();
       await page.waitForTimeout(300);
       await atTop(page);
       check(
@@ -224,10 +296,10 @@ try {
         if (v instanceof HTMLVideoElement) v.pause();
       });
       await page.waitForTimeout(150);
-      await page.locator("#g1-highlights-video").scrollIntoViewIfNeeded();
+      await page.locator("#g1-bending-video").scrollIntoViewIfNeeded();
       await page.waitForFunction(
         () =>
-          !document.querySelector("#g1-highlights-video").paused &&
+          !document.querySelector("#g1-bending-video").paused &&
           [
             ...document.querySelectorAll('video[data-playback-group="hero"]'),
           ].every((v) => v.paused),
@@ -254,30 +326,102 @@ try {
       });
       check(true, "Video looping preserves playback and remains pausable");
       await master.click();
-      for (const [id, duration] of [
-        ["context-video", site.contextDuration],
-        ["g1-hero-video", site.robotHero.duration],
-        ["g1-highlights-video", site.robotHighlights.duration],
-      ]) {
+      for (const id of expectedVideoIds) {
         const video = page.locator("#" + id);
+        const sourceFile = (await video.locator("source").getAttribute("src"))
+          .split("/")
+          .pop();
+        const expectedClip =
+          id === "g1-hero-video" ? site.robotHero : clipByFile.get(sourceFile);
+        const expectedDuration = expectedClip?.duration;
+        check(
+          Number.isFinite(expectedDuration) &&
+            Number(await video.getAttribute("data-duration")) ===
+              expectedDuration,
+          id + ": the selected duration matches the reviewed media manifest",
+        );
         await video.evaluate((v) => {
+          if (v.readyState === 0) {
+            v.preload = "metadata";
+            v.load();
+          }
           v.textTracks[0].mode = "hidden";
         });
-        await page.waitForFunction(
-          (videoId) =>
-            document.getElementById(videoId).textTracks[0]?.cues?.length > 0,
-          id,
-        );
+        await page.waitForFunction((videoId) => {
+          const v = document.getElementById(videoId);
+          return (
+            Number.isFinite(v.duration) && v.textTracks[0]?.cues?.length > 0
+          );
+        }, id);
         check(
           await video.evaluate(
             (v, expected) =>
-              Math.abs(v.duration - expected) < 0.8 &&
+              Math.abs(v.duration - expected) < 0.15 &&
               v.textTracks[0].kind === "descriptions",
-            duration,
+            expectedDuration,
           ),
-          id + ": unchanged excerpt duration and loaded timed description",
+          id +
+            ": selected excerpt duration and timed description load correctly",
         );
+        check(
+          await video.evaluate((v) => {
+            const ids = v.getAttribute("aria-describedby")?.split(/\s+/) || [];
+            const descriptions = ids.map((descriptionId) =>
+              document.getElementById(descriptionId),
+            );
+            return (
+              descriptions.length > 0 &&
+              descriptions.every(Boolean) &&
+              descriptions
+                .map((description) => description.textContent.trim())
+                .join(" ").length > 100
+            );
+          }),
+          id + ": a complete text alternative is programmatically associated",
+        );
+        check(
+          await video.evaluate((v) => {
+            const cues = [...v.textTracks[0].cues];
+            return cues.every(
+              (cue) =>
+                cue.startTime >= 0 &&
+                cue.endTime > cue.startTime &&
+                cue.endTime <= v.duration + 0.2 &&
+                cue.text.trim().length > 0,
+            );
+          }),
+          id + ": description cues use valid times within the clip",
+        );
+        for (const [kind, url] of Object.entries(
+          await video.evaluate((v) => ({
+            video: v.querySelector("source")?.src,
+            poster: v.poster,
+            description: v.querySelector('track[kind="descriptions"]')?.src,
+          })),
+        )) {
+          check(
+            Boolean(url) && url.startsWith(base + "/media/"),
+            id + ": local " + kind + " asset is declared",
+          );
+          if (url) {
+            const assetResponse = await context.request.get(
+              url,
+              kind === "video" ? { headers: { Range: "bytes=0-1" } } : {},
+            );
+            check(
+              assetResponse.ok(),
+              id + ": " + kind + " asset responds successfully",
+            );
+          }
+        }
       }
+      check(
+        Math.abs(
+          (await page.locator("#g1-hero-video").evaluate((v) => v.duration)) -
+            7,
+        ) < 0.15,
+        "The title G1 excerpt preserves the requested first seven seconds",
+      );
       check(
         JSON.stringify(
           await page
@@ -285,14 +429,7 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2",
             )
             .allTextContents(),
-        ) ===
-          JSON.stringify([
-            "Abstract",
-            "Experiments",
-            "Method",
-            "Results",
-            "Citation",
-          ]),
+        ) === JSON.stringify(["Abstract", "Method", "Results", "Citation"]),
         "Concise standard research headings",
       );
       await page
@@ -305,38 +442,53 @@ try {
         ),
         "Keyboard citation copy",
       );
-      await page
-        .locator(".research-details")
-        .first()
-        .locator(":scope > summary")
-        .click();
-      check(
-        await page.locator("#figure-simulation").isVisible(),
-        "Simulation evidence opens through native details",
-      );
-      await page
-        .locator(".research-details")
-        .first()
-        .locator(":scope > summary")
-        .click();
-    }
-    if (route === "/results/") {
-      check(
-        (await page.locator("table").count()) === site.tables.length &&
-          (await page.locator("table caption").count()) === site.tables.length,
-        "All original result tables and captions preserved",
-      );
-      check(
-        (await page.locator("th:not([scope])").count()) === 0,
-        "Table headers declare scope",
-      );
-      for (const table of site.tables)
+      for (const description of await page
+        .locator("details.clip-description")
+        .all()) {
+        const summary = description.locator(":scope > summary");
+        await summary.focus();
+        await page.keyboard.press("Enter");
         check(
-          (await page.locator("#" + table.id + " table").innerText()).includes(
-            table.rows[0][0],
-          ),
-          table.title + ": data remains available",
+          (await description.evaluate((el) => el.open)) &&
+            (await description.innerText()).length > 150,
+          "Keyboard opens a complete clip description",
         );
+      }
+      await scan("Expanded clip descriptions desktop");
+      for (const description of await page
+        .locator("details.clip-description")
+        .all()) {
+        await description.locator(":scope > summary").focus();
+        await page.keyboard.press("Space");
+        check(
+          !(await description.evaluate((el) => el.open)),
+          "Keyboard closes the clip description",
+        );
+      }
+      check(
+        (await page.locator("details.clip-description").count()) >= 4,
+        "Every section excerpt offers an expandable complete visual description",
+      );
+    }
+    if (route === "/paper/" || route === "/results/") {
+      check(
+        (
+          await page.locator('meta[name="robots"]').getAttribute("content")
+        )?.includes("noindex"),
+        route + ": retired page is excluded from indexing",
+      );
+      check(
+        (await page
+          .locator(
+            'main a[href="' +
+              base.replace(/^https?:\/\/[^/]+/, "") +
+              (route === "/paper/" ? "/#method" : "/#results") +
+              '"]',
+          )
+          .count()) > 0,
+        route +
+          ": existing bookmarks have a clear route back to the research page",
+      );
     }
     if (route === "/accessibility/")
       for (const id of [
@@ -380,18 +532,6 @@ try {
     );
     await spacing.evaluate((el) => el.remove());
     await scan(route + " mobile");
-    if (route === "/results/") {
-      await page.locator(".table-scroll").first().focus();
-      await page.keyboard.press("ArrowRight");
-      await page.waitForTimeout(200);
-      check(
-        await page
-          .locator(".table-scroll")
-          .first()
-          .evaluate((el) => el.scrollLeft > 0),
-        "Keyboard scrolls wide result tables",
-      );
-    }
   }
   for (const preference of ["reduced-motion", "save-data"]) {
     const ctx = await browser.newContext({
@@ -415,7 +555,7 @@ try {
         ),
       preference + ": no automatic motion on entry",
     );
-    await p.locator("#g1-highlights-video").scrollIntoViewIfNeeded();
+    await p.locator("#g1-bending-video").scrollIntoViewIfNeeded();
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);
@@ -443,7 +583,8 @@ try {
   const n = await nojs.newPage();
   await n.goto(base + "/");
   check(
-    (await n.locator("video[controls]").count()) === 3 && (await paused(n)),
+    (await n.locator("video[controls]").count()) === expectedVideoIds.length &&
+      (await paused(n)),
     "No-JavaScript media retains native controls without automatic motion",
   );
   check(

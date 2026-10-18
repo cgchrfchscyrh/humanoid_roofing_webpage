@@ -3,132 +3,96 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
 import Citation from "../components/Citation.astro";
-import ExperimentVideo from "../components/ExperimentVideo.astro";
+import MotionClip from "../components/MotionClip.astro";
 import MediaControls from "../components/MediaControls.astro";
-import site from "../data/site.json";
-import narrative from "../data/narrative.json";
-import { asset } from "../data/paths";
-const sections = ["Abstract", "Experiments", "Method", "Results", "Citation"];
+import clips from "../../public/media/roofing-clips.json";
+const walking = clips.clips.find((clip) => clip.id === "g1-roofing-walking")!;
+const field = clips.clips.find(
+  (clip) => clip.id === "roofing-fieldwork-crouch",
+)!;
+const tool = clips.clips.find((clip) => clip.id === "g1-roofing-tool")!;
+const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
 ---
 
 <Layout>
   <Hero />
   <div class="container visual-home">
-    <nav class="section-nav" aria-label="Research sections">
-      {sections.map((title) => <a href={"#" + title.toLowerCase()}>{title}</a>)}
-    </nav>
     <section
       class="section abstract-section"
       id="abstract"
       aria-labelledby="abstract-title"
     >
       <h2 id="abstract-title">Abstract</h2>
-      <p class="lead">
-        Roofing requires a robot to coordinate movement, balance, and tool
-        positioning on a slope. Human demonstrations capture this coordination,
-        but retargeted poses can misplace feet or hands relative to the roof. We
-        combine human motion with a metric roof model, refine support and
-        work-surface relations, and learn feedback policies that preserve them
-        during execution. Simulation and physical Unitree G1 experiments
-        evaluate roofing-oriented motion primitives.
-      </p>
-      <a class="text-link" href={asset("paper/")}
-        >Research guide and related work <span aria-hidden="true">↗</span></a
-      >
-      <Figure id="overview" compact />
-    </section>
-    <section
-      class="section"
-      id="experiments"
-      aria-labelledby="experiments-title"
-    >
-      <h2 id="experiments-title">Experiments</h2>
-      <p class="section-intro">
-        From incline walking to tool positioning: selected motions on the
-        physical Unitree G1.
-      </p>
-      <ExperimentVideo />
-      <p class="experiment-note">
-        Controlled laboratory tests use a safety hoist and operator-controlled
-        activation. These excerpts show selected movements, not complete trial
-        outcomes or functional nailing and hammer impact.
-      </p>
-      <details class="research-details">
-        <summary>Experimental setup and simulation</summary>
-        <p>{narrative.experiments.simulation}</p><p>
-          {narrative.experiments.physical}
-        </p>
-        <Figure id="simulation" compact />
-        <a href={asset("results/#hardware")}
-          >Physical measurements and trial counts</a
-        >
-      </details>
+      <div class="abstract-story">
+        <div class="abstract-copy">
+          <p class="lead">
+            Roofing requires a robot to coordinate movement, balance, and tool
+            positioning on a slope. Human demonstrations capture this
+            coordination, but retargeted poses can misplace feet or hands
+            relative to the roof.
+          </p>
+          <p>
+            We ground human motion in a metric roof model, refine support and
+            work-surface relations, and learn feedback policies that preserve
+            them during execution. Simulation and physical Unitree G1
+            experiments demonstrate roofing-oriented motion primitives.
+          </p>
+          <Figure id="overview" compact />
+        </div>
+        <MotionClip id="g1-walking-video" clip={walking} />
+      </div>
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
       <h2 id="method-title">Method</h2>
       <p class="section-intro">
-        Capture human coordination. Ground the motion to the roof. Preserve task
-        relations during execution.
+        Learn the coordination from people, and ground each movement in the roof
+        geometry.
       </p>
-      <Figure id={site.methodFigure} compact />
-      <ol class="method-summary">
-        <li>
-          <strong>Demonstrate.</strong> PICO tracking captures motion and timing.
-        </li>
-        <li>
-          <strong>Refine.</strong> Roof geometry constrains support, clearance, and
-          nonpenetration.
-        </li>
-        <li>
-          <strong>Learn.</strong> Phase-gated rewards maintain these relations under
-          tracking error.
-        </li>
-      </ol>
+      <Figure id="framework" compact />
+      <div class="method-story">
+        <ol class="method-summary">
+          <li>
+            <h3>Demonstrate</h3><p>
+              PICO tracking captures human motion and timing.
+            </p>
+          </li>
+          <li>
+            <h3>Refine</h3><p>
+              Roof geometry constrains support, hand clearance, and
+              nonpenetration.
+            </p>
+          </li>
+          <li>
+            <h3>Learn</h3><p>
+              Execution-aware rewards preserve these relations during motion.
+            </p>
+          </li>
+        </ol>
+        <MotionClip id="field-crouch-video" clip={field} />
+      </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
       <h2 id="results-title">Results</h2>
       <p class="section-intro">
-        Execution-aware learning reduces work-clearance error beyond reference
-        refinement alone.
+        From walking on an incline to positioning a tool near the work surface.
       </p>
-      <div class="highlights results-highlights">
-        {
-          narrative.results.clearanceComparisons.map((item) => (
-            <div>
-              <>
-                <h3>{item.task}</h3>
-                <p class="numeric-pair">
-                  <>
-                    <span>{item.reference}</span>
-                    <span aria-hidden="true">→</span>
-                    <span class="sr-only">to</span>
-                    <strong>
-                      {item.complete} {item.unit}
-                    </strong>
-                  </>
-                </p>
-              </>
-            </div>
-          ))
-        }
+      <div class="motion-grid" id="experiments">
+        <MotionClip id="g1-tool-video" clip={tool} />
+        <MotionClip id="g1-bending-video" clip={bending} />
       </div>
-      <p class="result-footnote">
-        Mean simulation error across three seeds per task; lower is better.
-        Reference refinement → complete method. Tables 3–4.
+      <p class="experiment-note">
+        Selected movements on the physical G1, with an overhead safety hoist and
+        operator-controlled activation.
       </p>
-      <Figure id="clearance" compact />
-      <p>
-        The complete method satisfies all task criteria in 3/3 evaluated seeds
-        per task. Physical tests demonstrate motion reproduction with a safety
-        hoist; they do not establish unassisted roofing reliability.
-      </p>
-      <a class="text-link" href={asset("results/")}
-        >All results, figures, and data <span aria-hidden="true">↗</span></a
-      >
       <details class="research-details">
-        <summary>Scope and limitations</summary><ul>
-          {narrative.conclusion.limitations.map((text) => <li>{text}</li>)}
-        </ul>
+        <summary>Study scope</summary>
+        <p>
+          The study evaluates slope traversal, working postures, and tool
+          positioning under controlled conditions. These excerpts end after the
+          selected movements and omit later trial outcomes and resets. They do
+          not demonstrate functional fastening, hammer impact, or a complete
+          autonomous roofing workflow.
+        </p>
       </details>
     </section>
     <Citation />

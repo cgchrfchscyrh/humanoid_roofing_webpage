@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-18",
+  "scope": "Roofing media and layout revision",
+  "changes": [
+    "Replaced Research guide and Results & figures navigation with homepage section links.",
+    "Removed numerical result cards, plots and tables from the rendered website; original research data and manuscript sources are unchanged.",
+    "Set the primary arXiv button to https://arxiv.org/pdf/2609.20558.",
+    "Replaced the long fieldwork clip and experimental montage with individual excerpts distributed across Abstract, Method and Results.",
+    "Retained the existing seven-second G1 title excerpt."
+  ],
+  "visualReview": {
+    "desktopWidth": 1440,
+    "mobileWidth": 390,
+    "sections": [
+      "Hero",
+      "Abstract",
+      "Method",
+      "Results"
+    ],
+    "findings": "Complete video frames and adjacent captions remain visible. Portrait walking footage uses a narrow column beside the abstract on desktop; mobile stacks the content. Result videos appear side by side on desktop and stack on mobile. Descriptions use a consistent text scale and remain expandable."
+  },
+  "automatedReview": {
+    "axeScans": 11,
+    "functionalChecks": 203,
+    "violations": 0,
+    "errors": 0,
+    "report": "axe-wcag21aa.json"
+  },
+  "contentReview": [
+    "Fieldwork is contextual footage, not PICO capture or policy-training footage.",
+    "Physical excerpts show selected supervised movements and end before later falls or resets.",
+    "Title and tool-positioning footage use the same selected source interval; media credits state this.",
+    "Legacy paper/results routes retain a short noindex return link instead of the removed guide or numerical tables."
+  ],
+  "limitations": [
+    "Automated checks and this visual review are not full ADA/WCAG certification.",
+    "External PDF reading order, tagging and assistive-technology behavior have not been certified."
+  ]
+}

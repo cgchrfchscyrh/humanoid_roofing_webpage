@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-18T18:55:39.232Z",
+  "date": "2026-10-18T19:38:49.205Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
-      "name": "/ desktop",
+      "name": "Expanded clip descriptions desktop",
       "passes": 26,
       "violations": [],
       "incomplete": [
@@ -13,16 +13,7 @@
           "id": "color-contrast",
           "nodes": [
             [
-              ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]"
+              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -36,7 +27,54 @@
               "#g1-hero-video"
             ],
             [
-              "#g1-highlights-video"
+              "#g1-walking-video"
+            ],
+            [
+              "#field-crouch-video"
+            ],
+            [
+              "#g1-tool-video"
+            ],
+            [
+              "#g1-bending-video"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/ desktop",
+      "passes": 26,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        },
+        {
+          "id": "video-caption",
+          "nodes": [
+            [
+              "#context-video"
+            ],
+            [
+              "#g1-hero-video"
+            ],
+            [
+              "#g1-walking-video"
+            ],
+            [
+              "#field-crouch-video"
+            ],
+            [
+              "#g1-tool-video"
+            ],
+            [
+              "#g1-bending-video"
             ]
           ]
         }
@@ -51,16 +89,7 @@
           "id": "color-contrast",
           "nodes": [
             [
-              ".light.button[href$=\"#experiments\"] > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(1) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(2) > .numeric-pair > span[aria-hidden=\"true\"]"
-            ],
-            [
-              "div:nth-child(3) > .numeric-pair > span[aria-hidden=\"true\"]"
+              "a[href$=\"#results\"] > span[aria-hidden=\"true\"]"
             ]
           ]
         },
@@ -74,7 +103,16 @@
               "#g1-hero-video"
             ],
             [
-              "#g1-highlights-video"
+              "#g1-walking-video"
+            ],
+            [
+              "#field-crouch-video"
+            ],
+            [
+              "#g1-tool-video"
+            ],
+            [
+              "#g1-bending-video"
             ]
           ]
         }
@@ -82,25 +120,25 @@
     },
     {
       "name": "/paper/ desktop",
-      "passes": 21,
+      "passes": 15,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/paper/ mobile",
-      "passes": 21,
+      "passes": 15,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/results/ desktop",
-      "passes": 27,
+      "passes": 15,
       "violations": [],
       "incomplete": []
     },
     {
       "name": "/results/ mobile",
-      "passes": 28,
+      "passes": 15,
       "violations": [],
       "incomplete": []
     },
@@ -136,6 +174,8 @@
     "/: informative images have alternatives",
     "/: no embedded third-party player or uncontrolled HTML autoplay",
     "/: no institutional affiliation or disclaimer text",
+    "/: numerical result displays are removed",
+    "/: removed research-guide and result-index navigation stays absent",
     "/: unique IDs",
     "/: valid local anchors",
     "/: heading hierarchy",
@@ -144,7 +184,13 @@
     "/: skip link targets main",
     "Visible title videos automatically play without a click",
     "Automatic playback exposes a visible Pause videos button",
-    "Three original research video players remain available",
+    "Six expected roofing excerpts are distributed across the page",
+    "The global playback control names every controlled video",
+    "The publication button is arXiv and links to the requested PDF",
+    "abstract: the intended short excerpts accompany the research section",
+    "method: the intended short excerpts accompany the research section",
+    "results: the intended short excerpts accompany the research section",
+    "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
     "Desktop title media shows complete frames",
     "Title and author names are above the footage",
@@ -154,12 +200,82 @@
     "Entering experiment video plays it and pauses offscreen title media",
     "A native individual pause remains remembered after scrolling",
     "Video looping preserves playback and remains pausable",
-    "context-video: unchanged excerpt duration and loaded timed description",
-    "g1-hero-video: unchanged excerpt duration and loaded timed description",
-    "g1-highlights-video: unchanged excerpt duration and loaded timed description",
+    "context-video: the selected duration matches the reviewed media manifest",
+    "context-video: selected excerpt duration and timed description load correctly",
+    "context-video: a complete text alternative is programmatically associated",
+    "context-video: description cues use valid times within the clip",
+    "context-video: local video asset is declared",
+    "context-video: video asset responds successfully",
+    "context-video: local poster asset is declared",
+    "context-video: poster asset responds successfully",
+    "context-video: local description asset is declared",
+    "context-video: description asset responds successfully",
+    "g1-hero-video: the selected duration matches the reviewed media manifest",
+    "g1-hero-video: selected excerpt duration and timed description load correctly",
+    "g1-hero-video: a complete text alternative is programmatically associated",
+    "g1-hero-video: description cues use valid times within the clip",
+    "g1-hero-video: local video asset is declared",
+    "g1-hero-video: video asset responds successfully",
+    "g1-hero-video: local poster asset is declared",
+    "g1-hero-video: poster asset responds successfully",
+    "g1-hero-video: local description asset is declared",
+    "g1-hero-video: description asset responds successfully",
+    "g1-walking-video: the selected duration matches the reviewed media manifest",
+    "g1-walking-video: selected excerpt duration and timed description load correctly",
+    "g1-walking-video: a complete text alternative is programmatically associated",
+    "g1-walking-video: description cues use valid times within the clip",
+    "g1-walking-video: local video asset is declared",
+    "g1-walking-video: video asset responds successfully",
+    "g1-walking-video: local poster asset is declared",
+    "g1-walking-video: poster asset responds successfully",
+    "g1-walking-video: local description asset is declared",
+    "g1-walking-video: description asset responds successfully",
+    "field-crouch-video: the selected duration matches the reviewed media manifest",
+    "field-crouch-video: selected excerpt duration and timed description load correctly",
+    "field-crouch-video: a complete text alternative is programmatically associated",
+    "field-crouch-video: description cues use valid times within the clip",
+    "field-crouch-video: local video asset is declared",
+    "field-crouch-video: video asset responds successfully",
+    "field-crouch-video: local poster asset is declared",
+    "field-crouch-video: poster asset responds successfully",
+    "field-crouch-video: local description asset is declared",
+    "field-crouch-video: description asset responds successfully",
+    "g1-tool-video: the selected duration matches the reviewed media manifest",
+    "g1-tool-video: selected excerpt duration and timed description load correctly",
+    "g1-tool-video: a complete text alternative is programmatically associated",
+    "g1-tool-video: description cues use valid times within the clip",
+    "g1-tool-video: local video asset is declared",
+    "g1-tool-video: video asset responds successfully",
+    "g1-tool-video: local poster asset is declared",
+    "g1-tool-video: poster asset responds successfully",
+    "g1-tool-video: local description asset is declared",
+    "g1-tool-video: description asset responds successfully",
+    "g1-bending-video: the selected duration matches the reviewed media manifest",
+    "g1-bending-video: selected excerpt duration and timed description load correctly",
+    "g1-bending-video: a complete text alternative is programmatically associated",
+    "g1-bending-video: description cues use valid times within the clip",
+    "g1-bending-video: local video asset is declared",
+    "g1-bending-video: video asset responds successfully",
+    "g1-bending-video: local poster asset is declared",
+    "g1-bending-video: poster asset responds successfully",
+    "g1-bending-video: local description asset is declared",
+    "g1-bending-video: description asset responds successfully",
+    "The title G1 excerpt preserves the requested first seven seconds",
     "Concise standard research headings",
     "Keyboard citation copy",
-    "Simulation evidence opens through native details",
+    "Keyboard opens a complete clip description",
+    "Keyboard opens a complete clip description",
+    "Keyboard opens a complete clip description",
+    "Keyboard opens a complete clip description",
+    "Keyboard opens a complete clip description",
+    "Keyboard opens a complete clip description",
+    "Keyboard closes the clip description",
+    "Keyboard closes the clip description",
+    "Keyboard closes the clip description",
+    "Keyboard closes the clip description",
+    "Keyboard closes the clip description",
+    "Keyboard closes the clip description",
+    "Every section excerpt offers an expandable complete visual description",
     "/: no horizontal page overflow at 320px",
     "Complete video frames at 320px",
     "/: no horizontal page overflow at 768px",
@@ -171,12 +287,16 @@
     "/paper/: informative images have alternatives",
     "/paper/: no embedded third-party player or uncontrolled HTML autoplay",
     "/paper/: no institutional affiliation or disclaimer text",
+    "/paper/: numerical result displays are removed",
+    "/paper/: removed research-guide and result-index navigation stays absent",
     "/paper/: unique IDs",
     "/paper/: valid local anchors",
     "/paper/: heading hierarchy",
     "/paper/: skip link is first keyboard stop",
     "/paper/: visible focus",
     "/paper/: skip link targets main",
+    "/paper/: retired page is excluded from indexing",
+    "/paper/: existing bookmarks have a clear route back to the research page",
     "/paper/: no horizontal page overflow at 320px",
     "/paper/: no horizontal page overflow at 768px",
     "/paper/: 320px text-spacing reflow",
@@ -186,28 +306,27 @@
     "/results/: informative images have alternatives",
     "/results/: no embedded third-party player or uncontrolled HTML autoplay",
     "/results/: no institutional affiliation or disclaimer text",
+    "/results/: numerical result displays are removed",
+    "/results/: removed research-guide and result-index navigation stays absent",
     "/results/: unique IDs",
     "/results/: valid local anchors",
     "/results/: heading hierarchy",
     "/results/: skip link is first keyboard stop",
     "/results/: visible focus",
     "/results/: skip link targets main",
-    "All original result tables and captions preserved",
-    "Table headers declare scope",
-    "Table 2 · Slope coverage: data remains available",
-    "Table 3 · Nailgun ablation: data remains available",
-    "Table 4 · Cross-task validation: data remains available",
-    "Table 6 · Physical robot: data remains available",
+    "/results/: retired page is excluded from indexing",
+    "/results/: existing bookmarks have a clear route back to the research page",
     "/results/: no horizontal page overflow at 320px",
     "/results/: no horizontal page overflow at 768px",
     "/results/: 320px text-spacing reflow",
-    "Keyboard scrolls wide result tables",
     "/accessibility/: page loads",
     "/accessibility/: one H1",
     "/accessibility/: English document language",
     "/accessibility/: informative images have alternatives",
     "/accessibility/: no embedded third-party player or uncontrolled HTML autoplay",
     "/accessibility/: no institutional affiliation or disclaimer text",
+    "/accessibility/: numerical result displays are removed",
+    "/accessibility/: removed research-guide and result-index navigation stays absent",
     "/accessibility/: unique IDs",
     "/accessibility/: valid local anchors",
     "/accessibility/: heading hierarchy",
@@ -226,6 +345,8 @@
     "/404.html: informative images have alternatives",
     "/404.html: no embedded third-party player or uncontrolled HTML autoplay",
     "/404.html: no institutional affiliation or disclaimer text",
+    "/404.html: numerical result displays are removed",
+    "/404.html: removed research-guide and result-index navigation stays absent",
     "/404.html: unique IDs",
     "/404.html: valid local anchors",
     "/404.html: heading hierarchy",

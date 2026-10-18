@@ -1,0 +1,54 @@
+---
+import { asset } from "../data/paths";
+interface Props {
+  id: string;
+  group?: string;
+  preload?: "none" | "metadata";
+  clip: {
+    video: string;
+    poster: string;
+    track: string;
+    width: number;
+    height: number;
+    duration: number;
+    caption: string;
+    description: string;
+  };
+}
+const { id, clip, group = "research", preload = "none" } = Astro.props;
+---
+
+<figure class:list={["motion-clip", { portrait: clip.height > clip.width }]}>
+  <video
+    id={id}
+    data-playback-group={group}
+    data-duration={clip.duration}
+    controls
+    controlslist="nodownload"
+    muted
+    loop
+    playsinline
+    preload={preload}
+    poster={asset(`media/${clip.poster}`)}
+    width={clip.width}
+    height={clip.height}
+    aria-labelledby={`${id}-caption`}
+    aria-describedby={`${id}-description`}
+  >
+    <source src={asset(`media/${clip.video}`)} type="video/mp4" />
+    <track
+      kind="descriptions"
+      src={asset(`media/${clip.track}`)}
+      srclang="en"
+      label="English visual descriptions"
+    />
+    Video playback is unavailable. Read the description below.
+  </video>
+  <figcaption id={`${id}-caption`}>{clip.caption}</figcaption>
+  <details class="clip-description">
+    <summary aria-label={`Video description: ${clip.caption}`}
+      >Video description</summary
+    >
+    <p id={`${id}-description`}>{clip.description}</p>
+  </details>
+</figure>

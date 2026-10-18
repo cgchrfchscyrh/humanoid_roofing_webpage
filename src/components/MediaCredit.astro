@@ -1,6 +1,15 @@
 ---
 import site from "../data/site.json";
 import { asset } from "../data/paths";
+import media from "../../public/media/roofing-clips.json";
+
+const fieldClips = media.clips.filter((clip) =>
+  clip.id.startsWith("roofing-fieldwork"),
+);
+const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
+const heroDescription = media.clips.find(
+  (clip) => clip.id === "g1-roofing-tool",
+)!.description;
 ---
 
 <section
@@ -11,64 +20,77 @@ import { asset } from "../data/paths";
   <p class="eyebrow">Recorded by our team</p>
   <h2 id="media-heading">Video descriptions & sources</h2>
   <p>
-    Videos play silently at original speed when visible, unless reduced motion
-    or data saving is enabled. Use the visible “Pause videos” control to stop
-    playback. A manual pause is remembered when scrolling. All videos are
-    presented without audio, at their original playback speed. The title appears
-    above complete video frames. Larger screens show the field and laboratory
-    footage side by side; phone layouts stack them.
+    These independent excerpts play silently at original speed when visible,
+    unless reduced motion or data saving is enabled. Use “Pause videos” or each
+    player’s native controls to pause. Manual pauses are remembered when
+    scrolling. Complete frames remain visible, including the laboratory safety
+    equipment and operator.
   </p>
   <section aria-labelledby="field-media-title">
     <h3 id="field-media-title">Roofing fieldwork</h3>
     <p>{site.contextCredit}</p>
     <div id="field-visual-description">
-      {site.contextDetails.map((text) => <p>{text}</p>)}
+      {
+        fieldClips.map((clip) => (
+          <section aria-labelledby={`${clip.id}-credit-title`}>
+            <h4 id={`${clip.id}-credit-title`}>{clip.title}</h4>
+            <p id={`${clip.id}-visual-description`}>{clip.description}</p>
+            <p>
+              <a
+                href={asset(
+                  `#${clip.section === "hero" ? "main" : clip.section}`,
+                )}
+              >
+                Watch {clip.title.toLowerCase()} on the project page
+              </a>
+            </p>
+          </section>
+        ))
+      }
     </div>
-    <p class="fine-print">{site.contextLicense}</p>
-    <div class="media-downloads">
-      <a href={asset(site.contextVideo)} download
-        >Download the silent field video (MP4)</a
-      ><a href={asset(site.contextTrack)} download
-        >Field video descriptions (WebVTT)</a
-      >
-    </div>
+    <p class="fine-print">
+      Source: the research team’s original field recording, <code
+        >IMG_7082 (1).MOV</code
+      >. Web excerpts use its silent browser viewing copy. Original recordings
+      remain unchanged.
+    </p>
   </section>
   <section aria-labelledby="robot-media-title">
     <h3 id="robot-media-title">G1 title video</h3>
-    <p id="robot-visual-description">{site.robotHero.description}</p>
+    <p id="robot-visual-description">{heroDescription}</p>
     <p class="fine-print">
       Source: the authors’ laboratory recording, <code
         >bending_real_test_20260905_185804_260763_nailgun.mp4</code
-      >. The source file is preserved unchanged.
+      >. The title and Results use the same selected movement from this
+      recording.
     </p>
-    <div class="media-downloads">
-      <a href={asset(site.robotHero.video)} download
-        >Download the silent G1 excerpt (MP4)</a
-      ><a href={asset(site.robotHero.track)} download
-        >G1 excerpt descriptions (WebVTT)</a
-      >
-    </div>
   </section>
   <section aria-labelledby="highlights-media-title">
-    <h3 id="highlights-media-title">G1 experiment highlights</h3>
-    <p id="highlights-visual-description">{site.robotHighlights.description}</p>
-    <ul class="clip-sources">
-      <li>Incline walking: <code>roofer_real_upwalk.MOV</code>.</li>
-      <li>Stepping and bending with a tool: the nailgun recording above.</li>
-      <li>Bending toward the roof surface: <code>hammer.mp4</code>.</li>
-    </ul>
-    <p class="fine-print">
-      Hard cuts separate independent recordings. Each segment has a visible
-      label; the source frame is fitted below the top label without cropping.
-      The videos illustrate the experimental setting and movements; the paper’s
-      quantitative trials are reported separately in Table 6.
-    </p>
-    <div class="media-downloads">
-      <a href={asset(site.robotHighlights.video)} download
-        >Download G1 highlights (MP4)</a
-      ><a href={asset(site.robotHighlights.track)} download
-        >G1 highlights descriptions (WebVTT)</a
-      >
+    <h3 id="highlights-media-title">G1 movement clips</h3>
+    <div id="highlights-visual-description">
+      {
+        robotClips.map((clip) => (
+          <section aria-labelledby={`${clip.id}-credit-title`}>
+            <h4 id={`${clip.id}-credit-title`}>{clip.title}</h4>
+            <p id={`${clip.id}-visual-description`}>{clip.description}</p>
+            <p class="fine-print">
+              Source: <code>{clip.sourceFile}</code>.
+            </p>
+            <p>
+              <a href={asset(`#${clip.section}`)}>
+                Watch {clip.title.toLowerCase()} in{" "}
+                {clip.section === "abstract" ? "Abstract" : "Results"}
+              </a>
+            </p>
+          </section>
+        ))
+      }
     </div>
+    <p class="fine-print">
+      Excerpts illustrate selected supervised movements, rather than complete
+      trials or independent roofing work. They end before later falls or resets.
+      Source recordings remain unchanged; the original paper reports the
+      experimental evaluation.
+    </p>
   </section>
 </section>
