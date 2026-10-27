@@ -1,4 +1,6 @@
 ---
+import Vision from "../components/Vision.astro";
+import stories from "../data/vision-stories.json";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
@@ -15,7 +17,7 @@ const tool = clips.clips.find((clip) => clip.id === "g1-roofing-tool")!;
 const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
 ---
 
-<Layout>
+<Layout title={stories.roof.headline}>
   <Hero />
   <div class="container visual-home">
     <section
@@ -93,7 +95,7 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       </div>
 
     </section>
-    <section class="section vision-section" id="vision" aria-labelledby="vision-title"><h2 id="vision-title">From a movement to a roofing workflow.</h2><p class="section-intro">Slope-aware movement addresses one part of roofing. Completing the job would also require reliable tool contact, fastening, material handling, and coordination on a changing site. That larger goal connects robot learning and control with tool design, construction practice, and human supervision; the current study demonstrates selected motion primitives.</p></section>
+    <Vision project="roof" />
     <Citation />
     <details class="research-details media-notes"><summary>Video descriptions & sources</summary><MediaCredit /></details>
   </div>

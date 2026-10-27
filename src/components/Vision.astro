@@ -1,0 +1,34 @@
+---
+import stories from "../data/vision-stories.json";
+import VisionScene from "./VisionScene.astro";
+import "../styles/vision.css";
+interface Props { project: keyof typeof stories; }
+const story = stories[Astro.props.project];
+const asset = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${path}`;
+---
+<section class="research-vision" id="vision" aria-labelledby="vision-title" data-vision-project={Astro.props.project}>
+  <header class="vision-heading"><p class="vision-kicker">The bigger picture</p><h2 id="vision-title">{story.title}</h2></header>
+  <div class="vision-map" role="group" aria-label="Current work, missing connections, and a shared future vision" aria-describedby="vision-description">
+    <section class="vision-current" aria-labelledby="vision-current-title">
+      <p class="vision-stage">01 / Current work</p>
+      <div class="vision-evidence-image"><img src={asset(story.image)} alt={story.imageAlt} width="640" height="420" loading="lazy" decoding="async" /></div>
+      <h3 id="vision-current-title">{story.current}</h3>
+      <p class="vision-status">{story.evidence}</p>
+      <a class="vision-evidence-link" href={story.sourceAnchor}>Research evidence <span aria-hidden="true">↗</span></a>
+    </section>
+    <section class="vision-bridge" aria-labelledby="vision-bridge-title">
+      <h3 class="vision-stage" id="vision-bridge-title">02 / Connect the pieces</h3>
+      <svg class="vision-direction" viewBox="0 0 200 24" aria-hidden="true"><path d="M1 12H196m-10-9 10 9-10 9" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+      <ul class="vision-connections">{story.connections.map(connection => <li><span class="vision-plus" aria-hidden="true">+</span><div><strong>{connection.task}</strong><span>{connection.partners}</span></div></li>)}</ul>
+    </section>
+    <section class="vision-future" aria-labelledby="vision-future-title">
+      <p class="vision-stage">03 / Shared vision</p>
+      <div class="vision-scene"><VisionScene kind={story.scene} label={story.sceneAlt} /></div>
+      <h3 id="vision-future-title">{story.future}</h3>
+      <p class="vision-status vision-status-future">Future concept</p>
+      <ul class="vision-system-labels" aria-label="Parts of the future system">{story.systems.map(system => <li>{system}</li>)}</ul>
+    </section>
+  </div>
+  <p id="vision-description" class="vision-sr-only">{story.description}</p>
+  <div class="vision-context"><slot /></div>
+</section>

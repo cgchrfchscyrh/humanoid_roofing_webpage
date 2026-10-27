@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-27",
+  "change": "Visual paths from a specific research contribution to a shared multidisciplinary vision; compact project headlines.",
+  "references": [
+    "https://bedrockrobotics.com/",
+    "https://www.gravisrobotics.com/",
+    "https://useflywheel.ai/",
+    "https://ursamining.com/"
+  ],
+  "projects": {
+    "roof": {
+      "headline": "Learning to work on the roof.",
+      "vision": "One movement. A whole roofing workflow.",
+      "scope": "Controlled G1 experiments"
+    }
+  },
+  "validation": {
+    "build": "passed",
+    "lint": "passed",
+    "security_audit": "0 vulnerabilities",
+    "axe_scans": 11,
+    "functional_checks": 199,
+    "violations": 0,
+    "desktop_visual_review": "passed",
+    "320_css_pixel_reflow": "passed",
+    "native_playback_and_preferences": "unchanged; checked by existing browser suite",
+    "diagrams": "SVG accessible names and complete text equivalents; solid evidence badge versus dashed future-concept badge; no color-only relationships"
+  },
+  "preserved": [
+    "Original research papers and media",
+    "Scientific paper titles and author records",
+    "Muted video controls and text alternatives",
+    "Complete building framework and redacted occupant figure where applicable"
+  ],
+  "limitations": [
+    "Automated scans are not complete ADA/WCAG certification.",
+    "External PDF tagging, reading order and multi-screen-reader usability were not recertified.",
+    "Future system diagrams are concepts, not evidence of field or clinical deployment."
+  ]
+}
