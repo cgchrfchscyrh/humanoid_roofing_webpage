@@ -428,8 +428,8 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Abstract", "Method", "Results", "Citation"]),
-        "Concise standard research headings",
+        ) === JSON.stringify(["Put the feet on the roof.", "Ground motion in geometry.", "From a pose to a working movement.", "From a movement to a roofing workflow.", "Citation"]),
+        "Story progresses from a concrete question to a collaborative vision",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -441,33 +441,17 @@ try {
         ),
         "Keyboard citation copy",
       );
-      for (const description of await page
-        .locator("details.clip-description")
-        .all()) {
-        const summary = description.locator(":scope > summary");
-        await summary.focus();
-        await page.keyboard.press("Enter");
-        check(
-          (await description.evaluate((el) => el.open)) &&
-            (await description.innerText()).length > 150,
-          "Keyboard opens a complete clip description",
-        );
-      }
-      await scan("Expanded clip descriptions desktop");
-      for (const description of await page
-        .locator("details.clip-description")
-        .all()) {
-        await description.locator(":scope > summary").focus();
-        await page.keyboard.press("Space");
-        check(
-          !(await description.evaluate((el) => el.open)),
-          "Keyboard closes the clip description",
-        );
-      }
-      check(
-        (await page.locator("details.clip-description").count()) >= 4,
-        "Every section excerpt offers an expandable complete visual description",
-      );
+      check(await page.locator("figure:has(video) > figcaption, details.clip-description").count() === 0, "Video captions and per-player description blocks are removed");
+      check(await page.locator(".hero-text > .eyebrow, .hero-text .publication-line, .hero-venue").count() === 0, "Title area has no topic subtitle");
+      const mediaNotes = page.locator("details.media-notes");
+      await mediaNotes.locator(":scope > summary").focus();
+      await page.keyboard.press("Enter");
+      check(await mediaNotes.evaluate(el => el.open) && (await mediaNotes.innerText()).length > 1000, "Keyboard opens consolidated complete media notes");
+      await scan("Consolidated video descriptions desktop");
+      await mediaNotes.locator(":scope > summary").focus();
+      await page.keyboard.press("Space");
+      check(!(await mediaNotes.evaluate(el => el.open)), "Keyboard closes consolidated media notes");
+
     }
     if (route === "/paper/" || route === "/results/") {
       check(

@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
 import Citation from "../components/Citation.astro";
 import MotionClip from "../components/MotionClip.astro";
+import MediaCredit from "../components/MediaCredit.astro";
 import MediaControls from "../components/MediaControls.astro";
 import clips from "../../public/media/roofing-clips.json";
 const walking = clips.clips.find((clip) => clip.id === "g1-roofing-walking")!;
@@ -22,7 +23,7 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       id="abstract"
       aria-labelledby="abstract-title"
     >
-      <h2 id="abstract-title">Abstract</h2>
+      <h2 id="abstract-title">Put the feet on the roof.</h2>
       <div class="abstract-story">
         <div class="abstract-copy">
           <p class="lead">
@@ -43,7 +44,7 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       </div>
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">Method</h2>
+      <h2 id="method-title">Ground motion in geometry.</h2>
       <p class="section-intro">
         Learn the coordination from people, and ground each movement in the roof
         geometry.
@@ -72,17 +73,9 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">Results</h2>
+      <h2 id="results-title">From a pose to a working movement.</h2>
       <p class="section-intro">
-        From walking on an incline to positioning a tool near the work surface.
-      </p>
-      <div class="motion-grid" id="experiments">
-        <MotionClip id="g1-tool-video" clip={tool} />
-        <MotionClip id="g1-bending-video" clip={bending} />
-      </div>
-      <p class="experiment-note">
-        Selected movements on the physical G1, with an overhead safety hoist and
-        operator-controlled activation.
+        Selected supervised G1 movements connect slope traversal with tool positioning. An overhead safety hoist and operator-controlled activation remain part of the laboratory setup.
       </p>
       <details class="research-details">
         <summary>Study scope</summary>
@@ -94,8 +87,15 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
           autonomous roofing workflow.
         </p>
       </details>
+      <div class="motion-grid" id="experiments">
+        <MotionClip id="g1-tool-video" clip={tool} />
+        <MotionClip id="g1-bending-video" clip={bending} />
+      </div>
+
     </section>
+    <section class="section vision-section" id="vision" aria-labelledby="vision-title"><h2 id="vision-title">From a movement to a roofing workflow.</h2><p class="section-intro">Slope-aware movement addresses one part of roofing. Completing the job would also require reliable tool contact, fastening, material handling, and coordination on a changing site. That larger goal connects robot learning and control with tool design, construction practice, and human supervision; the current study demonstrates selected motion primitives.</p></section>
     <Citation />
+    <details class="research-details media-notes"><summary>Video descriptions & sources</summary><MediaCredit /></details>
   </div>
   <MediaControls />
 </Layout>

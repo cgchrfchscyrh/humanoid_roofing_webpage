@@ -32,7 +32,7 @@ const { id, clip, group = "research", preload = "none" } = Astro.props;
     poster={asset(`media/${clip.poster}`)}
     width={clip.width}
     height={clip.height}
-    aria-labelledby={`${id}-caption`}
+    aria-label={clip.caption}
     aria-describedby={`${id}-description`}
   >
     <source src={asset(`media/${clip.video}`)} type="video/mp4" />
@@ -42,13 +42,7 @@ const { id, clip, group = "research", preload = "none" } = Astro.props;
       srclang="en"
       label="English visual descriptions"
     />
-    Video playback is unavailable. Read the description below.
+    Video playback is unavailable. Read the text alternative in the media notes.
   </video>
-  <figcaption id={`${id}-caption`}>{clip.caption}</figcaption>
-  <details class="clip-description">
-    <summary aria-label={`Video description: ${clip.caption}`}
-      >Video description</summary
-    >
-    <p id={`${id}-description`}>{clip.description}</p>
-  </details>
+  <p id={`${id}-description`} class="sr-only">{clip.description}</p>
 </figure>

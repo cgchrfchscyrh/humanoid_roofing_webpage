@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-27",
+  "revision": "Concrete research task to collaborative vision",
+  "changes": [
+    "Remove introductory topic subtitles and marketing taglines, retaining paper titles and authors.",
+    "Remove per-video visible captions and disclosure blocks; retain linked full text alternatives and timed descriptions.",
+    "Consolidate complete media descriptions and original source credits in a keyboard-operable end-of-page disclosure.",
+    "Connect specific demonstrated, simulated, or proposed work to a broader collaborative vision without claiming unvalidated deployment."
+  ],
+  "validation": {
+    "axe_scans": 11,
+    "functional_checks": 198,
+    "violations": 0,
+    "errors": 0,
+    "build": "passed",
+    "lint": "passed",
+    "dependency_audit": "zero vulnerabilities",
+    "visual_review": "Desktop and 320 CSS pixel screenshots inspected; full figures loaded; no horizontal overflow."
+  },
+  "limitations": [
+    "Automated testing is not a full WCAG or ADA certification.",
+    "External PDF tags and reading order and multi-screen-reader usability remain outside this automated review.",
+    "Original scientific figure colors and published source materials are retained."
+  ],
+  "pages": [
+    {
+      "name": "roof",
+      "status": 200,
+      "headings": [
+        "Put the feet on the roof.",
+        "Ground motion in geometry.",
+        "From a pose to a working movement.",
+        "From a movement to a roofing workflow.",
+        "Citation",
+        "Video descriptions & sources"
+      ],
+      "videos": 6,
+      "visible_video_captions": 0,
+      "mobile_overflow": false
+    }
+  ]
+}
