@@ -4,95 +4,95 @@ const { kind, label } = Astro.props;
 ---
 <svg viewBox="0 0 640 420" role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <g id="vision-person" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="12" r="10" fill="#434343" /><path d="M11 28h22l8 32M11 28 3 60m9-29v37l-8 30m28-67v37l10 30M12 68h20" /></g>
-    <g id="vision-robot" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="12" y="1" width="26" height="21" rx="5" fill="#858585" /><path d="M19 10h12" stroke="#202020" /><rect x="9" y="30" width="32" height="36" rx="5" fill="#434343" /><path d="M9 36-7 54l-13-13M41 36l15 17 19-10M16 66l-2 27-10 21h16M34 66l4 28 12 20H35" /><circle cx="-7" cy="54" r="4" fill="#c6c6c6" /><circle cx="56" cy="53" r="4" fill="#c6c6c6" /></g>
-    <g id="vision-block" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="m0 13 25-13 25 13-25 14Z" fill="#949494" /><path d="M0 13v27l25 14V27Z" fill="#515151" /><path d="M25 27v27l25-14V13Z" fill="#363636" /></g>
-    <g id="vision-car" fill="#949494" stroke="currentColor" stroke-width="2.5"><rect x="0" y="0" width="42" height="22" rx="7"/><path d="M12 2v18M31 2v18" stroke="#202020"/><path d="M7-3h7m14 0h7M7 25h7m14 0h7" /></g>
+    <g id="vision-person" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="12" r="10" fill="#deded8" /><path d="M11 28h22l8 32M11 28 3 60m9-29v37l-8 30m28-67v37l10 30M12 68h20" /></g>
+    <g id="vision-robot" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="12" y="1" width="26" height="21" rx="5" fill="#ccccc5" /><path d="M19 10h12" stroke="#202020" /><rect x="9" y="30" width="32" height="36" rx="5" fill="#deded8" /><path d="M9 36-7 54l-13-13M41 36l15 17 19-10M16 66l-2 27-10 21h16M34 66l4 28 12 20H35" /><circle cx="-7" cy="54" r="4" fill="#e5e5df" /><circle cx="56" cy="53" r="4" fill="#e5e5df" /></g>
+    <g id="vision-block" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="m0 13 25-13 25 13-25 14Z" fill="#d4d4cd" /><path d="M0 13v27l25 14V27Z" fill="#c2c2ba" /><path d="M25 27v27l25-14V13Z" fill="#efefe9" /></g>
+    <g id="vision-car" fill="#d4d4cd" stroke="currentColor" stroke-width="2.5"><rect x="0" y="0" width="42" height="22" rx="7"/><path d="M12 2v18M31 2v18" stroke="#202020"/><path d="M7-3h7m14 0h7M7 25h7m14 0h7" /></g>
     <g id="vision-sensor" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle r="4" fill="currentColor"/><path d="M-10-10q10-9 20 0M-17-17q17-16 34 0" /></g>
   </defs>
   <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
   {kind === "hoist" && <>
-    <path d="M45 350h555M472 120h119v230M492 122v228M547 122v228M474 186h117M474 254h117" stroke="#8b8b8b" />
+    <path d="M45 350h555M472 120h119v230M492 122v228M547 122v228M474 186h117M474 254h117" stroke="#73736b" />
     <path d="M90 347V48h24v299M90 56l24 32-24 32 24 32-24 32 24 32-24 32 24 32-24 32M73 48h346v20H73zM114 48 191 18 342 48M120 68l45-20 45 20 45-20 45 20 45-20 45 20" />
     <path d="M352 68v58q0 16 12 16v13" stroke-dasharray="7 6"/><path d="m364 151-44 40m44-40 51 40" />
-    <path d="m294 190 95-31 68 36-96 34z" fill="#aaa"/><path d="M294 190v93l67 41v-95z" fill="#555"/><path d="M361 229v95l96-34v-95z" fill="#3b3b3b"/>
+    <path d="m294 190 95-31 68 36-96 34z" fill="#d9d9d2"/><path d="M294 190v93l67 41v-95z" fill="#dbdbd4"/><path d="M361 229v95l96-34v-95z" fill="#edede7"/>
     <path d="m304 329 86-24 83 44-83 28z" stroke-dasharray="7 6" />
     <use href="#vision-person" transform="translate(194 242)"/><use href="#vision-robot" transform="translate(484 236) scale(.9)"/>
     <path d="M238 280h47M464 278h-9" stroke-dasharray="5 5"/>
-    <circle cx="221" cy="206" r="18" stroke="#aaa"/><path d="m212 206 6 6 12-13"/>
+    <circle cx="221" cy="206" r="18" stroke="#74746c"/><path d="m212 206 6 6 12-13"/>
   </>}
   {kind === "roof" && <>
-    <path d="M79 263v79l241 55 238-98v-95" fill="#333" stroke="#999" />
-    <path d="m58 259 206-168 320 102-230 145z" fill="#4f4f4f"/><path d="m264 91 90 247M58 259l296 79M190 151l309 95M124 205l308 89M339 116 138 143M419 141l-137 153" stroke="#aaa"/>
+    <path d="M79 263v79l241 55 238-98v-95" fill="#eeeee8" stroke="#75756d" />
+    <path d="m58 259 206-168 320 102-230 145z" fill="#e2e2da"/><path d="m264 91 90 247M58 259l296 79M190 151l309 95M124 205l308 89M339 116 138 143M419 141l-137 153" stroke="#74746c"/>
     <path d="m80 263 206-169m64 242 230-142" stroke-width="5"/>
     <use href="#vision-robot" transform="translate(302 150) scale(.85)"/>
     <use href="#vision-person" transform="translate(160 179) scale(.8)"/>
-    <path d="m366 197 39 13-7 19-17-6-9-21" fill="#999"/>
-    <path d="m430 258 52-28 38 12-53 29zM429 268l38 14 53-29M429 278l38 14 53-29" fill="#444"/>
+    <path d="m366 197 39 13-7 19-17-6-9-21" fill="#c5c5bc"/>
+    <path d="m430 258 52-28 38 12-53 29zM429 268l38 14 53-29M429 278l38 14 53-29" fill="#cecec5"/>
     <path d="M100 349v-41l42 10v41m280-7v-42l47-19v43"/>
-    <path d="M185 165q87-88 177-67t165 68" stroke-dasharray="6 8" stroke="#c6c6c6"/>
+    <path d="M185 165q87-88 177-67t165 68" stroke-dasharray="6 8" stroke="#64645d"/>
     <use href="#vision-sensor" transform="translate(524 164)"/>
   </>}
   {kind === "traffic" && <>
-    <path d="M51 72h131v71H51zM234 72h139v71H234zM428 72h156v71H428zM51 199h131v83H51zM234 199h139v83H234zM428 199h156v83H428zM51 337h131v42H51zM234 337h139v42H234zM428 337h156v42H428z" fill="#414141" stroke="#777"/>
-    <path d="M28 170h584M28 309h584M208 43v357M400 43v357" stroke="#c6c6c6" stroke-dasharray="12 12"/>
+    <path d="M51 72h131v71H51zM234 72h139v71H234zM428 72h156v71H428zM51 199h131v83H51zM234 199h139v83H234zM428 199h156v83H428zM51 337h131v42H51zM234 337h139v42H234zM428 337h156v42H428z" fill="#e5e5df" stroke="#77776f"/>
+    <path d="M28 170h584M28 309h584M208 43v357M400 43v357" stroke="#64645d" stroke-dasharray="12 12"/>
     <use href="#vision-car" transform="translate(105 158)"/><use href="#vision-car" transform="translate(294 158)"/><use href="#vision-car" transform="translate(517 297)"/><use href="#vision-car" transform="translate(387 222) rotate(90 21 11)"/><use href="#vision-car" transform="translate(195 359) rotate(90 21 11)"/>
     <path d="M130 169h78v139h181V170h145" stroke-width="4" stroke-dasharray="3 8"/>
     <circle cx="208" cy="170" r="19"/><circle cx="400" cy="309" r="19"/>
-    <g transform="translate(255 216)"><rect width="16" height="47" rx="7" fill="#222"/><circle cx="8" cy="10" r="3" fill="#eee"/><circle cx="8" cy="23" r="3"/><circle cx="8" cy="36" r="3"/><path d="M8 47v22"/></g>
+    <g transform="translate(255 216)"><rect width="16" height="47" rx="7" fill="#f3f3ee"/><circle cx="8" cy="10" r="3" fill="#42423f"/><circle cx="8" cy="23" r="3"/><circle cx="8" cy="36" r="3"/><path d="M8 47v22"/></g>
     <use href="#vision-person" transform="translate(453 216) scale(.55)"/><use href="#vision-sensor" transform="translate(312 127) scale(.7)"/>
   </>}
   {kind === "flight" && <>
-    <path d="M44 366h550" stroke="#777"/>
-    <path d="M67 366V246h80v120M171 366V206h91v160M298 366V263h83v103M417 366V185h78v181M518 366V274h57v92" fill="#3b3b3b" stroke="#aaa"/>
-    <path d="M84 264h45m-45 24h45m-45 24h45m62-87h52m-52 25h52m-52 25h52m76 5h47m-47 26h47m69-103h42m-42 25h42m-42 25h42m-42 25h42" stroke="#858585"/>
+    <path d="M44 366h550" stroke="#77776f"/>
+    <path d="M67 366V246h80v120M171 366V206h91v160M298 366V263h83v103M417 366V185h78v181M518 366V274h57v92" fill="#edede7" stroke="#74746c"/>
+    <path d="M84 264h45m-45 24h45m-45 24h45m62-87h52m-52 25h52m-52 25h52m76 5h47m-47 26h47m69-103h42m-42 25h42m-42 25h42m-42 25h42" stroke="#73736b"/>
     <path d="M78 161q109-130 271-45t204-6" stroke-dasharray="7 9"/>
-    <g transform="translate(308 103)"><ellipse cy="16" rx="37" ry="18" fill="#9c9c9c"/><path d="m-24 10-52-23m52 35-52 18m100-30 52-23M24 22l52 18" stroke-width="6"/><ellipse cx="-79" cy="-16" rx="34" ry="8"/><ellipse cx="79" cy="-16" rx="34" ry="8"/><ellipse cx="-79" cy="42" rx="34" ry="8"/><ellipse cx="79" cy="42" rx="34" ry="8"/><path d="M-16 32v15h32V32"/></g>
-    <path d="M52 62h79q22 0 18-14M450 57h72q26 0 24-16M460 83h98q22 0 17-17" stroke="#aaa"/>
-    <path d="M267 209q39-22 78 0m-96 17q57-34 114 0" stroke="#888"/>
+    <g transform="translate(308 103)"><ellipse cy="16" rx="37" ry="18" fill="#c7c7bf"/><path d="m-24 10-52-23m52 35-52 18m100-30 52-23M24 22l52 18" stroke-width="6"/><ellipse cx="-79" cy="-16" rx="34" ry="8"/><ellipse cx="79" cy="-16" rx="34" ry="8"/><ellipse cx="-79" cy="42" rx="34" ry="8"/><ellipse cx="79" cy="42" rx="34" ry="8"/><path d="M-16 32v15h32V32"/></g>
+    <path d="M52 62h79q22 0 18-14M450 57h72q26 0 24-16M460 83h98q22 0 17-17" stroke="#74746c"/>
+    <path d="M267 209q39-22 78 0m-96 17q57-34 114 0" stroke="#75756d"/>
     <path d="M412 179h89M426 171h61" stroke-width="4"/>
   </>}
   {kind === "building" && <>
-    <path d="M187 348V83l226-32 58 40v257z" fill="#363636"/><path d="M187 83h226v265M413 51v32l58 8M187 170h226M187 258h226M270 83v265M344 83v265" stroke="#b4b4b4"/>
-    <path d="M205 109h45v39h-45zM285 191h42v45h-42zM360 282h37v44h-37z" fill="#777"/>
+    <path d="M187 348V83l226-32 58 40v257z" fill="#efefe9"/><path d="M187 83h226v265M413 51v32l58 8M187 170h226M187 258h226M270 83v265M344 83v265" stroke="#72726b"/>
+    <path d="M205 109h45v39h-45zM285 191h42v45h-42zM360 282h37v44h-37z" fill="#d1d1c8"/>
     <use href="#vision-person" transform="translate(285 106) scale(.5)"/><use href="#vision-person" transform="translate(216 192) scale(.5)"/><use href="#vision-person" transform="translate(288 280) scale(.5)"/>
     <use href="#vision-sensor" transform="translate(378 137) scale(.7)"/><use href="#vision-sensor" transform="translate(378 222) scale(.7)"/><use href="#vision-sensor" transform="translate(236 310) scale(.7)"/>
-    <circle cx="87" cy="129" r="45"/><circle cx="80" cy="117" r="8" fill="#aaa"/><ellipse cx="99" cy="142" rx="5" ry="12" transform="rotate(30 99 142)"/><circle cx="67" cy="143" r="4"/>
+    <circle cx="87" cy="129" r="45"/><circle cx="80" cy="117" r="8" fill="#d9d9d2"/><ellipse cx="99" cy="142" rx="5" ry="12" transform="rotate(30 99 142)"/><circle cx="67" cy="143" r="4"/>
     <path d="M132 129h48M477 129h29M477 279h29" stroke-dasharray="6 6"/>
     <circle cx="545" cy="129" r="40"/><path d="m525 137 20-31 21 31-21 13zM525 137h41M545 106v44"/>
     <circle cx="545" cy="279" r="40"/><path d="M538 254v28a12 12 0 1 0 14 0v-28a7 7 0 0 0-14 0Z"/><path d="M545 268v28" stroke-width="6"/>
-    <path d="M136 368h354" stroke="#888"/>
+    <path d="M136 368h354" stroke="#75756d"/>
   </>}
   {kind === "disinfection" && <>
-    <path d="m45 299 236-160 314 126-214 119Z" fill="#333" stroke="#777"/><path d="M45 299V108l236-67 314 118v106M281 41v98M45 108l237 31M397 84v102" stroke="#999"/>
-    <path d="m85 227 90-44 84 32-93 50Z" fill="#666"/><path d="M85 227v56m81-18v46m93-96v55"/>
-    <path d="m431 189 69-30 57 22-70 32zM431 189v43l56 24v-43M557 181v43l-70 32" fill="#555"/>
-    <g transform="translate(310 270)"><ellipse rx="38" ry="15" fill="#888"/><path d="M-38 0v29q38 27 76 0V0" fill="#555"/><rect x="-23" y="-63" width="46" height="57" rx="8" fill="#888"/><path d="M-22-55l-39-23-29 17" stroke-width="8"/><circle cx="-61" cy="-78" r="7" fill="#aaa"/><path d="m-90-61-23 17m25-12-13 24m4-31-28 6" stroke-dasharray="3 6"/><use href="#vision-sensor" transform="translate(0 -71) scale(.75)"/></g>
+    <path d="m45 299 236-160 314 126-214 119Z" fill="#eeeee8" stroke="#77776f"/><path d="M45 299V108l236-67 314 118v106M281 41v98M45 108l237 31M397 84v102" stroke="#75756d"/>
+    <path d="m85 227 90-44 84 32-93 50Z" fill="#d7d7d0"/><path d="M85 227v56m81-18v46m93-96v55"/>
+    <path d="m431 189 69-30 57 22-70 32zM431 189v43l56 24v-43M557 181v43l-70 32" fill="#dbdbd4"/>
+    <g transform="translate(310 270)"><ellipse rx="38" ry="15" fill="#c9c9c0"/><path d="M-38 0v29q38 27 76 0V0" fill="#dbdbd4"/><rect x="-23" y="-63" width="46" height="57" rx="8" fill="#c9c9c0"/><path d="M-22-55l-39-23-29 17" stroke-width="8"/><circle cx="-61" cy="-78" r="7" fill="#d9d9d2"/><path d="m-90-61-23 17m25-12-13 24m4-31-28 6" stroke-dasharray="3 6"/><use href="#vision-sensor" transform="translate(0 -71) scale(.75)"/></g>
     <use href="#vision-person" transform="translate(496 242) scale(.8)"/>
     <path d="M215 340q120 32 222-37" stroke-dasharray="6 9"/>
     <path d="M82 130v45l56-18v-46zM439 113v36l57 23v-35z"/>
   </>}
   {kind === "surgery" && <>
-    <path d="M67 267q12-112 176-112t181 112v37H67Z" fill="#464646"/><path d="M83 271q27-87 160-87t164 87" stroke-dasharray="7 7" stroke="#aaa"/>
-    <rect x="204" y="237" width="81" height="32" rx="16" fill="#929292"/><circle cx="268" cy="253" r="11" fill="#303030"/><path d="M285 253 344 223v62z" fill="#626262" stroke-dasharray="4 5"/>
-    <path d="M151 162V98l58-44 38 41v56" stroke-width="8"/><circle cx="208" cy="55" r="12" fill="#777"/><rect x="224" y="144" width="47" height="18" rx="6" fill="#aaa"/>
+    <path d="M67 267q12-112 176-112t181 112v37H67Z" fill="#ecece6"/><path d="M83 271q27-87 160-87t164 87" stroke-dasharray="7 7" stroke="#74746c"/>
+    <rect x="204" y="237" width="81" height="32" rx="16" fill="#cbcbc3"/><circle cx="268" cy="253" r="11" fill="#77776e"/><path d="M285 253 344 223v62z" fill="#deded7" stroke-dasharray="4 5"/>
+    <path d="M151 162V98l58-44 38 41v56" stroke-width="8"/><circle cx="208" cy="55" r="12" fill="#d1d1c8"/><rect x="224" y="144" width="47" height="18" rx="6" fill="#d9d9d2"/>
     <path d="M237 178v43M253 179v42" stroke-dasharray="5 8"/>
     <path d="M281 232q11-28 28-31m-13 22 12-12m-5 22 16-6"/>
-    <rect x="457" y="93" width="130" height="89" rx="4" fill="#333"/><circle cx="522" cy="137" r="28"/><path d="m505 147 15-24 21 19M522 183v22m-28 0h57"/>
+    <rect x="457" y="93" width="130" height="89" rx="4" fill="#eeeee8"/><circle cx="522" cy="137" r="28"/><path d="m505 147 15-24 21 19M522 183v22m-28 0h57"/>
     <use href="#vision-person" transform="translate(507 245) scale(1.1)"/>
     <path d="M425 257h45v-77M413 315h84" stroke-dasharray="6 8"/>
-    <path d="M89 336h323M119 336v39m265-39v39" stroke="#aaa"/>
+    <path d="M89 336h323M119 336v39m265-39v39" stroke="#74746c"/>
   </>}
   {kind === "coastal" && <>
-    <path d="M45 332q114-26 174-83t101-106q50-35 94-35" fill="none" stroke="#999" stroke-width="3"/>
-    <path d="M23 362q143-35 209-94t106-104" stroke="#777"/>
-    <path d="M368 212q18-18 37 0t37 0 37 0 37 0 37 0M319 278q18-18 37 0t37 0 37 0 37 0 37 0 37 0M283 339q18-18 37 0t37 0 37 0 37 0 37 0 37 0 37 0" stroke="#c6c6c6"/>
+    <path d="M45 332q114-26 174-83t101-106q50-35 94-35" fill="none" stroke="#75756d" stroke-width="3"/>
+    <path d="M23 362q143-35 209-94t106-104" stroke="#77776f"/>
+    <path d="M368 212q18-18 37 0t37 0 37 0 37 0 37 0M319 278q18-18 37 0t37 0 37 0 37 0 37 0 37 0M283 339q18-18 37 0t37 0 37 0 37 0 37 0 37 0 37 0" stroke="#64645d"/>
     {[0,1,2,3,4,5].map(i => <use href="#vision-block" transform={`translate(${135+i*34} ${285-i*28}) scale(.85)`}/>)}
-    <path d="M393 113h65l18 20h-91z" fill="#666"/><path d="M405 112V74l46-32 43 29-18 35" stroke-width="10"/><circle cx="451" cy="42" r="10" fill="#999"/><path d="m479 105-13 24m18-18 9 18"/>
+    <path d="M393 113h65l18 20h-91z" fill="#d7d7d0"/><path d="M405 112V74l46-32 43 29-18 35" stroke-width="10"/><circle cx="451" cy="42" r="10" fill="#c5c5bc"/><path d="m479 105-13 24m18-18 9 18"/>
     <use href="#vision-block" transform="translate(454 128) scale(.7)"/>
     <path d="M162 220q66-116 196-123" stroke-dasharray="6 8"/>
     <use href="#vision-person" transform="translate(98 151) scale(.8)"/>
-    <path d="M47 82h43v35H47zM62 82V61h46v56H90M117 63h40v54h-40z" stroke="#777"/>
+    <path d="M47 82h43v35H47zM62 82V61h46v56H90M117 63h40v54h-40z" stroke="#77776f"/>
   </>}
   </g>
 </svg>

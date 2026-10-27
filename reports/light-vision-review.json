@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-27",
+  "change": "Light vision section background, dark typography, and redrawn neutral SVG palette.",
+  "building_caption_change": false,
+  "validation": {
+    "axe_scans": 11,
+    "functional_checks": 199,
+    "violations": 0,
+    "build": "passed",
+    "lint": "passed",
+    "security": "0 vulnerabilities",
+    "desktop_and_320px": "reviewed"
+  },
+  "preserved": [
+    "Research media and papers",
+    "Complete building framework and redacted face images",
+    "Accessible media descriptions, source attribution, and keyboard controls"
+  ],
+  "limitations": [
+    "Automated checks are not full ADA/WCAG certification.",
+    "Original PDF tagging and screen-reader reading order were not recertified."
+  ]
+}
