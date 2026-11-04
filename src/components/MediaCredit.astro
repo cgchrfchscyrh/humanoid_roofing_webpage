@@ -8,6 +8,7 @@ const fieldClips = media.clips.filter((clip) =>
 );
 const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
 const opening = media.clips.find((clip) => clip.id === "roofing-opening")!;
+const overview = site.figures.find((figure) => figure.id === "overview")!;
 ---
 
 <section
@@ -60,6 +61,11 @@ const opening = media.clips.find((clip) => clip.id === "roofing-opening")!;
         >bending_real_test_20260905_185804_260763_nailgun.mp4</code
       >. Excerpts are joined with hard cuts at original speed.
     </p>
+  </section>
+  <section aria-labelledby="overview-media-title">
+    <h3 id="overview-media-title">Paper figure {overview.number}</h3>
+    <p>{overview.description}</p>
+    <p class="fine-print">{overview.credit}</p>
   </section>
   <section aria-labelledby="highlights-media-title">
     <h3 id="highlights-media-title">G1 movement clips</h3>

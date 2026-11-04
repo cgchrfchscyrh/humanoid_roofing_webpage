@@ -1,6 +1,6 @@
 {
   "roof": {
-    "headline": "Learning to work on the roof.",
+    "headline": "Humanoids learning to work on the roof.",
     "title": "One movement. A whole roofing workflow.",
     "current": "Slope-aware motion",
     "evidence": "Controlled G1 experiments",
@@ -31,8 +31,8 @@
     "sceneAlt": "Future concept: a humanoid and worker share a sloped roof with tools, materials, and a connected sensing path.",
     "description": "The current work demonstrates selected slope-aware motion primitives and tool positioning with a supervised G1. Functional tool contact, material handling, and job coordination remain connections to develop with control, tool-design, robotics, construction, and safety expertise. A roof with a humanoid, worker, tool, and stacked materials depicts the future workflow. The current motion clips do not demonstrate fastening or a complete autonomous roofing job.",
     "headlineLines": [
-      "Learning to work",
-      "on the roof."
+      "Humanoids learning",
+      "to work on the roof."
     ]
   }
 }

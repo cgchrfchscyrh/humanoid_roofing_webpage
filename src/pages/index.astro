@@ -24,29 +24,21 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       id="abstract"
       aria-labelledby="abstract-title"
     >
-      <h2 id="abstract-title">A copied pose can miss the roof.</h2>
-      <div class="results-copy">
-        <p>
-          A robot can copy a roofer’s posture and still put its feet below the
-          surface or hold a nailgun at the wrong distance. So we measured the
-          roof and corrected each motion against it.
-        </p>
-      </div>
+      <h2 id="abstract-title">From roofer motions to a physical humanoid</h2>
       <div class="wide-media">
-        <Figure id="overview" compact />
+        <Figure id="overview" compact bare />
         <div class="field-story">
           <div class="clip-with-bubble">
             <MotionClip id="field-crouch-video" clip={field} />
             <p class="clip-bubble">
               <strong>Why these motions.</strong> Our team filmed this worker on a
-              house under construction. The footage was not used for training.
+              house under construction.
             </p>
           </div>
           <div class="clip-with-bubble">
             <MotionClip id="g1-walking-video" clip={walking} />
             <p class="clip-bubble">
-              <strong>Walking up.</strong> The G1 steps onto a padded incline, with
-              a safety tether attached.
+              <strong>Walking up.</strong> The G1 steps onto a padded incline.
             </p>
           </div>
         </div>
@@ -91,14 +83,13 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
           <MotionClip id="g1-tool-video" clip={tool} />
           <p class="clip-bubble">
             <strong>A tool near the surface.</strong> The G1 bends and lowers a tool
-            toward the pad. No nail is fired.
+            toward the pad.
           </p>
         </div>
         <div class="clip-with-bubble">
           <MotionClip id="g1-bending-video" clip={bending} />
           <p class="clip-bubble">
             <strong>Bending low.</strong> In a separate trial, the G1 bends deeply.
-            The clip ends before it later loses its balance.
           </p>
         </div>
       </div>

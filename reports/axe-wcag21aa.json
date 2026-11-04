@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04T15:09:24.829Z",
+  "date": "2026-11-04T15:29:10.118Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -225,6 +225,8 @@
     "Method bubbles flank the figure on wide screens",
     "Every research clip has a plain-language bubble",
     "Method figure stays large beside its bubbles at desktop width",
+    "Citation heading uses a compact size",
+    "Title names humanoid learning, and the formal title and figure caption stay out of the opening",
     "Removed opening paragraph and limits section stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",

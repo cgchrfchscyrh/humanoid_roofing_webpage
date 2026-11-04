@@ -4,8 +4,9 @@ import { asset } from "../data/paths";
 interface Props {
   id: string;
   compact?: boolean;
+  bare?: boolean;
 }
-const { id, compact = false } = Astro.props;
+const { id, compact = false, bare = false } = Astro.props;
 const fig = site.figures.find((f) => f.id === id)!;
 ---
 
@@ -21,7 +22,7 @@ const fig = site.figures.find((f) => f.id === id)!;
       decoding="async"
     />
   </div>
-  <figcaption>
+  {!bare && <figcaption>
     <span class="eyebrow">Paper figure {fig.number}</span><strong
       >{fig.title}</strong
     ><details>
@@ -34,5 +35,5 @@ const fig = site.figures.find((f) => f.id === id)!;
         >.
       </p>
     </details>
-  </figcaption>
+  </figcaption>}
 </figure>

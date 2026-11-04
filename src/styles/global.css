@@ -2270,13 +2270,6 @@ html {
   padding: 2rem 1.25rem 0;
   text-align: center;
 }
-.hero-paper-name {
-  max-width: 60ch;
-  margin: 0 auto 1rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 1.4;
-}
 .hero-publication .authors {
   display: flex;
   flex-wrap: wrap;
@@ -2386,6 +2379,33 @@ html {
   gap: 1.5rem;
   align-items: start;
 }
+.visual-home .citation.section {
+  padding-block: 2rem;
+}
+.visual-home .citation .section-heading {
+  margin-bottom: 0.5rem;
+}
+.visual-home .citation h2 {
+  font-size: 1.25rem;
+}
+.visual-home .citation > p {
+  max-width: 640px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.visual-home .citation-box {
+  max-width: 640px;
+  margin-top: 0.75rem;
+}
+.visual-home .citation-toolbar {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.72rem;
+}
+.visual-home .citation pre {
+  padding: 0.7rem;
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
 .results-copy {
   max-width: 760px;
   margin: 0 auto 2.2rem;
@@ -2413,7 +2433,7 @@ html {
     min-height: calc(100svh - 80px);
   }
   .hero-film-copy h1 {
-    font-size: 12vw;
+    font-size: 9.4vw;
   }
   .method-map {
     grid-template-columns: minmax(0, 1fr);

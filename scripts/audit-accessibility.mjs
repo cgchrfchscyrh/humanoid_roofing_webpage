@@ -312,6 +312,15 @@ try {
         "Method figure stays large beside its bubbles at desktop width",
       );
       check(
+        (await page.locator(".citation h2").evaluate((h) => parseFloat(getComputedStyle(h).fontSize))) <= 22,
+        "Citation heading uses a compact size",
+      );
+      check(
+        /humanoid/i.test(await page.locator("h1").innerText()) &&
+          (await page.locator("#figure-overview figcaption, .hero-paper-name").count()) === 0,
+        "Title names humanoid learning, and the formal title and figure caption stay out of the opening",
+      );
+      check(
         (await page.locator("#limits, .hero-film-copy p").count()) === 0,
         "Removed opening paragraph and limits section stay absent",
       );
@@ -453,7 +462,7 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["A copied pose can miss the roof.", "How we trained it", "Robot trials", "Citation"]),
+        ) === JSON.stringify(["From roofer motions to a physical humanoid", "How we trained it", "Robot trials", "Citation"]),
         "Story moves from the problem to the method and the robot trials",
       );
       await page

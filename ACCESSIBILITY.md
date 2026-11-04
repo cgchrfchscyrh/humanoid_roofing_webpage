@@ -1,5 +1,9 @@
 # Accessibility review — 18 October 2026
 
+## Shorter labels and compact citation — 4 November 2026
+
+At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
+
 ## Simpler text and larger media — 4 November 2026
 
 The opening paragraph and the visible text of the robot-trials and limits sections were removed at the author's request, and the remaining explanations were shortened. The robot-trials section keeps a heading for screen readers. Bubbles still state that no nail is fired and that the bending clip ends before a later loss of balance; the media notes keep the fuller descriptions. Figures and clips now use more of the screen width.
