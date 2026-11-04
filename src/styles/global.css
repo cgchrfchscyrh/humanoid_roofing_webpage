@@ -2239,7 +2239,7 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, rgb(0 0 0 / 84%) 0, rgb(0 0 0 / 68%) 45%, rgb(0 0 0 / 0%) 75%);
+  background: linear-gradient(to top, rgb(0 0 0 / 78%) 0, rgb(0 0 0 / 55%) 35%, rgb(0 0 0 / 0%) 70%);
 }
 .hero-film-copy {
   position: relative;
@@ -2251,7 +2251,7 @@ html {
   max-width: none;
   margin: 0 0 1.5rem;
   color: #fff;
-  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-size: clamp(2.4rem, 8vw, 9rem);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -2340,14 +2340,14 @@ html {
 }
 .method-map {
   display: grid;
-  grid-template-columns: clamp(220px, 17vw, 290px) minmax(0, 1fr) clamp(220px, 17vw, 290px);
+  grid-template-columns: clamp(170px, 13vw, 230px) minmax(0, 1fr) clamp(170px, 13vw, 230px);
   grid-template-areas:
     "capture figure retarget"
     "refine figure ."
     "simulate figure robot";
-  gap: 1.25rem 1.5rem;
+  gap: 1.25rem 1rem;
   align-items: center;
-  width: min(calc(100vw - 48px), 1560px);
+  width: min(calc(100vw - 32px), 1800px);
   margin-left: 50%;
   transform: translateX(-50%);
 }
@@ -2363,12 +2363,28 @@ html {
 .method-bubble-refine { grid-area: refine; }
 .method-bubble-simulate { grid-area: simulate; }
 .method-bubble-robot { grid-area: robot; }
+.wide-media {
+  width: min(calc(100vw - 32px), 1560px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.visual-home .research-figure.compact .figure-image {
+  padding: 0.75rem;
+}
+.visual-home .research-figure.compact img {
+  max-height: none;
+}
+.visual-home .wide-media .research-figure {
+  margin: 0 0 2rem;
+}
+.motion-grid.wide-media {
+  gap: 1.5rem;
+}
 .field-story {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 3.16fr) minmax(0, 1fr);
   gap: 1.5rem;
-  align-items: center;
-  margin-top: 2.8rem;
+  align-items: start;
 }
 .results-copy {
   max-width: 760px;
@@ -2396,11 +2412,18 @@ html {
   .hero-film {
     min-height: calc(100svh - 80px);
   }
+  .hero-film-copy h1 {
+    font-size: 12vw;
+  }
   .method-map {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "figure" "capture" "retarget" "refine" "simulate" "robot";
   }
   .field-story {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .field-story .portrait {
+    max-width: 300px;
+    margin-inline: auto;
   }
 }

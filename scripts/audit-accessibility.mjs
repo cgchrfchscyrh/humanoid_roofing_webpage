@@ -229,8 +229,7 @@ try {
         "The hero has only the arXiv button linked to the requested PDF",
       );
       for (const [section, ids] of [
-        ["abstract", ["g1-walking-video"]],
-        ["method", ["field-crouch-video"]],
+        ["abstract", ["field-crouch-video", "g1-walking-video"]],
         ["results", ["g1-tool-video", "g1-bending-video"]],
       ])
         check(
@@ -305,6 +304,16 @@ try {
       check(
         (await page.locator(".clip-bubble").count()) === 4,
         "Every research clip has a plain-language bubble",
+      );
+      check(
+        await page
+          .locator("#figure-framework img")
+          .evaluate((img) => img.getBoundingClientRect().width >= 800),
+        "Method figure stays large beside its bubbles at desktop width",
+      );
+      check(
+        (await page.locator("#limits, .hero-film-copy p").count()) === 0,
+        "Removed opening paragraph and limits section stay absent",
       );
       const heroVideo = page.locator("#hero-film-video");
       await tabToVideo(page, heroVideo);
@@ -444,8 +453,8 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["A copied pose can miss the roof.", "How we trained it", "What the robot did", "What it can\u2019t do yet", "Citation"]),
-        "Story moves from the problem to the method, the evidence, and its limits",
+        ) === JSON.stringify(["A copied pose can miss the roof.", "How we trained it", "Robot trials", "Citation"]),
+        "Story moves from the problem to the method and the robot trials",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })

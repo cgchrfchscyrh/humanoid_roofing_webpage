@@ -11,7 +11,6 @@ const film = clips.clips.find((clip) => clip.section === "hero")!;
     <MotionClip id="hero-film-video" clip={film} group="hero" />
     <div class="hero-film-copy">
       <h1 id="paper-title" class="project-display-title">{stories.roof.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
-      <p>Roofers walk, crouch, and handle tools on a slope, all at once. We recorded those movements on a person and taught a Unitree G1 humanoid to reproduce them. In our lab it can walk up a slope and hold a nailgun close to the surface. It does not drive nails yet.</p>
     </div>
   </div>
   <div class="hero-publication">

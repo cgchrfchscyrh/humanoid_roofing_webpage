@@ -1,5 +1,9 @@
 # Accessibility review — 18 October 2026
 
+## Simpler text and larger media — 4 November 2026
+
+The opening paragraph and the visible text of the robot-trials and limits sections were removed at the author's request, and the remaining explanations were shortened. The robot-trials section keeps a heading for screen readers. Bubbles still state that no nail is fired and that the bending clip ends before a later loss of balance; the media notes keep the fuller descriptions. Figures and clips now use more of the screen width.
+
 ## Opening film and plainer text — 4 November 2026
 
 The homepage now opens with one full-width silent film, using native controls, the existing viewport playback rules, a timed description track, and a complete text alternative. It replaces the two side-by-side title videos. White text sits on a dark gradient so it stays readable over bright frames. Narrow screens crop the sides of the film, which can hide the laboratory operator; the description says so, and the complete frames appear in the clips further down the page. Frame-to-frame brightness was measured for the flash criterion: no more than one large swing in any second. That is a screening check, not a certified flash analysis.

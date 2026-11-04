@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04T14:58:57.036Z",
+  "date": "2026-11-04T15:09:24.829Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -19,25 +19,19 @@
               ".display-line:nth-child(2)"
             ],
             [
-              ".hero-film-copy > p"
+              ".field-story > .clip-with-bubble:nth-child(2) > .clip-bubble"
             ],
             [
-              ".method-bubble-retarget"
+              ".method-bubble-capture"
             ],
             [
-              ".method-bubble-retarget > strong"
-            ],
-            [
-              ".method-bubble-refine > strong"
-            ],
-            [
-              ".method-bubble-simulate"
-            ],
-            [
-              ".method-bubble-simulate > strong"
+              ".method-bubble-refine"
             ],
             [
               ".method-bubble-robot"
+            ],
+            [
+              ".method-bubble-robot > strong"
             ]
           ]
         },
@@ -48,10 +42,10 @@
               "#hero-film-video"
             ],
             [
-              "#g1-walking-video"
+              "#field-crouch-video"
             ],
             [
-              "#field-crouch-video"
+              "#g1-walking-video"
             ],
             [
               "#g1-tool-video"
@@ -78,25 +72,19 @@
               ".display-line:nth-child(2)"
             ],
             [
-              ".hero-film-copy > p"
+              ".field-story > .clip-with-bubble:nth-child(2) > .clip-bubble"
             ],
             [
-              ".method-bubble-retarget"
+              ".method-bubble-capture"
             ],
             [
-              ".method-bubble-retarget > strong"
-            ],
-            [
-              ".method-bubble-refine > strong"
-            ],
-            [
-              ".method-bubble-simulate"
-            ],
-            [
-              ".method-bubble-simulate > strong"
+              ".method-bubble-refine"
             ],
             [
               ".method-bubble-robot"
+            ],
+            [
+              ".method-bubble-robot > strong"
             ]
           ]
         },
@@ -107,10 +95,10 @@
               "#hero-film-video"
             ],
             [
-              "#g1-walking-video"
+              "#field-crouch-video"
             ],
             [
-              "#field-crouch-video"
+              "#g1-walking-video"
             ],
             [
               "#g1-tool-video"
@@ -135,9 +123,6 @@
             ],
             [
               ".display-line:nth-child(2)"
-            ],
-            [
-              ".hero-film-copy > p"
             ]
           ]
         },
@@ -148,10 +133,10 @@
               "#hero-film-video"
             ],
             [
-              "#g1-walking-video"
+              "#field-crouch-video"
             ],
             [
-              "#field-crouch-video"
+              "#g1-walking-video"
             ],
             [
               "#g1-tool-video"
@@ -232,7 +217,6 @@
     "Five expected roofing videos are distributed across the page",
     "The hero has only the arXiv button linked to the requested PDF",
     "abstract: the intended short excerpts accompany the research section",
-    "method: the intended short excerpts accompany the research section",
     "results: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
@@ -240,10 +224,12 @@
     "Title sits on the opening film",
     "Method bubbles flank the figure on wide screens",
     "Every research clip has a plain-language bubble",
+    "Method figure stays large beside its bubbles at desktop width",
+    "Removed opening paragraph and limits section stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
-    "Research excerpt plays silently when visible: g1-walking-video",
     "Research excerpt plays silently when visible: field-crouch-video",
+    "Research excerpt plays silently when visible: g1-walking-video",
     "Research excerpt plays silently when visible: g1-tool-video",
     "Research excerpt plays silently when visible: g1-bending-video",
     "Offscreen title videos pause automatically",
@@ -301,7 +287,7 @@
     "g1-bending-video: poster asset responds successfully",
     "g1-bending-video: local description asset is declared",
     "g1-bending-video: description asset responds successfully",
-    "Story moves from the problem to the method, the evidence, and its limits",
+    "Story moves from the problem to the method and the robot trials",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "The vision diagram stays removed",
