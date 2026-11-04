@@ -1,5 +1,5 @@
 {
-  "reviewedOn": "2026-10-18",
+  "reviewedOn": "2026-11-04",
   "purpose": "Individual original-speed motion excerpts for the hero, Abstract, Method and Results. Source recordings and previous published derivatives are unchanged.",
   "notes": [
     "G1 clips retain the exact previously reviewed source intervals from reports/media-revision.json.",
@@ -7,8 +7,8 @@
     "The portrait source is autorotated and scaled proportionally to 432 × 768; landscape clips retain complete 1280 × 720 frames.",
     "No output contains an audio stream or source capture metadata.",
     "Field clips are derived from the existing SDR/BT.709 silent rendering of the team’s self-recorded IMG_7082 (1).MOV.",
-    "The existing seven-second g1-roofing-hero.mp4 is unchanged.",
-    "G1 excerpts end before the later loss-of-balance or reset sequences and illustrate selected supervised movements rather than complete successful trials."
+    "G1 excerpts end before the later loss-of-balance or reset sequences and illustrate selected supervised movements rather than complete successful trials.",
+    "The opening film joins three field excerpts and one G1 excerpt with hard cuts, re-encoded from the website copies at 1280 × 720; it is not higher resolution than those copies."
   ],
   "reviewEvidence": [
     "/tmp/roofing-clip-refresh/field-contact.jpg",
@@ -17,20 +17,38 @@
   ],
   "clips": [
     {
-      "id": "roofing-fieldwork-hero",
+      "id": "roofing-opening",
       "section": "hero",
-      "title": "Roofing in the field",
-      "caption": "A roofer bends and reaches across a pitched roof with a handheld tool.",
-      "start": 0,
-      "end": 10,
-      "posterTime": 4.8,
-      "description": "A worker stands on the exposed sheathing of an unfinished pitched roof. The worker bends forward and repeatedly reaches toward the roof plane with a handheld tool, briefly raising their torso between movements. The worker straightens near the end of the excerpt. Timber framing, neighboring houses, trees and sky remain visible. This silent, original-speed excerpt comes from field footage recorded by the research team and provides context for the study.",
-      "sourceFile": "roofing-fieldwork.mp4",
-      "sourceSha256": "73d678a2c5e08869de1e40f5001af165974d02df674051f13bb4140f6889589a",
-      "file": "roofing-fieldwork-hero.mp4",
-      "poster": "roofing-fieldwork-hero.jpg",
-      "track": "roofing-fieldwork-hero-descriptions.vtt",
-      "duration": 10.01,
+      "title": "Opening film",
+      "caption": "Opening film: a roofer at work on a pitched roof, then a G1 on a laboratory slope.",
+      "excerpts": [
+        {
+          "sourceFile": "roofing-fieldwork.mp4",
+          "start": 0.3,
+          "end": 7.3
+        },
+        {
+          "sourceFile": "roofing-fieldwork.mp4",
+          "start": 16.0,
+          "end": 22.0
+        },
+        {
+          "sourceFile": "roofing-fieldwork.mp4",
+          "start": 28.5,
+          "end": 34.5
+        },
+        {
+          "sourceFile": "g1-roofing-tool.mp4",
+          "start": 1.0,
+          "end": 6.5
+        }
+      ],
+      "description": "A silent film of four shots at original speed. On an unfinished pitched roof, a worker carries a sheet of sheathing across the slope. The worker then bends over the sheathing with a handheld tool, and later lowers into a deep crouch with both feet on the slope. The last shot moves to a laboratory, where a Unitree G1 humanoid on a padded incline bends and lowers a handheld tool toward the pad. A safety tether and an operator holding the controller are in view. Narrow screens crop the sides of the frame; the complete frames of the robot appear in the clips further down the page. The robot shot ends before later motion or reset and does not show fastening.",
+      "sourceFile": "roofing-fieldwork.mp4, g1-roofing-tool.mp4",
+      "file": "roofing-opening.mp4",
+      "poster": "roofing-opening.jpg",
+      "track": "roofing-opening-descriptions.vtt",
+      "duration": 24.558,
       "width": 1280,
       "height": 720,
       "frameRate": "30000/1001",
@@ -42,22 +60,22 @@
       "descriptionCuesWithinDuration": true,
       "assets": [
         {
-          "file": "roofing-fieldwork-hero.mp4",
-          "bytes": 3486460,
-          "sha256": "db581f18ae8eb8ab6cce416fdb2b4d23ab8342d1a86118bcaab00fea9bcf7da4"
+          "file": "roofing-opening.mp4",
+          "bytes": 5329938,
+          "sha256": "8c6de81e4ff92be586e5d08351aaa881570984dfd6a444cbd9b3286892be51cf"
         },
         {
-          "file": "roofing-fieldwork-hero.jpg",
-          "bytes": 156335,
-          "sha256": "2ebf318a9713e96469bf4e137f9ddaf7d78eddad7acdbdc931763de06bca1fac"
+          "file": "roofing-opening.jpg",
+          "bytes": 108562,
+          "sha256": "cc38a48147f171e447779a68e687f454c48af9c5f867f0fdff6d236384abe07a"
         },
         {
-          "file": "roofing-fieldwork-hero-descriptions.vtt",
-          "bytes": 339,
-          "sha256": "c46d9839019363eb12cde14da6de442b4ff9ab842a1f84e2c6efed8d1cf6c925"
+          "file": "roofing-opening-descriptions.vtt",
+          "bytes": 552,
+          "sha256": "bd976637d49a4dcbb8e12d5f8955880107b4d30ce62a48d6c4a6daf9c1c00642"
         }
       ],
-      "video": "roofing-fieldwork-hero.mp4"
+      "video": "roofing-opening.mp4"
     },
     {
       "id": "roofing-fieldwork-crouch",
@@ -237,7 +255,7 @@
     "allFilesSilent": true,
     "allVideoH264Yuv420pFaststart": true,
     "allDescriptionCuesWithinDuration": true,
-    "fullFramesRetained": true,
+    "fullFramesRetained": "Standalone excerpts retain full frames. The file of the opening film does too, but its full-width display crops the sides on narrow screens.",
     "originalSpeedRetained": true,
     "reviewedExportStartMiddleEndFrames": true,
     "sourceHashesMatchPriorReviewedManifest": true

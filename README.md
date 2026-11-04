@@ -14,9 +14,9 @@ The design uses charcoal, gray, and white. Layout pacing was informed by [Vision
 
 ## Playback and media
 
-All three delivered videos are silent and retain their original speed. JavaScript starts visible videos unless reduced motion or data saving is enabled. A persistent header **Pause videos / Play videos** control is always available while JavaScript is enabled; each player also retains native controls. Offscreen videos pause, and manually paused videos do not restart merely because the user scrolls. Explicit playback remains available under motion/data preferences. With JavaScript disabled, native controls, downloads, and descriptions remain available without autoplay.
+All delivered videos are silent and retain their original speed. JavaScript starts visible videos unless reduced motion or data saving is enabled. Each player retains native controls. Offscreen videos pause, and manually paused videos do not restart merely because the user scrolls. Explicit playback remains available under motion/data preferences. With JavaScript disabled, native controls, downloads, and descriptions remain available without autoplay.
 
-The field recording is team-supplied. The existing G1 title excerpt and three-part highlights retain their approved edit, including the first seven seconds of the title excerpt and omission of later falls/resets. This visual revision does not change any MP4, poster, or timed-description asset. Selected excerpts illustrate laboratory movements with a safety tether and operator; they do not establish full-trial success or functional tool impacts. Quantitative measurements remain separately reported in Table 6. Recording sources and full alternatives are on the accessibility page; edit intervals and hashes remain in `reports/media-revision.json`.
+The field recording is team-supplied. The opening film joins excerpts of it with one G1 excerpt, and all G1 excerpts omit later falls and resets. Selected excerpts illustrate laboratory movements with a safety tether and operator; they do not establish full-trial success or functional tool impacts. Quantitative measurements remain separately reported in Table 6. Recording sources and full alternatives are on the accessibility page; edit intervals and hashes remain in `reports/media-revision.json`.
 
 ## Development and verification
 

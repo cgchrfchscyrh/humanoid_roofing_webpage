@@ -1,22 +1,51 @@
 {
-  "date": "2026-10-27T19:15:24.643Z",
+  "date": "2026-11-04T14:55:24.971Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "Consolidated video descriptions desktop",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-film-copy > p"
+            ],
+            [
+              ".method-bubble-retarget"
+            ],
+            [
+              ".method-bubble-retarget > strong"
+            ],
+            [
+              ".method-bubble-refine > strong"
+            ],
+            [
+              ".method-bubble-simulate"
+            ],
+            [
+              ".method-bubble-simulate > strong"
+            ],
+            [
+              ".method-bubble-robot"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
             [
-              "#context-video"
-            ],
-            [
-              "#g1-hero-video"
+              "#hero-film-video"
             ],
             [
               "#g1-walking-video"
@@ -36,17 +65,46 @@
     },
     {
       "name": "/ desktop",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-film-copy > p"
+            ],
+            [
+              ".method-bubble-retarget"
+            ],
+            [
+              ".method-bubble-retarget > strong"
+            ],
+            [
+              ".method-bubble-refine > strong"
+            ],
+            [
+              ".method-bubble-simulate"
+            ],
+            [
+              ".method-bubble-simulate > strong"
+            ],
+            [
+              ".method-bubble-robot"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
             [
-              "#context-video"
-            ],
-            [
-              "#g1-hero-video"
+              "#hero-film-video"
             ],
             [
               "#g1-walking-video"
@@ -66,17 +124,28 @@
     },
     {
       "name": "/ mobile",
-      "passes": 27,
+      "passes": 26,
       "violations": [],
       "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".display-line:nth-child(1)"
+            ],
+            [
+              ".display-line:nth-child(2)"
+            ],
+            [
+              ".hero-film-copy > p"
+            ]
+          ]
+        },
         {
           "id": "video-caption",
           "nodes": [
             [
-              "#context-video"
-            ],
-            [
-              "#g1-hero-video"
+              "#hero-film-video"
             ],
             [
               "#g1-walking-video"
@@ -160,15 +229,17 @@
     "/: skip link targets main",
     "Visible title videos automatically play without a click",
     "No separate global playback button remains; native controls are available",
-    "Six expected roofing excerpts are distributed across the page",
+    "Five expected roofing videos are distributed across the page",
     "The hero has only the arXiv button linked to the requested PDF",
     "abstract: the intended short excerpts accompany the research section",
     "method: the intended short excerpts accompany the research section",
     "results: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
-    "Desktop title media shows complete frames",
-    "Title and author names are above the footage",
+    "Opening film spans the full page width and most of the screen",
+    "Title sits on the opening film",
+    "Method bubbles flank the figure on wide screens",
+    "Every research clip has a plain-language bubble",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
     "Research excerpt plays silently when visible: g1-walking-video",
@@ -176,30 +247,20 @@
     "Research excerpt plays silently when visible: g1-tool-video",
     "Research excerpt plays silently when visible: g1-bending-video",
     "Offscreen title videos pause automatically",
-    "Native manual pause remains remembered after scrolling while other media can play",
+    "Native manual pause remains remembered after scrolling",
     "Space on the native player explicitly resumes playback",
     "Video looping preserves playback and remains pausable",
     "Native keyboard pause still works after a loop",
-    "context-video: the selected duration matches the reviewed media manifest",
-    "context-video: selected excerpt duration and timed description load correctly",
-    "context-video: a complete text alternative is programmatically associated",
-    "context-video: description cues use valid times within the clip",
-    "context-video: local video asset is declared",
-    "context-video: video asset responds successfully",
-    "context-video: local poster asset is declared",
-    "context-video: poster asset responds successfully",
-    "context-video: local description asset is declared",
-    "context-video: description asset responds successfully",
-    "g1-hero-video: the selected duration matches the reviewed media manifest",
-    "g1-hero-video: selected excerpt duration and timed description load correctly",
-    "g1-hero-video: a complete text alternative is programmatically associated",
-    "g1-hero-video: description cues use valid times within the clip",
-    "g1-hero-video: local video asset is declared",
-    "g1-hero-video: video asset responds successfully",
-    "g1-hero-video: local poster asset is declared",
-    "g1-hero-video: poster asset responds successfully",
-    "g1-hero-video: local description asset is declared",
-    "g1-hero-video: description asset responds successfully",
+    "hero-film-video: the selected duration matches the reviewed media manifest",
+    "hero-film-video: selected excerpt duration and timed description load correctly",
+    "hero-film-video: a complete text alternative is programmatically associated",
+    "hero-film-video: description cues use valid times within the clip",
+    "hero-film-video: local video asset is declared",
+    "hero-film-video: video asset responds successfully",
+    "hero-film-video: local poster asset is declared",
+    "hero-film-video: poster asset responds successfully",
+    "hero-film-video: local description asset is declared",
+    "hero-film-video: description asset responds successfully",
     "g1-walking-video: the selected duration matches the reviewed media manifest",
     "g1-walking-video: selected excerpt duration and timed description load correctly",
     "g1-walking-video: a complete text alternative is programmatically associated",
@@ -240,18 +301,14 @@
     "g1-bending-video: poster asset responds successfully",
     "g1-bending-video: local description asset is declared",
     "g1-bending-video: description asset responds successfully",
-    "The title G1 excerpt preserves the requested first seven seconds",
-    "Story progresses from a concrete question to a collaborative vision",
+    "Story moves from the problem to the method, the evidence, and its limits",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
-    "Title area has no topic subtitle",
-    "Visual bridge shows collaboration needs and an accessible future scene",
+    "The vision diagram stays removed",
     "Keyboard opens consolidated complete media notes",
     "Keyboard closes consolidated media notes",
     "/: no horizontal page overflow at 320px",
-    "Complete video frames at 320px",
     "/: no horizontal page overflow at 768px",
-    "Complete video frames at 768px",
     "/: 320px text-spacing reflow",
     "/paper/: page loads",
     "/paper/: one H1",

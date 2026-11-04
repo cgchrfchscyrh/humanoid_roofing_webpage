@@ -1,5 +1,11 @@
 # Accessibility review — 18 October 2026
 
+## Opening film and plainer text — 4 November 2026
+
+The homepage now opens with one full-width silent film, using native controls, the existing viewport playback rules, a timed description track, and a complete text alternative. It replaces the two side-by-side title videos. White text sits on a dark gradient so it stays readable over bright frames. Narrow screens crop the sides of the film, which can hide the laboratory operator; the description says so, and the complete frames appear in the clips further down the page. Frame-to-frame brightness was measured for the flash criterion: no more than one large swing in any second. That is a screening check, not a certified flash analysis.
+
+Headings and explanations were rewritten in plainer language, and short bubbles now explain the method figure and each research clip. The vision diagram was replaced with a short section on what the robot has not done. Result sentences come from Tables 2, 3, 4, and 6 of the paper. Existing PDF and screen-reader limitations still apply.
+
 ## Light vision presentation — 27 October 2026
 
 Vision sections now share the surrounding light page background, dark type, and dark SVG linework. Evidence imagery uses a white surface; focus outlines, concept badges, and diagram relationships remain visible without relying on color.

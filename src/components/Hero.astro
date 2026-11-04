@@ -3,51 +3,32 @@ import stories from "../data/vision-stories.json";
 import site from "../data/site.json";
 import clips from "../../public/media/roofing-clips.json";
 import MotionClip from "./MotionClip.astro";
-const field = clips.clips.find((clip) => clip.section === "hero")!;
-const robot = {
-  video: site.robotHero.video.replace("media/", ""),
-  poster: site.robotHero.poster.replace("media/", ""),
-  track: site.robotHero.track.replace("media/", ""),
-  width: 1280,
-  height: 720,
-  duration: site.robotHero.duration,
-  caption: "G1 reproduces a roofing motion on a laboratory slope.",
-  description: site.robotHero.description,
-};
+const film = clips.clips.find((clip) => clip.section === "hero")!;
 ---
 
-<section class="hero cinematic-hero" aria-labelledby="paper-title">
-  <div class="hero-stage" id="hero-stage">
-    <div class="hero-text">
+<section class="hero-film-section" aria-labelledby="paper-title">
+  <div class="hero-film" id="hero">
+    <MotionClip id="hero-film-video" clip={film} group="hero" />
+    <div class="hero-film-copy">
       <h1 id="paper-title" class="project-display-title">{stories.roof.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
-      <ul class="authors">
-        {
-          site.authors.map((author) => (
-            <li>
-              <a href={"mailto:" + author.email}>{author.name}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <div class="actions">
-        <a class="button dark" href={site.paperUrl}
-          >arXiv <span aria-hidden="true">↗</span></a
-        >
-      </div>
+      <p>Roofers walk, crouch, and handle tools on a slope, all at once. We recorded those movements on a person and taught a Unitree G1 humanoid to reproduce them. In our lab it can walk up a slope and hold a nailgun close to the surface. It does not drive nails yet.</p>
     </div>
-    <div class="hero-backdrops">
-      <MotionClip
-        id="context-video"
-        clip={field}
-        group="hero"
-        preload="metadata"
-      />
-      <MotionClip
-        id="g1-hero-video"
-        clip={robot}
-        group="hero"
-        preload="metadata"
-      />
+  </div>
+  <div class="hero-publication">
+    <p class="hero-paper-name">{site.title}</p>
+    <ul class="authors">
+      {
+        site.authors.map((author) => (
+          <li>
+            <a href={"mailto:" + author.email}>{author.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="actions">
+      <a class="button dark" href={site.paperUrl}
+        >arXiv <span aria-hidden="true">↗</span></a
+      >
     </div>
   </div>
   <p id="media-status" class="sr-only" role="status"></p>

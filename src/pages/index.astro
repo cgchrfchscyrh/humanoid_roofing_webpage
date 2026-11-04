@@ -1,5 +1,4 @@
 ---
-import Vision from "../components/Vision.astro";
 import stories from "../data/vision-stories.json";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
@@ -25,77 +24,134 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       id="abstract"
       aria-labelledby="abstract-title"
     >
-      <h2 id="abstract-title">Put the feet on the roof.</h2>
+      <h2 id="abstract-title">A copied pose can miss the roof.</h2>
       <div class="abstract-story">
         <div class="abstract-copy">
           <p class="lead">
-            Roofing requires a robot to coordinate movement, balance, and tool
-            positioning on a slope. Human demonstrations capture this
-            coordination, but retargeted poses can misplace feet or hands
-            relative to the roof.
+            A robot can copy a roofer’s posture and still stand with its feet
+            below the surface, or hold a nailgun at the wrong distance. Motion
+            tracking records how a person moves. It does not reliably record
+            where the body is relative to the roof.
           </p>
           <p>
-            We ground human motion in a metric roof model, refine support and
-            work-surface relations, and learn feedback policies that preserve
-            them during execution. Simulation and physical Unitree G1
-            experiments demonstrate roofing-oriented motion primitives.
+            So we measured the roof and corrected each motion against it. Then
+            we rewarded the robot for keeping those distances while it moved,
+            because a correct plan can still drift once the robot is running
+            it.
           </p>
           <Figure id="overview" compact />
         </div>
-        <MotionClip id="g1-walking-video" clip={walking} />
+        <div class="clip-with-bubble">
+          <MotionClip id="g1-walking-video" clip={walking} />
+          <p class="clip-bubble">
+            <strong>Walking up.</strong> The G1 steps from the floor onto a padded
+            incline. The overhead line is a safety tether, and the person beside
+            it holds the controller. Original speed.
+          </p>
+        </div>
       </div>
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">Ground motion in geometry.</h2>
-      <p class="section-intro">
-        Learn the coordination from people, and ground each movement in the roof
-        geometry.
-      </p>
-      <Figure id="framework" compact />
-      <div class="method-story">
-        <ol class="method-summary">
-          <li>
-            <h3>Demonstrate</h3><p>
-              PICO tracking captures human motion and timing.
-            </p>
-          </li>
-          <li>
-            <h3>Refine</h3><p>
-              Roof geometry constrains support, hand clearance, and
-              nonpenetration.
-            </p>
-          </li>
-          <li>
-            <h3>Learn</h3><p>
-              Execution-aware rewards preserve these relations during motion.
-            </p>
-          </li>
-        </ol>
+      <h2 id="method-title">How we trained it</h2>
+      <div class="method-map">
+        <div class="method-map-figure"><Figure id="framework" compact /></div>
+        <h3 class="sr-only">What the figure shows</h3>
+        <p class="method-bubble method-bubble-capture">
+          <span class="method-badge"><span class="sr-only">Figure panel </span>0</span>
+          <strong>A person goes first.</strong> Wearing a PICO headset and motion
+          trackers, they perform the motion on a wooden platform set to 9°, 17°,
+          or 25°.
+        </p>
+        <p class="method-bubble method-bubble-retarget">
+          <span class="method-badge"><span class="sr-only">Figure panel </span>1</span>
+          <strong>The motion moves to the robot.</strong> We extract a skeleton
+          from the tracking data and map it onto the G1’s body. The pose looks
+          right, but the feet and hands can land in the wrong place.
+        </p>
+        <p class="method-bubble method-bubble-refine">
+          <span class="method-badge"><span class="sr-only">Figure panel </span>2</span>
+          <strong>We correct it against the roof.</strong> A measured 3D model of
+          the roof sets where each foot rests and how far the hand stays from the
+          surface: 25 cm for a nailgun, 12 cm for a hammer, 18.5 cm for pushing.
+        </p>
+        <p class="method-bubble method-bubble-simulate">
+          <span class="method-badge"><span class="sr-only">Figure panel </span>3</span>
+          <strong>It practices in simulation.</strong> Reinforcement learning
+          trains a policy to follow the corrected motion. Extra rewards hold the
+          hand distance and keep the hand out of the roof.
+        </p>
+        <p class="method-bubble method-bubble-robot">
+          <span class="method-badge"><span class="sr-only">Figure panel </span>4</span>
+          <strong>We try it on a real G1.</strong> Walking uphill, holding a
+          nailgun near the surface, moving a hammer, and bending, on a foam wedge
+          with a safety hoist attached.
+        </p>
+      </div>
+      <div class="field-story">
         <MotionClip id="field-crouch-video" clip={field} />
+        <p class="clip-bubble clip-bubble-side">
+          <strong>Why these motions.</strong> Our team filmed this worker on a house
+          under construction. The low crouch, with feet on the slope and a tool near
+          the surface, is the kind of posture we want from the robot. This footage
+          gives context. It was not used for training.
+        </p>
       </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">From a pose to a working movement.</h2>
-      <p class="section-intro">
-        Selected supervised G1 movements connect slope traversal with tool positioning. An overhead safety hoist and operator-controlled activation remain part of the laboratory setup.
-      </p>
-      <details class="research-details">
-        <summary>Study scope</summary>
+      <h2 id="results-title">What the robot did</h2>
+      <div class="results-copy">
         <p>
-          The study evaluates slope traversal, working postures, and tool
-          positioning under controlled conditions. These excerpts end after the
-          selected movements and omit later trial outcomes and resets. They do
-          not demonstrate functional fastening, hammer impact, or a complete
-          autonomous roofing workflow.
+          In simulation, correcting the motion alone left the hand holding the
+          nailgun 7.86 cm off its target distance. Adding the rewards cut that to
+          0.53 cm, and hammering and pushing improved the same way. A walking
+          policy trained on all three pitches finished 10 of 10 runs at each one.
+          A policy that never saw 25° finished none at 25°.
         </p>
-      </details>
-      <div class="motion-grid" id="experiments">
-        <MotionClip id="g1-tool-video" clip={tool} />
-        <MotionClip id="g1-bending-video" clip={bending} />
+        <p>
+          We then ran four motions on a real G1, on a foam wedge pitched at about
+          12°. Mean joint-position error ran from 27.6 mm for walking to 79.93 mm
+          for hammering. That shows how closely the body matched the motion, not
+          how far the hand was from the surface. A safety hoist stayed attached,
+          and an operator started and stopped each run. The clips below are
+          selected movements and stop before later falls or resets.
+        </p>
       </div>
-
+      <div class="motion-grid" id="experiments">
+        <div class="clip-with-bubble">
+          <MotionClip id="g1-tool-video" clip={tool} />
+          <p class="clip-bubble">
+            <strong>A tool near the surface.</strong> The G1 steps forward, bends,
+            and lowers a handheld tool toward the pad, then starts to come back up.
+            No nail is fired. Original speed.
+          </p>
+        </div>
+        <div class="clip-with-bubble">
+          <MotionClip id="g1-bending-video" clip={bending} />
+          <p class="clip-bubble">
+            <strong>Bending low.</strong> In a separate trial, the G1 bends deeply
+            and brings its hand and tool close to the surface. The clip ends before
+            the robot later loses its balance. Original speed.
+          </p>
+        </div>
+      </div>
     </section>
-    <Vision project="roof" />
+    <section class="section" id="limits" aria-labelledby="limits-title">
+      <h2 id="limits-title">What it can’t do yet</h2>
+      <div class="results-copy">
+        <p>
+          The robot has not fired a nail, struck anything with a hammer, or
+          installed a shingle. We tested three pitches in simulation and one foam
+          wedge in the lab, and never a real roof. Roof edges, weather, and
+          different materials are untested, and we did not measure how much the
+          hoist helped.
+        </p>
+        <p>
+          Next, the robot needs to make real contact with its tools, carry
+          materials, and fit into the way a crew works. That will take people who
+          know control, tool design, construction, and roofing safety.
+        </p>
+      </div>
+    </section>
     <Citation />
     <details class="research-details media-notes"><summary>Video descriptions & sources</summary><MediaCredit /></details>
   </div>

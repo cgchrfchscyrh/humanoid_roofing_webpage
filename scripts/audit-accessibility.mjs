@@ -68,8 +68,7 @@ async function scan(name) {
   });
 }
 const expectedVideoIds = [
-  "context-video",
-  "g1-hero-video",
+  "hero-film-video",
   "g1-walking-video",
   "field-crouch-video",
   "g1-tool-video",
@@ -219,12 +218,12 @@ try {
             .locator("video")
             .evaluateAll((videos) => videos.map((v) => v.id).sort()),
         ) === JSON.stringify([...expectedVideoIds].sort()),
-        "Six expected roofing excerpts are distributed across the page",
+        "Five expected roofing videos are distributed across the page",
       );
       check(
-        (await page.locator(".hero-text .actions a").count()) === 1 &&
+        (await page.locator(".hero-publication .actions a").count()) === 1 &&
           (await page
-            .locator(".hero-text .actions")
+            .locator(".hero-publication .actions")
             .getByRole("link", { name: /^arXiv/ })
             .getAttribute("href")) === paperUrl,
         "The hero has only the arXiv button linked to the requested PDF",
@@ -264,24 +263,50 @@ try {
       );
       check(
         await page
-          .locator(".hero-backdrops video")
-          .evaluateAll((videos) =>
-            videos.every((v) => getComputedStyle(v).objectFit === "contain"),
+          .locator("#hero-film-video")
+          .evaluate(
+            (v) =>
+              Math.round(v.getBoundingClientRect().width) ===
+                document.documentElement.clientWidth &&
+              v.getBoundingClientRect().height >= innerHeight * 0.6,
           ),
-        "Desktop title media shows complete frames",
+        "Opening film spans the full page width and most of the screen",
       );
       check(
         await page.evaluate(
           () =>
-            document.querySelector(".hero-text").getBoundingClientRect()
+            document.querySelector("#paper-title").getBoundingClientRect()
               .bottom <=
-            document.querySelector(".hero-backdrops").getBoundingClientRect()
-              .top +
-              1,
+            document.querySelector("#hero-film-video").getBoundingClientRect()
+              .bottom,
         ),
-        "Title and author names are above the footage",
+        "Title sits on the opening film",
       );
-      const heroVideo = page.locator("#g1-hero-video");
+      check(
+        (await page.locator(".method-bubble").count()) === 5 &&
+          (await page.evaluate(() => {
+            const figure = document
+              .querySelector("#figure-framework img")
+              .getBoundingClientRect();
+            const box = (name) =>
+              document
+                .querySelector(`.method-bubble-${name}`)
+                .getBoundingClientRect();
+            return (
+              box("capture").right <= figure.left &&
+              box("refine").right <= figure.left &&
+              box("simulate").right <= figure.left &&
+              box("retarget").left >= figure.right &&
+              box("robot").left >= figure.right
+            );
+          })),
+        "Method bubbles flank the figure on wide screens",
+      );
+      check(
+        (await page.locator(".clip-bubble").count()) === 4,
+        "Every research clip has a plain-language bubble",
+      );
+      const heroVideo = page.locator("#hero-film-video");
       await tabToVideo(page, heroVideo);
       check(true, "Native video playback controls are reachable through Tab");
       await page.keyboard.press("Space");
@@ -306,9 +331,8 @@ try {
       );
       await atTop(page);
       check(
-        (await heroVideo.evaluate((v) => v.paused)) &&
-          (await page.locator("#context-video").evaluate((v) => !v.paused)),
-        "Native manual pause remains remembered after scrolling while other media can play",
+        await heroVideo.evaluate((v) => v.paused),
+        "Native manual pause remains remembered after scrolling",
       );
       await tabToVideo(page, heroVideo);
       await page.keyboard.press("Space");
@@ -318,7 +342,7 @@ try {
         v.currentTime = v.duration - 0.15;
       });
       await page.waitForFunction(() => {
-        const v = document.querySelector("#g1-hero-video");
+        const v = document.querySelector("#hero-film-video");
         return !v.paused && !v.seeking && v.currentTime < 1;
       });
       check(true, "Video looping preserves playback and remains pausable");
@@ -330,8 +354,7 @@ try {
         const sourceFile = (await video.locator("source").getAttribute("src"))
           .split("/")
           .pop();
-        const expectedClip =
-          id === "g1-hero-video" ? site.robotHero : clipByFile.get(sourceFile);
+        const expectedClip = clipByFile.get(sourceFile);
         const expectedDuration = expectedClip?.duration;
         check(
           Number.isFinite(expectedDuration) &&
@@ -415,21 +438,14 @@ try {
         }
       }
       check(
-        Math.abs(
-          (await page.locator("#g1-hero-video").evaluate((v) => v.duration)) -
-            7,
-        ) < 0.15,
-        "The title G1 excerpt preserves the requested first seven seconds",
-      );
-      check(
         JSON.stringify(
           await page
             .locator(
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Put the feet on the roof.", "Ground motion in geometry.", "From a pose to a working movement.", "One movement. A whole roofing workflow.", "Citation"]),
-        "Story progresses from a concrete question to a collaborative vision",
+        ) === JSON.stringify(["A copied pose can miss the roof.", "How we trained it", "What the robot did", "What it can\u2019t do yet", "Citation"]),
+        "Story moves from the problem to the method, the evidence, and its limits",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
@@ -442,8 +458,7 @@ try {
         "Keyboard citation copy",
       );
       check(await page.locator("figure:has(video) > figcaption, details.clip-description").count() === 0, "Video captions and per-player description blocks are removed");
-      check(await page.locator(".hero-text > .eyebrow, .hero-text .publication-line, .hero-venue").count() === 0, "Title area has no topic subtitle");
-      check(await page.locator(".vision-connections li").count() === 3 && await page.locator(".vision-scene svg[role=img]").count() === 1, "Visual bridge shows collaboration needs and an accessible future scene");
+      check(await page.locator("#vision").count() === 0, "The vision diagram stays removed");
       const mediaNotes = page.locator("details.media-notes");
       await mediaNotes.locator(":scope > summary").focus();
       await page.keyboard.press("Enter");
@@ -493,15 +508,6 @@ try {
         ),
         route + `: no horizontal page overflow at ${width}px`,
       );
-      if (route === "/")
-        check(
-          await page
-            .locator(".hero-backdrops video")
-            .evaluateAll((videos) =>
-              videos.every((v) => getComputedStyle(v).objectFit === "contain"),
-            ),
-          `Complete video frames at ${width}px`,
-        );
     }
     await page.setViewportSize({ width: 320, height: 900 });
     const spacing = await page.addStyleTag({
@@ -543,7 +549,7 @@ try {
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);
-    const video = p.locator("#g1-hero-video");
+    const video = p.locator("#hero-film-video");
     await tabToVideo(p, video);
     await p.keyboard.press("Space");
     await waitForPlayback(video, false);
@@ -615,7 +621,7 @@ try {
         (v) => !v.paused,
       ),
     );
-    const bufferingVideo = buffering.locator("#g1-hero-video");
+    const bufferingVideo = buffering.locator("#hero-film-video");
     await tabToVideo(buffering, bufferingVideo);
     await buffering.keyboard.press("Space");
     await waitForPlayback(bufferingVideo, true);

@@ -7,9 +7,7 @@ const fieldClips = media.clips.filter((clip) =>
   clip.id.startsWith("roofing-fieldwork"),
 );
 const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
-const heroDescription = media.clips.find(
-  (clip) => clip.id === "g1-roofing-tool",
-)!.description;
+const opening = media.clips.find((clip) => clip.id === "roofing-opening")!;
 ---
 
 <section
@@ -37,9 +35,7 @@ const heroDescription = media.clips.find(
             <p id={`${clip.id}-visual-description`}>{clip.description}</p>
             <p>
               <a
-                href={asset(
-                  `#${clip.section === "hero" ? "main" : clip.section}`,
-                )}
+                href={asset(`#${clip.section}`)}
               >
                 Watch {clip.title.toLowerCase()} on the project page
               </a>
@@ -56,13 +52,13 @@ const heroDescription = media.clips.find(
     </p>
   </section>
   <section aria-labelledby="robot-media-title">
-    <h3 id="robot-media-title">G1 title video</h3>
-    <p id="robot-visual-description">{heroDescription}</p>
+    <h3 id="robot-media-title">{opening.title}</h3>
+    <p id="robot-visual-description">{opening.description}</p>
     <p class="fine-print">
-      Source: the authors’ laboratory recording, <code
+      Source: the research team’s field recording and the authors’ laboratory
+      recording, <code
         >bending_real_test_20260905_185804_260763_nailgun.mp4</code
-      >. The title and Results use the same selected movement from this
-      recording.
+      >. Excerpts are joined with hard cuts at original speed.
     </p>
   </section>
   <section aria-labelledby="highlights-media-title">
@@ -79,7 +75,7 @@ const heroDescription = media.clips.find(
             <p>
               <a href={asset(`#${clip.section}`)}>
                 Watch {clip.title.toLowerCase()} in{" "}
-                {clip.section === "abstract" ? "Abstract" : "Results"}
+                {clip.section === "abstract" ? "the first section" : "What the robot did"}
               </a>
             </p>
           </section>
