@@ -70,9 +70,10 @@ async function scan(name) {
 const expectedVideoIds = [
   "hero-field-video",
   "hero-film-video",
-  "g1-walking-video",
-  "g1-tool-video",
-  "g1-bending-video",
+  "pair-walking-video",
+  "pair-bending-video",
+  "pair-nailgun-video",
+  "pair-hammer-video",
 ];
 const paperUrl = "https://arxiv.org/pdf/2609.20558";
 const paused = (target) =>
@@ -230,7 +231,7 @@ try {
       );
       for (const [section, ids] of [
         ["abstract", []],
-        ["results", ["g1-walking-video", "g1-tool-video", "g1-bending-video"]],
+        ["results", ["pair-walking-video", "pair-bending-video", "pair-nailgun-video", "pair-hammer-video"]],
       ])
         check(
           JSON.stringify(
@@ -293,17 +294,18 @@ try {
       );
       check(
         await page.evaluate(() => {
-          const tops = ["#g1-walking-video", "#g1-tool-video", "#g1-bending-video"].map((q) => Math.round(document.querySelector(q).getBoundingClientRect().top));
-          return tops.every((t) => t === tops[0]);
+          const box = (q) => document.querySelector(q).getBoundingClientRect();
+          const [a, b, c, d] = ["#pair-walking-video", "#pair-bending-video", "#pair-nailgun-video", "#pair-hammer-video"].map(box);
+          return Math.round(a.top) === Math.round(b.top) && Math.round(c.top) === Math.round(d.top) && c.top > a.bottom && Math.abs(a.width - b.width) <= 1;
         }),
-        "Walking, nailgun, and hammer clips share one row",
+        "Four roofer and robot pairs sit two per row",
       );
       check(
         await page.evaluate(() => {
           const h = document.querySelector("#method-title");
           const figure = document.querySelector("#figure-overview").getBoundingClientRect();
           const results = document.querySelector("#results-title").getBoundingClientRect();
-          const row = document.querySelector("#g1-walking-video").getBoundingClientRect();
+          const row = document.querySelector("#pair-walking-video").getBoundingClientRect();
           return (
             h.getBoundingClientRect().height <= parseFloat(getComputedStyle(h).lineHeight) * 1.2 &&
             figure.top > results.bottom &&
@@ -616,7 +618,7 @@ try {
         ),
       preference + ": no automatic motion on entry",
     );
-    await p.locator("#g1-bending-video").scrollIntoViewIfNeeded();
+    await p.locator("#pair-hammer-video").scrollIntoViewIfNeeded();
     await p.waitForTimeout(200);
     check(await paused(p), preference + ": scrolling does not start media");
     await atTop(p);

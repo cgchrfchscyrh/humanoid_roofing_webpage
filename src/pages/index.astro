@@ -8,9 +8,7 @@ import MotionClip from "../components/MotionClip.astro";
 import MediaControls from "../components/MediaControls.astro";
 import clips from "../../public/media/roofing-clips.json";
 import evidence from "../data/evidence.json";
-const walking = clips.clips.find((clip) => clip.id === "g1-roofing-walking")!;
-const tool = clips.clips.find((clip) => clip.id === "g1-roofing-tool")!;
-const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
+const pairs = clips.clips.filter((clip) => clip.section === "results");
 ---
 
 <Layout title={stories.roof.headline} bare>
@@ -70,19 +68,13 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       <div class="wide-media results-figure">
         <Figure id="overview" compact bare />
       </div>
-      <div class="motion-grid wide-media" id="experiments">
-        <div class="clip-with-bubble">
-          <h3>Uphill walking</h3>
-          <MotionClip id="g1-walking-video" clip={walking} />
-        </div>
-        <div class="clip-with-bubble">
-          <h3>Nailgun positioning</h3>
-          <MotionClip id="g1-tool-video" clip={tool} />
-        </div>
-        <div class="clip-with-bubble">
-          <h3>Hammer positioning</h3>
-          <MotionClip id="g1-bending-video" clip={bending} />
-        </div>
+      <div class="motion-grid pair-grid" id="experiments">
+        {pairs.map((clip) => (
+          <div class="clip-with-bubble">
+            <h3>{clip.title}</h3>
+            <MotionClip id={`${clip.id.replace("roofing-", "")}-video`} clip={clip} />
+          </div>
+        ))}
       </div>
     </section>
     <Citation />

@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05T20:39:38.530Z",
+  "date": "2026-11-05T21:19:00.762Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -36,13 +36,16 @@
               "#hero-film-video"
             ],
             [
-              "#g1-walking-video"
+              "#pair-walking-video"
             ],
             [
-              "#g1-tool-video"
+              "#pair-bending-video"
             ],
             [
-              "#g1-bending-video"
+              "#pair-nailgun-video"
+            ],
+            [
+              "#pair-hammer-video"
             ]
           ]
         }
@@ -63,13 +66,16 @@
               "#hero-film-video"
             ],
             [
-              "#g1-walking-video"
+              "#pair-walking-video"
             ],
             [
-              "#g1-tool-video"
+              "#pair-bending-video"
             ],
             [
-              "#g1-bending-video"
+              "#pair-nailgun-video"
+            ],
+            [
+              "#pair-hammer-video"
             ]
           ]
         }
@@ -151,7 +157,7 @@
     "Opening film carries no text and the title sits below it",
     "Homepage has no top bar and no footer",
     "The method figure caption and the separate roofer clip stay removed",
-    "Walking, nailgun, and hammer clips share one row",
+    "Four roofer and robot pairs sit two per row",
     "Method statement is one line, the paper figure sits between the results heading and the clips, and bubbles are centered",
     "Accessibility and media credits stay linked from the homepage",
     "Seven evidence tiles each link to a source",
@@ -164,9 +170,10 @@
     "Removed opening paragraph and limits section stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
-    "Research excerpt plays silently when visible: g1-walking-video",
-    "Research excerpt plays silently when visible: g1-tool-video",
-    "Research excerpt plays silently when visible: g1-bending-video",
+    "Research excerpt plays silently when visible: pair-walking-video",
+    "Research excerpt plays silently when visible: pair-bending-video",
+    "Research excerpt plays silently when visible: pair-nailgun-video",
+    "Research excerpt plays silently when visible: pair-hammer-video",
     "Offscreen title videos pause automatically",
     "Native manual pause remains remembered after scrolling",
     "Space on the native player explicitly resumes playback",
@@ -192,36 +199,46 @@
     "hero-film-video: poster asset responds successfully",
     "hero-film-video: local description asset is declared",
     "hero-film-video: description asset responds successfully",
-    "g1-walking-video: the selected duration matches the reviewed media manifest",
-    "g1-walking-video: selected excerpt duration and timed description load correctly",
-    "g1-walking-video: a complete text alternative is programmatically associated",
-    "g1-walking-video: description cues use valid times within the clip",
-    "g1-walking-video: local video asset is declared",
-    "g1-walking-video: video asset responds successfully",
-    "g1-walking-video: local poster asset is declared",
-    "g1-walking-video: poster asset responds successfully",
-    "g1-walking-video: local description asset is declared",
-    "g1-walking-video: description asset responds successfully",
-    "g1-tool-video: the selected duration matches the reviewed media manifest",
-    "g1-tool-video: selected excerpt duration and timed description load correctly",
-    "g1-tool-video: a complete text alternative is programmatically associated",
-    "g1-tool-video: description cues use valid times within the clip",
-    "g1-tool-video: local video asset is declared",
-    "g1-tool-video: video asset responds successfully",
-    "g1-tool-video: local poster asset is declared",
-    "g1-tool-video: poster asset responds successfully",
-    "g1-tool-video: local description asset is declared",
-    "g1-tool-video: description asset responds successfully",
-    "g1-bending-video: the selected duration matches the reviewed media manifest",
-    "g1-bending-video: selected excerpt duration and timed description load correctly",
-    "g1-bending-video: a complete text alternative is programmatically associated",
-    "g1-bending-video: description cues use valid times within the clip",
-    "g1-bending-video: local video asset is declared",
-    "g1-bending-video: video asset responds successfully",
-    "g1-bending-video: local poster asset is declared",
-    "g1-bending-video: poster asset responds successfully",
-    "g1-bending-video: local description asset is declared",
-    "g1-bending-video: description asset responds successfully",
+    "pair-walking-video: the selected duration matches the reviewed media manifest",
+    "pair-walking-video: selected excerpt duration and timed description load correctly",
+    "pair-walking-video: a complete text alternative is programmatically associated",
+    "pair-walking-video: description cues use valid times within the clip",
+    "pair-walking-video: local video asset is declared",
+    "pair-walking-video: video asset responds successfully",
+    "pair-walking-video: local poster asset is declared",
+    "pair-walking-video: poster asset responds successfully",
+    "pair-walking-video: local description asset is declared",
+    "pair-walking-video: description asset responds successfully",
+    "pair-bending-video: the selected duration matches the reviewed media manifest",
+    "pair-bending-video: selected excerpt duration and timed description load correctly",
+    "pair-bending-video: a complete text alternative is programmatically associated",
+    "pair-bending-video: description cues use valid times within the clip",
+    "pair-bending-video: local video asset is declared",
+    "pair-bending-video: video asset responds successfully",
+    "pair-bending-video: local poster asset is declared",
+    "pair-bending-video: poster asset responds successfully",
+    "pair-bending-video: local description asset is declared",
+    "pair-bending-video: description asset responds successfully",
+    "pair-nailgun-video: the selected duration matches the reviewed media manifest",
+    "pair-nailgun-video: selected excerpt duration and timed description load correctly",
+    "pair-nailgun-video: a complete text alternative is programmatically associated",
+    "pair-nailgun-video: description cues use valid times within the clip",
+    "pair-nailgun-video: local video asset is declared",
+    "pair-nailgun-video: video asset responds successfully",
+    "pair-nailgun-video: local poster asset is declared",
+    "pair-nailgun-video: poster asset responds successfully",
+    "pair-nailgun-video: local description asset is declared",
+    "pair-nailgun-video: description asset responds successfully",
+    "pair-hammer-video: the selected duration matches the reviewed media manifest",
+    "pair-hammer-video: selected excerpt duration and timed description load correctly",
+    "pair-hammer-video: a complete text alternative is programmatically associated",
+    "pair-hammer-video: description cues use valid times within the clip",
+    "pair-hammer-video: local video asset is declared",
+    "pair-hammer-video: video asset responds successfully",
+    "pair-hammer-video: local poster asset is declared",
+    "pair-hammer-video: poster asset responds successfully",
+    "pair-hammer-video: local description asset is declared",
+    "pair-hammer-video: description asset responds successfully",
     "Page order is the evidence, the method, the results, and the citation",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",

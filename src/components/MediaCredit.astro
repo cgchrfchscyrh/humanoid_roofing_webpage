@@ -6,7 +6,7 @@ import media from "../../public/media/roofing-clips.json";
 const fieldClips = media.clips.filter((clip) =>
   clip.id.startsWith("roofing-fieldwork"),
 );
-const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
+const robotClips = media.clips.filter((clip) => clip.section === "results");
 const opening = media.clips.find((clip) => clip.id === "roofing-film")!;
 const overview = site.figures.find((figure) => figure.id === "overview")!;
 const framework = site.figures.find((figure) => figure.id === "framework")!;
@@ -49,7 +49,7 @@ const framework = site.figures.find((figure) => figure.id === "framework")!;
     <p class="fine-print">
       Source: the research team’s original field recording, <code
         >IMG_7082 (1).MOV</code
-      >. Web excerpts use its silent browser viewing copy. Original recordings
+      >, <code>IMG_7081.MOV</code> and <code>IMG_7085.MOV</code>. Web excerpts use its silent browser viewing copy. Original recordings
       remain unchanged.
     </p>
   </section>
@@ -74,7 +74,7 @@ const framework = site.figures.find((figure) => figure.id === "framework")!;
     <p class="fine-print">{framework.credit}</p>
   </section>
   <section aria-labelledby="highlights-media-title">
-    <h3 id="highlights-media-title">G1 movement clips</h3>
+    <h3 id="highlights-media-title">Roofer and G1 pairs</h3>
     <div id="highlights-visual-description">
       {
         robotClips.map((clip) => (
@@ -86,8 +86,7 @@ const framework = site.figures.find((figure) => figure.id === "framework")!;
             </p>
             <p>
               <a href={asset(`#${clip.section}`)}>
-                Watch {clip.title.toLowerCase()} in{" "}
-                "the results"
+                Watch {clip.title.toLowerCase()} in the results
               </a>
             </p>
           </section>
