@@ -1,53 +1,9 @@
 {
-  "date": "2026-11-05T18:12:41.543Z",
+  "date": "2026-11-05T19:10:53.295Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
-    {
-      "name": "Consolidated video descriptions desktop",
-      "passes": 26,
-      "violations": [],
-      "incomplete": [
-        {
-          "id": "color-contrast",
-          "nodes": [
-            [
-              ".method-bubble-retarget"
-            ],
-            [
-              ".method-bubble-refine"
-            ],
-            [
-              ".method-bubble-simulate > strong"
-            ],
-            [
-              ".method-bubble-robot"
-            ]
-          ]
-        },
-        {
-          "id": "video-caption",
-          "nodes": [
-            [
-              "#hero-film-video"
-            ],
-            [
-              "#field-crouch-video"
-            ],
-            [
-              "#g1-walking-video"
-            ],
-            [
-              "#g1-tool-video"
-            ],
-            [
-              "#g1-bending-video"
-            ]
-          ]
-        }
-      ]
-    },
     {
       "name": "/ desktop",
       "passes": 26,
@@ -268,8 +224,7 @@
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "The vision diagram stays removed",
-    "Keyboard opens consolidated complete media notes",
-    "Keyboard closes consolidated media notes",
+    "Homepage has no media notes block; credits stay linked",
     "/: no horizontal page overflow at 320px",
     "/: no horizontal page overflow at 768px",
     "/: 320px text-spacing reflow",

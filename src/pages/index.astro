@@ -5,7 +5,6 @@ import Hero from "../components/Hero.astro";
 import Figure from "../components/Figure.astro";
 import Citation from "../components/Citation.astro";
 import MotionClip from "../components/MotionClip.astro";
-import MediaCredit from "../components/MediaCredit.astro";
 import MediaControls from "../components/MediaControls.astro";
 import clips from "../../public/media/roofing-clips.json";
 import evidence from "../data/evidence.json";
@@ -103,7 +102,6 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       </div>
     </section>
     <Citation />
-    <details class="research-details media-notes"><summary>Video descriptions & sources</summary><MediaCredit /></details>
   </div>
   <MediaControls />
 </Layout>

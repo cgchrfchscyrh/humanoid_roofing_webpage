@@ -510,14 +510,7 @@ try {
       );
       check(await page.locator("figure:has(video) > figcaption, details.clip-description").count() === 0, "Video captions and per-player description blocks are removed");
       check(await page.locator("#vision").count() === 0, "The vision diagram stays removed");
-      const mediaNotes = page.locator("details.media-notes");
-      await mediaNotes.locator(":scope > summary").focus();
-      await page.keyboard.press("Enter");
-      check(await mediaNotes.evaluate(el => el.open) && (await mediaNotes.innerText()).length > 1000, "Keyboard opens consolidated complete media notes");
-      await scan("Consolidated video descriptions desktop");
-      await mediaNotes.locator(":scope > summary").focus();
-      await page.keyboard.press("Space");
-      check(!(await mediaNotes.evaluate(el => el.open)), "Keyboard closes consolidated media notes");
+      check((await page.locator("details.media-notes").count()) === 0 && (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1, "Homepage has no media notes block; credits stay linked");
 
     }
     if (route === "/paper/" || route === "/results/") {

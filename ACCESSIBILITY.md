@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Media notes moved off the homepage — 5 November 2026
+
+At the author's request, the collapsed video descriptions and sources were removed from the bottom of the homepage. The same descriptions and credits remain on the accessibility page, linked from the citation, and every video keeps its text alternative for screen readers and its timed description track. The statements that the operator stands just outside the frame and that clips end before later falls or resets are now only on that page and in the screen-reader descriptions.
+
 ## Robot clips cropped — 5 November 2026
 
 At the author's request, laboratory clips and the robot shots in the opening film are cropped to the robot, so the operator no longer appears, and the method now comes before the robot footage. Text alternatives and timed descriptions were rewritten; they state that the operator stands just outside the frame. The safety tether stays in view. The operator's role in starting each run and controlling the emergency stop is no longer visible in the footage, and it is stated on the page only in the media notes and the paper.
