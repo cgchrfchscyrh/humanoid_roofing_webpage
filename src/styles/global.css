@@ -2463,3 +2463,8 @@ html {
 @media (max-width: 620px) {
   .motion-grid.wide-media { grid-template-columns: minmax(0, 1fr); max-width: 340px; }
 }
+
+/* The method statement fits on one line on wide screens; the bubbles are centered. */
+#method > h2 { max-width: none; }
+.method-map .method-bubble { text-align: center; }
+.results-figure { margin-bottom: 24px; }

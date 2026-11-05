@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05T20:07:47.349Z",
+  "date": "2026-11-05T20:39:38.530Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -13,16 +13,16 @@
           "id": "color-contrast",
           "nodes": [
             [
-              ".method-bubble-retarget"
+              ".method-bubble-retarget > strong"
             ],
             [
               ".method-bubble-refine"
             ],
             [
-              ".method-bubble-simulate > strong"
+              ".method-bubble-refine > strong"
             ],
             [
-              ".method-bubble-robot"
+              ".method-bubble-simulate > strong"
             ]
           ]
         },
@@ -152,6 +152,7 @@
     "Homepage has no top bar and no footer",
     "The method figure caption and the separate roofer clip stay removed",
     "Walking, nailgun, and hammer clips share one row",
+    "Method statement is one line, the paper figure sits between the results heading and the clips, and bubbles are centered",
     "Accessibility and media credits stay linked from the homepage",
     "Seven evidence tiles each link to a source",
     "Evidence tiles name the four Ds in order",
@@ -221,7 +222,7 @@
     "g1-bending-video: poster asset responds successfully",
     "g1-bending-video: local description asset is declared",
     "g1-bending-video: description asset responds successfully",
-    "Page order is the evidence, the method, the motions, the results, and the citation",
+    "Page order is the evidence, the method, the results, and the citation",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "The vision diagram stays removed",

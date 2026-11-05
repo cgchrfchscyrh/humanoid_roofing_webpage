@@ -299,6 +299,21 @@ try {
         "Walking, nailgun, and hammer clips share one row",
       );
       check(
+        await page.evaluate(() => {
+          const h = document.querySelector("#method-title");
+          const figure = document.querySelector("#figure-overview").getBoundingClientRect();
+          const results = document.querySelector("#results-title").getBoundingClientRect();
+          const row = document.querySelector("#g1-walking-video").getBoundingClientRect();
+          return (
+            h.getBoundingClientRect().height <= parseFloat(getComputedStyle(h).lineHeight) * 1.2 &&
+            figure.top > results.bottom &&
+            figure.bottom < row.top &&
+            [...document.querySelectorAll(".method-bubble")].every((b) => getComputedStyle(b).textAlign === "center")
+          );
+        }),
+        "Method statement is one line, the paper figure sits between the results heading and the clips, and bubbles are centered",
+      );
+      check(
         (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1,
         "Accessibility and media credits stay linked from the homepage",
       );
@@ -507,8 +522,8 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "We teach humanoid robots to perform roofing tasks through human demonstrations", "From roofer motions to a physical humanoid", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
-        "Page order is the evidence, the method, the motions, the results, and the citation",
+        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "We teach humanoid robots to perform roofing tasks through human demonstrations.", "A real humanoid reproduces roofing motions on a slope.", "Citation"]),
+        "Page order is the evidence, the method, the results, and the citation",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })
