@@ -7,7 +7,7 @@
     "Field clips are derived from the existing SDR/BT.709 silent rendering of the team’s self-recorded IMG_7082 (1).MOV.",
     "G1 excerpts end before the later loss-of-balance or reset sequences and illustrate selected supervised movements rather than complete successful trials.",
     "The opening is two silent videos of equal length side by side: three field excerpts on the left and two G1 excerpts on the right.",
-    "Each results clip pairs a roofer (left) with the G1 (right). Both halves are 360 × 480 crops that follow the person or robot; the robot crops stay right of the operator.",
+    "Each results clip pairs a roofer (left) with the G1 (right). Both halves are 360 × 480 crops, joined with no divider, with the roofer side mirrored; that follow the person or robot; the robot crops stay right of the operator.",
     "IMG_7081.MOV, IMG_7082.MOV and IMG_7085.MOV are HDR (HLG) iPhone recordings, tone-mapped to SDR with a Hable curve. Source recordings are unchanged."
   ],
   "reviewEvidence": [
@@ -128,7 +128,7 @@
       "section": "results",
       "title": "Uphill walking",
       "caption": "Uphill walking: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer carries a sheet of sheathing up a pitched roof. Right, a Unitree G1 humanoid walks from the floor onto a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer carries a sheet of sheathing up a pitched roof. Right, a Unitree G1 humanoid walks from the floor onto a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The roofer footage is mirrored so both face the same way. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
@@ -149,7 +149,7 @@
       "track": "roofing-pair-walking-descriptions.vtt",
       "video": "roofing-pair-walking.mp4",
       "duration": 3.8,
-      "width": 724,
+      "width": 720,
       "height": 480,
       "frameRate": "30/1",
       "codec": "h264",
@@ -161,13 +161,13 @@
       "assets": [
         {
           "file": "roofing-pair-walking.mp4",
-          "bytes": 522398,
-          "sha256": "7fd57a8ec64afcabd48d5faf7ba6bfee956786c7b060a2bb66917e8e87f1fee5"
+          "bytes": 520468,
+          "sha256": "4a4963398bf538955ad794a99bd39d15cff61c6f48e00a763d2adb1fdcf3c296"
         },
         {
           "file": "roofing-pair-walking.jpg",
-          "bytes": 35704,
-          "sha256": "0e07e63dc5d76b6def32591cf5853e0a9724f1d4a11fc5239fa3b79895840710"
+          "bytes": 34684,
+          "sha256": "73752cfb9f8908366166c3271da461c6b607d3e7128d7dff4d839472ee99ff7e"
         },
         {
           "file": "roofing-pair-walking-descriptions.vtt",
@@ -181,7 +181,7 @@
       "section": "results",
       "title": "Bending",
       "caption": "Bending: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer stands at the roof edge and bends down to reach a sheet of sheathing passed up from below. Right, a Unitree G1 humanoid bends deeply toward a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer stands at the roof edge and bends down to reach a sheet of sheathing passed up from below. Right, a Unitree G1 humanoid bends deeply toward a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The roofer footage is mirrored so both face the same way. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
@@ -202,7 +202,7 @@
       "track": "roofing-pair-bending-descriptions.vtt",
       "video": "roofing-pair-bending.mp4",
       "duration": 3.3,
-      "width": 724,
+      "width": 720,
       "height": 480,
       "frameRate": "30/1",
       "codec": "h264",
@@ -214,13 +214,13 @@
       "assets": [
         {
           "file": "roofing-pair-bending.mp4",
-          "bytes": 754111,
-          "sha256": "245021e07a49fa583def935bee31911409759b71daf7f8feb540f38111ea3ef6"
+          "bytes": 738071,
+          "sha256": "c1d2b1e6125c942f053ed17bf9252b2521d1880bfbbce0501a21cbadfd16a5b6"
         },
         {
           "file": "roofing-pair-bending.jpg",
-          "bytes": 45610,
-          "sha256": "c7119deaab00844e323c81aebbb9764abe08c7f673d0ca6411fc77894c72c432"
+          "bytes": 44850,
+          "sha256": "e956e07fe9733410392dbe2d7ab3dd972348ffb9733e26db2941c72847250607"
         },
         {
           "file": "roofing-pair-bending-descriptions.vtt",
@@ -234,7 +234,7 @@
       "section": "results",
       "title": "Nailgun positioning",
       "caption": "Nailgun positioning: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer bends over the sheathing with a pneumatic nailer close to the surface. Right, a Unitree G1 humanoid steps forward on a padded incline, bends, and lowers a handheld tool toward the pad. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer bends over the sheathing with a pneumatic nailer close to the surface. Right, a Unitree G1 humanoid steps forward on a padded incline, bends, and lowers a handheld tool toward the pad. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The roofer footage is mirrored so both face the same way. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
@@ -255,7 +255,7 @@
       "track": "roofing-pair-nailgun-descriptions.vtt",
       "video": "roofing-pair-nailgun.mp4",
       "duration": 7.0,
-      "width": 724,
+      "width": 720,
       "height": 480,
       "frameRate": "30/1",
       "codec": "h264",
@@ -267,13 +267,13 @@
       "assets": [
         {
           "file": "roofing-pair-nailgun.mp4",
-          "bytes": 1499039,
-          "sha256": "d961dc0ff2fc5724c10e4da81e875d07a79ac18284abbc9daeb1fc448b518628"
+          "bytes": 1461883,
+          "sha256": "52f35894e1cf5601beffb15054ecf8f11bf2bdbaeb19f4266b35cb013ae8f4a6"
         },
         {
           "file": "roofing-pair-nailgun.jpg",
-          "bytes": 43471,
-          "sha256": "3f8e1ab7adeda4f51f8d8d5d0070a55544bc6dda1601c408d74f91f3ebaec07d"
+          "bytes": 42635,
+          "sha256": "18cd17eeb357cfbaba0771fa5d25e1fdb7e123729d328cb8484cfe132795b2fa"
         },
         {
           "file": "roofing-pair-nailgun-descriptions.vtt",
@@ -287,7 +287,7 @@
       "section": "results",
       "title": "Hammer positioning",
       "caption": "Hammer positioning: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer takes a hammer from the tool belt, bends over the sheathing, and strikes near its edge. Right, a Unitree G1 humanoid steps forward and bends deeply, bringing its hand and tool close to the padded surface. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer takes a hammer from the tool belt, bends over the sheathing, and strikes near its edge. Right, a Unitree G1 humanoid steps forward and bends deeply, bringing its hand and tool close to the padded surface. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The roofer footage is mirrored so both face the same way. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
@@ -308,7 +308,7 @@
       "track": "roofing-pair-hammer-descriptions.vtt",
       "video": "roofing-pair-hammer.mp4",
       "duration": 4.3,
-      "width": 724,
+      "width": 720,
       "height": 480,
       "frameRate": "30/1",
       "codec": "h264",
@@ -320,13 +320,13 @@
       "assets": [
         {
           "file": "roofing-pair-hammer.mp4",
-          "bytes": 956207,
-          "sha256": "a6881e7d8096085aecef2ae376f695804f8a322320f88c0b507b499012411d5c"
+          "bytes": 949962,
+          "sha256": "10936b62bcdb68ac2408946216fdeea25078ccb7e42125b2b2d9624303d3de9d"
         },
         {
           "file": "roofing-pair-hammer.jpg",
-          "bytes": 44199,
-          "sha256": "62c0e63bccc4c26b9a89902320752e2bd65f23a5b5299ec36a376aeca25ca8d3"
+          "bytes": 43115,
+          "sha256": "078b69599a196da33ed3b7856d5ab7c9f8eb1adf6d6b57eade68f9b67c2e1379"
         },
         {
           "file": "roofing-pair-hammer-descriptions.vtt",

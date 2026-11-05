@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Mirrored roofer footage — 5 November 2026
+
+The roofer side of each pair is now mirrored so the roofer faces the same way as the robot, and the divider between the halves was removed. The text alternatives state that the footage is mirrored.
+
 ## Abc figure removed and two pairs re-cut — 5 November 2026
 
 The paper's abc figure was removed from the results at the author's request, along with its description on the accessibility page. The bending and hammer pairs now use new roofer footage, tone-mapped from HDR, and their text alternatives and timed descriptions were rewritten.
