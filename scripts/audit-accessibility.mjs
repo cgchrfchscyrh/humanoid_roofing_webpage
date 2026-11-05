@@ -68,9 +68,9 @@ async function scan(name) {
   });
 }
 const expectedVideoIds = [
+  "hero-field-video",
   "hero-film-video",
   "g1-walking-video",
-  "field-crouch-video",
   "g1-tool-video",
   "g1-bending-video",
 ];
@@ -229,8 +229,8 @@ try {
         "The hero has only the arXiv button linked to the requested PDF",
       );
       for (const [section, ids] of [
-        ["abstract", ["field-crouch-video", "g1-walking-video"]],
-        ["results", ["g1-tool-video", "g1-bending-video"]],
+        ["abstract", []],
+        ["results", ["g1-walking-video", "g1-tool-video", "g1-bending-video"]],
       ])
         check(
           JSON.stringify(
@@ -261,15 +261,17 @@ try {
         "Silent inline playback, original speed, native controls, and controllable loops",
       );
       check(
-        await page
-          .locator("#hero-film-video")
-          .evaluate(
-            (v) =>
-              Math.round(v.getBoundingClientRect().width) ===
-                document.documentElement.clientWidth &&
-              v.getBoundingClientRect().height >= innerHeight * 0.6,
-          ),
-        "Opening film spans the full page width and most of the screen",
+        await page.evaluate(() => {
+          const box = (q) => document.querySelector(q).getBoundingClientRect();
+          const left = box("#hero-field-video"), right = box("#hero-film-video");
+          return (
+            left.left === 0 &&
+            Math.abs(left.right - right.left) <= 1 &&
+            Math.abs(right.right - document.documentElement.clientWidth) <= 1 &&
+            Math.abs(left.height - right.height) <= 1
+          );
+        }),
+        "Opening shows the roofer and the robot side by side at one height across the full width",
       );
       check(
         (await page.locator(".hero-film h1, .hero-film p:not(.sr-only)").count()) === 0 &&
@@ -281,10 +283,20 @@ try {
         "Opening film carries no text and the title sits below it",
       );
       check(
-        (await page.locator(".site-footer").count()) === 0 &&
-          (await page.locator(".site-header nav").count()) === 0 &&
-          (await page.locator(".site-header .wordmark").innerText()).includes("Humanoid Roofer"),
-        "Homepage has a plain Humanoid Roofer bar and no footer",
+        (await page.locator(".site-footer, .site-header").count()) === 0,
+        "Homepage has no top bar and no footer",
+      );
+      check(
+        (await page.locator("#figure-framework figcaption").count()) === 0 &&
+          (await page.locator("#field-crouch-video").count()) === 0,
+        "The method figure caption and the separate roofer clip stay removed",
+      );
+      check(
+        await page.evaluate(() => {
+          const tops = ["#g1-walking-video", "#g1-tool-video", "#g1-bending-video"].map((q) => Math.round(document.querySelector(q).getBoundingClientRect().top));
+          return tops.every((t) => t === tops[0]);
+        }),
+        "Walking, nailgun, and hammer clips share one row",
       );
       check(
         (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1,
@@ -495,7 +507,7 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.", "From roofer motions to a physical humanoid", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
+        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "We teach humanoid robots to perform roofing tasks through human demonstrations", "From roofer motions to a physical humanoid", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
         "Page order is the evidence, the method, the motions, the results, and the citation",
       );
       await page

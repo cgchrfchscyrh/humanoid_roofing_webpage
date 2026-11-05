@@ -1,12 +1,12 @@
 {
-  "date": "2026-11-05T19:10:53.295Z",
+  "date": "2026-11-05T20:07:47.349Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
   "scans": [
     {
       "name": "/ desktop",
-      "passes": 26,
+      "passes": 25,
       "violations": [],
       "incomplete": [
         {
@@ -30,10 +30,10 @@
           "id": "video-caption",
           "nodes": [
             [
-              "#hero-film-video"
+              "#hero-field-video"
             ],
             [
-              "#field-crouch-video"
+              "#hero-film-video"
             ],
             [
               "#g1-walking-video"
@@ -50,17 +50,17 @@
     },
     {
       "name": "/ mobile",
-      "passes": 26,
+      "passes": 25,
       "violations": [],
       "incomplete": [
         {
           "id": "video-caption",
           "nodes": [
             [
-              "#hero-film-video"
+              "#hero-field-video"
             ],
             [
-              "#field-crouch-video"
+              "#hero-film-video"
             ],
             [
               "#g1-walking-video"
@@ -147,9 +147,11 @@
     "results: the intended short excerpts accompany the research section",
     "All expected video players are available",
     "Silent inline playback, original speed, native controls, and controllable loops",
-    "Opening film spans the full page width and most of the screen",
+    "Opening shows the roofer and the robot side by side at one height across the full width",
     "Opening film carries no text and the title sits below it",
-    "Homepage has a plain Humanoid Roofer bar and no footer",
+    "Homepage has no top bar and no footer",
+    "The method figure caption and the separate roofer clip stay removed",
+    "Walking, nailgun, and hammer clips share one row",
     "Accessibility and media credits stay linked from the homepage",
     "Seven evidence tiles each link to a source",
     "Evidence tiles name the four Ds in order",
@@ -161,7 +163,6 @@
     "Removed opening paragraph and limits section stay absent",
     "Native video playback controls are reachable through Tab",
     "Space on the native player pauses the video",
-    "Research excerpt plays silently when visible: field-crouch-video",
     "Research excerpt plays silently when visible: g1-walking-video",
     "Research excerpt plays silently when visible: g1-tool-video",
     "Research excerpt plays silently when visible: g1-bending-video",
@@ -170,6 +171,16 @@
     "Space on the native player explicitly resumes playback",
     "Video looping preserves playback and remains pausable",
     "Native keyboard pause still works after a loop",
+    "hero-field-video: the selected duration matches the reviewed media manifest",
+    "hero-field-video: selected excerpt duration and timed description load correctly",
+    "hero-field-video: a complete text alternative is programmatically associated",
+    "hero-field-video: description cues use valid times within the clip",
+    "hero-field-video: local video asset is declared",
+    "hero-field-video: video asset responds successfully",
+    "hero-field-video: local poster asset is declared",
+    "hero-field-video: poster asset responds successfully",
+    "hero-field-video: local description asset is declared",
+    "hero-field-video: description asset responds successfully",
     "hero-film-video: the selected duration matches the reviewed media manifest",
     "hero-film-video: selected excerpt duration and timed description load correctly",
     "hero-film-video: a complete text alternative is programmatically associated",
@@ -190,16 +201,6 @@
     "g1-walking-video: poster asset responds successfully",
     "g1-walking-video: local description asset is declared",
     "g1-walking-video: description asset responds successfully",
-    "field-crouch-video: the selected duration matches the reviewed media manifest",
-    "field-crouch-video: selected excerpt duration and timed description load correctly",
-    "field-crouch-video: a complete text alternative is programmatically associated",
-    "field-crouch-video: description cues use valid times within the clip",
-    "field-crouch-video: local video asset is declared",
-    "field-crouch-video: video asset responds successfully",
-    "field-crouch-video: local poster asset is declared",
-    "field-crouch-video: poster asset responds successfully",
-    "field-crouch-video: local description asset is declared",
-    "field-crouch-video: description asset responds successfully",
     "g1-tool-video: the selected duration matches the reviewed media manifest",
     "g1-tool-video: selected excerpt duration and timed description load correctly",
     "g1-tool-video: a complete text alternative is programmatically associated",

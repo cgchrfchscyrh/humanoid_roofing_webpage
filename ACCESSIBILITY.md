@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Opening pair and centered robot clips — 5 November 2026
+
+The opening is now two silent videos of equal length side by side, a roofer and the robot, and the title below uses the paper's formal title. The homepage has no top bar; the skip link remains the first stop. Robot clips sit in one row and are cropped to a window that follows the robot, so it stays near the middle while the operator stays out of frame; near the start of the hammer clip the robot is still left of center. The separate roofer clip and the method figure's caption were removed; the figure keeps its image alternative, and its full description moved to the accessibility page.
+
 ## Media notes moved off the homepage — 5 November 2026
 
 At the author's request, the collapsed video descriptions and sources were removed from the bottom of the homepage. The same descriptions and credits remain on the accessibility page, linked from the citation, and every video keeps its text alternative for screen readers and its timed description track. The statements that the operator stands just outside the frame and that clips end before later falls or resets are now only on that page and in the screen-reader descriptions.

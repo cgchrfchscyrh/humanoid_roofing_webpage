@@ -3,11 +3,13 @@ import stories from "../data/vision-stories.json";
 import site from "../data/site.json";
 import clips from "../../public/media/roofing-clips.json";
 import MotionClip from "./MotionClip.astro";
-const film = clips.clips.find((clip) => clip.section === "hero")!;
+const field = clips.clips.find((clip) => clip.id === "roofing-fieldwork-opening")!;
+const film = clips.clips.find((clip) => clip.id === "roofing-film")!;
 ---
 
 <section class="hero-film-section" aria-labelledby="paper-title">
-  <div class="hero-film" id="hero">
+  <div class="hero-film hero-pair" id="hero">
+    <MotionClip id="hero-field-video" clip={field} group="hero" />
     <MotionClip id="hero-film-video" clip={film} group="hero" />
   </div>
   <div class="hero-publication">

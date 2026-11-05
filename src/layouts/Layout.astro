@@ -67,14 +67,14 @@ const canonical =
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
-    <header class="site-header">
+    {!bare && <header class="site-header">
       <a
         class="wordmark"
         href={asset()}
         aria-label={`${site.wordmark} — project home`}
         ><span class="mark" aria-hidden="true">↗</span>{site.wordmark}</a
       >
-    </header>
+    </header>}
     <main id="main" tabindex="-1"><slot /></main>
     {!bare && <footer class="site-footer">
       <div class="footer-top">

@@ -9,6 +9,7 @@ const fieldClips = media.clips.filter((clip) =>
 const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
 const opening = media.clips.find((clip) => clip.id === "roofing-film")!;
 const overview = site.figures.find((figure) => figure.id === "overview")!;
+const framework = site.figures.find((figure) => figure.id === "framework")!;
 ---
 
 <section
@@ -66,6 +67,11 @@ const overview = site.figures.find((figure) => figure.id === "overview")!;
     <h3 id="overview-media-title">Paper figure {overview.number}</h3>
     <p>{overview.description}</p>
     <p class="fine-print">{overview.credit}</p>
+  </section>
+  <section aria-labelledby="framework-media-title">
+    <h3 id="framework-media-title">Paper figure {framework.number}</h3>
+    <p>{framework.description}</p>
+    <p class="fine-print">{framework.credit}</p>
   </section>
   <section aria-labelledby="highlights-media-title">
     <h3 id="highlights-media-title">G1 movement clips</h3>

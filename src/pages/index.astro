@@ -9,9 +9,6 @@ import MediaControls from "../components/MediaControls.astro";
 import clips from "../../public/media/roofing-clips.json";
 import evidence from "../data/evidence.json";
 const walking = clips.clips.find((clip) => clip.id === "g1-roofing-walking")!;
-const field = clips.clips.find(
-  (clip) => clip.id === "roofing-fieldwork-crouch",
-)!;
 const tool = clips.clips.find((clip) => clip.id === "g1-roofing-tool")!;
 const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
 ---
@@ -42,13 +39,13 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       </div>
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.</h2>
+      <h2 id="method-title">We teach humanoid robots to perform roofing tasks through human demonstrations</h2>
       <div class="method-map">
-        <div class="method-map-figure"><Figure id="framework" compact /></div>
+        <div class="method-map-figure"><Figure id="framework" compact bare /></div>
         <h3 class="sr-only">What the figure shows</h3>
         <p class="method-bubble method-bubble-capture">
           <span class="method-badge"><span class="sr-only">Figure panel </span>0</span>
-          <strong>Motion capture.</strong> PICO VR tracking records a person performing roofing motions on a platform set to 9°, 17°, or 25°.
+          <strong>Motion capture.</strong> PICO VR tracking records a person performing roofing motions.
         </p>
         <p class="method-bubble method-bubble-retarget">
           <span class="method-badge"><span class="sr-only">Figure panel </span>1</span>
@@ -76,21 +73,15 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
       <h2 id="abstract-title">From roofer motions to a physical humanoid</h2>
       <div class="wide-media">
         <Figure id="overview" compact bare />
-        <div class="field-story">
-          <div class="clip-with-bubble">
-            <h3>Roofer at work</h3>
-            <MotionClip id="field-crouch-video" clip={field} />
-          </div>
-          <div class="clip-with-bubble">
-            <h3>Uphill walking</h3>
-            <MotionClip id="g1-walking-video" clip={walking} />
-          </div>
-        </div>
       </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
       <h2 id="results-title">A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.</h2>
       <div class="motion-grid wide-media" id="experiments">
+        <div class="clip-with-bubble">
+          <h3>Uphill walking</h3>
+          <MotionClip id="g1-walking-video" clip={walking} />
+        </div>
         <div class="clip-with-bubble">
           <h3>Nailgun positioning</h3>
           <MotionClip id="g1-tool-video" clip={tool} />

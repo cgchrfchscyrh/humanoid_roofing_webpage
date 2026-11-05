@@ -2445,3 +2445,21 @@ html {
 @media (max-width: 340px) {
   .evidence-grid, #florida .evidence-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Opening pair: the roofer on the left, the robot on the right, one height. */
+.hero-film.hero-pair { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); align-items: stretch; min-height: 0; aspect-ratio: auto; }
+.hero-pair .motion-clip { margin: 0; min-width: 0; max-width: none; }
+.hero-pair .motion-clip video { position: static; width: 100%; height: 100%; object-fit: contain; border-radius: 0; }
+.hero-pair .motion-clip:first-child video { aspect-ratio: 16 / 9; }
+.hero-pair .motion-clip:last-child video { aspect-ratio: 8 / 9; }
+.visual-home .hero-publication h1, .hero-publication h1 { max-width: 40ch; }
+
+/* Robot clips in one row, each centered on the robot. */
+.motion-grid.wide-media { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1200px; margin-inline: auto; transform: none; width: 100%; margin-left: auto; }
+.motion-grid .motion-clip video { aspect-ratio: 3 / 4; object-fit: cover; }
+@media (max-width: 768px) {
+  .hero-film.hero-pair { grid-template-columns: minmax(0, 1fr); aspect-ratio: auto; }
+}
+@media (max-width: 620px) {
+  .motion-grid.wide-media { grid-template-columns: minmax(0, 1fr); max-width: 340px; }
+}
