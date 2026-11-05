@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Robot clips cropped — 5 November 2026
+
+At the author's request, laboratory clips and the robot shots in the opening film are cropped to the robot, so the operator no longer appears, and the method now comes before the robot footage. Text alternatives and timed descriptions were rewritten; they state that the operator stands just outside the frame. The safety tether stays in view. The operator's role in starting each run and controlling the emergency stop is no longer visible in the footage, and it is stated on the page only in the media notes and the paper.
+
 ## Evidence tiles and robot-first film — 5 November 2026
 
 The opening film now starts with the robot and carries no text; the title sits below it. Text-only evidence tiles with named source links cover Florida hurricane damage and the four Ds of roofing. The homepage has a plain top bar with no section links and no footer; the accessibility and credits link and the template credit moved to one line in the citation. Sub-pages keep their footer. The labels above the clips replaced the bubbles, and statements about what the clips do not show remain in the media notes. Headings and bubbles use terms from the paper. Frame-to-frame brightness was measured as a flash screen, not a certified flash analysis.

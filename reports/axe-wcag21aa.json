@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05T17:11:47.529Z",
+  "date": "2026-11-05T18:12:41.543Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -264,7 +264,7 @@
     "g1-bending-video: poster asset responds successfully",
     "g1-bending-video: local description asset is declared",
     "g1-bending-video: description asset responds successfully",
-    "Page order is the evidence, the motions, the method, the results, and the citation",
+    "Page order is the evidence, the method, the motions, the results, and the citation",
     "Keyboard citation copy",
     "Video captions and per-player description blocks are removed",
     "The vision diagram stays removed",

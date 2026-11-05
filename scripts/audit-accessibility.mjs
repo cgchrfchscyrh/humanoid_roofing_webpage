@@ -495,8 +495,8 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "From roofer motions to a physical humanoid", "We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
-        "Page order is the evidence, the motions, the method, the results, and the citation",
+        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.", "From roofer motions to a physical humanoid", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
+        "Page order is the evidence, the method, the motions, the results, and the citation",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })

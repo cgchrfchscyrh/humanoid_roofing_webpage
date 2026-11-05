@@ -42,26 +42,6 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
         </article>)}
       </div>
     </section>
-    <section
-      class="section abstract-section"
-      id="abstract"
-      aria-labelledby="abstract-title"
-    >
-      <h2 id="abstract-title">From roofer motions to a physical humanoid</h2>
-      <div class="wide-media">
-        <Figure id="overview" compact bare />
-        <div class="field-story">
-          <div class="clip-with-bubble">
-            <h3>Roofer at work</h3>
-            <MotionClip id="field-crouch-video" clip={field} />
-          </div>
-          <div class="clip-with-bubble">
-            <h3>Uphill walking</h3>
-            <MotionClip id="g1-walking-video" clip={walking} />
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section" id="method" aria-labelledby="method-title">
       <h2 id="method-title">We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.</h2>
       <div class="method-map">
@@ -87,6 +67,26 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
           <span class="method-badge"><span class="sr-only">Figure panel </span>4</span>
           <strong>Physical tests.</strong> Uphill walking, nailgun positioning, hammering, and bending on a foam wedge, with a safety hoist attached.
         </p>
+      </div>
+    </section>
+    <section
+      class="section abstract-section"
+      id="abstract"
+      aria-labelledby="abstract-title"
+    >
+      <h2 id="abstract-title">From roofer motions to a physical humanoid</h2>
+      <div class="wide-media">
+        <Figure id="overview" compact bare />
+        <div class="field-story">
+          <div class="clip-with-bubble">
+            <h3>Roofer at work</h3>
+            <MotionClip id="field-crouch-video" clip={field} />
+          </div>
+          <div class="clip-with-bubble">
+            <h3>Uphill walking</h3>
+            <MotionClip id="g1-walking-video" clip={walking} />
+          </div>
+        </div>
       </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
