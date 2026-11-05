@@ -7,7 +7,7 @@ const fieldClips = media.clips.filter((clip) =>
   clip.id.startsWith("roofing-fieldwork"),
 );
 const robotClips = media.clips.filter((clip) => clip.id.startsWith("g1-"));
-const opening = media.clips.find((clip) => clip.id === "roofing-opening")!;
+const opening = media.clips.find((clip) => clip.id === "roofing-film")!;
 const overview = site.figures.find((figure) => figure.id === "overview")!;
 ---
 
@@ -81,7 +81,7 @@ const overview = site.figures.find((figure) => figure.id === "overview")!;
             <p>
               <a href={asset(`#${clip.section}`)}>
                 Watch {clip.title.toLowerCase()} in{" "}
-                {clip.section === "abstract" ? "the first section" : "the robot trials"}
+                {clip.section === "abstract" ? "the roofer motions section" : "the results"}
               </a>
             </p>
           </section>

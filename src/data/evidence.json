@@ -1,0 +1,55 @@
+{
+  "florida": [
+    {
+      "label": "Hurricane Ian, 2022",
+      "value": "$109.5B",
+      "text": "in damage in Florida, the costliest hurricane to ever affect the state.",
+      "source": "https://www.nhc.noaa.gov/data/tcr/AL092022_Ian.pdf",
+      "sourceName": "National Hurricane Center"
+    },
+    {
+      "label": "Blue roofs after Ian",
+      "value": "20,250+",
+      "text": "damaged Florida roofs covered with temporary sheeting by Operation Blue Roof.",
+      "source": "https://www.dvidshub.net/video/863345/operation-blue-roof-installs-last-temporary-roofing",
+      "sourceName": "U.S. Army Corps of Engineers"
+    },
+    {
+      "label": "Blue roofs after Milton, 2024",
+      "value": "8,296",
+      "text": "blue roofs installed in Florida in response to Hurricane Milton.",
+      "source": "https://www.dvidshub.net/news/485793/usaces-operation-blue-roof-contractors-install-final-blue-roof-florida",
+      "sourceName": "U.S. Army Corps of Engineers"
+    }
+  ],
+  "fourD": [
+    {
+      "label": "Dull",
+      "value": "73%",
+      "text": "of roofers make repetitive motions continually or almost continually.",
+      "source": "https://www.onetonline.org/link/details/47-2181.00",
+      "sourceName": "O*NET, Roofers"
+    },
+    {
+      "label": "Dirty",
+      "value": "97%",
+      "text": "of roofers work outdoors, exposed to all weather conditions, every day.",
+      "source": "https://www.onetonline.org/link/details/47-2181.00",
+      "sourceName": "O*NET, Roofers"
+    },
+    {
+      "label": "Dangerous",
+      "value": "48.7",
+      "text": "fatal work injuries per 100,000 full-time roofers in 2024, against 3.3 for all workers.",
+      "source": "https://www.bls.gov/charts/census-of-fatal-occupational-injuries/rate-and-number-of-fatal-work-injuries-in-selected-occupations.htm",
+      "sourceName": "U.S. Bureau of Labor Statistics"
+    },
+    {
+      "label": "Demanding",
+      "value": "88%",
+      "text": "of construction firms with craft openings report those positions are as hard or harder to fill than a year ago.",
+      "source": "https://www.agc.org/sites/default/files/users/user21902/2026%20Workforce%20Survey%20Analysis%20(4).pdf",
+      "sourceName": "AGC and NCCER 2026 Workforce Survey"
+    }
+  ]
+}

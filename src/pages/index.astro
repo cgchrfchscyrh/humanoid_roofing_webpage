@@ -8,6 +8,7 @@ import MotionClip from "../components/MotionClip.astro";
 import MediaCredit from "../components/MediaCredit.astro";
 import MediaControls from "../components/MediaControls.astro";
 import clips from "../../public/media/roofing-clips.json";
+import evidence from "../data/evidence.json";
 const walking = clips.clips.find((clip) => clip.id === "g1-roofing-walking")!;
 const field = clips.clips.find(
   (clip) => clip.id === "roofing-fieldwork-crouch",
@@ -16,9 +17,31 @@ const tool = clips.clips.find((clip) => clip.id === "g1-roofing-tool")!;
 const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
 ---
 
-<Layout title={stories.roof.headline}>
+<Layout title={stories.roof.headline} bare>
   <Hero />
   <div class="container visual-home">
+    <section class="section evidence-section" id="florida" aria-labelledby="florida-title">
+      <h2 id="florida-title">Hurricanes leave Florida with thousands of damaged roofs.</h2>
+      <div class="evidence-grid">
+        {evidence.florida.map(tile => <article class="evidence-tile">
+          <h3>{tile.label}</h3>
+          <p class="evidence-value">{tile.value}</p>
+          <p class="evidence-text">{tile.text}</p>
+          <a href={tile.source} aria-label={`Source for ${tile.label}: ${tile.sourceName}`}>Source ↗</a>
+        </article>)}
+      </div>
+    </section>
+    <section class="section evidence-section" id="four-d" aria-labelledby="four-d-title">
+      <h2 id="four-d-title">Roofing is a 4D task: dull, dirty, dangerous, and demanding.</h2>
+      <div class="evidence-grid">
+        {evidence.fourD.map(tile => <article class="evidence-tile">
+          <h3>{tile.label}</h3>
+          <p class="evidence-value">{tile.value}</p>
+          <p class="evidence-text">{tile.text}</p>
+          <a href={tile.source} aria-label={`Source for ${tile.label}: ${tile.sourceName}`}>Source ↗</a>
+        </article>)}
+      </div>
+    </section>
     <section
       class="section abstract-section"
       id="abstract"
@@ -29,68 +52,53 @@ const bending = clips.clips.find((clip) => clip.id === "g1-roofing-bending")!;
         <Figure id="overview" compact bare />
         <div class="field-story">
           <div class="clip-with-bubble">
+            <h3>Roofer at work</h3>
             <MotionClip id="field-crouch-video" clip={field} />
-            <p class="clip-bubble">
-              <strong>Why these motions.</strong> Our team filmed this worker on a
-              house under construction.
-            </p>
           </div>
           <div class="clip-with-bubble">
+            <h3>Uphill walking</h3>
             <MotionClip id="g1-walking-video" clip={walking} />
-            <p class="clip-bubble">
-              <strong>Walking up.</strong> The G1 steps onto a padded incline.
-            </p>
           </div>
         </div>
       </div>
     </section>
     <section class="section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">How we trained it</h2>
+      <h2 id="method-title">We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.</h2>
       <div class="method-map">
         <div class="method-map-figure"><Figure id="framework" compact /></div>
         <h3 class="sr-only">What the figure shows</h3>
         <p class="method-bubble method-bubble-capture">
           <span class="method-badge"><span class="sr-only">Figure panel </span>0</span>
-          <strong>A person goes first.</strong> Motion trackers record the movement
-          on a platform set to 9°, 17°, or 25°.
+          <strong>Motion capture.</strong> PICO VR tracking records a person performing roofing motions on a platform set to 9°, 17°, or 25°.
         </p>
         <p class="method-bubble method-bubble-retarget">
           <span class="method-badge"><span class="sr-only">Figure panel </span>1</span>
-          <strong>The motion moves to the robot.</strong> We map it onto the G1’s
-          body.
+          <strong>Motion retargeting.</strong> The human motion is extracted and retargeted to the Unitree G1.
         </p>
         <p class="method-bubble method-bubble-refine">
           <span class="method-badge"><span class="sr-only">Figure panel </span>2</span>
-          <strong>We correct it against the roof.</strong> A 3D roof model sets where
-          the feet rest and how far the hand stays from the surface.
+          <strong>Reference refinement.</strong> A metric roof mesh sets foot support and task-specific hand clearance across the whole trajectory.
         </p>
         <p class="method-bubble method-bubble-simulate">
           <span class="method-badge"><span class="sr-only">Figure panel </span>3</span>
-          <strong>It practices in simulation.</strong> Reinforcement learning trains
-          the robot to follow the corrected motion.
+          <strong>Policy learning in simulation.</strong> Reinforcement learning tracks the refined reference. Extra rewards hold hand clearance and prevent hand-mesh penetration.
         </p>
         <p class="method-bubble method-bubble-robot">
           <span class="method-badge"><span class="sr-only">Figure panel </span>4</span>
-          <strong>We try it on a real G1.</strong> On a foam wedge, with a safety
-          hoist attached.
+          <strong>Physical tests.</strong> Uphill walking, nailgun positioning, hammering, and bending on a foam wedge, with a safety hoist attached.
         </p>
       </div>
     </section>
     <section class="section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title" class="sr-only">Robot trials</h2>
+      <h2 id="results-title">A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.</h2>
       <div class="motion-grid wide-media" id="experiments">
         <div class="clip-with-bubble">
+          <h3>Nailgun positioning</h3>
           <MotionClip id="g1-tool-video" clip={tool} />
-          <p class="clip-bubble">
-            <strong>A tool near the surface.</strong> The G1 bends and lowers a tool
-            toward the pad.
-          </p>
         </div>
         <div class="clip-with-bubble">
+          <h3>Hammer positioning</h3>
           <MotionClip id="g1-bending-video" clip={bending} />
-          <p class="clip-bubble">
-            <strong>Bending low.</strong> In a separate trial, the G1 bends deeply.
-          </p>
         </div>
       </div>
     </section>

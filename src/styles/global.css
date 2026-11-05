@@ -2234,38 +2234,6 @@ html {
   outline: 3px solid #fff;
   outline-offset: -3px;
 }
-.hero-film::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(to top, rgb(0 0 0 / 78%) 0, rgb(0 0 0 / 55%) 35%, rgb(0 0 0 / 0%) 70%);
-}
-.hero-film-copy {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-  padding: 96px clamp(1.25rem, 4vw, 4rem) 76px;
-}
-.hero-film-copy h1 {
-  max-width: none;
-  margin: 0 0 1.5rem;
-  color: #fff;
-  font-size: clamp(2.4rem, 8vw, 9rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-}
-.hero-film-copy .display-line {
-  display: block;
-}
-.hero-film-copy p {
-  max-width: 50ch;
-  margin: 0;
-  color: #fff;
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-  line-height: 1.45;
-}
 .hero-publication {
   padding: 2rem 1.25rem 0;
   text-align: center;
@@ -2429,12 +2397,6 @@ html {
   }
 }
 @media (max-width: 620px) {
-  .hero-film {
-    min-height: calc(100svh - 80px);
-  }
-  .hero-film-copy h1 {
-    font-size: 9.4vw;
-  }
   .method-map {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "figure" "capture" "retarget" "refine" "simulate" "robot";
@@ -2446,4 +2408,40 @@ html {
     max-width: 300px;
     margin-inline: auto;
   }
+}
+
+/* The film carries no text; the title and authors sit below it. */
+.hero-publication h1 { max-width: 34ch; margin: 0 auto 14px; font-size: clamp(24px, 2.3vw, 30px); font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
+.site-header .wordmark { font-size: 1rem; letter-spacing: 0; }
+
+/* Evidence tiles. */
+.evidence-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+#florida .evidence-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.evidence-tile { display: flex; flex-direction: column; min-width: 0; padding: 16px; border: 1px solid #d0d0d0; border-radius: 8px; background: #fff; }
+.evidence-tile h3 { margin: 0 0 6px; color: #454545; font-size: 15px; font-weight: 500; }
+.evidence-tile .evidence-value { margin: 0 0 6px; color: #171717; font-size: 28px; font-weight: 600; line-height: 1.1; letter-spacing: -.02em; }
+.evidence-tile .evidence-text { flex: 1; margin: 0 0 10px; color: #333; font-size: 15px; line-height: 1.45; }
+.evidence-tile a { width: fit-content; color: #333; font-size: 14px; text-decoration: underline; }
+.visual-home .evidence-section.section { padding-block: 32px 0; border: 0; }
+.visual-home .evidence-section + .section { margin-top: 32px; }
+
+/* Narrow type scale and centered statements. */
+.visual-home > section > h2 { font-size: clamp(21px, 1.9vw, 24px); font-weight: 600; line-height: 1.25; letter-spacing: -.02em; margin-bottom: 20px; }
+#method > h2, #results > h2 { max-width: 34em; margin-inline: auto; text-align: center; }
+.clip-with-bubble h3 { margin: 0 0 8px; font-size: 18px; font-weight: 500; }
+.clip-with-bubble { gap: 0; }
+.method-map .method-bubble { font-size: 15px; line-height: 1.5; }
+
+/* Credits line in the citation, now that the homepage has no footer. */
+.visual-home .citation > p.citation-links { margin-top: 14px; color: #454545; font-size: 14px; }
+.citation-links a { color: #202020; text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .evidence-grid, #florida .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .hero-film { min-height: 0; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 340px) {
+  .evidence-grid, #florida .evidence-grid { grid-template-columns: minmax(0, 1fr); }
 }

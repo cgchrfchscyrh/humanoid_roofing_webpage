@@ -8,24 +8,20 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   noindex?: boolean;
+  bare?: boolean;
 }
 const {
   title = site.title,
   description = site.description,
   canonicalPath = Astro.url.pathname,
   noindex = false,
+  bare = false,
 } = Astro.props;
 const isNotFound = /\/404(?:\/|\.html)?$/.test(Astro.url.pathname);
 const canonical =
   Astro.site && !isNotFound
     ? new URL(canonicalPath, Astro.site).href
     : undefined;
-const nav = [
-  { name: "Question", href: asset("#abstract") },
-  { name: "Approach", href: asset("#method") },
-  { name: "Evidence", href: asset("#results") },
-  { name: "Citation", href: asset("#citation") },
-];
 ---
 
 <!doctype html>
@@ -78,12 +74,9 @@ const nav = [
         aria-label={`${site.wordmark} — project home`}
         ><span class="mark" aria-hidden="true">↗</span>{site.wordmark}</a
       >
-      <nav aria-label="Main navigation">
-        {nav.map((item) => <a href={item.href}>{item.name}</a>)}
-      </nav>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
-    <footer class="site-footer">
+    {!bare && <footer class="site-footer">
       <div class="footer-top">
         <span class="wordmark">{site.wordmark}</span><a href="#main"
           >Back to top ↑</a
@@ -101,6 +94,6 @@ const nav = [
         > by Roman Hauksson. No analytics or third-party video embeds. External links
         open in the same tab.
       </p>
-    </footer>
+    </footer>}
   </body>
 </html>

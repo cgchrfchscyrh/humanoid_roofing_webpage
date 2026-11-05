@@ -272,14 +272,51 @@ try {
         "Opening film spans the full page width and most of the screen",
       );
       check(
-        await page.evaluate(
-          () =>
-            document.querySelector("#paper-title").getBoundingClientRect()
-              .bottom <=
-            document.querySelector("#hero-film-video").getBoundingClientRect()
-              .bottom,
-        ),
-        "Title sits on the opening film",
+        (await page.locator(".hero-film h1, .hero-film p:not(.sr-only)").count()) === 0 &&
+          (await page.evaluate(
+            () =>
+              document.querySelector("#paper-title").getBoundingClientRect().top >=
+              document.querySelector("#hero-film-video").getBoundingClientRect().bottom,
+          )),
+        "Opening film carries no text and the title sits below it",
+      );
+      check(
+        (await page.locator(".site-footer").count()) === 0 &&
+          (await page.locator(".site-header nav").count()) === 0 &&
+          (await page.locator(".site-header .wordmark").innerText()).includes("Humanoid Roofer"),
+        "Homepage has a plain Humanoid Roofer bar and no footer",
+      );
+      check(
+        (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1,
+        "Accessibility and media credits stay linked from the homepage",
+      );
+      check(
+        (await page.locator("#florida .evidence-tile").count()) === 3 &&
+          (await page.locator("#four-d .evidence-tile").count()) === 4 &&
+          (await page.locator(".evidence-tile a[href^='https://']").count()) === 7,
+        "Seven evidence tiles each link to a source",
+      );
+      check(
+        (await page.locator("#four-d .evidence-tile h3").allInnerTexts()).join() ===
+          "Dull,Dirty,Dangerous,Demanding",
+        "Evidence tiles name the four Ds in order",
+      );
+      check(
+        await page.evaluate(() => {
+          const [a, b] = ["#method-title", "#results-title"].map((q) =>
+            document.querySelector(q),
+          );
+          const mid = (el) => {
+            const r = el.getBoundingClientRect();
+            return r.left + r.width / 2;
+          };
+          return (
+            getComputedStyle(a).textAlign === "center" &&
+            getComputedStyle(b).textAlign === "center" &&
+            Math.abs(mid(a) - mid(b)) <= 1
+          );
+        }),
+        "Method and results headings share one centered position",
       );
       check(
         (await page.locator(".method-bubble").count()) === 5 &&
@@ -300,10 +337,6 @@ try {
             );
           })),
         "Method bubbles flank the figure on wide screens",
-      );
-      check(
-        (await page.locator(".clip-bubble").count()) === 4,
-        "Every research clip has a plain-language bubble",
       );
       check(
         await page
@@ -462,8 +495,8 @@ try {
               ".visual-home > section > h2, .visual-home > section > .section-heading > h2, .visual-home > section > .vision-heading > h2",
             )
             .allTextContents(),
-        ) === JSON.stringify(["From roofer motions to a physical humanoid", "How we trained it", "Robot trials", "Citation"]),
-        "Story moves from the problem to the method and the robot trials",
+        ) === JSON.stringify(["Hurricanes leave Florida with thousands of damaged roofs.", "Roofing is a 4D task: dull, dirty, dangerous, and demanding.", "From roofer motions to a physical humanoid", "We teach a humanoid roofing motions from human demonstrations and ground them in the geometry of the roof.", "A real humanoid reproduces roofing motions on a slope, including uphill walking and positioning a nailgun and a hammer.", "Citation"]),
+        "Page order is the evidence, the motions, the method, the results, and the citation",
       );
       await page
         .getByRole("button", { name: "Copy citation", exact: true })

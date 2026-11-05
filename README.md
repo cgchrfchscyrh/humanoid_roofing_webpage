@@ -1,4 +1,4 @@
-# Humanoid roofing — research webpage
+# Humanoid Roofer — research webpage
 
 Academic project page for **Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction**, by Songyang Liu and Shuai Li. Content follows the unchanged arXiv:2609.20558v1 preprint.
 

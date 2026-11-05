@@ -9,11 +9,9 @@ const film = clips.clips.find((clip) => clip.section === "hero")!;
 <section class="hero-film-section" aria-labelledby="paper-title">
   <div class="hero-film" id="hero">
     <MotionClip id="hero-film-video" clip={film} group="hero" />
-    <div class="hero-film-copy">
-      <h1 id="paper-title" class="project-display-title">{stories.roof.headlineLines.map(line => <span class="display-line">{line}{" "}</span>)}</h1>
-    </div>
   </div>
   <div class="hero-publication">
+    <h1 id="paper-title" class="project-display-title">{stories.roof.headline}</h1>
     <ul class="authors">
       {
         site.authors.map((author) => (

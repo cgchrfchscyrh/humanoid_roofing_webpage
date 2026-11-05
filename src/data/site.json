@@ -1,6 +1,6 @@
 {
   "id": "humanoid_roofing_webpage",
-  "wordmark": "HUMANOID / ROOFING",
+  "wordmark": "Humanoid Roofer",
   "shortTitle": "Balance is only half the task.",
   "title": "Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction",
   "description": "We recorded roofing movements on a person and taught a Unitree G1 humanoid to reproduce them on a laboratory slope: walking uphill, bending, and holding tools near the surface.",

@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Evidence tiles and robot-first film — 5 November 2026
+
+The opening film now starts with the robot and carries no text; the title sits below it. Text-only evidence tiles with named source links cover Florida hurricane damage and the four Ds of roofing. The homepage has a plain top bar with no section links and no footer; the accessibility and credits link and the template credit moved to one line in the citation. Sub-pages keep their footer. The labels above the clips replaced the bubbles, and statements about what the clips do not show remain in the media notes. Headings and bubbles use terms from the paper. Frame-to-frame brightness was measured as a flash screen, not a certified flash analysis.
+
 ## Simpler text and larger media — 4 November 2026
 
 The opening paragraph and the visible text of the robot-trials and limits sections were removed at the author's request, and the remaining explanations were shortened. The robot-trials section keeps a heading for screen readers. Bubbles still state that no nail is fired and that the bending clip ends before a later loss of balance; the media notes keep the fuller descriptions. Figures and clips now use more of the screen width.
