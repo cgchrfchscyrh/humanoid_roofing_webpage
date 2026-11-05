@@ -303,17 +303,13 @@ try {
       check(
         await page.evaluate(() => {
           const h = document.querySelector("#method-title");
-          const figure = document.querySelector("#figure-overview").getBoundingClientRect();
-          const results = document.querySelector("#results-title").getBoundingClientRect();
-          const row = document.querySelector("#pair-walking-video").getBoundingClientRect();
           return (
             h.getBoundingClientRect().height <= parseFloat(getComputedStyle(h).lineHeight) * 1.2 &&
-            figure.top > results.bottom &&
-            figure.bottom < row.top &&
+            !document.querySelector("#figure-overview") &&
             [...document.querySelectorAll(".method-bubble")].every((b) => getComputedStyle(b).textAlign === "center")
           );
         }),
-        "Method statement is one line, the paper figure sits between the results heading and the clips, and bubbles are centered",
+        "Method statement is one line, the abc figure stays removed, and bubbles are centered",
       );
       check(
         (await page.locator(".citation-links a[href$='/accessibility/']").count()) === 1,

@@ -8,7 +8,6 @@ const fieldClips = media.clips.filter((clip) =>
 );
 const robotClips = media.clips.filter((clip) => clip.section === "results");
 const opening = media.clips.find((clip) => clip.id === "roofing-film")!;
-const overview = site.figures.find((figure) => figure.id === "overview")!;
 const framework = site.figures.find((figure) => figure.id === "framework")!;
 ---
 
@@ -49,7 +48,7 @@ const framework = site.figures.find((figure) => figure.id === "framework")!;
     <p class="fine-print">
       Source: the research team’s original field recording, <code
         >IMG_7082 (1).MOV</code
-      >, <code>IMG_7081.MOV</code> and <code>IMG_7085.MOV</code>. Web excerpts use its silent browser viewing copy. Original recordings
+      >, <code>IMG_7081.MOV</code>, <code>IMG_7082.MOV</code> and <code>IMG_7085.MOV</code>. Web excerpts use its silent browser viewing copy. Original recordings
       remain unchanged.
     </p>
   </section>
@@ -62,11 +61,6 @@ const framework = site.figures.find((figure) => figure.id === "framework")!;
         >bending_real_test_20260905_185804_260763_nailgun.mp4</code
       >. Excerpts are joined with hard cuts at original speed.
     </p>
-  </section>
-  <section aria-labelledby="overview-media-title">
-    <h3 id="overview-media-title">Paper figure {overview.number}</h3>
-    <p>{overview.description}</p>
-    <p class="fine-print">{overview.credit}</p>
   </section>
   <section aria-labelledby="framework-media-title">
     <h3 id="framework-media-title">Paper figure {framework.number}</h3>

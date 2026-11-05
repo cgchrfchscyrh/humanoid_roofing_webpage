@@ -8,7 +8,7 @@
     "G1 excerpts end before the later loss-of-balance or reset sequences and illustrate selected supervised movements rather than complete successful trials.",
     "The opening is two silent videos of equal length side by side: three field excerpts on the left and two G1 excerpts on the right.",
     "Each results clip pairs a roofer (left) with the G1 (right). Both halves are 360 × 480 crops that follow the person or robot; the robot crops stay right of the operator.",
-    "IMG_7081.MOV and IMG_7085.MOV are HDR (HLG) iPhone recordings, tone-mapped to SDR with a Hable curve. Source recordings are unchanged."
+    "IMG_7081.MOV, IMG_7082.MOV and IMG_7085.MOV are HDR (HLG) iPhone recordings, tone-mapped to SDR with a Hable curve. Source recordings are unchanged."
   ],
   "reviewEvidence": [
     "/tmp/roofing-clip-refresh/field-contact.jpg",
@@ -181,27 +181,27 @@
       "section": "results",
       "title": "Bending",
       "caption": "Bending: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer sets down a sheet of sheathing and bends low to reach the roof surface. Right, a Unitree G1 humanoid bends deeply toward a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer stands at the roof edge and bends down to reach a sheet of sheathing passed up from below. Right, a Unitree G1 humanoid bends deeply toward a padded incline. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
-          "sourceFile": "IMG_7085.MOV",
-          "start": 4.5,
-          "end": 10.5
+          "sourceFile": "IMG_7081.MOV",
+          "start": 0.9,
+          "end": 4.2
         },
         {
           "side": "right",
           "sourceFile": "bending_real_test_20260905_190338_973040.mp4",
-          "start": 8.0,
-          "end": 14.0
+          "start": 9.8,
+          "end": 13.1
         }
       ],
-      "sourceFile": "IMG_7085.MOV (left), bending_real_test_20260905_190338_973040.mp4 (right)",
+      "sourceFile": "IMG_7081.MOV (left), bending_real_test_20260905_190338_973040.mp4 (right)",
       "file": "roofing-pair-bending.mp4",
       "poster": "roofing-pair-bending.jpg",
       "track": "roofing-pair-bending-descriptions.vtt",
       "video": "roofing-pair-bending.mp4",
-      "duration": 6.0,
+      "duration": 3.3,
       "width": 724,
       "height": 480,
       "frameRate": "30/1",
@@ -214,18 +214,18 @@
       "assets": [
         {
           "file": "roofing-pair-bending.mp4",
-          "bytes": 1326377,
-          "sha256": "92d90743bf07504362d4ac290804ea342bc17999bcdf662403e0f5c566fcd722"
+          "bytes": 754111,
+          "sha256": "245021e07a49fa583def935bee31911409759b71daf7f8feb540f38111ea3ef6"
         },
         {
           "file": "roofing-pair-bending.jpg",
-          "bytes": 45873,
-          "sha256": "2a62fed1065ca3931e4a38636512d28adfebee6496d7f00e3472c72c2910fb63"
+          "bytes": 45610,
+          "sha256": "c7119deaab00844e323c81aebbb9764abe08c7f673d0ca6411fc77894c72c432"
         },
         {
           "file": "roofing-pair-bending-descriptions.vtt",
-          "bytes": 186,
-          "sha256": "bd92d0aeed3b1c699f8394be5aa30741637434ca70b424e7bd26140aaf783ce9"
+          "bytes": 205,
+          "sha256": "feb3f00bd156edcc5c77c1a9461596724fedb0b9e1ff00a95c5dd5d15f1d8f37"
         }
       ]
     },
@@ -287,27 +287,27 @@
       "section": "results",
       "title": "Hammer positioning",
       "caption": "Hammer positioning: a roofer on the left and the G1 on the right.",
-      "description": "Left, a roofer braces a sheet of sheathing with one hand and holds a hammer in the other. Right, a Unitree G1 humanoid steps forward and bends deeply, bringing its hand and tool close to the padded surface. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
+      "description": "Left, a roofer takes a hammer from the tool belt, bends over the sheathing, and strikes near its edge. Right, a Unitree G1 humanoid steps forward and bends deeply, bringing its hand and tool close to the padded surface. The two halves come from separate recordings shown side by side, so their motions are not synchronized. The robot is in a laboratory with an overhead safety tether attached, and the frame is cropped so the operator holding the controller stands just outside it. The robot excerpt ends before later motion, falls, or resets and does not show fastening. Silent, at original speed.",
       "excerpts": [
         {
           "side": "left",
-          "sourceFile": "roofing-fieldwork.mp4",
-          "start": 0.5,
-          "end": 6.3
+          "sourceFile": "IMG_7082.MOV",
+          "start": 9.3,
+          "end": 13.6
         },
         {
           "side": "right",
-          "sourceFile": "g1-roofing-bending-centered.mp4",
-          "start": 0,
-          "end": 5.8
+          "sourceFile": "robot-hammer-centered.mp4",
+          "start": 1.4,
+          "end": 5.7
         }
       ],
-      "sourceFile": "roofing-fieldwork.mp4 (left), g1-roofing-bending-centered.mp4 (right)",
+      "sourceFile": "IMG_7082.MOV (left), robot-hammer-centered.mp4 (right)",
       "file": "roofing-pair-hammer.mp4",
       "poster": "roofing-pair-hammer.jpg",
       "track": "roofing-pair-hammer-descriptions.vtt",
       "video": "roofing-pair-hammer.mp4",
-      "duration": 5.8,
+      "duration": 4.3,
       "width": 724,
       "height": 480,
       "frameRate": "30/1",
@@ -320,18 +320,18 @@
       "assets": [
         {
           "file": "roofing-pair-hammer.mp4",
-          "bytes": 1190777,
-          "sha256": "bb79b4157a450441af1de5e8339b8a024710076b354711eea038ef9ab8f6b2bc"
+          "bytes": 956207,
+          "sha256": "a6881e7d8096085aecef2ae376f695804f8a322320f88c0b507b499012411d5c"
         },
         {
           "file": "roofing-pair-hammer.jpg",
-          "bytes": 44088,
-          "sha256": "f5c0dead7a5170196af216b9b578e64e17d230174e88675eef3ef03604cdb2fa"
+          "bytes": 44199,
+          "sha256": "62c0e63bccc4c26b9a89902320752e2bd65f23a5b5299ec36a376aeca25ca8d3"
         },
         {
           "file": "roofing-pair-hammer-descriptions.vtt",
-          "bytes": 239,
-          "sha256": "0b3359e23d4575df926eda8942282d8bb73a1e5b0f8969b1419e75e2981add16"
+          "bytes": 252,
+          "sha256": "71d0f581e63954bb748aca273290ccaae5caeaf8dcb569bf23595c4896e187cd"
         }
       ]
     }

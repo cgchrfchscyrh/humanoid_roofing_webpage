@@ -4,6 +4,10 @@
 
 At the author's request, the page title was changed, the formal title left the opening (it remains in the citation), and the caption under paper figure 1 was removed. That figure keeps its image alternative, and its full description and source moved to the media notes. The bubbles under the videos now only name the action. Statements that no nail is fired, that footage was not used for training, and that clips end before later falls or resets remain in the media notes, not beside the videos.
 
+## Abc figure removed and two pairs re-cut — 5 November 2026
+
+The paper's abc figure was removed from the results at the author's request, along with its description on the accessibility page. The bending and hammer pairs now use new roofer footage, tone-mapped from HDR, and their text alternatives and timed descriptions were rewritten.
+
 ## Roofer and robot pairs — 5 November 2026
 
 The results now show four silent clips, each pairing a roofer on the left with the G1 on the right: uphill walking, bending, nailgun positioning, and hammer positioning. Each clip has one text alternative and one timed description covering both halves, and states that the halves come from separate, unsynchronized recordings and that the operator stands just outside the robot frame. Two field recordings are HDR and were tone-mapped to SDR. A quoted literal on the accessibility page was fixed.

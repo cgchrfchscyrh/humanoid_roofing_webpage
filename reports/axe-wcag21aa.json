@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05T21:19:00.762Z",
+  "date": "2026-11-05T21:30:07.433Z",
   "project": "humanoid_roofing_webpage",
   "target": "WCAG 2.1 A/AA",
   "engine": "axe-core via Playwright",
@@ -158,7 +158,7 @@
     "Homepage has no top bar and no footer",
     "The method figure caption and the separate roofer clip stay removed",
     "Four roofer and robot pairs sit two per row",
-    "Method statement is one line, the paper figure sits between the results heading and the clips, and bubbles are centered",
+    "Method statement is one line, the abc figure stays removed, and bubbles are centered",
     "Accessibility and media credits stay linked from the homepage",
     "Seven evidence tiles each link to a source",
     "Evidence tiles name the four Ds in order",
